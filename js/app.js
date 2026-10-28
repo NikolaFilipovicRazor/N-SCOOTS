@@ -13,10 +13,11 @@
   const segName = (id) => (D.segments[id] || {}).name || "";
   const pimgs = (p) => MA.productImages(p);
   const imgSrc = (p, i = 0) => { const l = pimgs(p); return (l[i] || l[0] || { src: FALLBACK }).src; };
-  const img = (p, i, { eager = false, alt = "" } = {}) => {
-    const l = pimgs(p); const r = l[i] || l[0] || { src: FALLBACK, alt: "", label: "" };
-    return `<img src="${esc(r.src)}" alt="${esc(alt || r.alt)}" width="1100" height="760" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" onerror="this.onerror=null;this.src='${FALLBACK}'">` + (r.label === "Symbolbild" ? `<span class="media-badge">Symbolbild</span>` : "");
+  const img = (p, i, { eager = false, alt = "", marks = true } = {}) => {
+    const l = pimgs(p); const r = l[i] || l[0] || { src: FALLBACK, alt: "", label: "", credit: "" };
+    return `<img src="${esc(r.src)}" alt="${esc(alt || r.alt)}" width="1100" height="760" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" onerror="window.NSCOOTS_MEDIA_API.broken(this)">` + (marks && r.photo ? MA.marks(r) : "");
   };
+  const canHover = () => window.matchMedia("(hover: hover)").matches;
   const placeholderAlt = (p) => { const r = pimgs(p)[0]; return r && r.photo ? r.alt : `Platzhalter-Silhouette für ${p.model}, kein Produktfoto`; };
 
   /* ---------- Routing ---------- */
@@ -35,7 +36,9 @@
   function navigate(path, query) { location.hash = buildHash(path, query); }
 
   let lastPath = null;
+  let viewCleanup = []; // Abos/Listener der aktuellen Ansicht
   function render() {
+    viewCleanup.forEach((fn) => { try { fn(); } catch (e) {} }); viewCleanup = [];
     const route = parseHash();
     const view = route.parts[0] || "";
     let html, title;
@@ -91,7 +94,7 @@
     const isAcc = p.category === "zubehoer";
     return `
     <article class="card" data-id="${p.id}">
-      <div class="card-media${pimgs(p).length > 1 ? " has-alt" : ""}">${img(p, 0, { alt: placeholderAlt(p) })}${pimgs(p).length > 1 ? `<img class="alt" src="${esc(imgSrc(p, 1))}" alt="" loading="lazy" decoding="async" width="1100" height="760">` : ""}</div>
+      <div class="card-media${pimgs(p).length > 1 && canHover() ? " has-alt" : ""}">${img(p, 0, { alt: placeholderAlt(p) })}${pimgs(p).length > 1 && canHover() ? `<img class="alt" src="${esc(imgSrc(p, 1))}" alt="" loading="lazy" decoding="async" width="1100" height="760" onerror="this.closest('.card-media').classList.remove('has-alt');this.remove()">` : ""}${pimgs(p).length > 1 ? `<span class="media-count" aria-hidden="true">${pimgs(p).length} Bilder</span>` : ""}</div>
       <div class="card-body">
         <div class="card-brand">${esc(p.brand ? brandName(p.brand) : catName(p.category))}${p.segment ? " · " + esc(segName(p.segment)) : ""}</div>
         <h3 class="card-title"><a href="#/produkt/${p.id}">${esc(p.model)}</a></h3>
@@ -114,9 +117,10 @@
     const html = `
     ${(() => {
       const hv = MA.heroVideo(); const hi = MA.resolve(MEDIA.hero && MEDIA.hero.image, null, "E-Scooter-Fahrt durch eine Stadt am Abend");
+      const posterSrc = hv ? (hv.poster || (hi.photo ? hi.src : "")) : "";
       const media = hv
-        ? `<video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="${esc(hv.poster || hi.src)}" aria-label="Fahrt mit dem E-Scooter"><source src="${esc(hv.src)}" type="video/mp4"></video>`
-        : hi.photo ? MA.tag(hi, { eager: true, cls: "hero-img" })
+        ? `<video class="hero-video" autoplay muted loop playsinline preload="metadata" ${posterSrc ? `poster="${esc(posterSrc)}"` : ""} aria-label="Fahrt mit dem E-Scooter"><source src="${esc(hv.src)}" type="video/mp4"></video>`
+        : hi.photo ? MA.tag(hi, { eager: true, cls: "hero-img" }) + MA.marks(hi)
         : `<svg class="hero-illu" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Abstrakte Illustration eines E-Scooters auf dunklem Grund" preserveAspectRatio="xMidYMid slice">
               <defs><pattern id="hl" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(-20)"><path d="M0 0V40" stroke="#2f343d" stroke-width="1"/></pattern></defs>
               <rect width="1600" height="900" fill="#262a31"/><rect width="1600" height="900" fill="url(#hl)"/>
@@ -125,7 +129,7 @@
                 <circle cx="190" cy="500" r="56"/><circle cx="640" cy="500" r="56"/><path d="M246 500 H586"/><path d="M270 484 H370"/><path d="M604 484 L560 250 L545 190"/><path d="M505 190 H590"/>
               </g><circle cx="1404" cy="590" r="26" fill="none" stroke="#1f4fe0" stroke-width="9"/>
             </svg>`;
-      const note = hv ? (hv.credit ? `Video: ${esc(hv.credit)}` : "") : hi.photo ? (hi.credit ? `Foto: ${esc(hi.credit)}` : "") : "Illustration, kein Produktfoto. Hero-Foto oder -Video folgt.";
+      const note = hv ? [hv.credit ? `Video: ${esc(hv.credit)}` : "", hi.photo && hi.credit ? `Standbild: ${esc(hi.credit)}` : ""].filter(Boolean).join(" · ") : hi.photo ? (hi.credit ? `Foto: ${esc(hi.credit)}` : "") : "Illustration, kein Produktfoto. Hero-Foto oder -Video folgt.";
       return `
     <section class="hero hero-media" aria-labelledby="hero-title">
       <div class="hero-bg" data-parallax="0.25">${media}</div>
@@ -140,8 +144,8 @@
           </div>
         </div>
         <div class="hero-tools">
-          ${hv ? `<button class="btn btn-ghost btn-sm" type="button" data-action="video-toggle" aria-pressed="true">Video pausieren</button>` : ""}
-          <p class="hero-note">${note}</p>
+          ${hv ? `<button class="btn btn-ghost btn-sm" type="button" data-action="video-toggle">Video pausieren</button>` : ""}
+          ${note ? `<p class="hero-note">${note}</p>` : ""}
         </div>
       </div>
       <div class="hero-stripe" aria-hidden="true"></div>
@@ -181,12 +185,12 @@
         <div class="section-head"><div><h2 id="profiles-title">Was suchst du?</h2><p class="muted">Drei Fahrprofile. Jedes führt direkt zu den passenden Modellen.</p></div></div>
         <div class="profile-grid">
           ${[
-            ["alltag", "Alltag &amp; Pendeln", "Leicht, faltbar, für Bahnhof und Büro. Unter 25 kg, 600–800 Wh.", "kukirin-g2-pro"],
+            ["alltag", "Alltag &amp; Pendeln", "Leicht, faltbar, für Bahnhof und Büro. Typisch bis 25 kg und 600–950 Wh.", "kukirin-g2-pro"],
             ["touren", "Lange Strecken", "Grosse Akkus ab 1000 Wh für Touren und Hügel.", "kukirin-g2-master"],
             ["offroad", "Gelände", "Doppelmotor, grobe Reifen, viel Federweg. Für Privatgelände.", "kukirin-g4-max"]
-          ].map(([seg, title, text, pid]) => { const p = byId(pid); const n = D.products.filter((x) => x.segment === seg).length; const r = MA.resolve(MEDIA.profiles && MEDIA.profiles[seg], p ? imgSrc(p, 0) : null, p ? placeholderAlt(p) : ""); return `
+          ].map(([seg, title, text, pid]) => { const p = byId(pid); const n = D.products.filter((x) => x.segment === seg).length; const r = MA.resolve(MEDIA.profiles && MEDIA.profiles[seg], p ? pimgs(p)[0] : null, p ? placeholderAlt(p) : ""); return `
           <a class="profile" href="#/katalog?kat=escooter&segment=${seg}" data-reveal>
-            <div class="profile-media media" data-parallax="0.12">${MA.tag(r)}${r.label ? `<span class="media-badge">${esc(r.label)}</span>` : ""}</div>
+            <div class="profile-media media" data-parallax="0.12">${MA.tag(r)}${r.photo ? MA.marks(r) : `<span class="media-badge" aria-hidden="true">Platzhalter</span>`}</div>
             <div class="profile-body"><h3>${title}</h3><p>${text}</p><span class="profile-link">${n} Modelle ansehen</span></div>
           </a>`; }).join("")}
         </div>
@@ -197,12 +201,12 @@
       <div class="wrap">
         <h2 id="story-title" class="visually-hidden">Unterwegs mit N SCOOTS</h2>
         ${[
-          ["Morgens zum Zug, abends an den See.", "Ein Alltagsscooter wiegt unter 25 kg, faltet sich in Sekunden und hängt am Abend wieder am Ladegerät. Reichweite reicht für den Weg, nicht für den Rekord.", "kukirin-g2-pro", "#/katalog?kat=escooter&segment=alltag", "Alltagsmodelle"],
+          ["Morgens zum Zug, abends an den See.", "Ein Alltagsscooter wiegt typisch bis 25 kg, faltet sich in Sekunden und hängt am Abend wieder am Ladegerät. Reichweite reicht für den Weg, nicht für den Rekord.", "kukirin-g2-pro", "#/katalog?kat=escooter&segment=alltag", "Alltagsmodelle"],
           ["Mehr Akku, mehr Ruhe.", "Ab rund 1000 Wh wird aus dem Pendler ein Tourenfahrzeug. Doppelmotor-Modelle nehmen Steigungen ohne Drama, kosten aber Gewicht.", "kukirin-g2-master", "#/katalog?kat=escooter&segment=touren", "Tourenmodelle"],
           ["Schotter, Wiese, Waldweg.", "Grobe Reifen und Federweg für Privatgelände. Ob und wie ein Modell auf die Strasse darf, prüfen wir je Ausführung, bevor wir es verkaufen.", "kukirin-g4-max", "#/katalog?kat=escooter&segment=offroad", "Offroad-Modelle"]
-        ].map(([h, t, pid, href, cta], i) => { const p = byId(pid); const r = MA.resolve(MEDIA.story && MEDIA.story[i], p ? imgSrc(p, 0) : null, p ? placeholderAlt(p) : ""); return `
+        ].map(([h, t, pid, href, cta], i) => { const p = byId(pid); const r = MA.resolve(MEDIA.story && MEDIA.story[i], p ? pimgs(p)[0] : null, p ? placeholderAlt(p) : ""); return `
         <article class="story-row${i % 2 ? " flip" : ""}" data-reveal>
-          <div class="story-media media" data-parallax="0.2">${MA.tag(r)}${r.label ? `<span class="media-badge">${esc(r.label)}</span>` : ""}${r.credit ? `<span class="media-credit">Foto: ${esc(r.credit)}</span>` : ""}</div>
+          <div class="story-media media" data-parallax="0.2">${MA.tag(r)}${r.photo ? MA.marks(r) : `<span class="media-badge" aria-hidden="true">Platzhalter</span>`}</div>
           <div class="story-text"><h3>${h}</h3><p>${t}</p><a class="btn btn-ghost btn-sm" href="${href}">${cta}</a></div>
         </article>`; }).join("")}
       </div>
@@ -223,7 +227,7 @@
       <div class="wrap">
         <div class="section-head"><div><h2 id="brands-title">Marken</h2><p class="muted">Geplantes Markenportfolio. Händlervereinbarungen sind noch offen.</p></div></div>
         <div class="brand-strip">
-          ${brands.map((b) => { const prices = D.products.filter((p) => p.brand === b.id && p.price.chf != null).map((p) => p.price.chf); const n = D.products.filter((p) => p.brand === b.id).length; const from = prices.length ? `Referenz ab ${F.chf(Math.min(...prices))}*` : "Preise offen"; const bm = MEDIA.brands && MEDIA.brands[b.id]; const bimg = MA.usable(bm) ? `<span class="brand-photo"><img src="${esc(bm.src)}" alt="" loading="lazy" decoding="async"></span>` : ""; return `<a class="brand-chip${b.featured ? " featured" : ""}${bimg ? " has-photo" : ""}" href="#/katalog?marke=${b.id}">${bimg}<span class="brand-top"><strong>${esc(b.name)}</strong><span class="tag">${n} ${n === 1 ? "Modell" : "Modelle"}</span></span><span>${esc(b.blurb)}</span><span class="brand-price">${from}</span></a>`; }).join("")}
+          ${brands.map((b) => { const prices = D.products.filter((p) => p.brand === b.id && p.price.chf != null).map((p) => p.price.chf); const n = D.products.filter((p) => p.brand === b.id).length; const from = prices.length ? `Referenz ab ${F.chf(Math.min(...prices))}*` : "Preise offen"; const bm = MEDIA.brands && MEDIA.brands[b.id]; const br = MA.usable(bm) ? MA.resolve(bm, null, "") : null; const bimg = br ? `<span class="brand-photo"><img src="${esc(br.src)}" alt="" loading="lazy" decoding="async" onerror="const c=this.closest('.brand-chip');c.classList.remove('has-photo');this.closest('.brand-photo').remove()">${MA.marks(br)}</span>` : ""; return `<a class="brand-chip${b.featured ? " featured" : ""}${bimg ? " has-photo" : ""}" href="#/katalog?marke=${b.id}">${bimg}<span class="brand-top"><strong>${esc(b.name)}</strong><span class="tag">${n} ${n === 1 ? "Modell" : "Modelle"}</span></span><span>${esc(b.blurb)}</span><span class="brand-price">${from}</span></a>`; }).join("")}
         </div>
       </div>
     </section>
@@ -383,6 +387,7 @@
       if (el.name === "marke") { st.marke = [...form.querySelectorAll('input[name="marke"]:checked')].map((i) => i.value); sync(); }
     });
     $("#f-sort").addEventListener("change", (e) => { st.sort = e.target.value; sync(); });
+    const ac = new AbortController(); viewCleanup.push(() => ac.abort());
     app.addEventListener("click", (e) => {
       const btn = e.target.closest("[data-action]"); if (!btn) return;
       if (btn.dataset.action === "reset-filters") { st = filterState({}); form.reset(); form.querySelector('input[name="kat"][value=""]').checked = true; form.querySelector('input[name="segment"][value=""]').checked = true; $("#f-sort").value = "empfehlung"; sync(); $("#f-q").focus(); }
@@ -394,9 +399,9 @@
         else { st[k] = ""; form.querySelector(`input[name="${k}"][value=""]`).checked = true; }
         sync(); $("#result-count").focus?.();
       }
-    });
+    }, { signal: ac.signal });
     // Rerender compare/cart button states
-    S.subscribe(() => { if (parseHash().parts[0] === "katalog") renderResults(st); });
+    viewCleanup.push(S.subscribe(() => { if (parseHash().parts[0] === "katalog") renderResults(st); }));
   }
 
   /* ---------- Produktdetail ---------- */
@@ -412,8 +417,8 @@
       <nav class="breadcrumb" aria-label="Pfad"><a href="#/">Start</a><span>/</span><a href="#/katalog?kat=${p.category}">${esc(catName(p.category))}</a>${p.brand ? `<span>/</span><a href="#/katalog?marke=${p.brand}">${esc(brandName(p.brand))}</a>` : ""}</nav>
       <div class="pdp">
         <div>
-          <button class="gallery-main" id="gallery-main" type="button" data-action="lightbox" data-i="0" aria-label="Bild vergrössern">${img(p, 0, { eager: true, alt: placeholderAlt(p) })}</button>
-          ${pimgs(p).length > 1 ? `<div class="gallery-thumbs" role="group" aria-label="Bildauswahl">${pimgs(p).map((_, i) => `<button type="button" data-action="thumb" data-i="${i}" aria-pressed="${i === 0}" aria-label="Ansicht ${i + 1}">${img(p, i, { alt: "" })}</button>`).join("")}</div>` : ""}
+          ${pimgs(p).length ? `<button class="gallery-main" id="gallery-main" type="button" data-action="lightbox" data-i="0" aria-label="Bild vergrössern: ${esc(placeholderAlt(p))}">${img(p, 0, { eager: true, alt: placeholderAlt(p) })}</button>` : `<div class="gallery-main"><img src="${FALLBACK}" alt="Kein Bild vorhanden" width="1100" height="760"></div>`}
+          ${pimgs(p).length > 1 ? `<div class="gallery-thumbs" role="group" aria-label="Bildauswahl">${pimgs(p).map((r, i) => `<button type="button" data-action="thumb" data-i="${i}" aria-pressed="${i === 0}" aria-label="Ansicht ${i + 1}: ${esc(r.alt)}">${img(p, i, { alt: "", marks: false })}</button>`).join("")}</div>` : ""}
           <p class="small muted" style="margin-top:8px">${pimgs(p)[0] && pimgs(p)[0].photo ? "Tippen zum Vergrössern." : "Platzhalter-Silhouetten. Freigegebene Produktbilder folgen, sobald die Bildrechte geklärt sind."}</p>
         </div>
         <div class="pdp-info">
@@ -473,23 +478,29 @@
   }
   function bindProduct(id) {
     const p = byId(id); if (!p) return;
+    const ac = new AbortController(); viewCleanup.push(() => ac.abort());
     app.addEventListener("click", (e) => {
       const b = e.target.closest('[data-action="thumb"]'); if (!b) return;
       const i = Number(b.dataset.i);
-      $("#gallery-main").innerHTML = img(p, i, { eager: true, alt: placeholderAlt(p) + `, Ansicht ${i + 1}` });
-      $("#gallery-main").dataset.i = i;
+      const r = pimgs(p)[i]; const alt = (r ? r.alt : placeholderAlt(p)) + `, Ansicht ${i + 1}`;
+      $("#gallery-main").innerHTML = img(p, i, { eager: true, alt });
+      $("#gallery-main").dataset.i = i; $("#gallery-main").setAttribute("aria-label", `Bild vergrössern: ${alt}`);
       document.querySelectorAll('[data-action="thumb"]').forEach((t) => t.setAttribute("aria-pressed", String(t === b)));
-    });
+    }, { signal: ac.signal });
   }
   /* Lightbox */
   let lb = { list: [], i: 0 };
   function lightboxShow() {
     const r = lb.list[lb.i]; if (!r) return;
-    $("#lightbox-img").src = r.src; $("#lightbox-img").alt = r.alt || "";
+    const im = $("#lightbox-img"); im.onerror = () => MA.broken(im); im.src = r.src; im.alt = r.alt || "";
+    $("#lightbox-stage").classList.remove("is-missing");
     $("#lightbox-count").textContent = `${lb.i + 1} / ${lb.list.length}`;
+    $("#lightbox-title-name").textContent = lb.name;
     $("#lightbox-badge").textContent = r.label || ""; $("#lightbox-badge").hidden = !r.label;
+    $("#lightbox-credit").textContent = r.credit ? `Foto: ${r.credit}` : ""; $("#lightbox-credit").hidden = !r.credit;
+    $("#lightbox-live").textContent = `Bild ${lb.i + 1} von ${lb.list.length}: ${r.alt || ""}`;
   }
-  function lightboxOpen(p, i, trigger) { lb = { list: pimgs(p), i: Math.max(0, Math.min(i, pimgs(p).length - 1)) }; lightboxShow(); openDialog($("#lightbox"), trigger); }
+  function lightboxOpen(p, i, trigger) { const list = pimgs(p); if (!list.length) return; lb = { list, name: p.model, i: Math.max(0, Math.min(i, list.length - 1)) }; lightboxShow(); openDialog($("#lightbox"), trigger); }
   document.addEventListener("keydown", (e) => {
     const d = $("#lightbox"); if (!d || !d.open) return;
     if (e.key === "ArrowRight") { lb.i = (lb.i + 1) % lb.list.length; lightboxShow(); }
@@ -613,12 +624,12 @@
           <p>${esc(d.text)}</p>
           <a class="btn" href="#/katalog?kat=escooter">Inzwischen: E-Scooter ansehen</a>
         </div>
-        ${(() => { const r = MA.resolve(MEDIA.dirtbikes, IMG + "dirtbike-platzhalter.svg", "Platzhalter-Silhouette eines Dirtbikes, kein Produktfoto"); return `<div class="media prep-media" data-parallax="0.15">${MA.tag(r)}${r.label ? `<span class="media-badge">${esc(r.label)}</span>` : ""}</div>`; })()}
+        ${(() => { const r = MA.resolve(MEDIA.dirtbikes, IMG + "dirtbike-platzhalter.svg", "Platzhalter-Silhouette eines Dirtbikes, kein Produktfoto"); return `<div class="media prep-media" data-parallax="0.15">${MA.tag(r)}${r.photo ? MA.marks(r) : `<span class="media-badge" aria-hidden="true">Platzhalter</span>`}</div>`; })()}
       </div>
       <section class="section" aria-labelledby="planned-title">
         <h2 id="planned-title">Was geplant ist</h2>
         <div class="help-grid">${d.planned.map((x) => `<div class="help-step"><h3>${esc(x.title)}</h3><p>${esc(x.text)}</p></div>`).join("")}</div>
-        <p class="small muted" style="margin-top:16px">Keine Marken, Preise oder Liefertermine, bis Händlervereinbarungen und Bildrechte vorliegen. E-Dirtbikes sind in der Schweiz auf öffentlichen Strassen in der Regel nicht zugelassen; der Einsatz ist für Privatgelände vorgesehen.</p>
+        <p class="small muted" style="margin-top:16px">Keine Marken, Preise oder Liefertermine, bis Händlervereinbarungen und Bildrechte vorliegen. Ob ein E-Dirtbike in der Schweiz auf öffentlichen Strassen gefahren werden darf, muss je Modell geprüft werden; der Einsatz ist zunächst für Privatgelände vorgesehen.</p>
       </section>
     </div>`;
     return { html, title: "E-Dirtbikes" };
@@ -639,7 +650,7 @@
       <h2>Bilder</h2>
       <p>Alle Produktbilder sind gekennzeichnete Platzhalter. Freigegebene Herstellerbilder werden erst eingesetzt, wenn die Nutzungsrechte vorliegen.</p>
       <h2>Lieferant</h2>
-      <p>Gespräche mit einem möglichen B2B-Lieferanten laufen. Händlervereinbarung, Einkaufspreise, Direktversand und Bildrechte sind nicht bestätigt. N SCOOTS ist kein autorisierter Händler der genannten Marken und betreibt kein eigenes Lager.</p>
+      <p>Die Lieferkette ist noch nicht festgelegt. Händlervereinbarung, Einkaufspreise, Direktversand und Bildrechte sind nicht bestätigt. N SCOOTS ist kein autorisierter Händler der genannten Marken und betreibt kein eigenes Lager.</p>
     </div>`;
     return { html, title: "Gut zu wissen" };
   }
@@ -682,9 +693,27 @@
     if (view === "katalog") bindCatalog(route.query);
     if (view === "produkt") bindProduct(route.parts[1]);
     if (view === "kontakt") { const f = $("#contact-form"); f.addEventListener("submit", (e) => { e.preventDefault(); if (!f.checkValidity()) { f.reportValidity(); return; } $("#contact-note").textContent = "Noch nicht aktiv: Die Nachricht wurde nicht gesendet. Bitte E-Mail oder Telefon nutzen."; toast("Formular ist im Prototyp noch nicht aktiv."); }); }
-    const v = $(".hero-video"); if (v && window.matchMedia("(prefers-reduced-motion: reduce)").matches) { v.removeAttribute("autoplay"); v.pause(); const b = $('[data-action="video-toggle"]'); if (b) { b.textContent = "Video abspielen"; b.setAttribute("aria-pressed", "false"); } }
+    setupHeroVideo();
     window.NSCOOTS_MOTION && window.NSCOOTS_MOTION.refresh();
   }
+
+  function setupHeroVideo() {
+    const v = $(".hero-video"); if (!v) return;
+    const btn = $('[data-action="video-toggle"]');
+    const sync = () => { if (btn) btn.textContent = v.paused ? "Video abspielen" : "Video pausieren"; };
+    v.addEventListener("play", sync); v.addEventListener("pause", sync);
+    const fail = () => { // Video kaputt: Standbild oder Illustration zeigen
+      const hi = MA.resolve(MEDIA.hero && MEDIA.hero.image, null, "E-Scooter-Fahrt durch eine Stadt am Abend");
+      const bg = v.parentElement; if (!bg) return;
+      bg.innerHTML = hi.photo ? MA.tag(hi, { eager: true, cls: "hero-img" }) + MA.marks(hi) : `<div class="hero-illu hero-illu-plain"></div>`;
+      if (btn) btn.remove(); const note = $(".hero-note"); if (note) note.textContent = "Video nicht verfügbar.";
+      window.NSCOOTS_MOTION && window.NSCOOTS_MOTION.refresh();
+    };
+    v.addEventListener("error", fail, true); const src = v.querySelector("source"); if (src) src.addEventListener("error", fail);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { v.removeAttribute("autoplay"); v.pause(); }
+    sync();
+  }
+  document.addEventListener("nscoots:reduce-change", (e) => { const v = $(".hero-video"); if (v && e.detail.matches) v.pause(); });
 
   /* ---------- Globale Aktionen ---------- */
   let lastTrigger = null;
@@ -756,7 +785,7 @@
       case "lightbox": { const p = byId(parseHash().parts[1]); if (p) lightboxOpen(p, Number(btn.dataset.i || 0), btn); break; }
       case "lb-next": lb.i = (lb.i + 1) % lb.list.length; lightboxShow(); break;
       case "lb-prev": lb.i = (lb.i - 1 + lb.list.length) % lb.list.length; lightboxShow(); break;
-      case "video-toggle": { const v = $(".hero-video"); if (!v) break; if (v.paused) { v.play(); btn.textContent = "Video pausieren"; btn.setAttribute("aria-pressed", "true"); } else { v.pause(); btn.textContent = "Video abspielen"; btn.setAttribute("aria-pressed", "false"); } break; }
+      case "video-toggle": { const v = $(".hero-video"); if (!v) break; if (v.paused) v.play().catch(() => {}); else v.pause(); break; }
       case "open-cart": renderCartDrawer(); openDialog($("#cart-drawer"), btn); break;
       case "close-dialog": closeDialog(btn.closest("dialog")); break;
       case "menu": { const nav = $("#mobile-nav"); const open = nav.dataset.open !== "true"; nav.dataset.open = String(open); btn.setAttribute("aria-expanded", String(open)); break; }

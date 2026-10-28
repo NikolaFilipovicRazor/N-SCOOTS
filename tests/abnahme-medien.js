@@ -45,6 +45,16 @@ const override = `window.__FX = ${JSON.stringify(FX)};
     const after = await page.locator(".story-media img").first().evaluate((i) => i.style.transform);
     ok(`${label}: Parallax bewegt Bild beim Scrollen`, before !== after && /translate3d/.test(after), after);
     ok(`${label}: Sektionen eingeblendet`, (await page.locator("[data-reveal].is-in").count()) >= 2);
+    // Keine Lücke: Medium deckt den Rahmen an mehreren Scrollpositionen
+    let gaps = [];
+    const docH = await page.evaluate(() => document.documentElement.scrollHeight - innerHeight);
+    for (let y = 0; y <= docH; y += Math.max(120, Math.floor(docH / 14))) {
+      await page.evaluate((yy) => window.scrollTo(0, yy), y); await page.waitForTimeout(60);
+      const g = await page.evaluate(() => [...document.querySelectorAll("[data-parallax]")].map((el) => { const m = el.querySelector("img, video, svg"); if (!m) return null; const a = el.getBoundingClientRect(), b = m.getBoundingClientRect(); if (a.bottom < 0 || a.top > innerHeight) return null; return { top: Math.round(b.top - a.top), bottom: Math.round(a.bottom - b.bottom) }; }).filter(Boolean).filter((r) => r.top > 1 || r.bottom > 1));
+      if (g.length) gaps.push({ y, g });
+    }
+    ok(`${label}: Parallax ohne Lücke (${Math.ceil(docH / Math.max(120, Math.floor(docH / 14)))} Positionen)`, gaps.length === 0, JSON.stringify(gaps).slice(0, 200));
+    await page.evaluate(() => window.scrollTo(0, 0));
     await noOverflow("start"); await page.screenshot({ path: `${shots}/${label}-medien-01-start.png`, fullPage: true });
 
     // Produkt mit Fotos + Lightbox

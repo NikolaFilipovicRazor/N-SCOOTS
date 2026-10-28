@@ -65,7 +65,7 @@
       <div>
         <h3>N SCOOTS</h3>
         <p>E-Scooter &amp; E-Dirtbikes. Dein nächster Ride.</p>
-        <p class="small">Prototyp. Alle Produktbilder sind gekennzeichnete Platzhalter. Referenzpreise stammen aus fremden Angeboten. Kein autorisierter Händler der genannten Marken.</p>
+        <p class="small" id="footer-media-note">Prototyp. Platzhalter, Symbolbilder und Bildnachweise stehen direkt am Bild. Referenzpreise stammen aus fremden Angeboten. Kein autorisierter Händler der genannten Marken.</p>
       </div>
       <div>
         <h3>Shop</h3>
@@ -127,13 +127,17 @@
 
   <dialog id="lightbox" class="lightbox" aria-labelledby="lightbox-title">
     <div class="drawer-head">
-      <h2 id="lightbox-title"><span id="lightbox-count">1 / 1</span></h2>
+      <h2 id="lightbox-title"><span id="lightbox-title-name"></span> · <span id="lightbox-count">1 / 1</span></h2>
       <button class="icon-btn" type="button" data-action="close-dialog" aria-label="Schliessen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
-    <div class="lightbox-stage">
+    <div class="lightbox-stage" id="lightbox-stage">
       <img id="lightbox-img" src="" alt="">
-      <span class="media-badge" id="lightbox-badge" hidden></span>
+      <span class="media-badge" id="lightbox-badge" aria-hidden="true" hidden></span>
+      <span class="media-credit" id="lightbox-credit" aria-hidden="true" hidden></span>
+    </div>
+    <div class="lightbox-bar">
       <button class="lightbox-nav prev" type="button" data-action="lb-prev" aria-label="Vorheriges Bild">‹</button>
+      <span class="visually-hidden" id="lightbox-live" aria-live="polite"></span>
       <button class="lightbox-nav next" type="button" data-action="lb-next" aria-label="Nächstes Bild">›</button>
     </div>
   </dialog>

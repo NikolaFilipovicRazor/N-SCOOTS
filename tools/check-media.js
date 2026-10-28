@@ -9,8 +9,15 @@ walk(window.NSCOOTS_MEDIA);
 let ok = 0;
 for (const r of rows) {
   const exists = fs.existsSync(path.join(root, r.src));
-  const usable = exists && (r.status === "frei" || r.status === "freigegeben");
+  const st = String(r.status || "").trim().toLowerCase();
+  const known = ["fehlt", "frei", "freigegeben"].includes(st);
+  const freed = exists && (st === "frei" || st === "freigegeben");
+  const docs = !!(r.credit && r.license);
+  const usable = freed && docs;
   if (usable) ok++;
-  console.log(`${usable ? "OK   " : exists ? "RECHTE?" : "FEHLT"}  ${r.key.padEnd(18)} ${r.src}${exists && !usable ? "  (Datei da, status=" + r.status + ")" : ""}`);
+  const poster = r.poster ? (fs.existsSync(path.join(root, r.poster)) ? "" : "  (Poster fehlt: " + r.poster + ")") : "";
+  const state = usable ? "OK   " : !exists ? "FEHLT" : "RECHTE?";
+  const why = !exists ? "" : !known ? "  (unbekannter status=" + r.status + ")" : !freed ? "  (Datei da, status=" + r.status + ")" : !docs ? "  (credit/license fehlen)" : "";
+  console.log(`${state}  ${r.key.padEnd(18)} ${r.src}${why}${poster}`);
 }
 console.log(`\n${ok}/${rows.length} Medien veröffentlichungsfertig.`);

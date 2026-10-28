@@ -15,15 +15,17 @@ bedeuten keine Nutzungsrechte und sind daher nicht eingebunden.
 
 ## Foto- und Video-Slots (data/media.js)
 
-| Slot | Datei | Status | Hinweis |
-| --- | --- | --- | --- |
-| Hero-Foto | `assets/photos/hero-stadt-abend.jpg` | fehlt | Stimmungsfoto Stadt/Abend, Querformat 16:9 oder breiter |
-| Hero-Video | `assets/video/hero-ride.mp4` | fehlt | stumm, 10–20 s, H.264, unter 8 MB, Poster = Hero-Foto |
-| Fahrprofile (3) | `assets/photos/profil-alltag.jpg`, `profil-touren.jpg`, `profil-gelaende.jpg` | fehlt | Querformat 16:10 |
-| Story (3) | `assets/photos/story-1.jpg` … `story-3.jpg` | fehlt | Querformat 3:2 |
-| Marken (6) | `assets/photos/marke-<marke>.jpg` | fehlt | Symbolbilder, dunkel überlagert |
-| Dirtbikes | `assets/photos/dirtbike.jpg` | fehlt | Symbolbild |
-| Produktfotos | `assets/photos/produkt-<id>-<n>.jpg` | fehlt | nur mit Hersteller-/Händlerfreigabe |
+| Slot | Datei | Status | Quelle/URL | Lizenz | Credit | Freigabedatum | Hinweis |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Hero-Foto | `assets/photos/hero-stadt-abend.jpg` | fehlt | – | – | – | – | Stimmungsfoto Stadt/Abend, Querformat 16:9 oder breiter |
+| Hero-Video | `assets/video/hero-ride.mp4` | fehlt | – | – | – | – | stumm, 10–20 s, H.264, unter 8 MB, Poster = Hero-Foto |
+| Fahrprofile (3) | `assets/photos/profil-alltag.jpg`, `profil-touren.jpg`, `profil-gelaende.jpg` | fehlt | – | – | – | – | Querformat 16:10 |
+| Story (3) | `assets/photos/story-1.jpg` … `story-3.jpg` | fehlt | – | – | – | – | Querformat 3:2 |
+| Marken (6) | `assets/photos/marke-<marke>.jpg` | fehlt | – | – | – | – | Symbolbilder (keine Herstellerbilder), dunkel überlagert |
+| Dirtbikes | `assets/photos/dirtbike.jpg` | fehlt | – | – | – | – | Symbolbild |
+| Produktfotos | `assets/photos/produkt-<id>-<n>.jpg` | fehlt | – | – | – | – | nur mit Hersteller-/Händlerfreigabe |
+
+Beim Eintragen eines Fotos diese Zeile ausfüllen und im Manifest `credit` und `license` setzen; `node tools/check-media.js` meldet freigegebene Slots ohne Credit/Lizenz als «RECHTE?». Alt-Texte im Manifest sind Vorschläge und werden beim Einpflegen an das Motiv angepasst.
 
 Solange ein Slot fehlt, zeigt die Seite den SVG-Platzhalter. Alle Fotos ohne konkretes Verkaufsmodell werden als «Symbolbild» beschriftet, Credits erscheinen am Bildrand.
 Testbilder unter `tests/fixtures/` sind prozedural erzeugt, keine Fotos, und werden nicht veröffentlicht (`.gitignore`).

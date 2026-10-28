@@ -10,7 +10,7 @@ Stand: 2026-10-28
   drei Fahrprofile (Alltag, Lange Strecken, Gelände) als Direktlinks in den gefilterten Katalog, ausgewählte Modelle, Marken-Kacheln mit
   «Referenz ab» nur bei belegtem Preis, Kaufhilfe. Struktur-Anregungen aus Referenz-Shops wurden in eigener Gestaltung umgesetzt; Logos,
   Texte, Fotos und Layouts wurden nicht übernommen.
-- **Bewegung:** nur Hover-/Fokus-Übergänge und ein Toast; `prefers-reduced-motion` wird beachtet. Keine Autoplay-Videos, keine Scroll-Effekte.
+- **Bewegung:** Hover-/Fokus-Übergänge, Toast, Parallax und Einblenden beim Scrollen, stummes Hero-Video mit Pause-Taste. Alles respektiert `prefers-reduced-motion`; nichts blockiert das Scrollen.
 
 ## Funktioniert (Browser-geprüft, 83/83 Prüfungen bestanden bei 390 px und 1440 px)
 

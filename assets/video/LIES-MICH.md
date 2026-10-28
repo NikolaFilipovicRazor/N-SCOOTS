@@ -1,5 +1,5 @@
 # Videos hier ablegen
 
-Dateinamen und Slots stehen in `data/media.js`. Nach dem Ablegen dort `status` auf `frei` (freie Lizenz,
-Nachweis in `ASSETS.md`) oder `freigegeben` (schriftliche Freigabe) setzen und `credit`/`license` ausfüllen.
-Prüfen mit `node tools/check-media.js`. Empfohlen: JPG, 1600 px Breite, unter 300 KB. Video: MP4 H.264, stumm, 10–20 s, unter 8 MB.
+Slot und Dateiname stehen in `data/media.js` (`hero.video`). Format: MP4 (H.264), stumm, 10–20 Sekunden, unter 8 MB,
+Querformat. Das Standbild (Poster) liegt als JPG im Ordner `assets/photos/`. Nach dem Ablegen im Manifest `status`,
+`credit` und `license` setzen und mit `node tools/check-media.js` prüfen.

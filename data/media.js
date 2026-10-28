@@ -9,7 +9,10 @@
  * kind:   "foto" (echtes Foto) · "symbol" (Symbolbild: zeigt nicht das
  *         konkrete Verkaufsmodell, wird so beschriftet)
  * Rechte: Nur Dateien mit status "frei" oder "freigegeben" sind
- *         veröffentlichungsfertig. Credit-Pflicht je Lizenz beachten.
+ *         veröffentlichungsfertig; credit und license sind dann Pflicht
+ *         (Nachweis in ASSETS.md, Tabelle «Foto- und Video-Slots»).
+ * Markenbilder sind Symbolbilder, keine Herstellerbilder oder Logos.
+ * alt-Texte sind Vorschläge und werden beim Einpflegen ans Motiv angepasst.
  */
 window.NSCOOTS_MEDIA = {
   hero: {
