@@ -120,7 +120,23 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite" data-show="false"></div>
 
+  <dialog id="lightbox" class="lightbox" aria-labelledby="lightbox-title">
+    <div class="drawer-head">
+      <h2 id="lightbox-title"><span id="lightbox-count">1 / 1</span></h2>
+      <button class="icon-btn" type="button" data-action="close-dialog" aria-label="Schliessen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="lightbox-stage">
+      <img id="lightbox-img" src="" alt="">
+      <span class="media-badge" id="lightbox-badge" hidden></span>
+      <button class="lightbox-nav prev" type="button" data-action="lb-prev" aria-label="Vorheriges Bild">‹</button>
+      <button class="lightbox-nav next" type="button" data-action="lb-next" aria-label="Nächstes Bild">›</button>
+    </div>
+  </dialog>
+
   <script src="data/products.js"></script>
+  <script src="data/media.js"></script>
+  <script src="js/media.js"></script>
+  <script src="js/motion.js"></script>
   <script src="js/format.js"></script>
   <script src="js/store.js"></script>
   <script src="js/app.js"></script>

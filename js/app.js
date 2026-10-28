@@ -1,6 +1,7 @@
 /* N SCOOTS – Prototyp. Hash-Router + Ansichten. Keine Abhängigkeiten. */
 (function () {
-  const D = window.NSCOOTS_DATA, S = window.NSCOOTS_STORE, F = window.NSCOOTS_FMT;
+  const D = window.NSCOOTS_DATA, S = window.NSCOOTS_STORE, F = window.NSCOOTS_FMT, MA = window.NSCOOTS_MEDIA_API;
+  const MEDIA = MA.M;
   const esc = F.esc;
   const $ = (sel, root = document) => root.querySelector(sel);
   const app = $("#app");
@@ -10,10 +11,13 @@
   const brandName = (id) => (D.brands.find((b) => b.id === id) || {}).name || "";
   const catName = (id) => (D.categories.find((c) => c.id === id) || {}).name || "";
   const segName = (id) => (D.segments[id] || {}).name || "";
-  const imgSrc = (p, i = 0) => (p.images && p.images[i]) ? IMG + p.images[i] : FALLBACK;
-  const img = (p, i, { eager = false, alt = "" } = {}) =>
-    `<img src="${imgSrc(p, i)}" alt="${esc(alt)}" width="1100" height="760" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" onerror="this.onerror=null;this.src='${FALLBACK}'">`;
-  const placeholderAlt = (p) => `Platzhalter-Silhouette für ${p.model}, kein Produktfoto`;
+  const pimgs = (p) => MA.productImages(p);
+  const imgSrc = (p, i = 0) => { const l = pimgs(p); return (l[i] || l[0] || { src: FALLBACK }).src; };
+  const img = (p, i, { eager = false, alt = "" } = {}) => {
+    const l = pimgs(p); const r = l[i] || l[0] || { src: FALLBACK, alt: "", label: "" };
+    return `<img src="${esc(r.src)}" alt="${esc(alt || r.alt)}" width="1100" height="760" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" onerror="this.onerror=null;this.src='${FALLBACK}'">` + (r.label === "Symbolbild" ? `<span class="media-badge">Symbolbild</span>` : "");
+  };
+  const placeholderAlt = (p) => { const r = pimgs(p)[0]; return r && r.photo ? r.alt : `Platzhalter-Silhouette für ${p.model}, kein Produktfoto`; };
 
   /* ---------- Routing ---------- */
   function parseHash() {
@@ -86,7 +90,7 @@
     const isAcc = p.category === "zubehoer";
     return `
     <article class="card" data-id="${p.id}">
-      <div class="card-media">${img(p, 0, { alt: placeholderAlt(p) })}</div>
+      <div class="card-media${pimgs(p).length > 1 ? " has-alt" : ""}">${img(p, 0, { alt: placeholderAlt(p) })}${pimgs(p).length > 1 ? `<img class="alt" src="${esc(imgSrc(p, 1))}" alt="" loading="lazy" decoding="async" width="1100" height="760">` : ""}</div>
       <div class="card-body">
         <div class="card-brand">${esc(p.brand ? brandName(p.brand) : catName(p.category))}${p.segment ? " · " + esc(segName(p.segment)) : ""}</div>
         <h3 class="card-title"><a href="#/produkt/${p.id}">${esc(p.model)}</a></h3>
@@ -107,9 +111,25 @@
     const featured = ["kukirin-g2-master", "joyor-s5", "teverun-fighter-mini-eco", "kukirin-g4-max"].map(byId).filter(Boolean);
     const brands = D.brands;
     const html = `
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="wrap">
-        <div>
+    ${(() => {
+      const hv = MA.heroVideo(); const hi = MA.resolve(MEDIA.hero && MEDIA.hero.image, null, "E-Scooter-Fahrt durch eine Stadt am Abend");
+      const media = hv
+        ? `<video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="${esc(hv.poster || hi.src)}" aria-label="Fahrt mit dem E-Scooter"><source src="${esc(hv.src)}" type="video/mp4"></video>`
+        : hi.photo ? MA.tag(hi, { eager: true, cls: "hero-img" })
+        : `<svg class="hero-illu" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Abstrakte Illustration eines E-Scooters auf dunklem Grund" preserveAspectRatio="xMidYMid slice">
+              <defs><pattern id="hl" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(-20)"><path d="M0 0V40" stroke="#2f343d" stroke-width="1"/></pattern></defs>
+              <rect width="1600" height="900" fill="#262a31"/><rect width="1600" height="900" fill="url(#hl)"/>
+              <path d="M-40 700 H1640" stroke="#1f4fe0" stroke-width="12"/><path d="M-40 740 H1640" stroke="#3a3f49" stroke-width="2"/>
+              <g fill="none" stroke="#f3f4f7" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" transform="translate(700 40) scale(1.1)">
+                <circle cx="190" cy="500" r="56"/><circle cx="640" cy="500" r="56"/><path d="M246 500 H586"/><path d="M270 484 H370"/><path d="M604 484 L560 250 L545 190"/><path d="M505 190 H590"/>
+              </g><circle cx="1404" cy="590" r="26" fill="none" stroke="#1f4fe0" stroke-width="9"/>
+            </svg>`;
+      const note = hv ? (hv.credit ? `Video: ${esc(hv.credit)}` : "") : hi.photo ? (hi.credit ? `Foto: ${esc(hi.credit)}` : "") : "Illustration, kein Produktfoto. Hero-Foto oder -Video folgt.";
+      return `
+    <section class="hero hero-media" aria-labelledby="hero-title">
+      <div class="hero-bg" data-parallax="0.25">${media}</div>
+      <div class="wrap hero-content">
+        <div data-reveal>
           <p class="hero-kicker">E-Scooter &amp; E-Dirtbikes · Schweiz</p>
           <h1 id="hero-title">Dein nächster Ride.</h1>
           <p>Elektrische Scooter für Stadt und Strecke, E-Dirtbikes fürs Gelände. Klare Daten, ehrliche Angaben, verständliche Beratung. Shop in Vorbereitung.</p>
@@ -118,25 +138,13 @@
             <a class="btn btn-ghost" href="#/dirtbikes">E-Dirtbikes</a>
           </div>
         </div>
-        <div>
-          <div class="hero-art" role="img" aria-label="Abstrakte Illustration eines E-Scooters auf dunklem Grund">
-            <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
-              <defs><pattern id="hl" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(-20)"><path d="M0 0V40" stroke="#2f343d" stroke-width="1"/></pattern></defs>
-              <rect width="800" height="600" fill="#262a31"/><rect width="800" height="600" fill="url(#hl)"/>
-              <path d="M-40 470 H840" stroke="#1f4fe0" stroke-width="10"/>
-              <path d="M-40 500 H840" stroke="#3a3f49" stroke-width="2"/>
-              <g fill="none" stroke="#f3f4f7" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="190" cy="420" r="50"/><circle cx="640" cy="420" r="50"/>
-                <path d="M240 420 H600"/><path d="M265 405 H360"/><path d="M605 405 L560 190 L545 130"/><path d="M505 130 H590"/>
-              </g>
-              <circle cx="640" cy="420" r="22" fill="none" stroke="#1f4fe0" stroke-width="8"/>
-            </svg>
-          </div>
-          <p class="hero-note" style="margin-top:8px">Illustration, kein Produktfoto.</p>
+        <div class="hero-tools">
+          ${hv ? `<button class="btn btn-ghost btn-sm" type="button" data-action="video-toggle" aria-pressed="true">Video pausieren</button>` : ""}
+          <p class="hero-note">${note}</p>
         </div>
       </div>
       <div class="hero-stripe" aria-hidden="true"></div>
-    </section>
+    </section>`; })()}
 
     <section class="trust" aria-label="So arbeiten wir">
       <div class="wrap">
@@ -149,7 +157,7 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="entries-title">
+    <section class="section" aria-labelledby="entries-title" data-reveal>
       <div class="wrap">
         <h2 id="entries-title" class="visually-hidden">Kategorien</h2>
         <div class="entry-grid">
@@ -175,16 +183,31 @@
             ["alltag", "Alltag &amp; Pendeln", "Leicht, faltbar, für Bahnhof und Büro. Unter 25 kg, 600–800 Wh.", "kukirin-g2-pro"],
             ["touren", "Lange Strecken", "Grosse Akkus ab 1000 Wh für Touren und Hügel.", "kukirin-g2-master"],
             ["offroad", "Gelände", "Doppelmotor, grobe Reifen, viel Federweg. Für Privatgelände.", "kukirin-g4-max"]
-          ].map(([seg, title, text, pid]) => { const p = byId(pid); const n = D.products.filter((x) => x.segment === seg).length; return `
-          <a class="profile" href="#/katalog?kat=escooter&segment=${seg}">
-            <div class="profile-media">${p ? img(p, 0, { alt: placeholderAlt(p) }) : ""}</div>
+          ].map(([seg, title, text, pid]) => { const p = byId(pid); const n = D.products.filter((x) => x.segment === seg).length; const r = MA.resolve(MEDIA.profiles && MEDIA.profiles[seg], p ? imgSrc(p, 0) : null, p ? placeholderAlt(p) : ""); return `
+          <a class="profile" href="#/katalog?kat=escooter&segment=${seg}" data-reveal>
+            <div class="profile-media media" data-parallax="0.12">${MA.tag(r)}${r.label ? `<span class="media-badge">${esc(r.label)}</span>` : ""}</div>
             <div class="profile-body"><h3>${title}</h3><p>${text}</p><span class="profile-link">${n} Modelle ansehen</span></div>
           </a>`; }).join("")}
         </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="featured-title">
+    <section class="section story" aria-labelledby="story-title">
+      <div class="wrap">
+        <h2 id="story-title" class="visually-hidden">Unterwegs mit N SCOOTS</h2>
+        ${[
+          ["Morgens zum Zug, abends an den See.", "Ein Alltagsscooter wiegt unter 25 kg, faltet sich in Sekunden und hängt am Abend wieder am Ladegerät. Reichweite reicht für den Weg, nicht für den Rekord.", "kukirin-g2-pro", "#/katalog?kat=escooter&segment=alltag", "Alltagsmodelle"],
+          ["Mehr Akku, mehr Ruhe.", "Ab rund 1000 Wh wird aus dem Pendler ein Tourenfahrzeug. Doppelmotor-Modelle nehmen Steigungen ohne Drama, kosten aber Gewicht.", "kukirin-g2-master", "#/katalog?kat=escooter&segment=touren", "Tourenmodelle"],
+          ["Schotter, Wiese, Waldweg.", "Grobe Reifen und Federweg für Privatgelände. Ob und wie ein Modell auf die Strasse darf, prüfen wir je Ausführung, bevor wir es verkaufen.", "kukirin-g4-max", "#/katalog?kat=escooter&segment=offroad", "Offroad-Modelle"]
+        ].map(([h, t, pid, href, cta], i) => { const p = byId(pid); const r = MA.resolve(MEDIA.story && MEDIA.story[i], p ? imgSrc(p, 0) : null, p ? placeholderAlt(p) : ""); return `
+        <article class="story-row${i % 2 ? " flip" : ""}" data-reveal>
+          <div class="story-media media" data-parallax="0.2">${MA.tag(r)}${r.label ? `<span class="media-badge">${esc(r.label)}</span>` : ""}${r.credit ? `<span class="media-credit">Foto: ${esc(r.credit)}</span>` : ""}</div>
+          <div class="story-text"><h3>${h}</h3><p>${t}</p><a class="btn btn-ghost btn-sm" href="${href}">${cta}</a></div>
+        </article>`; }).join("")}
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="featured-title" data-reveal>
       <div class="wrap">
         <div class="section-head">
           <div><h2 id="featured-title">Ausgewählte Modelle</h2><p class="muted">Vier Modelle, die den Bereich gut abdecken: Pendeln, Touren, Gelände.</p></div>
@@ -195,16 +218,16 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="brands-title">
+    <section class="section" aria-labelledby="brands-title" data-reveal>
       <div class="wrap">
         <div class="section-head"><div><h2 id="brands-title">Marken</h2><p class="muted">Geplantes Markenportfolio. Händlervereinbarungen sind noch offen.</p></div></div>
         <div class="brand-strip">
-          ${brands.map((b) => { const prices = D.products.filter((p) => p.brand === b.id && p.price.chf != null).map((p) => p.price.chf); const n = D.products.filter((p) => p.brand === b.id).length; const from = prices.length ? `Referenz ab ${F.chf(Math.min(...prices))}*` : "Preise offen"; return `<a class="brand-chip${b.featured ? " featured" : ""}" href="#/katalog?marke=${b.id}"><span class="brand-top"><strong>${esc(b.name)}</strong><span class="tag">${n} ${n === 1 ? "Modell" : "Modelle"}</span></span><span>${esc(b.blurb)}</span><span class="brand-price">${from}</span></a>`; }).join("")}
+          ${brands.map((b) => { const prices = D.products.filter((p) => p.brand === b.id && p.price.chf != null).map((p) => p.price.chf); const n = D.products.filter((p) => p.brand === b.id).length; const from = prices.length ? `Referenz ab ${F.chf(Math.min(...prices))}*` : "Preise offen"; const bm = MEDIA.brands && MEDIA.brands[b.id]; const bimg = MA.usable(bm) ? `<span class="brand-photo"><img src="${esc(bm.src)}" alt="" loading="lazy" decoding="async"></span>` : ""; return `<a class="brand-chip${b.featured ? " featured" : ""}${bimg ? " has-photo" : ""}" href="#/katalog?marke=${b.id}">${bimg}<span class="brand-top"><strong>${esc(b.name)}</strong><span class="tag">${n} ${n === 1 ? "Modell" : "Modelle"}</span></span><span>${esc(b.blurb)}</span><span class="brand-price">${from}</span></a>`; }).join("")}
         </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="help-title">
+    <section class="section" aria-labelledby="help-title" data-reveal>
       <div class="wrap">
         <div class="section-head"><div><h2 id="help-title">Welcher Scooter passt zu dir?</h2><p class="muted">Drei Fragen, die den Grossteil der Entscheidung ausmachen.</p></div></div>
         <div class="help-grid">
@@ -388,9 +411,9 @@
       <nav class="breadcrumb" aria-label="Pfad"><a href="#/">Start</a><span>/</span><a href="#/katalog?kat=${p.category}">${esc(catName(p.category))}</a>${p.brand ? `<span>/</span><a href="#/katalog?marke=${p.brand}">${esc(brandName(p.brand))}</a>` : ""}</nav>
       <div class="pdp">
         <div>
-          <div class="gallery-main" id="gallery-main">${img(p, 0, { eager: true, alt: placeholderAlt(p) })}</div>
-          ${p.images.length > 1 ? `<div class="gallery-thumbs" role="group" aria-label="Bildauswahl">${p.images.map((_, i) => `<button type="button" data-action="thumb" data-i="${i}" aria-pressed="${i === 0}" aria-label="Ansicht ${i + 1}">${img(p, i, { alt: "" })}</button>`).join("")}</div>` : ""}
-          <p class="small muted" style="margin-top:8px">Platzhalter-Silhouetten. Freigegebene Produktbilder folgen, sobald die Bildrechte geklärt sind.</p>
+          <button class="gallery-main" id="gallery-main" type="button" data-action="lightbox" data-i="0" aria-label="Bild vergrössern">${img(p, 0, { eager: true, alt: placeholderAlt(p) })}</button>
+          ${pimgs(p).length > 1 ? `<div class="gallery-thumbs" role="group" aria-label="Bildauswahl">${pimgs(p).map((_, i) => `<button type="button" data-action="thumb" data-i="${i}" aria-pressed="${i === 0}" aria-label="Ansicht ${i + 1}">${img(p, i, { alt: "" })}</button>`).join("")}</div>` : ""}
+          <p class="small muted" style="margin-top:8px">${pimgs(p)[0] && pimgs(p)[0].photo ? "Tippen zum Vergrössern." : "Platzhalter-Silhouetten. Freigegebene Produktbilder folgen, sobald die Bildrechte geklärt sind."}</p>
         </div>
         <div class="pdp-info">
           <div>
@@ -453,9 +476,24 @@
       const b = e.target.closest('[data-action="thumb"]'); if (!b) return;
       const i = Number(b.dataset.i);
       $("#gallery-main").innerHTML = img(p, i, { eager: true, alt: placeholderAlt(p) + `, Ansicht ${i + 1}` });
+      $("#gallery-main").dataset.i = i;
       document.querySelectorAll('[data-action="thumb"]').forEach((t) => t.setAttribute("aria-pressed", String(t === b)));
     });
   }
+  /* Lightbox */
+  let lb = { list: [], i: 0 };
+  function lightboxShow() {
+    const r = lb.list[lb.i]; if (!r) return;
+    $("#lightbox-img").src = r.src; $("#lightbox-img").alt = r.alt || "";
+    $("#lightbox-count").textContent = `${lb.i + 1} / ${lb.list.length}`;
+    $("#lightbox-badge").textContent = r.label || ""; $("#lightbox-badge").hidden = !r.label;
+  }
+  function lightboxOpen(p, i, trigger) { lb = { list: pimgs(p), i: Math.max(0, Math.min(i, pimgs(p).length - 1)) }; lightboxShow(); openDialog($("#lightbox"), trigger); }
+  document.addEventListener("keydown", (e) => {
+    const d = $("#lightbox"); if (!d || !d.open) return;
+    if (e.key === "ArrowRight") { lb.i = (lb.i + 1) % lb.list.length; lightboxShow(); }
+    if (e.key === "ArrowLeft") { lb.i = (lb.i - 1 + lb.list.length) % lb.list.length; lightboxShow(); }
+  });
 
   /* ---------- Vergleich ---------- */
   function viewCompare() {
@@ -574,7 +612,7 @@
           <p>${esc(d.text)}</p>
           <a class="btn" href="#/katalog?kat=escooter">Inzwischen: E-Scooter ansehen</a>
         </div>
-        <img src="${IMG}dirtbike-platzhalter.svg" alt="Platzhalter-Silhouette eines Dirtbikes, kein Produktfoto" width="1100" height="760" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK}'">
+        ${(() => { const r = MA.resolve(MEDIA.dirtbikes, IMG + "dirtbike-platzhalter.svg", "Platzhalter-Silhouette eines Dirtbikes, kein Produktfoto"); return `<div class="media prep-media" data-parallax="0.15">${MA.tag(r)}${r.label ? `<span class="media-badge">${esc(r.label)}</span>` : ""}</div>`; })()}
       </div>
       <section class="section" aria-labelledby="planned-title">
         <h2 id="planned-title">Was geplant ist</h2>
@@ -613,6 +651,8 @@
   function afterRender(view, route) {
     if (view === "katalog") bindCatalog(route.query);
     if (view === "produkt") bindProduct(route.parts[1]);
+    const v = $(".hero-video"); if (v && window.matchMedia("(prefers-reduced-motion: reduce)").matches) { v.removeAttribute("autoplay"); v.pause(); const b = $('[data-action="video-toggle"]'); if (b) { b.textContent = "Video abspielen"; b.setAttribute("aria-pressed", "false"); } }
+    window.NSCOOTS_MOTION && window.NSCOOTS_MOTION.refresh();
   }
 
   /* ---------- Globale Aktionen ---------- */
@@ -682,6 +722,10 @@
       case "remove": S.cartRemove(lid, lvar); toast("Entfernt."); refreshCartViews(); break;
       case "cart-clear": S.cartClear(); refreshCartViews(); break;
       case "checkout": openDialog($("#checkout-dialog"), btn); break;
+      case "lightbox": { const p = byId(parseHash().parts[1]); if (p) lightboxOpen(p, Number(btn.dataset.i || 0), btn); break; }
+      case "lb-next": lb.i = (lb.i + 1) % lb.list.length; lightboxShow(); break;
+      case "lb-prev": lb.i = (lb.i - 1 + lb.list.length) % lb.list.length; lightboxShow(); break;
+      case "video-toggle": { const v = $(".hero-video"); if (!v) break; if (v.paused) { v.play(); btn.textContent = "Video pausieren"; btn.setAttribute("aria-pressed", "true"); } else { v.pause(); btn.textContent = "Video abspielen"; btn.setAttribute("aria-pressed", "false"); } break; }
       case "open-cart": renderCartDrawer(); openDialog($("#cart-drawer"), btn); break;
       case "close-dialog": closeDialog(btn.closest("dialog")); break;
       case "menu": { const nav = $("#mobile-nav"); const open = nav.dataset.open !== "true"; nav.dataset.open = String(open); btn.setAttribute("aria-expanded", String(open)); break; }

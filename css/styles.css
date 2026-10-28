@@ -383,3 +383,86 @@ dialog::backdrop { background: rgba(28, 31, 36, .5); }
 .brand-chip.featured .brand-top { grid-column: 1; }
 .brand-chip.featured > span:nth-child(2) { grid-column: 1 / -1; }
 .brand-chip.featured .brand-price { grid-column: 1 / -1; }
+
+/* ---------- Fotos, Parallax, Video ---------- */
+.media { position: relative; overflow: hidden; background: var(--surface); }
+.media img, .media video { width: 100%; height: 100%; object-fit: cover; display: block; will-change: transform; }
+.media-badge { position: absolute; left: 10px; bottom: 10px; padding: 3px 8px; border-radius: 4px; background: rgba(28,31,36,.82); color: #fff; font-size: .68rem; font-weight: 600; letter-spacing: .02em; pointer-events: none; }
+.media-credit { position: absolute; right: 10px; bottom: 10px; padding: 3px 8px; border-radius: 4px; background: rgba(255,255,255,.8); color: var(--ink-2); font-size: .68rem; pointer-events: none; }
+[data-parallax] { overflow: hidden; }
+[data-parallax] > img, [data-parallax] > video, [data-parallax] > svg { position: absolute; left: 0; top: 0; width: 100%; height: 125%; object-fit: cover; }
+[data-parallax] { position: relative; }
+
+/* Hero mit Foto/Video als Hintergrund */
+.hero-media { min-height: min(78vh, 720px); display: grid; align-items: end; }
+.hero-media .hero-bg { position: absolute; inset: 0; z-index: 0; background: #262a31; }
+.hero-media .hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,31,36,.35) 0%, rgba(28,31,36,.15) 40%, rgba(28,31,36,.85) 100%); }
+.hero-media .hero-content { position: relative; z-index: 1; display: grid; gap: 20px; padding-top: 96px; padding-bottom: 40px; grid-template-columns: 1fr; }
+.hero-media h1 { font-size: clamp(3rem, 9vw, 6.4rem); }
+.hero-media p { max-width: 52ch; }
+.hero-tools { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.hero-tools .hero-note { margin: 0; padding: 6px 10px; border-radius: 4px; background: rgba(28,31,36,.55); color: #d5dae4; max-width: 34ch; }
+.hero-tools .btn-ghost { color: #fff; border-color: rgba(255,255,255,.4); }
+.hero-tools .btn-ghost:hover { background: rgba(255,255,255,.1); color: #fff; }
+.hero-img, .hero-video, .hero-illu { position: absolute; inset: 0; width: 100%; height: 125%; object-fit: cover; }
+@media (min-width: 900px) { .hero-media { min-height: min(80vh, 760px); } .hero-media .hero-content { grid-template-columns: 1fr auto; align-items: end; padding-top: 140px; padding-bottom: 56px; } }
+
+/* Produktkarten: zweites Bild beim Zeigen */
+.card-media img.alt { position: absolute; inset: 0; opacity: 0; transition: opacity var(--ease); }
+.card:hover .card-media.has-alt img.alt, .card:focus-within .card-media.has-alt img.alt { opacity: 1; }
+
+/* Fahrprofile mit Foto */
+.profile-media { aspect-ratio: 16 / 10; }
+
+/* Story: grosse Bilder, wechselseitig */
+.story .wrap { display: grid; gap: 40px; }
+.story-row { display: grid; gap: 18px; align-items: center; }
+.story-media { aspect-ratio: 4 / 3; border-radius: var(--radius); }
+.story-text h3 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+.story-text p { color: var(--ink-2); }
+@media (min-width: 900px) {
+  .story .wrap { gap: 64px; }
+  .story-row { grid-template-columns: 7fr 5fr; gap: 40px; }
+  .story-row.flip .story-media { order: 2; }
+  .story-media { aspect-ratio: 3 / 2; }
+}
+
+/* Marken mit Foto-Hintergrund */
+.brand-chip { position: relative; overflow: hidden; }
+.brand-chip.has-photo { color: #fff; border-color: transparent; min-height: 170px; justify-content: flex-end; }
+.brand-chip.has-photo:hover { color: #fff; }
+.brand-chip.has-photo span, .brand-chip.has-photo .brand-price { color: #e7ebf5; }
+.brand-chip.has-photo .tag { background: rgba(255,255,255,.18); color: #fff; }
+.brand-photo { position: absolute; inset: 0; z-index: 0; }
+.brand-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,31,36,.1), rgba(28,31,36,.85)); }
+.brand-photo img { width: 100%; height: 100%; object-fit: cover; }
+.brand-chip > :not(.brand-photo) { position: relative; z-index: 1; }
+
+/* Dirtbikes */
+.prep-media { aspect-ratio: 4 / 3; border-radius: var(--radius); }
+
+/* Galerie als Button */
+button.gallery-main { width: 100%; padding: 0; cursor: zoom-in; position: relative; }
+button.gallery-main .media-badge { pointer-events: none; }
+
+/* Lightbox */
+.lightbox { margin: auto; width: min(1100px, calc(100vw - 24px)); background: var(--ink); color: #fff; border-radius: var(--radius); display: grid; grid-template-rows: auto 1fr; max-height: calc(100dvh - 24px); }
+.lightbox .drawer-head { border-color: rgba(255,255,255,.15); }
+.lightbox .drawer-head h2 { font-size: 1.1rem; font-family: var(--font-text); font-weight: 500; }
+.lightbox .icon-btn { color: #fff; }
+.lightbox .icon-btn:hover { background: rgba(255,255,255,.1); }
+.lightbox-stage { position: relative; display: grid; place-items: center; padding: 12px; min-height: 40vh; }
+.lightbox-stage img { max-height: calc(100dvh - 140px); width: auto; max-width: 100%; object-fit: contain; border-radius: 6px; background: #fff; }
+.lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: 0; background: rgba(255,255,255,.9); color: var(--ink); cursor: pointer; font-size: 1.4rem; display: grid; place-items: center; }
+.lightbox-nav.prev { left: 16px; } .lightbox-nav.next { right: 16px; }
+.lightbox-nav:hover { background: #fff; }
+.lightbox .media-badge { left: 24px; bottom: 24px; }
+
+/* Einblenden beim Scrollen: im Ruhezustand sichtbar, nur leicht verschoben */
+[data-reveal] { transform: translateY(18px); opacity: .92; transition: transform 600ms cubic-bezier(.2,.7,.2,1), opacity 600ms ease; }
+[data-reveal].is-in { transform: none; opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { transform: none; opacity: 1; transition: none; }
+  [data-parallax] > img, [data-parallax] > video, [data-parallax] > svg { height: 100%; transform: none !important; }
+  .hero-img, .hero-video, .hero-illu { height: 100%; }
+}
