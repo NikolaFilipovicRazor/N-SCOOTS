@@ -24,6 +24,7 @@ window.NSCOOTS_DATA = {
       telefon: "+41 00 000 00 00",
       email: "kontakt@n-scoots.ch",
       zeiten: "Mo–Fr 9–18 Uhr",
+      whatsapp: "+41 00 000 00 00",
       hinweis: "Telefon und E-Mail sind Platzhalter und werden noch ergänzt."
     },
     disclaimer:
@@ -45,7 +46,8 @@ window.NSCOOTS_DATA = {
     { id: "teverun", name: "Teverun", featured: false, blurb: "Kompakte Doppelmotor-Modelle mit viel Federweg." },
     { id: "dualtron", name: "Dualtron", featured: false, blurb: "Klassiker aus Korea mit hochwertiger Verarbeitung." },
     { id: "rovoron", name: "Rovoron", featured: false, blurb: "Leichtbau trifft grosse Akkus." },
-    { id: "ausom", name: "Ausom", featured: false, blurb: "Preisbewusste Modelle für Stadt und Gelände." }
+    { id: "ausom", name: "Ausom", featured: false, blurb: "Preisbewusste Modelle für Stadt und Gelände." },
+    { id: "vmax", name: "VMAX", featured: false, blurb: "Schweizer Marke mit Fokus auf strassenzugelassene Modelle. Sortiment offen." }
   ],
   products: [
     {

@@ -151,14 +151,28 @@
       <div class="hero-stripe" aria-hidden="true"></div>
     </section>`; })()}
 
+    <section class="brand-bar" aria-label="Marken">
+      <div class="wrap brand-bar-list">
+        ${D.brands.map((b) => `<a class="brand-mark" href="#/katalog?marke=${b.id}"><span class="brand-initial" aria-hidden="true">${esc(b.name[0])}</span><span>${esc(b.name)}</span></a>`).join("")}
+      </div>
+    </section>
+
     <section class="trust" aria-label="So arbeiten wir">
       <div class="wrap">
         <ul class="trust-list">
-          <li><strong>Schweizer Ansprechpartner</strong><span>${esc(D.meta.kontakt.person)}, ${esc(D.meta.kontakt.ort)}</span></li>
-          <li><strong>Sichere Zahlung</strong><span>TWINT, Karte, Rechnung (Checkout folgt)</span></li>
-          <li><strong>Lieferbar</strong><span>Versand in der ganzen Schweiz</span></li>
-          <li><strong>Persönlicher Support</strong><span><a href="#/kontakt">Telefon und E-Mail</a>, ${esc(D.meta.kontakt.zeiten)}</span></li>
+          <li><strong>Schweizer Ansprechpartner</strong><span>${esc(D.meta.kontakt.person)}, persönlich und nah</span></li>
+          <li><strong>Sicher bezahlen</strong><span>Zahlungsarten in Vorbereitung</span></li>
+          <li><strong>Lieferbarkeit</strong><span>Status je Modell prüfen</span></li>
+          <li><strong>Persönlicher Support</strong><span><a href="#/kontakt">Beratung und Hilfe</a>, ${esc(D.meta.kontakt.zeiten)}</span></li>
         </ul>
+      </div>
+    </section>
+
+    <section class="service-strip" aria-label="Service">
+      <div class="wrap service-list">
+        <a href="#/info"><strong>2 Jahre Gewährleistung</strong><span>Gesetzliche Frist in der Schweiz, Bedingungen folgen</span></a>
+        <a href="#/kontakt"><strong>Ersatzteile &amp; Service</strong><span>Das passende Teil anfragen</span></a>
+        <a href="#" data-action="whatsapp"><strong>Per WhatsApp fragen</strong><span>Persönlich beraten lassen</span></a>
       </div>
     </section>
 
@@ -253,13 +267,14 @@
       marke: (q.marke || "").split(",").filter(Boolean),
       kat: q.kat || "",
       segment: q.segment || "",
+      zulassung: q.zulassung || "",
       min: q.min ? Number(q.min) : "",
       max: q.max ? Number(q.max) : "",
       sort: q.sort || "empfehlung"
     };
   }
   function stateToQuery(st) {
-    return { q: st.q, marke: st.marke.join(","), kat: st.kat, segment: st.segment, min: st.min === "" ? "" : String(st.min), max: st.max === "" ? "" : String(st.max), sort: st.sort === "empfehlung" ? "" : st.sort };
+    return { q: st.q, marke: st.marke.join(","), kat: st.kat, segment: st.segment, zulassung: st.zulassung, min: st.min === "" ? "" : String(st.min), max: st.max === "" ? "" : String(st.max), sort: st.sort === "empfehlung" ? "" : st.sort };
   }
   const rangeMax = (r) => { if (r == null) return null; if (typeof r === "number") return r; const m = String(r).match(/\d+(?:\.\d+)?/g); return m ? Math.max(...m.map(Number)) : null; };
   function applyFilters(st) {
@@ -268,6 +283,7 @@
     if (st.kat) list = list.filter((p) => p.category === st.kat);
     if (st.marke.length) list = list.filter((p) => p.brand && st.marke.includes(p.brand));
     if (st.segment) list = list.filter((p) => p.segment === st.segment);
+    if (st.zulassung === "ch") list = list.filter((p) => /bestätigt$/.test(p.chLegal || "") && !/nicht bestätigt/.test(p.chLegal));
     if (st.q) {
       const terms = st.q.toLowerCase().split(/\s+/).filter(Boolean);
       list = list.filter((p) => { const hay = `${p.model} ${brandName(p.brand)} ${p.summary} ${catName(p.category)} ${segName(p.segment)}`.toLowerCase(); return terms.every((t) => hay.includes(t)); });
@@ -318,6 +334,9 @@
               <label class="check"><input type="radio" name="segment" value="" ${st.segment === "" ? "checked" : ""}> Alle</label>
               ${Object.entries(D.segments).map(([id, s]) => `<label class="check"><input type="radio" name="segment" value="${id}" ${st.segment === id ? "checked" : ""}> ${esc(s.name)}</label>`).join("")}
             </fieldset>
+            <fieldset><legend>Strassenzulassung</legend>
+              <label class="check"><input type="checkbox" name="zulassung" value="ch" ${st.zulassung === "ch" ? "checked" : ""}> Nur CH-strassenzugelassen (belegt)</label>
+            </fieldset>
             <fieldset><legend>Referenzpreis (CHF)</legend>
               <div class="range-row">
                 <div class="field"><label for="f-min" class="visually-hidden">Mindestpreis</label><input type="number" id="f-min" name="min" inputmode="numeric" min="0" step="10" placeholder="von" value="${st.min}"></div>
@@ -361,11 +380,12 @@
     st.marke.forEach((m) => chips.push({ k: "marke", v: m, label: brandName(m) }));
     if (st.kat) chips.push({ k: "kat", label: catName(st.kat) });
     if (st.segment) chips.push({ k: "segment", label: segName(st.segment) });
+    if (st.zulassung) chips.push({ k: "zulassung", label: "CH-strassenzugelassen" });
     if (st.min !== "") chips.push({ k: "min", label: `ab ${F.chf(st.min)}` });
     if (st.max !== "") chips.push({ k: "max", label: `bis ${F.chf(st.max)}` });
     active.innerHTML = chips.map((c) => `<button type="button" data-action="remove-filter" data-k="${c.k}" data-v="${esc(c.v || "")}" aria-label="Filter entfernen: ${esc(c.label)}">${esc(c.label)} ✕</button>`).join("");
     if (!list.length) {
-      results.innerHTML = `<div class="empty"><h3>Nichts gefunden</h3><p class="muted">${st.q ? `Für «${esc(st.q)}» gibt es kein Modell.` : "Die Kombination aus Filtern liefert kein Modell."}${hiddenNoPrice ? ` ${hiddenNoPrice} Modelle ohne Preisangabe sind durch den Preisfilter ausgeblendet.` : ""}</p><button class="btn" type="button" data-action="reset-filters">Alle Modelle anzeigen</button></div>`;
+      results.innerHTML = `<div class="empty"><h3>${st.zulassung ? "Noch kein Modell mit belegter CH-Zulassung" : "Nichts gefunden"}</h3><p class="muted">${st.zulassung ? "Die Schweizer Strassentauglichkeit wird je Ausführung geprüft und erst nach Nachweis hier angezeigt. Bis dahin findest du alle Modelle ohne diesen Filter." : st.q ? `Für «${esc(st.q)}» gibt es kein Modell.` : "Die Kombination aus Filtern liefert kein Modell."}${hiddenNoPrice ? ` ${hiddenNoPrice} Modelle ohne Preisangabe sind durch den Preisfilter ausgeblendet.` : ""}</p><button class="btn" type="button" data-action="reset-filters">Alle Modelle anzeigen</button></div>`;
     } else {
       results.innerHTML = (hiddenNoPrice ? `<p class="small muted">${hiddenNoPrice} Modelle ohne Preisangabe durch Preisfilter ausgeblendet.</p>` : "") + `<div class="product-grid">${list.map((p) => productCard(p)).join("")}</div>`;
     }
@@ -384,6 +404,7 @@
       if (el.name === "min" || el.name === "max") { clearTimeout(t); t = setTimeout(() => { st[el.name] = el.value === "" ? "" : Math.max(0, Number(el.value)); sync(); }, 200); return; }
       if (el.name === "kat") { st.kat = el.value; sync(); return; }
       if (el.name === "segment") { st.segment = el.value; sync(); return; }
+      if (el.name === "zulassung") { st.zulassung = el.checked ? "ch" : ""; sync(); return; }
       if (el.name === "marke") { st.marke = [...form.querySelectorAll('input[name="marke"]:checked')].map((i) => i.value); sync(); }
     });
     $("#f-sort").addEventListener("change", (e) => { st.sort = e.target.value; sync(); });
@@ -396,6 +417,7 @@
         if (k === "marke") { st.marke = st.marke.filter((m) => m !== btn.dataset.v); form.querySelector(`input[name="marke"][value="${btn.dataset.v}"]`).checked = false; }
         else if (k === "q") { st.q = ""; $("#f-q").value = ""; }
         else if (k === "min" || k === "max") { st[k] = ""; form.querySelector(`[name="${k}"]`).value = ""; }
+        else if (k === "zulassung") { st.zulassung = ""; form.querySelector('input[name="zulassung"]').checked = false; }
         else { st[k] = ""; form.querySelector(`input[name="${k}"][value=""]`).checked = true; }
         sync(); $("#result-count").focus?.();
       }
@@ -807,6 +829,8 @@
   S.subscribe(renderBadges);
   window.addEventListener("hashchange", render);
   $("#year").textContent = new Date().getFullYear();
+  document.querySelectorAll(".header-search").forEach((f) => f.addEventListener("submit", (e) => { e.preventDefault(); const q = f.querySelector("input").value.trim(); navigate("/katalog", { q }); if (f.classList.contains("mobile")) { $("#mobile-nav").dataset.open = "false"; $("#menu-btn").setAttribute("aria-expanded", "false"); } }));
+  { const k = D.meta.kontakt; const wa = "https://wa.me/" + (k.whatsapp || k.telefon).replace(/[^\d]/g, ""); const fab = $("#whatsapp-fab"); fab.href = wa; fab.setAttribute("aria-label", "Per WhatsApp fragen (Platzhalter-Nummer)"); document.addEventListener("click", (e) => { const a = e.target.closest('[data-action="whatsapp"]'); if (a) { e.preventDefault(); window.open(wa, "_blank", "noopener"); } }); }
   { const k = D.meta.kontakt; $("#footer-contact").innerHTML = `<li>${esc(k.person)}, ${esc(k.ort)}</li><li><a href="tel:${esc(k.telefon.replace(/\s+/g, ""))}">${esc(k.telefon)}</a></li><li><a href="mailto:${esc(k.email)}">${esc(k.email)}</a></li><li class="muted">${esc(k.zeiten)}</li>`; }
   renderBadges();
   render();
