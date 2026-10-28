@@ -22,6 +22,11 @@ Direktes Öffnen von `index.html` per Doppelklick funktioniert ebenfalls.)
 | `js/app.js` | Hash-Router und Ansichten: Start, Katalog, Produkt, Vergleich, Warenkorb, Dirtbikes, Info, 404 |
 | `js/store.js` | Warenkorb- und Vergleichszustand, lokaler Browserspeicher mit Fallback |
 | `js/format.js` | Schweizer Zahlen- und Preisformate (`CHF 1’638.–`) |
+| `js/media.js` | Löst Foto-/Video-Slots aus dem Manifest auf, fällt auf gekennzeichnete Platzhalter zurück |
+| `js/motion.js` | Parallax und Einblenden beim Scrollen, respektiert `prefers-reduced-motion` |
+| `data/media.js` | **Medien-Manifest**: welche Fotos/Videos wo erscheinen, mit Rechte-Status und Credit |
+| `assets/photos/`, `assets/video/` | Ablageorte für Fotos und Video (siehe `LIES-MICH.md` darin) |
+| `tools/check-media.js` | Zeigt, welche Medien fehlen oder noch keine Freigabe haben |
 | `data/products.js` | **Austauschbare Produktdatei** mit stabilen IDs, Quellen und Prüfdatum |
 | `assets/img/` | Gekennzeichnete SVG-Platzhalter (keine Produktfotos), erzeugt mit `tools/make-placeholders.js` |
 | `assets/brand/` | Wortmarke und Favicon |
@@ -29,6 +34,7 @@ Direktes Öffnen von `index.html` per Doppelklick funktioniert ebenfalls.)
 | `PRODUKTQUELLEN.md` | Quellenliste je Produkt |
 | `STATUS.md` | Funktionierende Features, Abnahmeprotokoll, offene Produktionspunkte |
 | `tests/abnahme.js` | Browser-Abnahme mit Playwright (390 px und 1440 px) |
+| `tests/abnahme-medien.js` | Abnahme der Foto-/Video-/Parallax-Schicht mit Testbildern (`tests/make-fixtures.js`) |
 | `.github/workflows/pages.yml` | Veröffentlichung über GitHub Pages bei Push auf `main` |
 
 ## Routen
@@ -42,6 +48,15 @@ Direktes Öffnen von `index.html` per Doppelklick funktioniert ebenfalls.)
 
 Erzeugt Screenshots unter `tests/screenshots/` und prüft Suche, Filter, Produktseite, Vergleich, Warenkorb inkl. Neuladen,
 Tastaturnavigation, Dialoge, Konsolenfehler und horizontalen Überlauf.
+
+## Fotos und Video einfügen
+
+1. Dateien nach `assets/photos/` bzw. `assets/video/` legen (Namen stehen in `data/media.js`).
+2. In `data/media.js` beim Slot `status` auf `frei` oder `freigegeben` setzen, `credit` und `license` ausfüllen.
+3. `node tools/check-media.js` zeigt, was noch fehlt. Fehlende Slots zeigen automatisch den Platzhalter.
+
+Produktfotos einzelner Modelle nur mit Freigabe des Herstellers oder Händlers (`status: "freigegeben"`).
+Allgemeine Stimmungsfotos mit freier Lizenz (z. B. Unsplash-, Pexels-Lizenz) als `kind: "symbol"` eintragen; sie werden sichtbar als «Symbolbild» beschriftet.
 
 ## Produktdaten pflegen
 

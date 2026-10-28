@@ -25,6 +25,15 @@ Stand: 2026-10-28
 - E-Dirtbikes: Bereich «Sortiment in Vorbereitung» ohne erfundene Produkte
 - Dialoge: Escape schliesst, Fokus kehrt zum Auslöser zurück; Skip-Link; sichtbarer Fokus; keine Konsolenfehler; kein horizontaler Überlauf
 
+## Foto-, Video- und Bewegungsschicht (Browser-geprüft mit Testbildern, 42/42)
+
+- Medien-Manifest mit Slots für Hero-Foto und -Video, drei Fahrprofile, drei Story-Bilder, sechs Marken, Dirtbikes und Produktfotos je Modell
+- Fehlende oder nicht freigegebene Dateien fallen automatisch auf gekennzeichnete Platzhalter zurück; Symbolbilder werden beschriftet, Credits angezeigt
+- Hero-Video stumm im Hintergrund mit Pause/Play-Button; bei `prefers-reduced-motion` startet es nicht
+- Parallax: Fotos bewegen sich beim Scrollen langsamer als die Seite (Hero, Fahrprofile, Story, Dirtbikes); Sektionen blenden sanft ein; alles im Ruhezustand sichtbar
+- Produktkarten mit Wechselbild beim Zeigen, Produktgalerie mit Lightbox (Pfeiltasten, Escape, Fokusrückgabe)
+- **Offen:** Es liegen noch keine Fotos oder Videos vor. Aus der Arbeitsumgebung waren Bildquellen (Unsplash, Pexels, Wikimedia, Herstellerseiten) netzwerkseitig gesperrt. Siehe README «Fotos und Video einfügen».
+
 ## Bewusst nicht gebaut
 
 - Keine Bestellung, Zahlung, Kundenkonto, Formulare mit Datenversand
