@@ -211,7 +211,7 @@ p { margin: 0 0 1em; max-width: 68ch; }
 .filters fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 6px; }
 .filters legend, .field label { font-weight: 600; font-size: .9rem; margin-bottom: 6px; display: block; }
 .field { display: grid; gap: 6px; }
-.field input[type="search"], .field input[type="number"], .field select {
+.field input[type="search"], .field input[type="number"], .field input[type="text"], .field input[type="email"], .field select {
   width: 100%; min-height: 44px; padding: 0 12px; border: 1px solid var(--line); border-radius: var(--radius-s);
   background: var(--paper); font: inherit; color: var(--ink);
 }
