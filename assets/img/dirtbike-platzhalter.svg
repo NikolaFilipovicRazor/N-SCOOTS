@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 760" width="1100" height="760" role="img" aria-label="Platzhalter: E-Dirtbikes">
+  <rect width="1100" height="760" fill="#eef0f4"/>
+  <rect x="0" y="640" width="1100" height="120" fill="#e3e6ec"/>
+  
+    <g fill="none" stroke="#1c1f24" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="230" cy="520" r="95"/><circle cx="880" cy="520" r="95"/>
+      <path d="M 300 470 L 470 300 L 700 300 L 820 470"/>
+      <path d="M 470 300 L 560 430 L 700 300"/>
+      <path d="M 760 230 L 700 300"/><path d="M 700 230 H 820"/>
+      <path d="M 560 430 L 540 500"/>
+    </g>
+  <text x="56" y="88" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#1c1f24">E-Dirtbikes</text>
+  <text x="56" y="126" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#4a5060">Sortiment in Vorbereitung</text>
+  <g transform="translate(56 690)">
+    <rect width="420" height="44" rx="6" fill="#1c1f24"/>
+    <text x="16" y="29" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#ffffff">PLATZHALTER – KEIN PRODUKTFOTO</text>
+  </g>
+  <text x="1044" y="720" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#4a5060">Ansicht 1</text>
+</svg>

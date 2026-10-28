@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 760" width="1100" height="760" role="img" aria-label="Platzhalter: Ersatz-Ladegerät">
+  <rect width="1100" height="760" fill="#eef0f4"/>
+  <rect x="0" y="640" width="1100" height="120" fill="#e3e6ec"/>
+  <g fill="none" stroke="#1c1f24" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><rect x="330" y="330" width="440" height="200" rx="24"/><path d="M 770 430 H 870"/><path d="M 230 430 H 330"/><circle cx="420" cy="430" r="14" fill="#1f4fe0" stroke="none"/></g>
+  <text x="56" y="88" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#1c1f24">Ersatz-Ladegerät</text>
+  <text x="56" y="126" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#4a5060">Zubehör (geplant)</text>
+  <g transform="translate(56 690)">
+    <rect width="420" height="44" rx="6" fill="#1c1f24"/>
+    <text x="16" y="29" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#ffffff">PLATZHALTER – KEIN PRODUKTFOTO</text>
+  </g>
+  <text x="1044" y="720" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#4a5060">Ansicht 1</text>
+</svg>

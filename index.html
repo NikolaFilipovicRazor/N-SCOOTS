@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>N SCOOTS – E-Scooter & E-Dirtbikes</title>
+  <meta name="description" content="N SCOOTS: E-Scooter und E-Dirtbikes für die Schweiz. Prototyp, Shop in Vorbereitung.">
+  <meta name="theme-color" content="#1c1f24">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#app">Zum Inhalt springen</a>
+  <div class="demo-bar" role="note">Prototyp · Noch kein Verkauf, keine Bestellung, keine Zahlung · Preise sind Referenzpreise oder offen</div>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="#/" data-nav="home" aria-label="N SCOOTS, zur Startseite">
+        <svg viewBox="0 0 236 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M0 40 L10 0 H44 L34 40 Z" fill="#1f4fe0"/>
+          <path d="M14 30 V10 h4 l8 12 V10 h4 v20 h-4 l-8-12 v12 Z" fill="#ffffff"/>
+          <text x="52" y="31" font-family="'Barlow Condensed','Arial Narrow',Arial,sans-serif" font-weight="700" font-size="34" letter-spacing="1" fill="#1c1f24">N SCOOTS</text>
+        </svg>
+        <span class="wordmark-sub">E-Scooter &amp; E-Dirtbikes</span>
+      </a>
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <a href="#/katalog?kat=escooter" data-nav="katalog">E-Scooter</a>
+        <a href="#/dirtbikes" data-nav="dirtbikes">E-Dirtbikes</a>
+        <a href="#/katalog?kat=zubehoer">Zubehör</a>
+        <a href="#/info" data-nav="info">Gut zu wissen</a>
+      </nav>
+      <div class="header-actions">
+        <a class="icon-btn" href="#/vergleich" data-nav="vergleich" aria-label="Vergleich">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M8 3v18M16 3v18M3 8h5M16 8h5M3 16h5M16 16h5"/></svg>
+          <span class="badge-count" id="compare-count" hidden>0</span>
+        </a>
+        <button class="icon-btn" type="button" data-action="open-cart" aria-label="Warenkorb öffnen">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.5L21 8H6.2"/><circle cx="10" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg>
+          <span class="badge-count" id="cart-count" hidden>0</span>
+        </button>
+        <button class="icon-btn menu-btn" type="button" id="menu-btn" data-action="menu" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menü">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" data-open="false" aria-label="Navigation">
+      <a href="#/katalog?kat=escooter">E-Scooter</a>
+      <a href="#/dirtbikes">E-Dirtbikes</a>
+      <a href="#/katalog?kat=zubehoer">Zubehör</a>
+      <a href="#/vergleich">Vergleich</a>
+      <a href="#/warenkorb">Warenkorb</a>
+      <a href="#/info">Gut zu wissen</a>
+    </nav>
+  </header>
+
+  <main id="app" aria-live="off"></main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div>
+        <h3>N SCOOTS</h3>
+        <p>E-Scooter &amp; E-Dirtbikes. Dein nächster Ride.</p>
+        <p class="small">Prototyp. Alle Produktbilder sind gekennzeichnete Platzhalter. Referenzpreise stammen aus fremden Angeboten. Kein autorisierter Händler der genannten Marken.</p>
+      </div>
+      <div>
+        <h3>Shop</h3>
+        <ul>
+          <li><a href="#/katalog?kat=escooter">E-Scooter</a></li>
+          <li><a href="#/dirtbikes">E-Dirtbikes</a></li>
+          <li><a href="#/katalog?kat=zubehoer">Zubehör</a></li>
+          <li><a href="#/vergleich">Vergleich</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Service</h3>
+        <ul>
+          <li><a href="#/info">Gut zu wissen</a></li>
+          <li><span class="muted">Impressum, Datenschutz, AGB: folgen vor Verkaufsstart</span></li>
+        </ul>
+        <p class="small" style="margin-top:10px">© <span id="year"></span> N SCOOTS</p>
+      </div>
+    </div>
+  </footer>
+
+  <dialog id="cart-drawer" class="drawer" aria-labelledby="drawer-title">
+    <div class="drawer-head">
+      <h2 id="drawer-title">Warenkorb</h2>
+      <button class="icon-btn" type="button" data-action="close-dialog" aria-label="Schliessen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="drawer-body" id="drawer-body"></div>
+    <div class="drawer-foot">
+      <div class="summary-row"><span>Zwischensumme</span><strong id="drawer-sum">CHF 0.–</strong></div>
+      <a class="btn btn-accent btn-block" href="#/warenkorb">Zum Warenkorb</a>
+      <button class="btn btn-ghost btn-block" type="button" data-action="close-dialog">Weiter einkaufen</button>
+    </div>
+  </dialog>
+
+  <dialog id="pick-dialog" class="modal" aria-labelledby="pick-title">
+    <div class="drawer-head">
+      <h2 id="pick-title">Modell zum Vergleich wählen</h2>
+      <button class="icon-btn" type="button" data-action="close-dialog" aria-label="Schliessen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="drawer-body"><div class="pick-list" id="pick-list"></div></div>
+  </dialog>
+
+  <dialog id="checkout-dialog" class="modal" aria-labelledby="checkout-title">
+    <div class="drawer-head">
+      <h2 id="checkout-title">Noch keine Kasse</h2>
+      <button class="icon-btn" type="button" data-action="close-dialog" aria-label="Schliessen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="drawer-body">
+      <p>Dies ist ein Prototyp. Eine Bestellung oder Zahlung ist noch nicht möglich, und es werden keine Daten übermittelt.</p>
+      <p class="muted">Geplant ist ein Checkout über Shopify mit Schweizer Zahlungsmitteln. Preise, Versand und Rechtstexte werden vorher festgelegt.</p>
+      <button class="btn btn-block" type="button" data-action="close-dialog" autofocus>Verstanden</button>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" data-show="false"></div>
+
+  <script src="data/products.js"></script>
+  <script src="js/format.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
