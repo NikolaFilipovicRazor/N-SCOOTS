@@ -17,6 +17,15 @@ window.NSCOOTS_DATA = {
     claim: "Dein nächster Ride.",
     currency: "CHF",
     dataVersion: "2026-10-28",
+    /* Kontakt: Platzhalter, bitte eigene Angaben eintragen */
+    kontakt: {
+      person: "Nikola Filipovic",
+      ort: "Schweiz",
+      telefon: "+41 00 000 00 00",
+      email: "kontakt@n-scoots.ch",
+      zeiten: "Mo–Fr 9–18 Uhr",
+      hinweis: "Telefon und E-Mail sind Platzhalter und werden noch ergänzt."
+    },
     disclaimer:
       "Demo-Prototyp. Noch kein Verkauf, keine Bestellung, keine Zahlung. Referenzpreise stammen aus fremden Angeboten und sind keine N SCOOTS-Preise."
   },

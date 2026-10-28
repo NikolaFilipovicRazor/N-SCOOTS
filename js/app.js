@@ -46,6 +46,7 @@
     else if (view === "warenkorb") { ({ html, title } = viewCart()); }
     else if (view === "dirtbikes") { ({ html, title } = viewDirtbikes()); }
     else if (view === "info") { ({ html, title } = viewInfo()); }
+    else if (view === "kontakt") { ({ html, title } = viewKontakt()); }
     else { ({ html, title } = viewNotFound()); }
     app.innerHTML = html;
     document.title = title ? `${title} – N SCOOTS` : "N SCOOTS – E-Scooter & E-Dirtbikes";
@@ -149,10 +150,10 @@
     <section class="trust" aria-label="So arbeiten wir">
       <div class="wrap">
         <ul class="trust-list">
-          <li><strong>Daten mit Quelle</strong><span>Jede Angabe mit Herkunft und Prüfdatum</span></li>
-          <li><strong>Ehrliche Preise</strong><span>Referenzpreis oder «offen», nichts erfunden</span></li>
-          <li><strong>Zulassung wird geprüft</strong><span>Strasse und Gelände klar getrennt</span></li>
-          <li><strong>Beratung auf Deutsch</strong><span>Verständlich, ohne Fachchinesisch</span></li>
+          <li><strong>Schweizer Ansprechpartner</strong><span>${esc(D.meta.kontakt.person)}, ${esc(D.meta.kontakt.ort)}</span></li>
+          <li><strong>Sichere Zahlung</strong><span>TWINT, Karte, Rechnung (Checkout folgt)</span></li>
+          <li><strong>Lieferbar</strong><span>Versand in der ganzen Schweiz</span></li>
+          <li><strong>Persönlicher Support</strong><span><a href="#/kontakt">Telefon und E-Mail</a>, ${esc(D.meta.kontakt.zeiten)}</span></li>
         </ul>
       </div>
     </section>
@@ -643,6 +644,35 @@
     return { html, title: "Gut zu wissen" };
   }
 
+  function viewKontakt() {
+    const k = D.meta.kontakt;
+    const html = `
+    <div class="wrap">
+      <div class="page-head"><h1>Kontakt</h1><p class="muted">Persönliche Beratung, Fragen zu Modellen, Zulassung und Lieferung.</p></div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h2>Dein Ansprechpartner</h2>
+          <p class="contact-person">${esc(k.person)}<br><span class="muted">${esc(k.ort)}</span></p>
+          <dl class="contact-list">
+            <div><dt>Telefon</dt><dd><a href="tel:${esc(k.telefon.replace(/\s+/g, ""))}">${esc(k.telefon)}</a></dd></div>
+            <div><dt>E-Mail</dt><dd><a href="mailto:${esc(k.email)}">${esc(k.email)}</a></dd></div>
+            <div><dt>Erreichbar</dt><dd>${esc(k.zeiten)}</dd></div>
+          </dl>
+          ${k.hinweis ? `<p class="small muted">${esc(k.hinweis)}</p>` : ""}
+        </div>
+        <form class="contact-form" id="contact-form" novalidate>
+          <h2>Nachricht schreiben</h2>
+          <div class="field"><label for="c-name">Name</label><input type="text" id="c-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="c-email">E-Mail</label><input type="email" id="c-email" name="email" autocomplete="email" required></div>
+          <div class="field"><label for="c-msg">Nachricht</label><textarea id="c-msg" name="msg" rows="5" required></textarea></div>
+          <button class="btn btn-accent" type="submit">Nachricht senden</button>
+          <p class="small muted" id="contact-note">Prototyp: Das Formular sendet noch nichts. Bis dahin bitte direkt per E-Mail oder Telefon melden.</p>
+        </form>
+      </div>
+    </div>`;
+    return { html, title: "Kontakt" };
+  }
+
   function viewNotFound(msg) {
     return { html: `<div class="wrap"><div class="page-head"><h1>Seite nicht gefunden</h1><p class="muted">${msg || "Diese Adresse führt ins Leere."}</p><a class="btn" href="#/katalog">Zum Katalog</a> <a class="btn btn-ghost" href="#/">Zur Startseite</a></div></div>`, title: "Nicht gefunden" };
   }
@@ -651,6 +681,7 @@
   function afterRender(view, route) {
     if (view === "katalog") bindCatalog(route.query);
     if (view === "produkt") bindProduct(route.parts[1]);
+    if (view === "kontakt") { const f = $("#contact-form"); f.addEventListener("submit", (e) => { e.preventDefault(); if (!f.checkValidity()) { f.reportValidity(); return; } $("#contact-note").textContent = "Noch nicht aktiv: Die Nachricht wurde nicht gesendet. Bitte E-Mail oder Telefon nutzen."; toast("Formular ist im Prototyp noch nicht aktiv."); }); }
     const v = $(".hero-video"); if (v && window.matchMedia("(prefers-reduced-motion: reduce)").matches) { v.removeAttribute("autoplay"); v.pause(); const b = $('[data-action="video-toggle"]'); if (b) { b.textContent = "Video abspielen"; b.setAttribute("aria-pressed", "false"); } }
     window.NSCOOTS_MOTION && window.NSCOOTS_MOTION.refresh();
   }
@@ -747,6 +778,7 @@
   S.subscribe(renderBadges);
   window.addEventListener("hashchange", render);
   $("#year").textContent = new Date().getFullYear();
+  { const k = D.meta.kontakt; $("#footer-contact").innerHTML = `<li>${esc(k.person)}, ${esc(k.ort)}</li><li><a href="tel:${esc(k.telefon.replace(/\s+/g, ""))}">${esc(k.telefon)}</a></li><li><a href="mailto:${esc(k.email)}">${esc(k.email)}</a></li><li class="muted">${esc(k.zeiten)}</li>`; }
   renderBadges();
   render();
 })();

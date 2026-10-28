@@ -466,3 +466,15 @@ button.gallery-main .media-badge { pointer-events: none; }
   [data-parallax] > img, [data-parallax] > video, [data-parallax] > svg { height: 100%; transform: none !important; }
   .hero-img, .hero-video, .hero-illu { height: 100%; }
 }
+
+/* Kontakt */
+.contact-grid { display: grid; gap: 20px; padding-bottom: 40px; }
+@media (min-width: 900px) { .contact-grid { grid-template-columns: 1fr 1.2fr; align-items: start; } }
+.contact-card { padding: 22px; border-radius: var(--radius); background: var(--surface); border-left: 4px solid var(--cobalt); }
+.contact-person { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; line-height: 1.15; }
+.contact-list { display: grid; gap: 10px; margin: 0; }
+.contact-list div { display: grid; grid-template-columns: 90px 1fr; gap: 8px; }
+.contact-list dt { color: var(--ink-2); } .contact-list dd { margin: 0; font-weight: 600; }
+.contact-form { display: grid; gap: 14px; padding: 22px; border: 1px solid var(--line); border-radius: var(--radius); }
+.contact-form textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: var(--radius-s); font: inherit; resize: vertical; }
+.contact-form textarea:focus { border-color: var(--cobalt); }
