@@ -41,6 +41,7 @@ Stand: 2026-10-30
 ## Sortiment (Stand 2026-10-30)
 
 - Zusätzlich drei in der Schweiz als strassenzugelassen ausgewiesene 20 km/h-Modelle (Teverun eKFV / CH-Edition) aus dem Katalog von swiss-scoots.ch; Filter «Strassenzugelassen CH» zeigt sie.
+- Die technischen Daten dieser drei Modelle werden aus dem Fliesstext der Quelle gelesen (Motor 500 W, Akku 1170/1560/1602 Wh, Reichweite 60/90/100 km, 20 km/h, 150 kg Zuladung); Stand 2026-10-30.
 - Preise sind jetzt N SCOOTS-Einführungspreise auf dem Niveau des jeweiligen Quell-Händlers (`price.basis`, `price.source`), unverbindlich bis Verkaufsstart; keine Händlernamen auf der Website.
 - Produktbilder ohne Beschriftung am Bild; Herkunft und Freigabestatus in ASSETS.md.
 
