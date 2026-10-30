@@ -12,6 +12,8 @@ const sizeOf = (f) => { try { const o = execFileSync("ffprobe", ["-v", "error", 
 for (const brand of fs.readdirSync(src)) {
   const mf = path.join(src, brand, "manifest.json"); if (!fs.existsSync(mf)) continue;
   const m = JSON.parse(fs.readFileSync(mf, "utf8"));
+  const abs = (f) => (f && !path.isAbsolute(f)) ? path.join(src, brand, f) : f; // relative Pfade im Manifest
+  (m.products || []).forEach((p) => (p.images || []).forEach((im) => { im.file = abs(im.file); }));
   // Logos werden manuell in data/media.js gepflegt (1:1 von den Herstellerseiten); Agenten-Logos werden ignoriert.
   for (const p of m.products || []) {
     if (!p.images || !p.images.length || p.matchQuality === "none") continue;

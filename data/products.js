@@ -20,14 +20,14 @@ window.NSCOOTS_DATA = {
     dataVersion: "2026-10-28",
     /* Kontakt: Platzhalter, bitte eigene Angaben eintragen */
     kontakt: {
-      person: "Nikola Filipovic",
+      person: "Dein N SCOOTS Ansprechpartner",
       ort: "Rapperswil-Jona",
       abholung: "Abholung in Rapperswil-Jona oder Lieferung schweizweit",
-      telefon: "+41 00 000 00 00",
-      email: "kontakt@n-scoots.ch",
-      zeiten: "Mo–Fr 9–18 Uhr",
-      whatsapp: "+41 00 000 00 00",
-      hinweis: "Telefon und E-Mail sind Platzhalter und werden noch ergänzt."
+      telefon: "+41 79 460 18 35",
+      email: "info@nscoots.ch",
+      zeiten: "WhatsApp 24/7 · Antwort meistens innerhalb 1–2 Stunden",
+      whatsapp: "+41 79 460 18 35",
+      hinweis: ""
     },
     disclaimer:
       "Demo-Prototyp. Noch kein Verkauf, keine Bestellung, keine Zahlung. Referenzpreise stammen aus fremden Angeboten und sind keine N SCOOTS-Preise."

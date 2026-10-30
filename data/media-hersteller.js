@@ -11,7 +11,7 @@
     "status": "hersteller",
     "kind": "produkt",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0622/2161/5174/files/ChatGPTImage2026_6_18_09_40_451.png",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0622/2161/5174/files/S5-pro_1.png",
     "page": "https://joyorprime.com/products/joyor-s5-abe",
     "match": "exact"
    },
@@ -21,7 +21,7 @@
     "status": "hersteller",
     "kind": "produkt",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0622/2161/5174/files/S5-pro_1.png",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0622/2161/5174/files/S5-PRO_3.png",
     "page": "https://joyorprime.com/products/joyor-s5-abe",
     "match": "exact"
    },
@@ -31,7 +31,7 @@
     "status": "hersteller",
     "kind": "produkt",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0622/2161/5174/files/S5-PRO_3.png",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0622/2161/5174/files/S5-PRO_2.png",
     "page": "https://joyorprime.com/products/joyor-s5-abe",
     "match": "exact"
    },
@@ -158,26 +158,6 @@
     "kind": "produkt",
     "credit": "Hersteller",
     "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0622/2161/5174/files/S8_2_136e6643-4ded-4cf1-bd8a-5d0fca63d71f.png",
-    "page": "https://joyorprime.com/products/joyor-s8-z-electric-scooter",
-    "match": "variant"
-   },
-   {
-    "src": "assets/photos/hersteller/joyor-s8-48v-26ah-600w-3.jpg",
-    "alt": "Joyor S8, Produktbild 3",
-    "status": "hersteller",
-    "kind": "produkt",
-    "credit": "Hersteller",
-    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0622/2161/5174/files/ChatGPTImage2026_7_8_16_25_391.png",
-    "page": "https://joyorprime.com/products/joyor-s8-z-electric-scooter",
-    "match": "variant"
-   },
-   {
-    "src": "assets/photos/hersteller/joyor-s8-48v-26ah-600w-4.jpg",
-    "alt": "Joyor S8, Lifestyle-Foto 4",
-    "status": "hersteller",
-    "kind": "lifestyle",
-    "credit": "Hersteller",
-    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0622/2161/5174/files/ChatGPTImage2026_7_9_16_41_39_4.jpg",
     "page": "https://joyorprime.com/products/joyor-s8-z-electric-scooter",
     "match": "variant"
    }
@@ -337,6 +317,1374 @@
     "page": "https://joyorprime.com/products/joyor-t10-1000w-dual-motors-75km-endurance",
     "match": "exact"
    }
+  ],
+  "ausom-f1-max": [
+   {
+    "src": "assets/photos/hersteller/ausom-f1-max-1.jpg",
+    "alt": "Ausom F1 Max, Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/F1-max-1_bcd7393f-10a1-4e8c-92b4-1db950df189a.jpg?v=1747932926",
+    "page": "https://www.ausom.com/products/ausom-f1-max-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/ausom-f1-max-2.jpg",
+    "alt": "Ausom F1 Max, Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/F1-max-3_5dc2844c-42a5-4bdf-9154-ba40b51db2fe.jpg?v=1747932927",
+    "page": "https://www.ausom.com/products/ausom-f1-max-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/ausom-f1-max-3.jpg",
+    "alt": "Ausom F1 Max, Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/F1-max-2_69f6a692-72f7-4851-8ca0-0e82d404ae3b.jpg?v=1747932926",
+    "page": "https://www.ausom.com/products/ausom-f1-max-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/ausom-f1-max-4.jpg",
+    "alt": "Ausom F1 Max, Lifestyle-Foto 4",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/F1_Max-3_4b8c47f2-5e08-442e-8315-1302a2de5a6c.jpg?v=1747932926",
+    "page": "https://www.ausom.com/products/ausom-f1-max-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/ausom-f1-max-5.jpg",
+    "alt": "Ausom F1 Max, Lifestyle-Foto 5",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/F1_Max-2_ade2268e-92d0-4914-abc5-ab7e9ad6091b.jpg?v=1747932926",
+    "page": "https://www.ausom.com/products/ausom-f1-max-electric-scooter",
+    "match": "exact"
+   }
+  ],
+  "ausom-l2-max-dual-motor": [
+   {
+    "src": "assets/photos/hersteller/ausom-l2-max-dual-motor-1.jpg",
+    "alt": "Ausom L2 Max Dual, Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/4_a1c36130-03d5-4d97-89a7-d7527cc9e830.jpg?v=1747932926",
+    "page": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/ausom-l2-max-dual-motor-2.jpg",
+    "alt": "Ausom L2 Max Dual, Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/1_44ce8e84-c835-4d5c-8119-c7c3dad88b6d.jpg?v=1747932926",
+    "page": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/ausom-l2-max-dual-motor-3.jpg",
+    "alt": "Ausom L2 Max Dual, Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/2_ff082a27-85e6-4c56-8318-29a31d891ae7.jpg?v=1747932926",
+    "page": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/ausom-l2-max-dual-motor-4.jpg",
+    "alt": "Ausom L2 Max Dual, Lifestyle-Foto 4",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/L2-MAX-DUAL-1_75d50f62-c659-4ac5-9c83-86521190ff04.jpg?v=1747932927",
+    "page": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/ausom-l2-max-dual-motor-5.jpg",
+    "alt": "Ausom L2 Max Dual, Lifestyle-Foto 5",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/L2-MAX-DUAL-2_3bb56048-a930-4c36-ae3a-d1e5b89a2651.jpg?v=1747932926",
+    "page": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
+    "match": "exact"
+   }
+  ],
+  "ausom-dt2-pro": [
+   {
+    "src": "assets/photos/hersteller/ausom-dt2-pro-1.jpg",
+    "alt": "Ausom DT2 Pro, Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/DT2-Pro-1_eea8d6f3-c39d-4d6f-9615-fdffe7e18175.jpg?v=1747932926",
+    "page": "https://www.ausom.com/products/ausom-dt2-pro-e-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/ausom-dt2-pro-2.jpg",
+    "alt": "Ausom DT2 Pro, Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/DT2-Pro-3_75e19771-f4cc-47d3-86a6-25d4b03e009c.jpg?v=1747932926",
+    "page": "https://www.ausom.com/products/ausom-dt2-pro-e-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/ausom-dt2-pro-3.jpg",
+    "alt": "Ausom DT2 Pro, Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/DT2-Pro-2_3515723a-5583-4c68-815d-bc1885e341f7.jpg?v=1747932926",
+    "page": "https://www.ausom.com/products/ausom-dt2-pro-e-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/ausom-dt2-pro-4.jpg",
+    "alt": "Ausom DT2 Pro, Lifestyle-Foto 4",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/DT2-PRO-RIDE-1_8a8e11c3-3635-42f4-b055-b801246fcf2e.jpg?v=1747932926",
+    "page": "https://www.ausom.com/products/ausom-dt2-pro-e-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/ausom-dt2-pro-5.jpg",
+    "alt": "Ausom DT2 Pro, Lifestyle-Foto 5",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/DT2-PRO-RIDE-2_b3308049-cad2-4b10-b081-13feb311106e.jpg?v=1747932926",
+    "page": "https://www.ausom.com/products/ausom-dt2-pro-e-scooter",
+    "match": "exact"
+   }
+  ],
+  "ausom-l1-max": [
+   {
+    "src": "assets/photos/hersteller/ausom-l1-max-1.jpg",
+    "alt": "Ausom L1 Max, Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/L1-4_2bcd9567-520b-480c-ab84-97f1876bb58d.jpg?v=1747932926",
+    "page": "https://www.ausom.com/products/ausom-l1-abe-electric-scooter",
+    "match": "variant"
+   },
+   {
+    "src": "assets/photos/hersteller/ausom-l1-max-2.jpg",
+    "alt": "Ausom L1 Max, Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/L1-1_90396e4b-ffb6-4f75-b394-99d3dce660f0.jpg?v=1747932926",
+    "page": "https://www.ausom.com/products/ausom-l1-abe-electric-scooter",
+    "match": "variant"
+   },
+   {
+    "src": "assets/photos/hersteller/ausom-l1-max-3.jpg",
+    "alt": "Ausom L1 Max, Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/L1-3_f6a67e3d-0600-4a0e-9fa4-86846fff1b60.jpg?v=1747932926",
+    "page": "https://www.ausom.com/products/ausom-l1-abe-electric-scooter",
+    "match": "variant"
+   },
+   {
+    "src": "assets/photos/hersteller/ausom-l1-max-4.jpg",
+    "alt": "Ausom L1 Max, Lifestyle-Foto 4",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/L1_ABE.jpg?v=1787639430",
+    "page": "https://www.ausom.com/products/ausom-l1-abe-electric-scooter",
+    "match": "variant"
+   }
+  ],
+  "dualtron-victor-ltd-dgt-60v-37-1ah-samsung": [
+   {
+    "src": "assets/photos/hersteller/dualtron-victor-ltd-dgt-60v-37-1ah-samsung-1.jpg",
+    "alt": "Dualtron Victor LTD, Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://minimotors-us.oss-us-west-1.aliyuncs.com/upload/20241011/fd63c575eedb491b91fecad9b9a97b20.jpg",
+    "page": "https://www.minimotors.com/product_detail.html?code=1844651270416556034",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/dualtron-victor-ltd-dgt-60v-37-1ah-samsung-2.jpg",
+    "alt": "Dualtron Victor LTD, Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://minimotors-us.oss-us-west-1.aliyuncs.com/upload/20241011/6908d9616d53400d90b00abc405177e4.jpg",
+    "page": "https://www.minimotors.com/product_detail.html?code=1844651270416556034",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/dualtron-victor-ltd-dgt-60v-37-1ah-samsung-3.jpg",
+    "alt": "Dualtron Victor LTD, Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://minimotors-us.oss-us-west-1.aliyuncs.com/upload/20241011/098644ac63004443a9365ef384f4dd88.jpg",
+    "page": "https://www.minimotors.com/product_detail.html?code=1844651270416556034",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/dualtron-victor-ltd-dgt-60v-37-1ah-samsung-4.jpg",
+    "alt": "Dualtron Victor LTD, Lifestyle-Foto 4",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://minimotors-us.oss-us-west-1.aliyuncs.com/upload/20260717/d47674947c644e6db11634f96a0f36bb.jpg",
+    "page": "https://www.minimotors.com/product_detail.html?code=1844651270416556034",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/dualtron-victor-ltd-dgt-60v-37-1ah-samsung-5.jpg",
+    "alt": "Dualtron Victor LTD, Lifestyle-Foto 5",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://minimotors.oss-eu-central-1.aliyuncs.com/images/Victor%20ltd.jpg",
+    "page": "https://www.minimotors.com/product_detail.html?code=1844651270416556034",
+    "match": "exact"
+   }
+  ],
+  "rovoron-s7": [
+   {
+    "src": "assets/photos/hersteller/rovoron-s7-1.jpg",
+    "alt": "Rovoron S7, Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://www.rovoron.com/web/image/product.image/4868/image_1920",
+    "page": "https://www.rovoron.com/shop/rovorons784v37a-trottinette-electrique-rovoron-s7-84v-37ah-15665",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/rovoron-s7-2.jpg",
+    "alt": "Rovoron S7, Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://www.rovoron.com/web/image/product.image/4870/image_1920",
+    "page": "https://www.rovoron.com/shop/rovorons784v37a-trottinette-electrique-rovoron-s7-84v-37ah-15665",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/rovoron-s7-3.jpg",
+    "alt": "Rovoron S7, Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://www.rovoron.com/web/image/product.image/4869/image_1920",
+    "page": "https://www.rovoron.com/shop/rovorons784v37a-trottinette-electrique-rovoron-s7-84v-37ah-15665",
+    "match": "exact"
+   }
+  ],
+  "rovoron-r7": [
+   {
+    "src": "assets/photos/hersteller/rovoron-r7-1.jpg",
+    "alt": "Rovoron R7 / R7 Pro, Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://www.rovoron.com/web/image/product.image/4825/image_1920",
+    "page": "https://www.rovoron.com/shop/rovoronr760v-trottinette-electrique-rovoron-r7-v2-60v-28ah-13053",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/rovoron-r7-2.jpg",
+    "alt": "Rovoron R7 / R7 Pro, Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://www.rovoron.com/web/image/product.image/4830/image_1920",
+    "page": "https://www.rovoron.com/shop/rovoronr760v-trottinette-electrique-rovoron-r7-v2-60v-28ah-13053",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/rovoron-r7-3.jpg",
+    "alt": "Rovoron R7 / R7 Pro, Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://www.rovoron.com/web/image/product.image/4826/image_1920",
+    "page": "https://www.rovoron.com/shop/rovoronr760v-trottinette-electrique-rovoron-r7-v2-60v-28ah-13053",
+    "match": "exact"
+   }
+  ],
+  "teverun-blade-mini-pro-ch-edition": [
+   {
+    "src": "assets/photos/hersteller/teverun-blade-mini-pro-ch-edition-1.jpg",
+    "alt": "Teverun Blade Mini Pro eKFV, Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/430a5f5326e96e61e1e1ad53c8a84c24.jpg",
+    "page": "https://teverun-europe.com/product/blade-mini-pro-ekfv-black/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-blade-mini-pro-ch-edition-2.jpg",
+    "alt": "Teverun Blade Mini Pro eKFV, Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/fa42424b17a5384b0de93800da9bca7d.jpg",
+    "page": "https://teverun-europe.com/product/blade-mini-pro-ekfv-black/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-blade-mini-pro-ch-edition-3.jpg",
+    "alt": "Teverun Blade Mini Pro eKFV, Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/e11f4b6d0e4426cf128b1203b559723d.jpg",
+    "page": "https://teverun-europe.com/product/blade-mini-pro-ekfv-black/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-blade-mini-pro-ch-edition-4.jpg",
+    "alt": "Teverun Blade Mini Pro eKFV, Lifestyle-Foto 4",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/09/teverun-blade-mini-pro-electric-scooter-full-view-black-background.webp",
+    "page": "https://teverun-europe.com/product/blade-mini-pro-ekfv-black/",
+    "match": "exact"
+   }
+  ],
+  "teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb": [
+   {
+    "src": "assets/photos/hersteller/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb-1.jpg",
+    "alt": "Teverun Blade Mini Ultra (gelb), Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/03/b1c4d761526fe3dfa86240c0cb8f5f91.jpg",
+    "page": "https://teverun-europe.com/product/blade-mini-ultra-yellow/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb-2.jpg",
+    "alt": "Teverun Blade Mini Ultra (gelb), Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/9a30b92c149293cc3192cbb12eac836d.jpg",
+    "page": "https://teverun-europe.com/product/blade-mini-ultra-yellow/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb-3.jpg",
+    "alt": "Teverun Blade Mini Ultra (gelb), Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/1a174cb59416e2ffd0171daf25f2089f.jpg",
+    "page": "https://teverun-europe.com/product/blade-mini-ultra-yellow/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb-4.jpg",
+    "alt": "Teverun Blade Mini Ultra (gelb), Lifestyle-Foto 4",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/03/f6c8685ba037237866a63a5463a60d25.jpg",
+    "page": "https://teverun-europe.com/product/blade-mini-ultra-yellow/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb-5.jpg",
+    "alt": "Teverun Blade Mini Ultra (gelb), Lifestyle-Foto 5",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/c83d7d2366adab0beb531839c5bdb627.jpg",
+    "page": "https://teverun-europe.com/product/blade-mini-ultra-yellow/",
+    "match": "exact"
+   }
+  ],
+  "teverun-blade-mini-ultra-60v-27ah-akku-1000w-2": [
+   {
+    "src": "assets/photos/hersteller/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-1.jpg",
+    "alt": "Teverun Blade Mini Ultra (schwarz), Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/09/teverun-blade-mini-ultra-black.webp",
+    "page": "https://teverun-europe.com/product/blade-mini-ultra-black/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-2.jpg",
+    "alt": "Teverun Blade Mini Ultra (schwarz), Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/8a399348fe32e1fcd0cc81ecccf01512.jpg",
+    "page": "https://teverun-europe.com/product/blade-mini-ultra-black/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-3.jpg",
+    "alt": "Teverun Blade Mini Ultra (schwarz), Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/bff84f00a64b7e6059c159a4783ce843.jpg",
+    "page": "https://teverun-europe.com/product/blade-mini-ultra-black/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-4.jpg",
+    "alt": "Teverun Blade Mini Ultra (schwarz), Lifestyle-Foto 4",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-mini-ultra-electric-scooter-product-detail-full-black-background-01.webp",
+    "page": "https://teverun-europe.com/product/blade-mini-ultra-black/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-5.jpg",
+    "alt": "Teverun Blade Mini Ultra (schwarz), Lifestyle-Foto 5",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/09/teverun-blade-mini-ultra-electric-scooter-product-detail-scene-03.webp",
+    "page": "https://teverun-europe.com/product/blade-mini-ultra-black/",
+    "match": "exact"
+   }
+  ],
+  "teverun-blade-mini-ultra-ch-edition": [
+   {
+    "src": "assets/photos/hersteller/teverun-blade-mini-ultra-ch-edition-1.jpg",
+    "alt": "Teverun Blade Mini Ultra eKFV, Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/8097378b429bfc05c6587bcc408c8da7.jpg",
+    "page": "https://teverun-europe.com/product/blade-mini-ultra-ekfv-yellow/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-blade-mini-ultra-ch-edition-2.jpg",
+    "alt": "Teverun Blade Mini Ultra eKFV, Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/9c9a85169e693e32e9bb2da92506edb3.jpg",
+    "page": "https://teverun-europe.com/product/blade-mini-ultra-ekfv-yellow/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-blade-mini-ultra-ch-edition-3.jpg",
+    "alt": "Teverun Blade Mini Ultra eKFV, Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/a1808472ad563658811088dda1038fca.jpg",
+    "page": "https://teverun-europe.com/product/blade-mini-ultra-ekfv-yellow/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-blade-mini-ultra-ch-edition-4.jpg",
+    "alt": "Teverun Blade Mini Ultra eKFV, Lifestyle-Foto 4",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-mini-ultra-electric-scooter-product-detail-full-black-background-01.webp",
+    "page": "https://teverun-europe.com/product/blade-mini-ultra-ekfv-yellow/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-blade-mini-ultra-ch-edition-5.jpg",
+    "alt": "Teverun Blade Mini Ultra eKFV, Lifestyle-Foto 5",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/09/teverun-blade-mini-ultra-electric-scooter-product-detail-scene-03.webp",
+    "page": "https://teverun-europe.com/product/blade-mini-ultra-ekfv-yellow/",
+    "match": "exact"
+   }
+  ],
+  "teverun-blade-gt-ii": [
+   {
+    "src": "assets/photos/hersteller/teverun-blade-gt-ii-1.jpg",
+    "alt": "Teverun Blade GT II, Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/f6c2a2f00ee32961bbbedadd5eee613d.jpg",
+    "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-blade-gt-ii-2.jpg",
+    "alt": "Teverun Blade GT II, Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/b7d2ebc9682478d6abe9670baae9430e.jpg",
+    "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-blade-gt-ii-3.jpg",
+    "alt": "Teverun Blade GT II, Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/2b323b55aa0e3ed5d010cce06205051f.jpg",
+    "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-blade-gt-ii-4.jpg",
+    "alt": "Teverun Blade GT II, Lifestyle-Foto 4",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/a6ef7c52468cbb53b874c9f555226ed9.jpg",
+    "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-blade-gt-ii-5.jpg",
+    "alt": "Teverun Blade GT II, Lifestyle-Foto 5",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/fed2115d56b882f5e7bfc4d4cc389238.jpg",
+    "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
+    "match": "exact"
+   }
+  ],
+  "teverun-fighter-mini-pro": [
+   {
+    "src": "assets/photos/hersteller/teverun-fighter-mini-pro-1.jpg",
+    "alt": "Teverun Fighter Mini Pro, Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/05/94480acdb4c2c9b9474abddf5d4713ed.jpg",
+    "page": "https://teverun-europe.com/product/fighter-mini-pro-2/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-fighter-mini-pro-2.jpg",
+    "alt": "Teverun Fighter Mini Pro, Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/05/5ee7681583e0eeecb8c812d2ef1c83db.jpg",
+    "page": "https://teverun-europe.com/product/fighter-mini-pro-2/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-fighter-mini-pro-3.jpg",
+    "alt": "Teverun Fighter Mini Pro, Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/home-model-fighter-mini-pro-transparent.webp",
+    "page": "https://teverun-europe.com/product/fighter-mini-pro-2/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-fighter-mini-pro-4.jpg",
+    "alt": "Teverun Fighter Mini Pro, Lifestyle-Foto 4",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/6b1fd67ead826273c66e800688f396db.jpg",
+    "page": "https://teverun-europe.com/product/fighter-mini-pro-2/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-fighter-mini-pro-5.jpg",
+    "alt": "Teverun Fighter Mini Pro, Lifestyle-Foto 5",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/0735f1a917818225557c401e36366678.jpg",
+    "page": "https://teverun-europe.com/product/fighter-mini-pro-2/",
+    "match": "exact"
+   }
+  ],
+  "teverun-blade-gt-ii-plus": [
+   {
+    "src": "assets/photos/hersteller/teverun-blade-gt-ii-plus-1.jpg",
+    "alt": "Teverun Blade GT II+, Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/f7a637ee33100bd0ab8b393153fa45f9.jpg",
+    "page": "https://teverun-europe.com/product/blade-gt-ii/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-blade-gt-ii-plus-2.jpg",
+    "alt": "Teverun Blade GT II+, Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/968c034e32450309e5cdc6cedd0b1e4c.jpg",
+    "page": "https://teverun-europe.com/product/blade-gt-ii/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-blade-gt-ii-plus-3.jpg",
+    "alt": "Teverun Blade GT II+, Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/77933dc663f5b25cf82799094e09b74c.jpg",
+    "page": "https://teverun-europe.com/product/blade-gt-ii/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-blade-gt-ii-plus-4.jpg",
+    "alt": "Teverun Blade GT II+, Lifestyle-Foto 4",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/4c404403b5eaa3470a48d95ef1ece128.jpg",
+    "page": "https://teverun-europe.com/product/blade-gt-ii/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-blade-gt-ii-plus-5.jpg",
+    "alt": "Teverun Blade GT II+, Lifestyle-Foto 5",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/e0f8b0a4c0bbb43b9f2c743b479cd9b6.jpg",
+    "page": "https://teverun-europe.com/product/blade-gt-ii/",
+    "match": "exact"
+   }
+  ],
+  "teverun-fighter-mini-pro-ekfv": [
+   {
+    "src": "assets/photos/hersteller/teverun-fighter-mini-pro-ekfv-1.jpg",
+    "alt": "Teverun Fighter Mini Pro eKFV, Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/df9ded7587a38f811554e087b9e97d87.jpg",
+    "page": "https://teverun-europe.com/product/fighter-mini-pro-ekfv-2/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-fighter-mini-pro-ekfv-2.jpg",
+    "alt": "Teverun Fighter Mini Pro eKFV, Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/a8afa95c7f46adbb29d7e81300a64226.jpg",
+    "page": "https://teverun-europe.com/product/fighter-mini-pro-ekfv-2/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-fighter-mini-pro-ekfv-3.jpg",
+    "alt": "Teverun Fighter Mini Pro eKFV, Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/402b4362f0ced8ab10194da349d88fcc.jpg",
+    "page": "https://teverun-europe.com/product/fighter-mini-pro-ekfv-2/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-fighter-mini-pro-ekfv-4.jpg",
+    "alt": "Teverun Fighter Mini Pro eKFV, Lifestyle-Foto 4",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-fighter-mini-electric-scooter-product-detail-banner-01.webp",
+    "page": "https://teverun-europe.com/product/fighter-mini-pro-ekfv-2/",
+    "match": "exact"
+   }
+  ],
+  "teverun-fighter-supreme-7260r": [
+   {
+    "src": "assets/photos/hersteller/teverun-fighter-supreme-7260r-1.jpg",
+    "alt": "Teverun Fighter Supreme 7260R, Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/63ae5f4f8aaf0f499809b0f0d32607af.jpg",
+    "page": "https://teverun-europe.com/product/supreme-7260r/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-fighter-supreme-7260r-2.jpg",
+    "alt": "Teverun Fighter Supreme 7260R, Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/e81b4d8a32653fc7925ef6a8cd27be7d.jpg",
+    "page": "https://teverun-europe.com/product/supreme-7260r/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-fighter-supreme-7260r-3.jpg",
+    "alt": "Teverun Fighter Supreme 7260R, Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/1e759cb82143a2b8332f7ce43bcd6cf6.jpg",
+    "page": "https://teverun-europe.com/product/supreme-7260r/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-fighter-supreme-7260r-4.jpg",
+    "alt": "Teverun Fighter Supreme 7260R, Lifestyle-Foto 4",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-fighter-supreme-7260r-electric-scooter-front-lift-scene-01.webp",
+    "page": "https://teverun-europe.com/product/supreme-7260r/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-fighter-supreme-7260r-5.jpg",
+    "alt": "Teverun Fighter Supreme 7260R, Lifestyle-Foto 5",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/dfc092bdae797bd8c8ca995220ea4cb9.jpg",
+    "page": "https://teverun-europe.com/product/supreme-7260r/",
+    "match": "exact"
+   }
+  ],
+  "kukirin-g2": [
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-1.jpg",
+    "alt": "KuKirin G2, Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/kukirin-g2-main-image_1.webp?v=1779417114",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-2.jpg",
+    "alt": "KuKirin G2, Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/kukirin-g2-main-image_25.webp?v=1779417114",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-3.jpg",
+    "alt": "KuKirin G2, Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/kukirin-g2-main-image_26.webp?v=1779417114",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-4.jpg",
+    "alt": "KuKirin G2, Lifestyle-Foto 4",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://media.kukirin.cn/G2_3_31fc26d622.webp",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-5.jpg",
+    "alt": "KuKirin G2, Lifestyle-Foto 5",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://media.kukirin.cn/Kukirin_G2_20260319_07_4b26c1f568.webp",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-electric-scooter",
+    "match": "exact"
+   }
+  ],
+  "kukirin-g2-abe": [
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-abe-1.jpg",
+    "alt": "KuKirin G2 ABE, Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/kukirin-g2-main-image_1.webp?v=1779417114",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-electric-scooter",
+    "match": "variant"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-abe-2.jpg",
+    "alt": "KuKirin G2 ABE, Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/kukirin-g2-main-image_25.webp?v=1779417114",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-electric-scooter",
+    "match": "variant"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-abe-3.jpg",
+    "alt": "KuKirin G2 ABE, Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/kukirin-g2-main-image_26.webp?v=1779417114",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-electric-scooter",
+    "match": "variant"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-abe-4.jpg",
+    "alt": "KuKirin G2 ABE, Lifestyle-Foto 4",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://media.kukirin.cn/Kukirin_G2_20260319_07_4b26c1f568.webp",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-electric-scooter",
+    "match": "variant"
+   }
+  ],
+  "kukirin-g2-pro": [
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-pro-1.jpg",
+    "alt": "KuKirin G2 Pro, Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/23.webp?v=1737102486",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-pro-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-pro-2.jpg",
+    "alt": "KuKirin G2 Pro, Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/58.webp?v=1737102486",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-pro-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-pro-3.jpg",
+    "alt": "KuKirin G2 Pro, Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/25_fbfffc7e-6a8f-4821-be1f-bd46a8a54e3d.webp?v=1737102486",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-pro-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-pro-4.jpg",
+    "alt": "KuKirin G2 Pro, Lifestyle-Foto 4",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://media.kukirin.cn/G2_Pro_2_2024_6_19_1304fbc78d.webp",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-pro-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-pro-5.jpg",
+    "alt": "KuKirin G2 Pro, Lifestyle-Foto 5",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://media.kukirin.cn/G2_pro_03_f81099f4da.webp",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-pro-electric-scooter",
+    "match": "exact"
+   }
+  ],
+  "kukirin-g2-pro-abe": [
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-pro-abe-1.jpg",
+    "alt": "KuKirin G2 Pro ABE, Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/kukirin-g2-pro-abe-main-image_1.webp?v=1770862564",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-pro-abe-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-pro-abe-2.jpg",
+    "alt": "KuKirin G2 Pro ABE, Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/kukirin-g2-pro-abe-main-image_22.webp?v=1770862564",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-pro-abe-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-pro-abe-3.jpg",
+    "alt": "KuKirin G2 Pro ABE, Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/kukirin-g2-pro-abe-main-image_23.webp?v=1770862564",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-pro-abe-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-pro-abe-4.jpg",
+    "alt": "KuKirin G2 Pro ABE, Lifestyle-Foto 4",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://media.kukirin.cn/G2_pro_ABE_20260313_01_bf5ac76552.webp",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-pro-abe-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-pro-abe-5.jpg",
+    "alt": "KuKirin G2 Pro ABE, Lifestyle-Foto 5",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://media.kukirin.cn/G2_pro_ABE_20260313_06_81e128d7d5.webp",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-pro-abe-electric-scooter",
+    "match": "exact"
+   }
+  ],
+  "kukirin-g2-max-48v-20ah-akku-1000w": [
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-max-48v-20ah-akku-1000w-1.jpg",
+    "alt": "KuKirin G2 Max, Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/kukirin-g2max-main-image_2.webp?v=1750732774",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-max-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-max-48v-20ah-akku-1000w-2.jpg",
+    "alt": "KuKirin G2 Max, Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/kukirin-g2max-main-image_4.webp?v=1750732775",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-max-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-max-48v-20ah-akku-1000w-3.jpg",
+    "alt": "KuKirin G2 Max, Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/kukirin-g2max-main-image_8.webp?v=1750732774",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-max-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-max-48v-20ah-akku-1000w-4.jpg",
+    "alt": "KuKirin G2 Max, Lifestyle-Foto 4",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://media.kukirin.cn/G2_MAX_3_1920_X1080_800ee9bceb.webp",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-max-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-max-48v-20ah-akku-1000w-5.jpg",
+    "alt": "KuKirin G2 Max, Lifestyle-Foto 5",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://media.kukirin.cn/G2_Max_06_754ac91da4.webp",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-max-electric-scooter",
+    "match": "exact"
+   }
+  ],
+  "kukirin-g2-master": [
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-master-1.jpg",
+    "alt": "KuKirin G2 Master, Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/eu-kukirin-g2-master-main-image_1.webp?v=1754375915",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-master-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-master-2.jpg",
+    "alt": "KuKirin G2 Master, Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/eu-kukirin-g2-master-main-image_3.webp?v=1754375915",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-master-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-master-3.jpg",
+    "alt": "KuKirin G2 Master, Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/eu-kukirin-g2-master-main-image_5.webp?v=1754375915",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-master-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-master-4.jpg",
+    "alt": "KuKirin G2 Master, Lifestyle-Foto 4",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://media.kukirin.cn/G2_master_3_20250529_ca2134a73f.webp",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-master-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-master-5.jpg",
+    "alt": "KuKirin G2 Master, Lifestyle-Foto 5",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://media.kukirin.cn/Ku_Kirin_G2_Master_2_04_9da991375f.webp",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-master-electric-scooter",
+    "match": "exact"
+   }
+  ],
+  "kukirin-g2-ultra-48v-18ah-akku-2-x-800w-dual-motor": [
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-ultra-48v-18ah-akku-2-x-800w-dual-motor-1.jpg",
+    "alt": "KuKirin G2 Ultra, Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/kukirin-g2-ultra-main-image_1.webp?v=1756978683",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-ultra-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-ultra-48v-18ah-akku-2-x-800w-dual-motor-2.jpg",
+    "alt": "KuKirin G2 Ultra, Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/kukirin-g2-ultra-main-image_4.webp?v=1756978683",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-ultra-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-ultra-48v-18ah-akku-2-x-800w-dual-motor-3.jpg",
+    "alt": "KuKirin G2 Ultra, Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/kukirin-g2-ultra-main-image_5.webp?v=1756978684",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-ultra-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-ultra-48v-18ah-akku-2-x-800w-dual-motor-4.jpg",
+    "alt": "KuKirin G2 Ultra, Lifestyle-Foto 4",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://media.kukirin.cn/G2_Ultra_2_1920_X1080_1_7a03fe1e3a.webp",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-ultra-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g2-ultra-48v-18ah-akku-2-x-800w-dual-motor-5.jpg",
+    "alt": "KuKirin G2 Ultra, Lifestyle-Foto 5",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://media.kukirin.cn/Kukirin_G2_Ultra_14_63c6e02d83.webp",
+    "page": "https://kukirin.it.com/en/products/kukirin-g2-ultra-electric-scooter",
+    "match": "exact"
+   }
+  ],
+  "kukirin-g3": [
+   {
+    "src": "assets/photos/hersteller/kukirin-g3-1.jpg",
+    "alt": "KuKirin G3, Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/05_1_8ce009e3-b3af-4f92-83e8-0c808fcc0d21.webp?v=1737102549",
+    "page": "https://kukirin.it.com/en/products/kukirin-g3-pro-electric-scooter",
+    "match": "variant"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g3-2.jpg",
+    "alt": "KuKirin G3, Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/03_1.webp?v=1737102549",
+    "page": "https://kukirin.it.com/en/products/kukirin-g3-pro-electric-scooter",
+    "match": "variant"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g3-3.jpg",
+    "alt": "KuKirin G3, Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/07_1.webp?v=1737102549",
+    "page": "https://kukirin.it.com/en/products/kukirin-g3-pro-electric-scooter",
+    "match": "variant"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g3-4.jpg",
+    "alt": "KuKirin G3, Lifestyle-Foto 4",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://media.kukirin.cn/G3_pro_2_1920_X1080_1e5c257390.webp",
+    "page": "https://kukirin.it.com/en/products/kukirin-g3-pro-electric-scooter",
+    "match": "variant"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g3-5.jpg",
+    "alt": "KuKirin G3, Lifestyle-Foto 5",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://media.kukirin.cn/Kukirin_G3_pro_15_c66a0351c2.webp",
+    "page": "https://kukirin.it.com/en/products/kukirin-g3-pro-electric-scooter",
+    "match": "variant"
+   }
+  ],
+  "kukirin-g4": [
+   {
+    "src": "assets/photos/hersteller/kukirin-g4-1.jpg",
+    "alt": "KuKirin G4, Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/kukirin-g4-main-image_1.webp?v=1775793245",
+    "page": "https://kukirin.it.com/en/products/kukirin-g4-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g4-2.jpg",
+    "alt": "KuKirin G4, Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/kukirin-g4-main-image_2.webp?v=1775793245",
+    "page": "https://kukirin.it.com/en/products/kukirin-g4-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g4-3.jpg",
+    "alt": "KuKirin G4, Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/kukirin-g4-main-image_6.webp?v=1775793245",
+    "page": "https://kukirin.it.com/en/products/kukirin-g4-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-g4-4.jpg",
+    "alt": "KuKirin G4, Lifestyle-Foto 4",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://media.kukirin.cn/G4_1920_X1080_333_b4b28acb0e.webp",
+    "page": "https://kukirin.it.com/en/products/kukirin-g4-electric-scooter",
+    "match": "exact"
+   }
+  ],
+  "kukirin-m4-max-20255-48v-18ah-akku-800w": [
+   {
+    "src": "assets/photos/hersteller/kukirin-m4-max-20255-48v-18ah-akku-800w-1.jpg",
+    "alt": "KuKirin M4 Max, Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/eu-kukirin-m4-max-main-image_01.webp?v=1754013287",
+    "page": "https://kukirin.it.com/en/products/kukirin-m4-max-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-m4-max-20255-48v-18ah-akku-800w-2.jpg",
+    "alt": "KuKirin M4 Max, Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/eu-kukirin-m4-max-main-image_03.webp?v=1754013287",
+    "page": "https://kukirin.it.com/en/products/kukirin-m4-max-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-m4-max-20255-48v-18ah-akku-800w-3.jpg",
+    "alt": "KuKirin M4 Max, Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/eu-kukirin-m4-max-main-image_05.webp?v=1754013286",
+    "page": "https://kukirin.it.com/en/products/kukirin-m4-max-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-m4-max-20255-48v-18ah-akku-800w-4.jpg",
+    "alt": "KuKirin M4 Max, Lifestyle-Foto 4",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://media.kukirin.cn/M4_Max_22_1920_X1080_6d6f275eef.webp",
+    "page": "https://kukirin.it.com/en/products/kukirin-m4-max-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-m4-max-20255-48v-18ah-akku-800w-5.jpg",
+    "alt": "KuKirin M4 Max, Lifestyle-Foto 5",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://media.kukirin.cn/Kukirin_M4_Max_09_12f8e4564c.webp",
+    "page": "https://kukirin.it.com/en/products/kukirin-m4-max-electric-scooter",
+    "match": "exact"
+   }
+  ],
+  "kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike": [
+   {
+    "src": "assets/photos/hersteller/kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike-1.jpg",
+    "alt": "KuKirin X1, Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/kukirin-x1-main-image_1.webp?v=1772173942",
+    "page": "https://kukirin.it.com/en/products/kukirin-x1-electric-bike",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike-2.jpg",
+    "alt": "KuKirin X1, Produktbild 2",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/kukirin-x1-main-image_21.webp?v=1772173942",
+    "page": "https://kukirin.it.com/en/products/kukirin-x1-electric-bike",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike-3.jpg",
+    "alt": "KuKirin X1, Produktbild 3",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0638/2085/7425/files/kukirin-x1-main-image_3.webp?v=1772173942",
+    "page": "https://kukirin.it.com/en/products/kukirin-x1-electric-bike",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike-4.jpg",
+    "alt": "KuKirin X1, Lifestyle-Foto 4",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://media.kukirin.cn/LOW_0632_a350b264fa.webp",
+    "page": "https://kukirin.it.com/en/products/kukirin-x1-electric-bike",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike-5.jpg",
+    "alt": "KuKirin X1, Lifestyle-Foto 5",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://media.kukirin.cn/LOW_0489_ec5a457d7d.webp",
+    "page": "https://kukirin.it.com/en/products/kukirin-x1-electric-bike",
+    "match": "exact"
+   }
+  ],
+  "kukirin-s1-max-36v-10-4ah-akku-350w": [
+   {
+    "src": "assets/photos/hersteller/kukirin-s1-max-36v-10-4ah-akku-350w-1.jpg",
+    "alt": "KuKirin S1 Max, Produktbild 1",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://media.kukirin.cn/S1max_f4f338739d.webp",
+    "page": "https://www.kukirin.net/en/productdetail?documentId=jhbf4lb0eu4sfcqmyy7kibod",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-s1-max-36v-10-4ah-akku-350w-2.jpg",
+    "alt": "KuKirin S1 Max, Lifestyle-Foto 2",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://media.kukirin.cn/1_df4889582d.webp",
+    "page": "https://www.kukirin.net/en/productdetail?documentId=jhbf4lb0eu4sfcqmyy7kibod",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-s1-max-36v-10-4ah-akku-350w-3.jpg",
+    "alt": "KuKirin S1 Max, Lifestyle-Foto 3",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://media.kukirin.cn/Ku_Kirin_S1_max_07_4c6712cf96.webp",
+    "page": "https://www.kukirin.net/en/productdetail?documentId=jhbf4lb0eu4sfcqmyy7kibod",
+    "match": "exact"
+   }
+  ],
+  "kukirin-t3-2025-48v-15-6-ah-akku-800w": [
+   {
+    "src": "assets/photos/hersteller/kukirin-t3-2025-48v-15-6-ah-akku-800w-1.jpg",
+    "alt": "KuKirin T3, Lifestyle-Foto 1",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://kukirin.it.com/cdn/shop/articles/t3_0001_01_d47d8e16-78b5-4458-addf-be3a38122e4e.jpg",
+    "page": "https://www.kukirin.net/en/productdetail?documentId=k4lo52nb307tsl6d0tw0qpmc",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/kukirin-t3-2025-48v-15-6-ah-akku-800w-2.jpg",
+    "alt": "KuKirin T3, Lifestyle-Foto 2",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://media.kukirin.cn/T3_2_1920_X1080_c70395687d.webp",
+    "page": "https://www.kukirin.net/en/productdetail?documentId=k4lo52nb307tsl6d0tw0qpmc",
+    "match": "exact"
+   }
   ]
  },
  "logos": {}
@@ -376,6 +1724,151 @@
   "page": "https://joyorprime.com/products/joyor-t10-1000w-dual-motors-75km-endurance",
   "match": "exact",
   "notes": "Exact match: 60V 18Ah, 2x1000W. img-3/4 are detail shots (rear motor/brake, cockpit display). Store page states 85 km range vs 75 km in URL slug."
+ },
+ "ausom-f1-max": {
+  "page": "https://www.ausom.com/products/ausom-f1-max-electric-scooter",
+  "match": "exact",
+  "notes": "Official EU store page (ausom.com) lists 60V 20.8Ah, 1400W*2 brushless motor, 62 mi / ~100 km range; matches catalog exactly. EU Version variant available. 1600x1600 renders. No press/media kit or explicit image-usage note found on ausom.com (only /pages/about-us exists); images are standard product-page assets."
+ },
+ "ausom-l2-max-dual-motor": {
+  "page": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
+  "match": "exact",
+  "notes": "Official EU store page lists 48V 20.8Ah, 1000W*2 brushless motor (2688W peak), 56 mi / 90 km; matches catalog exactly. EU Version variant available. All renders 1000x1000 (largest the CDN serves). No explicit image-usage note on site."
+ },
+ "ausom-dt2-pro": {
+  "page": "https://www.ausom.com/products/ausom-dt2-pro-e-scooter",
+  "match": "exact",
+  "notes": "Official EU store page lists 52V 23.4Ah, 1100W*2 brushless motor (2912W peak), 71 mi / 114 km; matches catalog exactly. All renders 1000x1000. No explicit image-usage note on site."
+ },
+ "ausom-l1-max": {
+  "page": "https://www.ausom.com/products/ausom-l1-abe-electric-scooter",
+  "match": "variant",
+  "notes": "No product named \"L1 Max\" exists on ausom.com or ausomstore.com (ausom.de/.fr/.co.uk are parked). Closest official match: \"Ausom L1 ABE Electric Scooter\" (https://www.ausom.com/products/ausom-l1-abe-electric-scooter) with a 20.8Ah / 998.4Wh variant and 90 km range as in the catalog; its motor is stated as 930W peak (catalog says 1000W/1344W peak, which coincidentally equals the single-motor L2 Max spec). Product renders img-1..4 are taken from the standard L1 page (https://www.ausom.com/products/ausom-l1-electric-scooter, same frame, 48V 15.6Ah/800W US spec) because the L1 ABE renders carry a German \"ABE genehmigt\" badge overlay; the lifestyle photo is from the L1 ABE page. Verify model identity with the supplier before publishing."
+ },
+ "dualtron-victor-ltd-dgt-60v-37-1ah-samsung": {
+  "page": "https://www.minimotors.com/product_detail.html?code=1844651270416556034",
+  "match": "exact",
+  "notes": "Official Minimotors page 'DUALTRON VICTOR LIMITED' (bikeCategoryCode 1844651270416556034; same page mirrored at https://www.dual-tron.com/product_detail.html?code=1844651270416556034). Spec sheet on the page lists battery options 60V31.5Ah (CN) / 60V35Ah / 60V37.1Ah (Samsung or LG), dual 1300W motors, 39.1 kg, EY4 Bluetooth display, Nutt hydraulic brakes - matches the catalog variant (60V 37.1Ah Samsung). Note: the API variant list shows 60V31.5Ah CN and 60V38.5Ah Samsung 58E as current SKUs, so the 37.1Ah pack may be a superseded cell configuration. Images come via the page's data API (api.minimotorsglobal.com fetchDetail) and the minimotors.com home-page banner; the page shows no usage/press terms. img-1..4: studio shots, white background, 2871-2974 px (folded view in img-3, top view in img-4). lifestyle-1 is the top 960x1470 px hero portion cropped from the official 960x2827 detail/spec banner (ffmpeg crop); lifestyle-2 is the 1920x815 Victor Limited home-page banner. Logo: Minimotors' own header logo (combined 'MINIMOTORS DUALTRON' wordmark, PNG RGBA 504x43, no SVG found); a standalone Dualtron logo exists only on the regional store dualtronusa.com with 'USA' suffix and was not used. Dualtron USA official store page https://dualtronusa.com/products/dualtron-victor-limited-electric-scooter (60V 35Ah variant) offers 9 further 2000 px studio images but no lifestyle photos."
+ },
+ "rovoron-s7": {
+  "page": "https://www.rovoron.com/shop/rovorons784v37a-trottinette-electrique-rovoron-s7-84v-37ah-15665",
+  "match": "exact",
+  "notes": "Official S7 page: 84V 37Ah Samsung, 2x2500W (11500W peak), 140 km, 11in tubeless — matches catalog exactly. img-1 3/4 side view on white with Rovoron badge watermark; img-2 folded side view; img-3 cockpit/display detail. One lifestyle shot (rovoron-s7-2.jpg, parked on a riverside quay, 1500x1500 square, 'minimotors.fr' watermark + Rovoron badge). REMOVED during verification: product.image 4871 turned out to be the 'Pourquoi commander sur Minimotors.fr' promo graphic, not a photo. Skipped: spec-card graphic (4873). Max server size is image_1920 (originals 1500 px). No usage/press note on site."
+ },
+ "rovoron-r7": {
+  "page": "https://www.rovoron.com/shop/rovoronr760v-trottinette-electrique-rovoron-r7-v2-60v-28ah-13053",
+  "match": "exact",
+  "notes": "Catalog specs (60V 28.6Ah / 1716 Wh, 2x1800W) match the R7 V2 60V 28Ah page exactly. VERIFIED CONTENT: img-1 = RED R7, 3/4 side view on white (main image); img-2 = black R7, high-angle front 3/4 on white; img-3 = rear swingarm/shock detail close-up (not a full-bike shot); img-4 = official 3-colour render (black/red/blue, 1060x716, light studio bg); img-5 = R7 PRO deck/seat-pad close-up from the R7 PRO 60V 42Ah page (https://www.rovoron.com/shop/rovoronr7pro60v42a-trottinette-electrique-rovoron-r7-pro-60v-42ah-v2-15662), not a full-bike shot. No lifestyle/action photos of the R7 exist on rovoron.com (homepage uses video). No usage/press note on site."
+ },
+ "teverun-blade-mini-pro-ch-edition": {
+  "page": "https://teverun-europe.com/product/blade-mini-pro-ekfv-black/",
+  "match": "exact",
+  "notes": "Matched Blade Mini Pro eKFV 52V 22.5Ah (black + yellow pages on teverun-europe.com). img-1/3/4 black variant, img-2 yellow variant. Lifestyle-1 is a dark studio scene from teverun.com/product/blade-mini-pro/ (no rider photos published). Usage note: no press/media licence page found on teverun.com or teverun-europe.com; site footer states \"Copyright (c) 2026 TEVERUN\" - manufacturer permission should be confirmed before production use."
+ },
+ "teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb": {
+  "page": "https://teverun-europe.com/product/blade-mini-ultra-yellow/",
+  "match": "exact",
+  "notes": "Blade Mini Ultra yellow, 60V 27Ah, 2x1000W (3360W peak) - exact spec match. Usage note: no press/media licence page found on teverun.com or teverun-europe.com; site footer states \"Copyright (c) 2026 TEVERUN\" - manufacturer permission should be confirmed before production use."
+ },
+ "teverun-blade-mini-ultra-60v-27ah-akku-1000w-2": {
+  "page": "https://teverun-europe.com/product/blade-mini-ultra-black/",
+  "match": "exact",
+  "notes": "Blade Mini Ultra black, 60V 27Ah - exact. img-1 is the 2560px white-background shot from teverun.com; lifestyle shots from teverun.com are studio/banner scenes (lifestyle-1 shows the yellow/black colourway). Usage note: no press/media licence page found on teverun.com or teverun-europe.com; site footer states \"Copyright (c) 2026 TEVERUN\" - manufacturer permission should be confirmed before production use."
+ },
+ "teverun-blade-mini-ultra-ch-edition": {
+  "page": "https://teverun-europe.com/product/blade-mini-ultra-ekfv-yellow/",
+  "match": "exact",
+  "notes": "Matched Blade Mini Ultra eKFV (52V 30Ah, 20 km/h, hydraulic brakes) yellow + black pages. img-1/3/4 yellow variant, img-2 black variant. Lifestyle scenes are the non-eKFV Blade Mini Ultra from teverun.com (same chassis). Usage note: no press/media licence page found on teverun.com or teverun-europe.com; site footer states \"Copyright (c) 2026 TEVERUN\" - manufacturer permission should be confirmed before production use."
+ },
+ "teverun-blade-gt-ii": {
+  "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
+  "match": "exact",
+  "notes": "Blade GT II 60V 26Ah, 5000W peak - exact. img-4 is the black-background hero from teverun.com. Usage note: no press/media licence page found on teverun.com or teverun-europe.com; site footer states \"Copyright (c) 2026 TEVERUN\" - manufacturer permission should be confirmed before production use."
+ },
+ "teverun-fighter-mini-pro": {
+  "page": "https://teverun-europe.com/product/fighter-mini-pro-2/",
+  "match": "exact",
+  "notes": "Fighter Mini Pro 60V 31.8Ah (1908Wh), 3360W peak - exact. img-3 is the transparent PNG from teverun.com (1080x1350). Usage note: no press/media licence page found on teverun.com or teverun-europe.com; site footer states \"Copyright (c) 2026 TEVERUN\" - manufacturer permission should be confirmed before production use."
+ },
+ "teverun-blade-gt-ii-plus": {
+  "page": "https://teverun-europe.com/product/blade-gt-ii/",
+  "match": "exact",
+  "notes": "Europe store names it \"Blade GT+ II\": 60V 37.1Ah / 2226Wh, 120 km - exact spec match to GT II+. Product photos are shared with Blade GT II (identical body, orange trim). Usage note: no press/media licence page found on teverun.com or teverun-europe.com; site footer states \"Copyright (c) 2026 TEVERUN\" - manufacturer permission should be confirmed before production use."
+ },
+ "teverun-fighter-mini-pro-ekfv": {
+  "page": "https://teverun-europe.com/product/fighter-mini-pro-ekfv-2/",
+  "match": "exact",
+  "notes": "Fighter Mini Pro eKFV (52V 30.8Ah, 20 km/h, turn signals). No rider photos published; lifestyle-1 is a studio render of the Fighter Mini (non-eKFV) from teverun.com/product/fighter-mini-pro/. Usage note: no press/media licence page found on teverun.com or teverun-europe.com; site footer states \"Copyright (c) 2026 TEVERUN\" - manufacturer permission should be confirmed before production use."
+ },
+ "teverun-fighter-supreme-7260r": {
+  "page": "https://teverun-europe.com/product/supreme-7260r/",
+  "match": "exact",
+  "notes": "Supreme 7260R 72V 60Ah, 120 km/h, 200 km - exact. Lifestyle-1 is a 1920x1080 riding still from teverun.com; -2/-3 are dark studio scenes. Usage note: no press/media licence page found on teverun.com or teverun-europe.com; site footer states \"Copyright (c) 2026 TEVERUN\" - manufacturer permission should be confirmed before production use."
+ },
+ "kukirin-g2": {
+  "page": "https://kukirin.it.com/en/products/kukirin-g2-electric-scooter",
+  "match": "exact",
+  "notes": "EU store G2 page (48V 15.6Ah, 800W) vs catalog 48V 15Ah. Lifestyle images from kukirin.net product detail pages are marketing panels and carry text overlays (model name / feature captions)."
+ },
+ "kukirin-g2-abe": {
+  "page": "https://kukirin.it.com/en/products/kukirin-g2-electric-scooter",
+  "match": "variant",
+  "notes": "No dedicated G2 ABE page on kukirin.it.com or kukirin.net (only G2 Pro ABE exists); images are from the standard G2 page, same hardware, ABE version is speed-limited to 20 km/h. Lifestyle images from kukirin.net product detail pages are marketing panels and carry text overlays (model name / feature captions)."
+ },
+ "kukirin-g2-pro": {
+  "page": "https://kukirin.it.com/en/products/kukirin-g2-pro-electric-scooter",
+  "match": "exact",
+  "notes": "img-1..4 from EU store gallery (1000 px); img-5 is the 2560 px product photo used on kukirin.net (with seat). Lifestyle images from kukirin.net product detail pages are marketing panels and carry text overlays (model name / feature captions)."
+ },
+ "kukirin-g2-pro-abe": {
+  "page": "https://kukirin.it.com/en/products/kukirin-g2-pro-abe-electric-scooter",
+  "match": "exact",
+  "notes": "Lifestyle panels from kukirin.net G2 Pro ABE page carry German text overlays."
+ },
+ "kukirin-g2-max-48v-20ah-akku-1000w": {
+  "page": "https://kukirin.it.com/en/products/kukirin-g2-max-electric-scooter",
+  "match": "exact",
+  "notes": "kukirin.net lists G2 Max with 20.8Ah battery; catalog says 20Ah. img-5 is the 2560 px kukirin.net product photo (with seat). Lifestyle images from kukirin.net product detail pages are marketing panels and carry text overlays (model name / feature captions)."
+ },
+ "kukirin-g2-master": {
+  "page": "https://kukirin.it.com/en/products/kukirin-g2-master-electric-scooter",
+  "match": "exact",
+  "notes": "img-5 is a 1128 px transparent-background PNG from kukirin.net. Lifestyle images from kukirin.net product detail pages are marketing panels and carry text overlays (model name / feature captions)."
+ },
+ "kukirin-g2-ultra-48v-18ah-akku-2-x-800w-dual-motor": {
+  "page": "https://kukirin.it.com/en/products/kukirin-g2-ultra-electric-scooter",
+  "match": "exact",
+  "notes": "img-5 is a 1128 px transparent-background PNG from kukirin.net. Lifestyle images from kukirin.net product detail pages are marketing panels and carry text overlays (model name / feature captions)."
+ },
+ "kukirin-g3": {
+  "page": "https://kukirin.it.com/en/products/kukirin-g3-pro-electric-scooter",
+  "match": "variant",
+  "notes": "The original G3 (52V 18Ah, 1200W) is no longer listed on any official KuKirin site; images show the current G3 Pro (52V 23.4Ah, dual 1200W) which has a different look (yellow/orange accents). img-5 is a 1128 px transparent PNG. Lifestyle images from kukirin.net product detail pages are marketing panels and carry text overlays (model name / feature captions)."
+ },
+ "kukirin-g4": {
+  "page": "https://kukirin.it.com/en/products/kukirin-g4-electric-scooter",
+  "match": "exact",
+  "notes": "2026 model (with front fender). Lifestyle images from kukirin.net product detail pages are marketing panels and carry text overlays (model name / feature captions)."
+ },
+ "kukirin-m4-max-20255-48v-18ah-akku-800w": {
+  "page": "https://kukirin.it.com/en/products/kukirin-m4-max-electric-scooter",
+  "match": "exact",
+  "notes": "Lifestyle images from kukirin.net product detail pages are marketing panels and carry text overlays (model name / feature captions)."
+ },
+ "kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike": {
+  "page": "https://kukirin.it.com/en/products/kukirin-x1-electric-bike",
+  "match": "exact",
+  "notes": "Lifestyle 1 and 2 are clean 2560 px action photos from kukirin.net (X1 promo-video cover and X1 product cover); lifestyle 3 is the detail-page hero with text overlay."
+ },
+ "kukirin-s1-max-36v-10-4ah-akku-350w": {
+  "page": "https://www.kukirin.net/en/productdetail?documentId=jhbf4lb0eu4sfcqmyy7kibod",
+  "match": "exact",
+  "notes": "S1 Max is not sold on the EU store kukirin.it.com; only official source is kukirin.net (one 1128 px transparent product PNG). kugookirin.com only lists the different Kugoo S1 Pro, which was not used. Lifestyle images from kukirin.net product detail pages are marketing panels and carry text overlays (model name / feature captions)."
+ },
+ "kukirin-t3-2025-48v-15-6-ah-akku-800w": {
+  "page": "https://www.kukirin.net/en/productdetail?documentId=k4lo52nb307tsl6d0tw0qpmc",
+  "match": "exact",
+  "notes": "No white-background product photo of the T3 exists on kukirin.it.com, kukirin.net or kugookirin.com (kugookirin.com's 'T3' is an unrelated Kugoo cargo tricycle). Lifestyle 1 is a clean 1000 px photo from the EU store blog; lifestyle 2-3 are kukirin.net detail panels with text overlays. kukirinde.com (listed as authorized DE store) returned 403 and was not used."
  }
 } }, H);
   const M = window.NSCOOTS_MEDIA; if (!M) return;

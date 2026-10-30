@@ -49,6 +49,14 @@ Stand: 2026-10-30
 - Zulassung: E-Rydez weist für kein Modell eine CH-Strassenzulassung aus; Filter «Nur CH-strassenzugelassen» bleibt deshalb leer und erklärt das.
 - Neu auf der Startseite: Suchfeld im Header, Navigationszeile, Markenleiste, Vertrauens- und Service-Leiste, WhatsApp-Knopf, Kontaktseite mit Platzhalter-Telefon/E-Mail.
 
+## Stand 2026-10-30, zweite Runde (Referenzabgleich mit der ChatGPT-Version)
+
+- Wortmarke als SVG 1:1 aus der eigenen Identität des Auftraggebers übernommen (`assets/brand/wordmark.svg`, `mark.svg`, `favicon.svg`).
+- Offizielle Markenlogos 1:1 (KuKirin, Joyor, Teverun, Dualtron, Rovoron, Ausom) in roter Logo-Leiste, Marken-Tabs und Produktkarten.
+- Herstellerbilder für alle 36 Fahrzeuge (Produkt- und Lifestyle-Fotos von den offiziellen Seiten); Händlerbilder nur noch als Rückfall. Keine Fotoreferenzen mehr am Bild (Nachweise in ASSETS.md und data/media-hersteller.js).
+- Hero mit grossem Lifestyle-Panel, USP-Zeile, «Was hast du vor?» (Strassenzugelassene, Unter CHF 1’000, Performance), Mosaik-Galerie «Raus. Dein Stil.» mit Lightbox, dunkle Service-Sektion «Du fährst. Wir sind da.», Infokarten, Zahlungsarten im Footer.
+- Kontakt: +41 79 460 18 35 (Telefon und WhatsApp), info@nscoots.ch, Rapperswil-Jona, ohne Personennamen. Versprechen laut Auftraggeber: WhatsApp 24/7, Antwort meistens innerhalb 1–2 Stunden, schnell und einfach geliefert, sicher bezahlen. Diese Zusagen sind vor dem Shopstart organisatorisch sicherzustellen.
+
 ## Bewusst nicht gebaut
 
 - Keine Bestellung, Zahlung, Kundenkonto, Formulare mit Datenversand

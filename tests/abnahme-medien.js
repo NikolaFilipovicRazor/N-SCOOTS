@@ -29,7 +29,7 @@ const override = `window.__FX = ${JSON.stringify(FX)};
 
     await page.goto(BASE + "#/"); await page.waitForSelector("#hero-title");
     ok(`${label}: Hero-Video vorhanden`, (await page.locator("video.hero-video").count()) === 1);
-    ok(`${label}: Kein Produktbild neben Video`, (await page.locator(".hero-product").count()) === 0);
+    ok(`${label}: Kein Produktbild neben Video`, (await page.locator(".hero-product, .hero-panel").count()) === 0);
     await page.waitForTimeout(600);
     ok(`${label}: Hero-Video spielt`, await page.locator("video.hero-video").evaluate((v) => !v.paused));
     await page.click('[data-action="video-toggle"]');

@@ -90,20 +90,25 @@
   };
   function productCard(p, { compact = false } = {}) {
     const inCompare = S.compare().includes(p.id);
-    const specs = [];
-    if (p.specs.batteryWh) specs.push(`${F.num(p.specs.batteryWh, "Wh")}`);
-    if (p.specs.rangeKm) specs.push(`${F.num(p.specs.rangeKm, "km")}`);
-    if (p.specs.weightKg) specs.push(`${F.num(p.specs.weightKg, "kg")}`);
-    if (p.specs.motors === 2) specs.push("2 Motoren");
     const isAcc = p.category === "zubehoer";
+    const lg = p.brand ? MA.logo(p.brand) : null;
+    const cell = (k, v) => `<div><span>${k}</span><strong>${v == null ? "offen" : esc(v)}</strong></div>`;
+    const specGrid = isAcc ? "" : `<div class="card-specgrid">
+        ${cell("Motor", p.specs.motorW ? F.num(p.specs.motorW, "W") + (p.specs.motors === 2 ? " · 2 Motoren" : "") : null)}
+        ${cell("Akku", p.specs.batteryV && p.specs.batteryAh ? `${p.specs.batteryV} V · ${p.specs.batteryAh} Ah` : (p.specs.batteryWh ? F.num(p.specs.batteryWh, "Wh") : null))}
+        ${cell("Reichweite*", p.specs.rangeKm ? F.num(p.specs.rangeKm, "km") : null)}
+        ${cell("Gewicht", p.specs.weightKg ? F.num(p.specs.weightKg, "kg") : null)}
+      </div>`;
+    const legalLine = isAcc ? "" : `<div class="card-legal ${p.streetLegalCH ? "ok" : ""}">${p.streetLegalCH ? "Strassenzugelassen CH" : p.category === "edirtbike" ? "Für Privatgelände" : p.specs.abe ? `Deutsche ABE · ${p.specs.speedKmh || 20} km/h` : "Für private Fahrflächen"}</div>`;
     return `
     <article class="card" data-id="${p.id}">
       <div class="card-media${pimgs(p).length > 1 && canHover() ? " has-alt" : ""}${isProductImg(p) ? " is-product" : ""}">${img(p, 0, { alt: placeholderAlt(p) })}${pimgs(p).length > 1 && canHover() ? `<img class="alt" src="${esc(imgSrc(p, 1))}" alt="" loading="lazy" decoding="async" width="1100" height="760" onerror="this.closest('.card-media').classList.remove('has-alt');this.remove()">` : ""}${pimgs(p).length > 1 ? `<span class="media-count" aria-hidden="true">${pimgs(p).length} Bilder</span>` : ""}</div>
       <div class="card-body">
-        <div class="card-brand">${esc(p.brand ? brandName(p.brand) : catName(p.category))}${p.segment ? " · " + esc(segName(p.segment)) : p.category === "edirtbike" ? " · Dirtbike" : ""}</div>
-        <div class="card-tags">${legalTagShort(p)}${lieferTag(p)}${abeTag(p)}</div>
+        <div class="card-head">${lg ? `<img class="card-logo" src="${esc(lg)}" alt="${esc(brandName(p.brand))}" loading="lazy">` : ""}<div class="card-brand">${esc(p.brand ? brandName(p.brand) : catName(p.category))}${p.segment ? " · " + esc(segName(p.segment)) : p.category === "edirtbike" ? " · Dirtbike" : ""}</div></div>
         <h3 class="card-title"><a href="#/produkt/${p.id}">${esc(p.model)}</a></h3>
-        ${specs.length ? `<ul class="card-specs">${specs.map((s) => `<li>${s}</li>`).join("")}</ul>` : `<p class="small muted" style="margin:0">${esc(p.summary)}</p>`}
+        <div class="card-tags">${lieferTag(p)}</div>
+        ${isAcc ? `<p class="small muted" style="margin:0">${esc(p.summary)}</p>` : specGrid}
+        ${legalLine}
         <div class="card-price">${priceHtml(p)}</div>
       </div>
       ${compact ? "" : `<div class="card-actions">
@@ -138,22 +143,25 @@
             </svg>`;
       const note = hv ? [hv.credit ? `Video: ${esc(hv.credit)}` : "", hi.photo && hi.credit ? `Standbild: ${esc(hi.credit)}` : ""].filter(Boolean).join(" · ") : hi.photo ? (hi.credit ? `Foto: ${esc(hi.credit)}` : "") : "Illustration, kein Produktfoto. Hero-Foto oder -Video folgt.";
       return `
-    <section class="hero hero-media${hp.photo && !hv ? " has-product" : ""}" aria-labelledby="hero-title">
-      <div class="hero-bg" data-parallax="0.25">${media}</div>
+    <section class="hero hero-media${hp.photo && !hv ? " has-product" : ""}${hi.photo ? " has-panel" : ""}" aria-labelledby="hero-title">
+      <div class="hero-bg${hv ? "" : " hero-bg-plain"}" ${hv ? 'data-parallax="0.25"' : 'aria-hidden="true"'}>${hv ? media : ""}</div>
       <div class="wrap hero-content">
         <div data-reveal>
           <p class="hero-kicker">Premium Scooter <span class="sep">·</span> E-Mobility Schweiz</p>
           <h1 id="hero-title">Dein nächster Ride.<br><span class="h1-red">Premium Scooter.</span></h1>
-          <p>KuKirin, Joyor, Teverun, Dualtron, Rovoron und Ausom. Strassenzugelassene Modelle für den Alltag, Performance für Privatgelände, dazu E-Dirtbikes. Persönliche Beratung, Schweizer Ansprechpartner.</p>
+          <p>Finde den Scooter, der zu dir passt: strassenzugelassen für den Alltag oder voller Power fürs Gelände. Schnell und einfach geliefert, sicher bezahlt, persönlich beraten, auf WhatsApp rund um die Uhr erreichbar.</p>
           <div class="hero-cta">
             <a class="btn btn-accent" href="#/katalog?kat=escooter">Premium Scooter entdecken</a>
             <a class="btn btn-ghost" href="#/katalog?kat=escooter&zulassung=ch">Strassenzugelassen CH</a>
           </div>
           <p class="hero-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>${esc(D.meta.kontakt.abholung || "")}</p>
+          <ul class="hero-usps"><li>Schnell &amp; einfach geliefert</li><li>Sicher bezahlen</li><li>WhatsApp-Support 24/7</li></ul>
         </div>
-        ${hp.photo && !hv ? `<a class="hero-product" href="${hpProd ? `#/produkt/${hpProd.id}` : "#/katalog?kat=escooter"}" data-reveal>
+        ${hi.photo && !hv ? (() => { const hm = byId((MEDIA.hero.image && MEDIA.hero.image.model) || "kukirin-t3-2025-48v-15-6-ah-akku-800w"); return `<a class="hero-panel" href="${hm ? `#/produkt/${hm.id}` : "#/katalog?kat=escooter"}" data-reveal data-parallax="0.18">
+          ${MA.tag(hi, { eager: true })}
+          <span class="hero-panel-cap"><span><strong>${esc(hm ? hm.model : "Premium Scooter")}</strong><small>${hm ? (hm.streetLegalCH ? "Strassenzugelassen CH" : "Für private Fahrflächen") : ""}</small></span><span class="btn btn-ghost btn-sm">Modell ansehen</span></span>
+        </a>`; })() : hp.photo && !hv ? `<a class="hero-product" href="${hpProd ? `#/produkt/${hpProd.id}` : "#/katalog?kat=escooter"}" data-reveal>
           <img src="${esc(hp.src)}" alt="${esc(hp.alt)}" width="1400" height="1400" fetchpriority="high" decoding="async" onerror="window.NSCOOTS_MEDIA_API.broken(this)">
-          ${hpProd ? `<span class="hero-product-cap"><strong>${esc(hpProd.model)}</strong><span>${hpProd.streetLegalCH ? "Strassenzugelassen CH · " : ""}${hpProd.price.chf != null ? F.chf(hpProd.price.chf) : "Preis offen"} · ${esc(F.num(hpProd.specs.batteryWh, "Wh") || "")} · ${esc(F.num(hpProd.specs.rangeKm, "km") || "")}</span></span>` : ""}
         </a>` : ""}
         <div class="hero-tools">
           ${hv ? `<button class="btn btn-ghost btn-sm" type="button" data-action="video-toggle">Video pausieren</button>` : ""}
@@ -163,30 +171,26 @@
       <div class="hero-stripe" aria-hidden="true"></div>
     </section>`; })()}
 
-    <div class="ticker" aria-hidden="true"><div class="ticker-track">${[0, 1].map(() => ["Premium Scooter", "Strassenzugelassene Modelle", "KuKirin", "Joyor", "Teverun", "Dualtron", "Rovoron", "Ausom", "E-Dirtbikes", "Schweizer Support", esc(D.meta.kontakt.abholung || "")].map((t) => `<span>${t}</span>`).join("<i>•</i>")).join("<i>•</i>")}</div></div>
-
-    <section class="brand-bar" aria-label="Marken">
-      <div class="wrap brand-bar-list">
-        ${D.brands.map((b) => { const lg = MA.logo(b.id); return `<a class="brand-mark" href="#/katalog?marke=${b.id}"><span class="brand-initial" aria-hidden="true">${lg ? `<img src="${esc(lg)}" alt="">` : esc(b.name[0])}</span><span>${esc(b.name)}</span></a>`; }).join("")}
-      </div>
+    <section class="brand-band" aria-label="Marken">
+      <div class="brand-band-track">${[0, 1].map((k) => D.brands.map((b) => { const lg = MA.logo(b.id); return `<a class="brand-pill" href="#/katalog?marke=${b.id}" ${k ? 'tabindex="-1" aria-hidden="true"' : ""}><span class="brand-pill-logo">${lg ? `<img src="${esc(lg)}" alt="">` : esc(b.name[0])}</span><span>${esc(b.name)}</span></a>`; }).join("")).join("")}</div>
     </section>
 
     <section class="trust" aria-label="So arbeiten wir">
       <div class="wrap">
         <ul class="trust-list">
-          <li><strong>Schweizer Ansprechpartner</strong><span>${esc(D.meta.kontakt.person)}, ${esc(D.meta.kontakt.ort)}</span></li>
-          <li><strong>Sicher bezahlen</strong><span>TWINT, Karte, Rechnung (ab Verkaufsstart)</span></li>
-          <li><strong>Abholung oder Lieferung</strong><span>${esc(D.meta.kontakt.abholung || "Status je Modell")}</span></li>
-          <li><strong>Persönlicher Support</strong><span><a href="#/kontakt">Beratung und Hilfe</a>, ${esc(D.meta.kontakt.zeiten)}</span></li>
+          <li><strong>Schweizer Ansprechpartner</strong><span>Persönlich und nah, ${esc(D.meta.kontakt.ort)}</span></li>
+          <li><strong>Sicher bezahlen</strong><span>TWINT, Karte, Rechnung zum Shopstart</span></li>
+          <li><strong>Schnell &amp; einfach geliefert</strong><span>${esc(D.meta.kontakt.abholung || "")}</span></li>
+          <li><strong>WhatsApp-Support 24/7</strong><span>Antwort meistens innerhalb 1–2 Stunden</span></li>
         </ul>
       </div>
     </section>
 
     <section class="service-strip" aria-label="Service">
       <div class="wrap service-list">
-        <a href="#/info"><strong>2 Jahre Gewährleistung</strong><span>Gesetzliche Frist in der Schweiz, Bedingungen folgen</span></a>
-        <a href="#/kontakt"><strong>Ersatzteile &amp; Service</strong><span>Das passende Teil anfragen</span></a>
-        <a href="#" data-action="whatsapp"><strong>Per WhatsApp fragen</strong><span>Persönlich beraten lassen</span></a>
+        <a href="#/info"><strong>2 Jahre Gewährleistung</strong><span>Gesetzliche Frist in der Schweiz</span></a>
+        <a href="#/katalog?kat=zubehoer"><strong>Ersatzteile &amp; Service</strong><span>Das passende Teil direkt bestellen</span></a>
+        <a href="#" data-action="whatsapp"><strong>WhatsApp 24/7</strong><span>Schnelle Antwort, persönlich</span></a>
       </div>
     </section>
 
@@ -210,14 +214,14 @@
 
     <section class="section" aria-labelledby="profiles-title">
       <div class="wrap">
-        <div class="section-head"><div><h2 id="profiles-title">Was suchst du?</h2><p class="muted">Drei Fahrprofile. Jedes führt direkt zu den passenden Modellen.</p></div></div>
+        <div class="section-head"><div><h2 id="profiles-title">Was hast du vor?</h2><p class="muted">Wähle deinen Einsatz. Wir zeigen dir die passende Auswahl.</p></div></div>
         <div class="profile-grid">
           ${[
-            ["alltag", "Alltag &amp; Pendeln", "Strassenzugelassene 20 km/h-Modelle und kompakte Einzelmotor-Scooter für Bahnhof und Büro.", "teverun-blade-mini-pro-ch-edition"],
-            ["touren", "Lange Strecken", "Grosse Akkus ab rund 900 Wh für Touren und Hügel.", "kukirin-g2-master"],
-            ["offroad", "Gelände", "Doppelmotor, grobe Reifen, viel Federweg. Für Privatgelände.", "teverun-blade-gt-ii-plus"]
-          ].map(([seg, title, text, pid]) => { const p = byId(pid); const n = D.products.filter((x) => x.segment === seg).length; const r = MA.resolve(MEDIA.profiles && MEDIA.profiles[seg], p ? pimgs(p)[0] : null, p ? placeholderAlt(p) : ""); return `
-          <a class="profile" href="#/katalog?kat=escooter&segment=${seg}" data-reveal>
+            ["alltag", "Strassenzugelassene", "Für deinen Alltag und den Weg zur Arbeit. 20 km/h, legal auf Schweizer Strassen.", "teverun-blade-mini-pro-ch-edition", "#/katalog?kat=escooter&zulassung=ch", D.products.filter((x) => x.streetLegalCH).length],
+            ["touren", "Unter CHF 1’000", "Viel Scooter für dein Budget: Alltag, Pendeln, erste Touren.", "kukirin-g2-master", "#/katalog?kat=escooter&max=1000", D.products.filter((x) => x.category === "escooter" && x.price.chf != null && x.price.chf <= 1000).length],
+            ["offroad", "Performance", "Doppelmotor, grosse Akkus, viel Federweg. Für private Fahrflächen.", "teverun-blade-gt-ii-plus", "#/katalog?kat=escooter&segment=offroad", D.products.filter((x) => x.segment === "offroad").length]
+          ].map(([seg, title, text, pid, href, n]) => { const p = byId(pid); const r = MA.resolve(MEDIA.profiles && MEDIA.profiles[seg], p ? pimgs(p)[0] : null, p ? placeholderAlt(p) : ""); return `
+          <a class="profile" href="${href}" data-reveal>
             <div class="profile-media media" data-parallax="0.12">${MA.tag(r)}${r.photo ? MA.marks(r) : `<span class="media-badge" aria-hidden="true">Platzhalter</span>`}</div>
             <div class="profile-body"><h3>${title}</h3><p>${text}</p><span class="profile-link">${n} Modelle ansehen</span></div>
           </a>`; }).join("")}
@@ -239,6 +243,14 @@
         </article>`; }).join("")}
       </div>
     </section>
+
+    ${(() => { const g = (MEDIA.gallery || []).map((m) => MA.resolve(m, null, "")).filter((r) => r.photo); if (!g.length) return ""; return `
+    <section class="section gallery" aria-labelledby="gallery-title">
+      <div class="wrap">
+        <div class="section-head" data-reveal><div><h2 id="gallery-title">Raus. <span class="h1-red">Dein Stil.</span></h2><p class="muted">Unterwegs mit unseren Marken. Tippe ein Bild, um es gross zu sehen.</p></div></div>
+        <div class="mosaic">${g.map((r, i) => `<button class="mosaic-item" type="button" data-action="gallery" data-i="${i}" data-reveal aria-label="Bild vergrössern: ${esc(r.alt)}"><img src="${esc(r.src)}" alt="${esc(r.alt)}" loading="lazy" decoding="async" width="1600" height="1066" onerror="window.NSCOOTS_MEDIA_API.broken(this)"></button>`).join("")}</div>
+      </div>
+    </section>`; })()}
 
     ${(() => { const ids = ["teverun-fighter-mini-pro-ekfv", "kukirin-g2-master", "rovoron-s7"]; const items = ids.map(byId).filter(Boolean); if (items.length < 2) return ""; return `
     <section class="showcase" aria-labelledby="showcase-title">
@@ -281,6 +293,33 @@
         <div class="section-head"><div><h2 id="brands-title">Alle Marken</h2><p class="muted">Sechs Marken, ein Anspruch: Premium Scooter mit klaren Daten.</p></div></div>
         <div class="brand-strip">
           ${brands.map((b) => { const prices = D.products.filter((p) => p.brand === b.id && p.price.chf != null).map((p) => p.price.chf); const n = D.products.filter((p) => p.brand === b.id).length; const from = prices.length ? `ab ${F.chf(Math.min(...prices))}` : "Preise offen"; const bm = MEDIA.brands && MEDIA.brands[b.id]; const br = MA.usable(bm) ? MA.resolve(bm, null, "") : null; const bimg = br ? `<span class="brand-photo"><img src="${esc(br.src)}" alt="" loading="lazy" decoding="async" onerror="const c=this.closest('.brand-chip');c.classList.remove('has-photo');this.closest('.brand-photo').remove()">${MA.marks(br)}</span>` : ""; return `<a class="brand-chip${b.featured ? " featured" : ""}${bimg ? " has-photo" : ""}" href="#/katalog?marke=${b.id}">${bimg}<span class="brand-top"><strong>${esc(b.name)}</strong><span class="tag">${n} ${n === 1 ? "Modell" : "Modelle"}</span></span><span>${esc(b.blurb)}</span><span class="brand-price">${from}</span></a>`; }).join("")}
+        </div>
+      </div>
+    </section>
+
+    <section class="service-dark" aria-labelledby="service-title">
+      <div class="wrap service-dark-inner">
+        <div data-reveal>
+          <p class="hero-kicker">N SCOOTS in ${esc(D.meta.kontakt.ort)}</p>
+          <h2 id="service-title">Du fährst.<br>Wir sind da.</h2>
+          <p>Ehrliche Beratung, klare Antworten und persönlicher Support. Auf WhatsApp rund um die Uhr erreichbar, Antwort meistens innerhalb 1–2 Stunden.</p>
+          <div class="hero-cta"><a class="btn btn-accent" href="#" data-action="whatsapp">Per WhatsApp fragen</a><a class="btn btn-ghost" href="tel:${esc((D.meta.kontakt.telefon || "").replace(/\s+/g, ""))}">${esc(D.meta.kontakt.telefon)}</a></div>
+        </div>
+        <dl class="service-rows" data-reveal>
+          <div><dt>Schnell &amp; einfach geliefert.</dt><dd>Schweizweite Lieferung oder Abholung in ${esc(D.meta.kontakt.ort)}. Lieferzeit je Modell auf der Produktseite.</dd></div>
+          <div><dt>Das passende Ersatzteil.</dt><dd>Reifen, Bremsen oder Ladegerät? <a href="#/katalog?kat=zubehoer">Ersatzteile ansehen</a> oder kurz fragen.</dd></div>
+          <div><dt>Garantie &amp; Gewährleistung.</dt><dd>2 Jahre gesetzliche Gewährleistungsfrist. Bedingungen und Ablauf folgen zum Shopstart.</dd></div>
+          <div><dt>Sicher bezahlen.</dt><dd>TWINT, Visa, Mastercard, Apple Pay, Google Pay und Rechnung zum Shopstart.</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="info-cards-title">
+      <div class="wrap">
+        <h2 id="info-cards-title" class="visually-hidden">Kontakt und Abholung</h2>
+        <div class="info-cards">
+          <a class="info-card" href="#/kontakt" data-reveal><h3>Ein Ansprechpartner. Für deinen Ride.</h3><p>Fragen zum Modell, zu Ersatzteilen oder zu deiner Auswahl? Wir beraten dich persönlich.</p><strong>${esc(D.meta.kontakt.telefon)}</strong><span>WhatsApp 24/7, Antwort meistens innerhalb 1–2 Stunden · ${esc(D.meta.kontakt.email)}</span></a>
+          <a class="info-card" href="#/info" data-reveal><h3>Abholung in ${esc(D.meta.kontakt.ort)}</h3><p>Hol deinen Scooter nach Terminvereinbarung bei uns ab oder lass ihn dir nach Hause liefern.</p><strong>Lieferung in die ganze Schweiz</strong><span>Schnell und einfach, Details zum Shopstart</span></a>
         </div>
       </div>
     </section>
@@ -728,7 +767,7 @@
       <div class="contact-grid">
         <div class="contact-card">
           <h2>Dein Ansprechpartner</h2>
-          <p class="contact-person">${esc(k.person)}<br><span class="muted">${esc(k.ort)}</span></p>
+          <p class="contact-person">N SCOOTS<br><span class="muted">${esc(k.ort)}</span></p>
           <dl class="contact-list">
             <div><dt>Telefon</dt><dd><a href="tel:${esc(k.telefon.replace(/\s+/g, ""))}">${esc(k.telefon)}</a></dd></div>
             <div><dt>E-Mail</dt><dd><a href="mailto:${esc(k.email)}">${esc(k.email)}</a></dd></div>
@@ -883,6 +922,7 @@
       case "cart-clear": S.cartClear(); refreshCartViews(); break;
       case "checkout": openDialog($("#checkout-dialog"), btn); break;
       case "lightbox": { const p = byId(parseHash().parts[1]); if (p) lightboxOpen(p, Number(btn.dataset.i || 0), btn); break; }
+      case "gallery": { const g = (MEDIA.gallery || []).map((m) => MA.resolve(m, null, "")).filter((r) => r.photo); if (!g.length) break; lb = { list: g, name: "Unterwegs", i: Number(btn.dataset.i || 0) }; lightboxShow(); openDialog($("#lightbox"), btn); break; }
       case "lb-next": lb.i = (lb.i + 1) % lb.list.length; lightboxShow(); break;
       case "lb-prev": lb.i = (lb.i - 1 + lb.list.length) % lb.list.length; lightboxShow(); break;
       case "video-toggle": { const v = $(".hero-video"); if (!v) break; if (v.paused) v.play().catch(() => {}); else v.pause(); break; }
@@ -909,7 +949,7 @@
   $("#year").textContent = new Date().getFullYear();
   document.querySelectorAll(".header-search").forEach((f) => f.addEventListener("submit", (e) => { e.preventDefault(); const q = f.querySelector("input").value.trim(); navigate("/katalog", { q }); if (f.classList.contains("mobile")) { $("#mobile-nav").dataset.open = "false"; $("#menu-btn").setAttribute("aria-expanded", "false"); } }));
   { const k = D.meta.kontakt; const wa = "https://wa.me/" + (k.whatsapp || k.telefon).replace(/[^\d]/g, ""); const fab = $("#whatsapp-fab"); fab.href = wa; fab.setAttribute("aria-label", "Per WhatsApp fragen (Platzhalter-Nummer)"); document.addEventListener("click", (e) => { const a = e.target.closest('[data-action="whatsapp"]'); if (a) { e.preventDefault(); window.open(wa, "_blank", "noopener"); } }); }
-  { const k = D.meta.kontakt; $("#footer-contact").innerHTML = `<li>${esc(k.person)}, ${esc(k.ort)}</li><li><a href="tel:${esc(k.telefon.replace(/\s+/g, ""))}">${esc(k.telefon)}</a></li><li><a href="mailto:${esc(k.email)}">${esc(k.email)}</a></li><li class="muted">${esc(k.zeiten)}</li>`; }
+  { const k = D.meta.kontakt; $("#footer-contact").innerHTML = `<li>N SCOOTS, ${esc(k.ort)}</li><li><a href="tel:${esc(k.telefon.replace(/\s+/g, ""))}">${esc(k.telefon)}</a></li><li><a href="mailto:${esc(k.email)}">${esc(k.email)}</a></li><li class="muted">${esc(k.zeiten)}</li>`; }
   renderBadges();
   render();
 })();

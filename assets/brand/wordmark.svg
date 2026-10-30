@@ -1,1 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 48" width="300" height="48"><style>@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,900');text{font-family:'Exo 2','Arial Black',Arial,sans-serif;font-weight:900;font-style:italic}</style><text x="0" y="40" font-size="46" fill="#e10600">N</text><text x="40" y="40" font-size="38" fill="#ffffff">SCOOTS</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 531.394 80" width="531.394" height="80" role="img" aria-labelledby="title">
+  <title id="title">N SCOOTS</title>
+  <desc>Original geometric racing wordmark with an eighteen-degree lean, red cut N and angular heavy SCOOTS lettering.</desc>
+  <path fill="#e52a24" fill-rule="evenodd" d="M0 72V0H19L48 42V0H68V72H49L20 30V72Z M20.2 12H23.7L56.9 60H53.4Z" transform="matrix(1 0 -0.325 1 27.394 4)"/>
+  <path fill="#ffffff" fill-rule="evenodd" d="M14 0H58L66 8V18H24L18 24V27H52L66 41V58L52 72H8L0 64V54H42L48 48V45H14L0 31V14Z" transform="matrix(1 0 -0.325 1 105.394 4)"/>
+  <path fill="#ffffff" fill-rule="evenodd" d="M12 0H56L68 12V25H50V23L45 18H23L18 23V49L23 54H45L50 49V47H68V60L56 72H12L0 60V12Z" transform="matrix(1 0 -0.325 1 175.394 4)"/>
+  <path fill="#ffffff" fill-rule="evenodd" d="M12 0H56L68 12V60L56 72H12L0 60V12Z M23 18H45L50 23V49L45 54H23L18 49V23Z" transform="matrix(1 0 -0.325 1 247.394 4)"/>
+  <path fill="#ffffff" fill-rule="evenodd" d="M12 0H56L68 12V60L56 72H12L0 60V12Z M23 18H45L50 23V49L45 54H23L18 49V23Z" transform="matrix(1 0 -0.325 1 319.394 4)"/>
+  <path fill="#ffffff" fill-rule="evenodd" d="M8 0H58L66 8V18H42V72H24V18H0V8Z" transform="matrix(1 0 -0.325 1 391.394 4)"/>
+  <path fill="#ffffff" fill-rule="evenodd" d="M14 0H58L66 8V18H24L18 24V27H52L66 41V58L52 72H8L0 64V54H42L48 48V45H14L0 31V14Z" transform="matrix(1 0 -0.325 1 461.394 4)"/>
+</svg>

@@ -21,7 +21,7 @@ const results = []; const ok = (name, cond, info = "") => { results.push({ name,
     await page.goto(BASE + "#/"); await page.waitForSelector("#hero-title");
     await noOverflow("start"); await shot("01-start");
     ok(`${label}: Startseite zeigt Modelle`, (await page.locator('section[aria-labelledby="featured-title"] .card').count()) === 4);
-    ok(`${label}: Hero mit Produktfoto`, (await page.locator(".hero-product img").count()) === 1);
+    ok(`${label}: Hero mit Lifestyle-Foto`, (await page.locator(".hero-panel img").count()) === 1);
     ok(`${label}: «Premium Scooter» im Hero`, (await page.locator(".hero h1").textContent()).includes("Premium Scooter"));
     ok(`${label}: Showcase vorhanden`, (await page.locator(".showcase-img").count()) === 3);
     await page.click('.brand-tab[data-brand="joyor"]'); await page.waitForTimeout(150);
@@ -29,7 +29,10 @@ const results = []; const ok = (name, cond, info = "") => { results.push({ name,
     await page.focus('.brand-tab[data-brand="joyor"]'); await page.keyboard.press("ArrowRight"); await page.waitForTimeout(150);
     ok(`${label}: Tabs per Pfeiltaste`, (await page.locator('.brand-tab[aria-selected="true"]').getAttribute("data-brand")) === "teverun");
     ok(`${label}: Fahrprofile mit Fotos`, (await page.locator('.profile-media img[src*="assets/photos"]').count()) === 3);
-    ok(`${label}: Bildnachweise sichtbar`, (await page.locator(".media-credit").count()) >= 6);
+    ok(`${label}: keine Fotoreferenzen am Bild`, (await page.locator(".media-credit:not([hidden]), .media-badge:not([hidden])").filter({ hasText: /\S/ }).count()) === 0);
+    ok(`${label}: Galerie vorhanden`, (await page.locator(".mosaic-item").count()) >= 8);
+    ok(`${label}: Logo-Leiste mit Markenlogos`, (await page.locator(".brand-pill-logo img").count()) >= 6);
+    ok(`${label}: Wortmarke als SVG`, (await page.locator(".site-header .wm-img").count()) === 1);
 
     // Brand-Einstieg aktiviert Filter
     await page.click('a.brand-chip[href="#/katalog?marke=kukirin"]');

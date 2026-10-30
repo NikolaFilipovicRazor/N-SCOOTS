@@ -11,6 +11,14 @@ Stand: 2026-10-30. Stimmungsfotos: Wikimedia Commons (CC BY / CC BY-SA, Namensne
 | Hero-Illustration (inline SVG in `js/app.js`) | Selbst erzeugt | – | Eigenes Werk | Startseite, als «Illustration, kein Produktfoto» gekennzeichnet |
 | Schriften Barlow Condensed, Inter | Google Fonts | fonts.googleapis.com | SIL Open Font License | Per Link eingebunden, Fallback auf Systemschriften |
 
+## Herstellerbilder (Stand 2026-10-30)
+
+163 Dateien unter `assets/photos/hersteller/` (Produkt- und Lifestyle-Fotos) wurden von den offiziellen Herstellerseiten geladen
+(kukirin.it.com, kukirin.net, joyorprime.com, teverun.com, teverun-europe.com, minimotors.com, rovoron.com, ausom.com); Quelle je Bild in
+`data/media-hersteller.js` (Feld `license`). Markenlogos unter `assets/brand/logos/` von den Herstellerseiten bzw. dem offiziellen Schweizer
+Distributor (Dualtron). Wortmarke `assets/brand/wordmark.svg` ist die eigene N SCOOTS-Identität. Nutzung als Händler ist üblich; schriftliche
+Freigaben der Hersteller vor dem Shopstart einholen. Wikimedia-Commons-Fotos sind nicht mehr auf der Seite im Einsatz (Dateien bleiben als Reserve).
+
 ## Foto- und Video-Slots (data/media.js)
 
 Stand 2026-10-30. Alle Stimmungsfotos stammen von Wikimedia Commons unter freien Lizenzen (Namensnennung am Bild und hier).
