@@ -15,7 +15,7 @@
 window.NSCOOTS_MEDIA = {
   hero: {
     /* Grosses Produktbild im Hero (E-Rydez-Produktfoto, Freigabe ausstehend) */
-    product: { src: "assets/photos/hero-produkt.jpg", alt: "Teverun Fighter Mini Pro, Produktfoto", status: "lieferant", kind: "produkt", credit: "E-Rydez", license: "Freigabe ausstehend", model: "teverun-fighter-mini-pro" },
+    product: { src: "assets/photos/hero-produkt.jpg", alt: "Teverun Fighter Mini Pro, Produktfoto", status: "lieferant", kind: "produkt", credit: "E-Rydez (Händlerbild, Freigabe vor Verkaufsstart)", license: "Freigabe ausstehend", model: "teverun-fighter-mini-pro-ekfv" },
     image: { src: "assets/photos/hero-stadt-abend.jpg", alt: "Zwei junge Menschen mit E-Scooter auf einem Zebrastreifen", status: "frei", kind: "symbol", credit: "Kristoffer Trolle, CC BY 2.0", license: "CC BY 2.0, https://commons.wikimedia.org/wiki/File:Generation_Z_kids_on_Electric_Scooter_(48263543577).jpg" },
     video: { src: "assets/video/hero-ride.mp4", poster: "assets/photos/hero-stadt-abend.jpg", status: "fehlt", credit: "", license: "" }
   },
@@ -40,6 +40,9 @@ window.NSCOOTS_MEDIA = {
   },
   dirtbikes: { src: "assets/photos/dirtbike.jpg", alt: "Elektrisches Dirtbike auf einem Messestand", status: "frei", kind: "symbol", credit: "Ivan Radic, CC BY 2.0", license: "CC BY 2.0, https://commons.wikimedia.org/wiki/File:Sur-Ron_Electric_Dirt_Bike_1a.jpg" },
   nightCity: { src: "assets/photos/story-3.jpg", alt: "E-Scooter nachts in der Stadt", status: "frei", kind: "symbol", credit: "JIP, CC BY-SA 4.0", license: "CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Electric_kickbikes_in_Kamppi_on_a_night_in_April_2023.jpg" },
-  /* Produktfotos: automatisch aus data/products.js. Hier nur Ausnahmen/Überschreibungen eintragen. */
+  /* Markenlogos (Herstellerlogos von den offiziellen Seiten, Nachweis in ASSETS.md). status "hersteller". */
+  logos: {},
+  /* Produktfotos: automatisch aus data/products.js (assets/photos/produkte/<id>-n.jpg).
+     Hier Überschreibungen mit Herstellerbildern eintragen (status "hersteller", kind "produkt" | "lifestyle"). */
   products: {}
 };

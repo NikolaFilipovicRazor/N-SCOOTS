@@ -20,8 +20,14 @@ const results = []; const ok = (name, cond, info = "") => { results.push({ name,
     // Start
     await page.goto(BASE + "#/"); await page.waitForSelector("#hero-title");
     await noOverflow("start"); await shot("01-start");
-    ok(`${label}: Startseite zeigt Modelle`, (await page.locator(".product-grid .card").count()) === 4);
+    ok(`${label}: Startseite zeigt Modelle`, (await page.locator('section[aria-labelledby="featured-title"] .card').count()) === 4);
     ok(`${label}: Hero mit Produktfoto`, (await page.locator(".hero-product img").count()) === 1);
+    ok(`${label}: «Premium Scooter» im Hero`, (await page.locator(".hero h1").textContent()).includes("Premium Scooter"));
+    ok(`${label}: Showcase vorhanden`, (await page.locator(".showcase-img").count()) === 3);
+    await page.click('.brand-tab[data-brand="joyor"]'); await page.waitForTimeout(150);
+    ok(`${label}: Marken-Tab wechselt Auswahl`, (await page.locator("#panel-brands .card-brand").first().textContent()).startsWith("Joyor"));
+    await page.focus('.brand-tab[data-brand="joyor"]'); await page.keyboard.press("ArrowRight"); await page.waitForTimeout(150);
+    ok(`${label}: Tabs per Pfeiltaste`, (await page.locator('.brand-tab[aria-selected="true"]').getAttribute("data-brand")) === "teverun");
     ok(`${label}: Fahrprofile mit Fotos`, (await page.locator('.profile-media img[src*="assets/photos"]').count()) === 3);
     ok(`${label}: Bildnachweise sichtbar`, (await page.locator(".media-credit").count()) >= 6);
 
@@ -60,10 +66,15 @@ const results = []; const ok = (name, cond, info = "") => { results.push({ name,
     // Produktseite
     await page.goto(BASE + "#/produkt/kukirin-g2-master"); await page.waitForSelector(".pdp");
     ok(`${label}: PDP Titel`, (await page.locator("h1").textContent()).includes("G2 Master"));
-    ok(`${label}: PDP Referenzpreis`, (await page.locator(".price-block .price").textContent()).includes("CHF 869.–"));
+    ok(`${label}: PDP Preis`, (await page.locator(".price-block .price").textContent()).includes("CHF 869.–"));
     ok(`${label}: PDP Lieferstatus sichtbar`, (await page.locator(".pdp-status").textContent()).includes("Vorbestellung"));
-    ok(`${label}: PDP Produktfoto von E-Rydez gekennzeichnet`, (await page.locator("#gallery-main .media-credit-supplier").count()) === 1);
-    ok(`${label}: PDP CH-Status`, (await page.locator(".pdp-status .tag-signal").textContent()).includes("nicht ausgewiesen"));
+    ok(`${label}: PDP ohne Händler-Beschriftung am Bild`, (await page.locator("#gallery-main .media-credit").count()) === 0);
+    ok(`${label}: PDP CH-Status`, (await page.locator(".pdp-status .tag-signal").textContent()).includes("Privatgelände"));
+    await page.goto(BASE + "#/produkt/teverun-fighter-mini-pro-ekfv"); await page.waitForSelector(".pdp");
+    ok(`${label}: eKFV-Modell als strassenzugelassen markiert`, (await page.locator(".pdp-status").textContent()).includes("Strassenzugelassen CH"));
+    await page.goto(BASE + "#/katalog?kat=escooter&zulassung=ch"); await page.waitForSelector("#results .card");
+    ok(`${label}: Filter strassenzugelassen → 3 Modelle`, (await page.locator("#results .card").count()) === 3);
+    await page.goto(BASE + "#/produkt/kukirin-g2-master"); await page.waitForSelector(".pdp");
     await page.click('[data-action="thumb"][data-i="2"]');
     ok(`${label}: Galerie wechselt Bild`, (await page.locator("#gallery-main img").getAttribute("src")).includes("-3.jpg"));
     await noOverflow("pdp"); await shot("04-produkt");

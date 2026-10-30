@@ -3,7 +3,10 @@
 // Alle Angaben sind Händlerangaben von e-rydez.ch (Referenzpreise, keine N SCOOTS-Preise).
 const fs = require("fs"), path = require("path");
 const src = JSON.parse(fs.readFileSync(path.join(__dirname, "quellen", "erydez-products.json"), "utf8"));
+const src2 = JSON.parse(fs.readFileSync(path.join(__dirname, "quellen", "swiss-scoots-ekfv.json"), "utf8"));
 const CHECKED = src.abgerufen;
+const ALL = src.products.map((p) => ({ ...p, _src: "e-rydez", _url: `https://e-rydez.ch/products/${p.handle}`, _checked: src.abgerufen }))
+  .concat(src2.products.map((p) => ({ ...p, _src: "swiss-scoots", _url: `https://swiss-scoots.ch/products/${p.handle}`, _checked: src2.abgerufen })));
 const BRANDS = [
   { id: "kukirin", name: "KuKirin", featured: true, blurb: "Breites Sortiment vom Pendler-Scooter bis zum Offroad-Modell. Unser prominenter Einstieg." },
   { id: "joyor", name: "Joyor", featured: false, blurb: "Leichte Alltagsmodelle mit Fokus auf Komfort und Reichweite." },
@@ -15,10 +18,10 @@ const BRANDS = [
 const txt = (h) => String(h || "").replace(/<br\s*\/?>|<\/p>|<\/li>|<\/tr>|<\/h\d>/gi, "\n").replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/[ \t]+/g, " ").replace(/\n\s*\n+/g, "\n").trim();
 const num = (s) => { if (s == null) return null; const m = String(s).replace(/'/g, "").replace(",", ".").match(/\d+(?:\.\d+)?/); return m ? Number(m[0]) : null; };
 const brandOf = (title) => { const t = title.toLowerCase(); for (const b of BRANDS) if (t.startsWith(b.id)) return b.id; return null; };
-const pretty = (title) => title.replace(/\s*\d+V\s*[\d.,/]+Ah.*$/i, "").replace(/\s*Akku.*$/i, "").trim();
+const pretty = (title) => title.replace(/\s*\d+V\s*[\d.,/]+Ah.*$/i, "").replace(/\s*Akku.*$/i, "").replace(/\(CH[- ]Edition\)/i, "eKFV").trim();
 
 const products = [];
-for (const p of src.products) {
+for (const p of ALL) {
   const t = txt(p.body_html);
   const lines = t.split("\n").map((l) => l.trim()).filter(Boolean);
   const find = (re) => { const l = lines.find((x) => re.test(x)); return l ? l.replace(/^[^\wÄÖÜäöü≤]+/, "").trim() : null; };
@@ -47,23 +50,25 @@ for (const p of src.products) {
   const rangeKm = range ? (range.match(/(≤?\s*\d+(?:\s*[-–/]\s*\d+)?)\s*km/i) || [])[1]?.replace(/\s+/g, "") : null;
   const speedKmh = num(speed);
   const abe = /\bABE\b/i.test(p.title) || p.tags.some((x) => /^abe$/i.test(x));
+  const ekfv = /eKFV|CH[- ]Edition/i.test(p.title) || p.tags.some((x) => /strassenzugelassen/i.test(x));
   const limited = abe || /20\s*km\/h|25\s*km\/h/.test(speed || "");
   const offroadTag = p.tags.some((x) => /offroad/i.test(x)) || /Gelände|Offroad/i.test(t);
   let segment = null;
-  if (!isPart && !isDirt) segment = limited && motors === 1 ? "alltag" : (bWh && bWh >= 1500) || (motors === 2 && offroadTag) ? "offroad" : motors === 2 || (bWh && bWh >= 900) ? "touren" : "alltag";
-  const chLegal = abe ? "nicht ausgewiesen (deutsche ABE, laut E-Rydez keine CH-Zulassung)" : "nicht ausgewiesen (laut E-Rydez)";
-  const url = `https://e-rydez.ch/products/${p.handle}`;
+  if (ekfv) segment = "alltag"; else if (!isPart && !isDirt) segment = limited && motors === 1 ? "alltag" : (bWh && bWh >= 1500) || (motors === 2 && offroadTag) ? "offroad" : motors === 2 || (bWh && bWh >= 900) ? "touren" : "alltag";
+  const chLegal = ekfv ? "Strassenzugelassen Schweiz (Händlerangabe, 20 km/h-Version)" : abe ? "Deutsche ABE (20–25 km/h), keine Schweizer Zulassung ausgewiesen" : "Nicht strassenzugelassen in der Schweiz, für Privatgelände";
+  const url = p._url;
   const imgs = p.images.slice(0, 3).map((im, i) => `produkte/${p.handle}-${i + 1}.jpg`); // alle Bilder liegen als JPG vor
   const variants = p.variants.filter((v) => v.title !== "Default Title").map((v) => ({ id: String(v.id), name: v.title, note: `Referenzpreis ${Number(v.price).toFixed(0)} CHF${v.available ? "" : ", laut E-Rydez zurzeit nicht lieferbar"}` }));
   products.push({
     id: p.handle, brand, model: pretty(p.title), fullTitle: p.title,
     category: isPart ? "zubehoer" : isDirt ? "edirtbike" : "escooter", segment,
     summary: isPart ? `Ersatzteile für ${pretty(p.title).replace(/ Ersatzteile$/, "")}: ${p.variants.slice(0, 4).map((v) => v.title).join(", ")}${p.variants.length > 4 ? " und mehr" : ""}.` : lines.filter((l) => !/Vorbestellung|^[🔋🕤⚡⚙️📡📋🏍️🛡️🔑✓]/.test(l) && l.length > 30)[0] || `${pretty(p.title)}: ${battery || ""}${motor ? ", " + motor : ""}.`,
-    price: { chf: minPrice, kind: "referenz", source: url, checked: CHECKED, note: isPart || variants.length ? "Referenzpreis ab (günstigste Ausführung), e-rydez.ch. Kein N SCOOTS-Preis." : "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.", from: isPart || variants.length > 0 },
-    lieferbarkeit: isPart ? { status: available ? "laut E-Rydez lieferbar" : "laut E-Rydez nicht lieferbar", checked: CHECKED } : available ? (preorder ? { status: `Vorbestellung bei E-Rydez${preDate ? ", voraussichtlich " + preDate : ""}`, checked: CHECKED } : { status: "laut E-Rydez lieferbar", checked: CHECKED }) : { status: "laut E-Rydez zurzeit nicht lieferbar", checked: CHECKED },
-    specs: isPart ? {} : { motorW, peakW, motors, batteryV: bV, batteryAh: bAh, batteryWh: bWh, rangeKm, speedKmh, weightKg: num(weight), maxLoadKg: num(load), tires: (t.match(/Bereifung:\s*([^\n]+)/) || t.match(/(\d{2}'' [^\n]*reifen)/i) || [])[1] || null, brakes: (t.match(/Bremsen:\s*([^\n]+)/) || t.match(/(Hydraulische Bremsen[^\n|]*)/i) || [])[1] || null, ip: (t.match(/\bIP\d\d\b/) || [])[0] || null, foldable: null, abe, limited },
-    variants, chLegal: isPart ? null : chLegal,
-    sources: [{ url, checked: CHECKED, note: "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)" }],
+    /* N SCOOTS-Einführungspreis = Marktpreis des Quell-Händlers (Stand Prüfdatum), unverbindlich bis Verkaufsstart */
+    price: { chf: minPrice, kind: "shop", basis: p._src, source: url, checked: p._checked, note: isPart || variants.length ? "Preis ab (günstigste Ausführung). Einführungspreis, unverbindlich bis Verkaufsstart." : "Einführungspreis, unverbindlich bis Verkaufsstart.", from: isPart || variants.length > 0 },
+    lieferbarkeit: isPart ? { status: available ? "lieferbar" : "zurzeit nicht lieferbar", checked: p._checked } : available ? (preorder ? { status: `Vorbestellung${preDate ? ", voraussichtlich " + preDate : ""}`, checked: p._checked } : { status: "lieferbar", checked: p._checked }) : { status: "zurzeit nicht lieferbar", checked: p._checked },
+    specs: isPart ? {} : { motorW, peakW, motors, batteryV: bV, batteryAh: bAh, batteryWh: bWh, rangeKm, speedKmh, weightKg: num(weight), maxLoadKg: num(load), ekfv, tires: (t.match(/Bereifung:\s*([^\n]+)/) || t.match(/(\d{2}'' [^\n]*reifen)/i) || [])[1] || null, brakes: (t.match(/Bremsen:\s*([^\n]+)/) || t.match(/(Hydraulische Bremsen[^\n|]*)/i) || [])[1] || null, ip: (t.match(/\bIP\d\d\b/) || [])[0] || null, foldable: null, abe, limited },
+    variants, chLegal: isPart ? null : chLegal, streetLegalCH: !!ekfv && !isPart,
+    sources: [{ url, checked: p._checked, note: `Händlerseite ${p._src === "swiss-scoots" ? "swiss-scoots.ch" : "e-rydez.ch"} (Preis, Akku, Motor, Reichweite, Lieferstatus${ekfv ? ", Zulassungsangabe" : ""})` }],
     images: imgs
   });
 }
@@ -77,18 +82,20 @@ const data = {
   categories: [{ id: "escooter", name: "E-Scooter", short: "Scooter" }, { id: "edirtbike", name: "E-Dirtbikes", short: "Dirtbikes" }, { id: "zubehoer", name: "Ersatzteile & Zubehör", short: "Zubehör" }],
   segments: { alltag: { name: "Alltag", hint: "Pendeln, Stadt, Bahnhof. Kompakte Modelle mit moderater Leistung, teils auf 20–25 km/h begrenzt." }, touren: { name: "Touren", hint: "Grössere Akkus für längere Strecken, mehr Komfort." }, offroad: { name: "Offroad", hint: "Schotter, Feldwege, Privatgelände. Für den Strassenverkehr separat zu prüfen." } },
   brands: BRANDS, products,
-  dirtbikes: { status: "Erstes Modell gelistet, Sortiment im Aufbau", text: "Mit dem KuKirin X1 ist ein erstes Mini-Dirtbike aus dem E-Rydez-Sortiment gelistet. Weitere E-Dirtbikes und Motocross-Modelle folgen, sobald Daten und Bildrechte gesichert sind. E-Dirtbikes sind für Privatgelände gedacht.", planned: [{ title: "Einsteiger-Dirtbikes", text: "Leichtere Modelle für Privatgelände und Trainingsflächen." }, { title: "Motocross-Klasse", text: "Leistungsstärkere Modelle für Strecke und Gelände." }, { title: "Schutzausrüstung", text: "Helm, Protektoren, Handschuhe. Passend zur Kategorie." }] }
+  dirtbikes: { status: "Erstes Modell gelistet, Sortiment im Aufbau", text: "Mit dem KuKirin X1 ist ein erstes Mini-Dirtbike gelistet. Weitere E-Dirtbikes und Motocross-Modelle folgen, sobald Daten und Bildrechte gesichert sind. E-Dirtbikes sind für Privatgelände gedacht.", planned: [{ title: "Einsteiger-Dirtbikes", text: "Leichtere Modelle für Privatgelände und Trainingsflächen." }, { title: "Motocross-Klasse", text: "Leistungsstärkere Modelle für Strecke und Gelände." }, { title: "Schutzausrüstung", text: "Helm, Protektoren, Handschuhe. Passend zur Kategorie." }] }
 };
 const out = `/* N SCOOTS – Produktdaten (automatisch erzeugt aus dem E-Rydez-Katalog)
  * -------------------------------------------------------------
- * Quelle: ${src.quelle} (abgerufen ${CHECKED}), gesichert unter tools/quellen/erydez-products.json.
+ * Quellen: ${src.quelle} (abgerufen ${CHECKED}) und ${src2.quelle} (nur eKFV-Modelle mit
+ * ausgewiesener CH-Strassenzulassung), gesichert unter tools/quellen/.
  * Neu erzeugen: node tools/import-erydez.js
- * Alle Angaben sind HÄNDLERANGABEN von e-rydez.ch. Preise sind REFERENZPREISE
- * (kind "referenz"), keine N SCOOTS-Preise. Reichweiten sind Herstellerangaben.
- * chLegal: E-Rydez weist für kein Modell eine Schweizer Strassenzulassung aus;
- * ABE-Modelle haben eine deutsche Betriebserlaubnis. Vor Verkaufsstart je
- * Ausführung anhand offizieller Schweizer Quellen prüfen.
- * Lieferbarkeit: Stand e-rydez.ch am Prüfdatum, keine Zusage von N SCOOTS.
+ * Technische Angaben sind Händler-/Herstellerangaben. Preise (kind "shop") sind
+ * N SCOOTS-Einführungspreise auf dem Niveau des Quell-Händlers (price.basis,
+ * price.source), unverbindlich bis Verkaufsstart. Reichweiten: Herstellerangaben.
+ * chLegal: nur eKFV-/CH-Edition-Modelle sind laut Händler in der Schweiz
+ * strassenzugelassen; ABE-Modelle haben eine deutsche Betriebserlaubnis; alle
+ * anderen sind für Privatgelände. Vor Verkaufsstart je Ausführung anhand
+ * offizieller Schweizer Quellen prüfen. Lieferbarkeit: Stand Quell-Händler.
  */
 window.NSCOOTS_DATA = {
   ${metaMatch ? metaMatch[0].trim() : ""}

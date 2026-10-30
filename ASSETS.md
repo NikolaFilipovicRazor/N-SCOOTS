@@ -14,8 +14,9 @@ Stand: 2026-10-30. Stimmungsfotos: Wikimedia Commons (CC BY / CC BY-SA, Namensne
 ## Foto- und Video-Slots (data/media.js)
 
 Stand 2026-10-30. Alle Stimmungsfotos stammen von Wikimedia Commons unter freien Lizenzen (Namensnennung am Bild und hier).
-Produktfotos stammen vom Händler e-rydez.ch (möglicher B2B-Lieferant) und sind **mit Freigabevorbehalt** eingebunden:
-sichtbar beschriftet «Foto: E-Rydez · Freigabe ausstehend». Vor dem Verkaufsstart schriftliche Freigabe einholen oder ersetzen.
+Produktfotos stammen von Händlern (e-rydez.ch; für die eKFV-Modelle swiss-scoots.ch) und werden schrittweise durch offizielle
+Herstellerbilder ersetzt. Sie sind **nicht am Bild beschriftet**; der Freigabevorbehalt steht im Footer und hier. Vor dem Verkaufsstart
+schriftliche Freigaben einholen oder ersetzen.
 
 | Slot | Datei | Status | Quelle/URL | Lizenz | Credit |
 | --- | --- | --- | --- | --- | --- |

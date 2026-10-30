@@ -1,13 +1,15 @@
 /* N SCOOTS – Produktdaten (automatisch erzeugt aus dem E-Rydez-Katalog)
  * -------------------------------------------------------------
- * Quelle: https://e-rydez.ch/products.json (abgerufen 2026-10-30), gesichert unter tools/quellen/erydez-products.json.
+ * Quellen: https://e-rydez.ch/products.json (abgerufen 2026-10-30) und https://swiss-scoots.ch/products.json (nur eKFV-Modelle mit
+ * ausgewiesener CH-Strassenzulassung), gesichert unter tools/quellen/.
  * Neu erzeugen: node tools/import-erydez.js
- * Alle Angaben sind HÄNDLERANGABEN von e-rydez.ch. Preise sind REFERENZPREISE
- * (kind "referenz"), keine N SCOOTS-Preise. Reichweiten sind Herstellerangaben.
- * chLegal: E-Rydez weist für kein Modell eine Schweizer Strassenzulassung aus;
- * ABE-Modelle haben eine deutsche Betriebserlaubnis. Vor Verkaufsstart je
- * Ausführung anhand offizieller Schweizer Quellen prüfen.
- * Lieferbarkeit: Stand e-rydez.ch am Prüfdatum, keine Zusage von N SCOOTS.
+ * Technische Angaben sind Händler-/Herstellerangaben. Preise (kind "shop") sind
+ * N SCOOTS-Einführungspreise auf dem Niveau des Quell-Händlers (price.basis,
+ * price.source), unverbindlich bis Verkaufsstart. Reichweiten: Herstellerangaben.
+ * chLegal: nur eKFV-/CH-Edition-Modelle sind laut Händler in der Schweiz
+ * strassenzugelassen; ABE-Modelle haben eine deutsche Betriebserlaubnis; alle
+ * anderen sind für Privatgelände. Vor Verkaufsstart je Ausführung anhand
+ * offizieller Schweizer Quellen prüfen. Lieferbarkeit: Stand Quell-Händler.
  */
 window.NSCOOTS_DATA = {
   meta: {
@@ -19,7 +21,8 @@ window.NSCOOTS_DATA = {
     /* Kontakt: Platzhalter, bitte eigene Angaben eintragen */
     kontakt: {
       person: "Nikola Filipovic",
-      ort: "Schweiz",
+      ort: "Rapperswil-Jona",
+      abholung: "Abholung in Rapperswil-Jona oder Lieferung schweizweit",
       telefon: "+41 00 000 00 00",
       email: "kontakt@n-scoots.ch",
       zeiten: "Mo–Fr 9–18 Uhr",
@@ -109,14 +112,15 @@ window.NSCOOTS_DATA = {
     "summary": "Die tatsächliche Reichweite hängt unter anderem von Fahrergewicht, Fahrweise, Strecke, Temperatur und Reifendruck ab.",
     "price": {
       "chf": 409,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/kukirin-s1-max-36v-10-4ah-akku-350w",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "Vorbestellung bei E-Rydez, voraussichtlich 28. November 2026",
+      "status": "Vorbestellung, voraussichtlich 28. November 2026",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -130,6 +134,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 25,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -138,7 +143,8 @@ window.NSCOOTS_DATA = {
       "limited": true
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/kukirin-s1-max-36v-10-4ah-akku-350w",
@@ -162,14 +168,15 @@ window.NSCOOTS_DATA = {
     "summary": "KuKirin G2 Pro ABE: 48V 15.6Ah Akku, 500W bürstenloser Motor · Single Motor.",
     "price": {
       "chf": 559,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/kukirin-g2-pro-abe",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "Vorbestellung bei E-Rydez, voraussichtlich 28. November 2026",
+      "status": "Vorbestellung, voraussichtlich 28. November 2026",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -183,6 +190,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 20,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -191,7 +199,8 @@ window.NSCOOTS_DATA = {
       "limited": true
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (deutsche ABE, laut E-Rydez keine CH-Zulassung)",
+    "chLegal": "Deutsche ABE (20–25 km/h), keine Schweizer Zulassung ausgewiesen",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/kukirin-g2-pro-abe",
@@ -215,14 +224,15 @@ window.NSCOOTS_DATA = {
     "summary": "KuKirin G2 Pro: 48V 15,6Ah Batterie, 600W bürstenloser Motor.",
     "price": {
       "chf": 559,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/kukirin-g2-pro",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "Vorbestellung bei E-Rydez, voraussichtlich 28. November 2026",
+      "status": "Vorbestellung, voraussichtlich 28. November 2026",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -236,6 +246,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 45,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -244,7 +255,8 @@ window.NSCOOTS_DATA = {
       "limited": false
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/kukirin-g2-pro",
@@ -268,14 +280,15 @@ window.NSCOOTS_DATA = {
     "summary": "KuKirin G2 ABE: 48V 15.6Ah Batterie (748.8Wh), 800W Leistungsstarker Motor.",
     "price": {
       "chf": 569,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/kukirin-g2-abe",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "Vorbestellung bei E-Rydez, voraussichtlich 28. November 2026",
+      "status": "Vorbestellung, voraussichtlich 28. November 2026",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -289,6 +302,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 25,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -297,7 +311,8 @@ window.NSCOOTS_DATA = {
       "limited": true
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (deutsche ABE, laut E-Rydez keine CH-Zulassung)",
+    "chLegal": "Deutsche ABE (20–25 km/h), keine Schweizer Zulassung ausgewiesen",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/kukirin-g2-abe",
@@ -321,14 +336,15 @@ window.NSCOOTS_DATA = {
     "summary": "KuKirin T3: 48V 15.6 Ah Batterie (748.8Wh), 800W Bürstenloser Motor.",
     "price": {
       "chf": 579,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/kukirin-t3-2025-48v-15-6-ah-akku-800w",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "Vorbestellung bei E-Rydez, voraussichtlich 28. November 2026",
+      "status": "Vorbestellung, voraussichtlich 28. November 2026",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -342,6 +358,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 45,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -350,7 +367,8 @@ window.NSCOOTS_DATA = {
       "limited": false
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/kukirin-t3-2025-48v-15-6-ah-akku-800w",
@@ -374,14 +392,15 @@ window.NSCOOTS_DATA = {
     "summary": "KuKirin G2: 48V 15Ah Batterie, 800W Leistungsstarker Motor.",
     "price": {
       "chf": 579,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/kukirin-g2",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "Vorbestellung bei E-Rydez, voraussichtlich 28. November 2026",
+      "status": "Vorbestellung, voraussichtlich 28. November 2026",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -395,6 +414,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 45,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -403,7 +423,8 @@ window.NSCOOTS_DATA = {
       "limited": false
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/kukirin-g2",
@@ -427,14 +448,15 @@ window.NSCOOTS_DATA = {
     "summary": "KuKirin M4 Max: 48V 18Ah Batterie, Bürstenloser 800-W-Motor.",
     "price": {
       "chf": 579,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/kukirin-m4-max-20255-48v-18ah-akku-800w",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "Vorbestellung bei E-Rydez, voraussichtlich 28. November 2026",
+      "status": "Vorbestellung, voraussichtlich 28. November 2026",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -448,6 +470,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 45,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -456,7 +479,8 @@ window.NSCOOTS_DATA = {
       "limited": false
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/kukirin-m4-max-20255-48v-18ah-akku-800w",
@@ -480,14 +504,15 @@ window.NSCOOTS_DATA = {
     "summary": "KuKirin G3: 52V 18Ah Batterie (936Wh), 1200W Bürstenloser Motor.",
     "price": {
       "chf": 679,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/kukirin-g3",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "Vorbestellung bei E-Rydez, voraussichtlich 28. November 2026",
+      "status": "Vorbestellung, voraussichtlich 28. November 2026",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -501,6 +526,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 50,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -509,7 +535,8 @@ window.NSCOOTS_DATA = {
       "limited": false
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/kukirin-g3",
@@ -533,14 +560,15 @@ window.NSCOOTS_DATA = {
     "summary": "KuKirin G2 Ultra: 48V 18Ah Batterie (864Wh), 2 x 800W Bürstenloser Motor (Dual-Motor).",
     "price": {
       "chf": 699,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/kukirin-g2-ultra-48v-18ah-akku-2-x-800w-dual-motor",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "Vorbestellung bei E-Rydez, voraussichtlich 28. November 2026",
+      "status": "Vorbestellung, voraussichtlich 28. November 2026",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -554,6 +582,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 55,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -562,7 +591,8 @@ window.NSCOOTS_DATA = {
       "limited": false
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/kukirin-g2-ultra-48v-18ah-akku-2-x-800w-dual-motor",
@@ -586,14 +616,15 @@ window.NSCOOTS_DATA = {
     "summary": "KuKirin G2 Max: 48V 20Ah Batterie (960Wh), 1000W Bürstenloser Motor (1200W Peak).",
     "price": {
       "chf": 699,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/kukirin-g2-max-48v-20ah-akku-1000w",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "Vorbestellung bei E-Rydez, voraussichtlich 28. November 2026",
+      "status": "Vorbestellung, voraussichtlich 28. November 2026",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -607,6 +638,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 25,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -615,7 +647,8 @@ window.NSCOOTS_DATA = {
       "limited": true
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/kukirin-g2-max-48v-20ah-akku-1000w",
@@ -639,14 +672,15 @@ window.NSCOOTS_DATA = {
     "summary": "KuKirin G2 Master: 52V 20,8Ah Batterie, 1000W*2 Bürstenloser Motor.",
     "price": {
       "chf": 869,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/kukirin-g2-master",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "Vorbestellung bei E-Rydez, voraussichtlich 28. November 2026",
+      "status": "Vorbestellung, voraussichtlich 28. November 2026",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -660,6 +694,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 60,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -668,7 +703,8 @@ window.NSCOOTS_DATA = {
       "limited": false
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/kukirin-g2-master",
@@ -692,14 +728,15 @@ window.NSCOOTS_DATA = {
     "summary": "KuKirin G4: 60V / 20Ah Batterie, 2000 W Bürstenloser Motor.",
     "price": {
       "chf": 879,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/kukirin-g4",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "Vorbestellung bei E-Rydez, voraussichtlich 28. November 2026",
+      "status": "Vorbestellung, voraussichtlich 28. November 2026",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -713,6 +750,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 70,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -721,7 +759,8 @@ window.NSCOOTS_DATA = {
       "limited": false
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/kukirin-g4",
@@ -745,14 +784,15 @@ window.NSCOOTS_DATA = {
     "summary": "KuKirin X1: 48V 20.8Ah Batterie (herausnehmbar), 1000W Motor (2000W Peak).",
     "price": {
       "chf": 1399,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "laut E-Rydez lieferbar",
+      "status": "lieferbar",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -766,6 +806,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 50,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": "14'' vorne & 12'' hinten Geländereifen",
       "brakes": "Hydraulische Bremsen vorne & hinten ",
       "ip": "IP65",
@@ -774,7 +815,8 @@ window.NSCOOTS_DATA = {
       "limited": false
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike",
@@ -798,14 +840,15 @@ window.NSCOOTS_DATA = {
     "summary": "Joyor S5 ABE: 48V 13 Ah / 26 Ah Batterie, 500W Bürstenloser Motor.",
     "price": {
       "chf": 499,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/joyor-s5-abe-48v-500w",
       "checked": "2026-10-30",
-      "note": "Referenzpreis ab (günstigste Ausführung), e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Preis ab (günstigste Ausführung). Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": true
     },
     "lieferbarkeit": {
-      "status": "laut E-Rydez zurzeit nicht lieferbar",
+      "status": "zurzeit nicht lieferbar",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -819,6 +862,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 20,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -838,7 +882,8 @@ window.NSCOOTS_DATA = {
         "note": "Referenzpreis 639 CHF, laut E-Rydez zurzeit nicht lieferbar"
       }
     ],
-    "chLegal": "nicht ausgewiesen (deutsche ABE, laut E-Rydez keine CH-Zulassung)",
+    "chLegal": "Deutsche ABE (20–25 km/h), keine Schweizer Zulassung ausgewiesen",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/joyor-s5-abe-48v-500w",
@@ -862,14 +907,15 @@ window.NSCOOTS_DATA = {
     "summary": "Joyor S5-Z: 48V 13Ah Batterie (624Wh), 600W Bürstenloser Motor.",
     "price": {
       "chf": 529,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/joyor-s5z-48v-13ah-600w",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "laut E-Rydez zurzeit nicht lieferbar",
+      "status": "zurzeit nicht lieferbar",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -883,6 +929,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 25,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -891,7 +938,8 @@ window.NSCOOTS_DATA = {
       "limited": true
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/joyor-s5z-48v-13ah-600w",
@@ -915,14 +963,15 @@ window.NSCOOTS_DATA = {
     "summary": "Joyor T6: 48V 18Ah Batterie, 600W Bürstenloser Motor.",
     "price": {
       "chf": 619,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/joyor-t6-48v-18ah-600w",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "laut E-Rydez zurzeit nicht lieferbar",
+      "status": "zurzeit nicht lieferbar",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -936,6 +985,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 25,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -944,7 +994,8 @@ window.NSCOOTS_DATA = {
       "limited": true
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/joyor-t6-48v-18ah-600w",
@@ -968,14 +1019,15 @@ window.NSCOOTS_DATA = {
     "summary": "Joyor S8: 48V 26Ah Batterie (1248Wh), 600W Bürstenloser Motor.",
     "price": {
       "chf": 639,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/joyor-s8-48v-26ah-600w",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "laut E-Rydez zurzeit nicht lieferbar",
+      "status": "zurzeit nicht lieferbar",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -989,6 +1041,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 25,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -997,7 +1050,8 @@ window.NSCOOTS_DATA = {
       "limited": true
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/joyor-s8-48v-26ah-600w",
@@ -1021,14 +1075,15 @@ window.NSCOOTS_DATA = {
     "summary": "Joyor T6E ABE: 48V 18 Ah / 26 Ah Batterie, 500W Bürstenloser Motor.",
     "price": {
       "chf": 689,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/joyor-t6e-48v-500w-abe",
       "checked": "2026-10-30",
-      "note": "Referenzpreis ab (günstigste Ausführung), e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Preis ab (günstigste Ausführung). Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": true
     },
     "lieferbarkeit": {
-      "status": "laut E-Rydez zurzeit nicht lieferbar",
+      "status": "zurzeit nicht lieferbar",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -1042,6 +1097,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 20,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -1061,7 +1117,8 @@ window.NSCOOTS_DATA = {
         "note": "Referenzpreis 789 CHF, laut E-Rydez zurzeit nicht lieferbar"
       }
     ],
-    "chLegal": "nicht ausgewiesen (deutsche ABE, laut E-Rydez keine CH-Zulassung)",
+    "chLegal": "Deutsche ABE (20–25 km/h), keine Schweizer Zulassung ausgewiesen",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/joyor-t6e-48v-500w-abe",
@@ -1085,14 +1142,15 @@ window.NSCOOTS_DATA = {
     "summary": "Joyor S10-S-Z: 60V 18Ah Batterie, 1000W×2 Bürstenloser Dual-Motor.",
     "price": {
       "chf": 699,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/joyor-s10sz-60v-18ah-2x1000w",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "laut E-Rydez zurzeit nicht lieferbar",
+      "status": "zurzeit nicht lieferbar",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -1106,6 +1164,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 25,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -1114,7 +1173,8 @@ window.NSCOOTS_DATA = {
       "limited": true
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/joyor-s10sz-60v-18ah-2x1000w",
@@ -1138,14 +1198,15 @@ window.NSCOOTS_DATA = {
     "summary": "Joyor T10: 60V 18Ah Batterie, 1000W×2 Bürstenloser Dual-Motor.",
     "price": {
       "chf": 759,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/joyor-t10-60v-18ah-2x1000w",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "laut E-Rydez zurzeit nicht lieferbar",
+      "status": "zurzeit nicht lieferbar",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -1159,6 +1220,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 25,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -1167,7 +1229,8 @@ window.NSCOOTS_DATA = {
       "limited": true
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/joyor-t10-60v-18ah-2x1000w",
@@ -1182,6 +1245,73 @@ window.NSCOOTS_DATA = {
     ]
   },
   {
+    "id": "teverun-blade-mini-pro-ch-edition",
+    "brand": "teverun",
+    "model": "Teverun Blade Mini Pro eKFV",
+    "fullTitle": "Teverun Blade Mini Pro eKFV",
+    "category": "escooter",
+    "segment": "alltag",
+    "summary": "Teverun Blade Mini Pro eKFV 52V 22.5Ah",
+    "price": {
+      "chf": 939,
+      "kind": "shop",
+      "basis": "swiss-scoots",
+      "source": "https://swiss-scoots.ch/products/teverun-blade-mini-pro-ch-edition",
+      "checked": "2026-10-30",
+      "note": "Preis ab (günstigste Ausführung). Einführungspreis, unverbindlich bis Verkaufsstart.",
+      "from": true
+    },
+    "lieferbarkeit": {
+      "status": "lieferbar",
+      "checked": "2026-10-30"
+    },
+    "specs": {
+      "motorW": null,
+      "peakW": null,
+      "motors": 2,
+      "batteryV": 52,
+      "batteryAh": 22.5,
+      "batteryWh": 1170,
+      "rangeKm": "60",
+      "speedKmh": 20,
+      "weightKg": null,
+      "maxLoadKg": null,
+      "ekfv": true,
+      "tires": null,
+      "brakes": null,
+      "ip": null,
+      "foldable": null,
+      "abe": false,
+      "limited": true
+    },
+    "variants": [
+      {
+        "id": "58181145330051",
+        "name": "Black",
+        "note": "Referenzpreis 939 CHF"
+      },
+      {
+        "id": "58181145362819",
+        "name": "Gelb",
+        "note": "Referenzpreis 939 CHF"
+      }
+    ],
+    "chLegal": "Strassenzugelassen Schweiz (Händlerangabe, 20 km/h-Version)",
+    "streetLegalCH": true,
+    "sources": [
+      {
+        "url": "https://swiss-scoots.ch/products/teverun-blade-mini-pro-ch-edition",
+        "checked": "2026-10-30",
+        "note": "Händlerseite swiss-scoots.ch (Preis, Akku, Motor, Reichweite, Lieferstatus, Zulassungsangabe)"
+      }
+    ],
+    "images": [
+      "produkte/teverun-blade-mini-pro-ch-edition-1.jpg",
+      "produkte/teverun-blade-mini-pro-ch-edition-2.jpg",
+      "produkte/teverun-blade-mini-pro-ch-edition-3.jpg"
+    ]
+  },
+  {
     "id": "teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb",
     "brand": "teverun",
     "model": "Teverun Blade Mini Ultra",
@@ -1191,14 +1321,15 @@ window.NSCOOTS_DATA = {
     "summary": "Teverun Blade Mini Ultra: 60V 27Ah Batterie (1620Wh), 1000W*2 Bürstenloser Motor (3360W Peak).",
     "price": {
       "chf": 1159,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb",
       "checked": "2026-10-30",
-      "note": "Referenzpreis ab (günstigste Ausführung), e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Preis ab (günstigste Ausführung). Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": true
     },
     "lieferbarkeit": {
-      "status": "laut E-Rydez zurzeit nicht lieferbar",
+      "status": "zurzeit nicht lieferbar",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -1212,6 +1343,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 25,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -1231,7 +1363,8 @@ window.NSCOOTS_DATA = {
         "note": "Referenzpreis 1259 CHF, laut E-Rydez zurzeit nicht lieferbar"
       }
     ],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb",
@@ -1255,14 +1388,15 @@ window.NSCOOTS_DATA = {
     "summary": "Teverun Blade Mini Ultra: 60V 27Ah Batterie (1620Wh), 1000W*2 Bürstenloser Motor (3360W Peak).",
     "price": {
       "chf": 1159,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2",
       "checked": "2026-10-30",
-      "note": "Referenzpreis ab (günstigste Ausführung), e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Preis ab (günstigste Ausführung). Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": true
     },
     "lieferbarkeit": {
-      "status": "laut E-Rydez zurzeit nicht lieferbar",
+      "status": "zurzeit nicht lieferbar",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -1276,6 +1410,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 25,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -1295,7 +1430,8 @@ window.NSCOOTS_DATA = {
         "note": "Referenzpreis 1259 CHF, laut E-Rydez zurzeit nicht lieferbar"
       }
     ],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2",
@@ -1310,6 +1446,73 @@ window.NSCOOTS_DATA = {
     ]
   },
   {
+    "id": "teverun-blade-mini-ultra-ch-edition",
+    "brand": "teverun",
+    "model": "Teverun Blade Mini Ultra eKFV",
+    "fullTitle": "Teverun Blade Mini Ultra eKFV",
+    "category": "escooter",
+    "segment": "alltag",
+    "summary": "Der Teverun Blade Mini Ultra eKFV ist ein hochwertiger City- und Pendler-Scooter für alle, die maximale Reichweite in einem kompakten Format suchen. Mit seinem grossen 52V 30Ah DMEGC Akku , zwei Bosch-Motoren und bis zu 90 km Reichweite ist er deutlich stärker ausgestattet als viele normale Alltagsscooter.",
+    "price": {
+      "chf": 1300,
+      "kind": "shop",
+      "basis": "swiss-scoots",
+      "source": "https://swiss-scoots.ch/products/teverun-blade-mini-ultra-ch-edition",
+      "checked": "2026-10-30",
+      "note": "Preis ab (günstigste Ausführung). Einführungspreis, unverbindlich bis Verkaufsstart.",
+      "from": true
+    },
+    "lieferbarkeit": {
+      "status": "lieferbar",
+      "checked": "2026-10-30"
+    },
+    "specs": {
+      "motorW": null,
+      "peakW": null,
+      "motors": 1,
+      "batteryV": null,
+      "batteryAh": null,
+      "batteryWh": null,
+      "rangeKm": "90",
+      "speedKmh": 20,
+      "weightKg": null,
+      "maxLoadKg": null,
+      "ekfv": true,
+      "tires": null,
+      "brakes": "hydraulische Bremsen und das stärkere 6A Ladegerät. Dadurch ist er die bessere Wahl, wenn Reichweite, Komfort und Bremsleistung besonders wichtig sind. ",
+      "ip": null,
+      "foldable": null,
+      "abe": false,
+      "limited": true
+    },
+    "variants": [
+      {
+        "id": "58348621267331",
+        "name": "Gelb",
+        "note": "Referenzpreis 1300 CHF"
+      },
+      {
+        "id": "58348621300099",
+        "name": "Black",
+        "note": "Referenzpreis 1300 CHF"
+      }
+    ],
+    "chLegal": "Strassenzugelassen Schweiz (Händlerangabe, 20 km/h-Version)",
+    "streetLegalCH": true,
+    "sources": [
+      {
+        "url": "https://swiss-scoots.ch/products/teverun-blade-mini-ultra-ch-edition",
+        "checked": "2026-10-30",
+        "note": "Händlerseite swiss-scoots.ch (Preis, Akku, Motor, Reichweite, Lieferstatus, Zulassungsangabe)"
+      }
+    ],
+    "images": [
+      "produkte/teverun-blade-mini-ultra-ch-edition-1.jpg",
+      "produkte/teverun-blade-mini-ultra-ch-edition-2.jpg",
+      "produkte/teverun-blade-mini-ultra-ch-edition-3.jpg"
+    ]
+  },
+  {
     "id": "teverun-blade-gt-ii",
     "brand": "teverun",
     "model": "Teverun Blade GT II",
@@ -1319,14 +1522,15 @@ window.NSCOOTS_DATA = {
     "summary": "Teverun Blade GT II: 60V 26Ah Batterie (1560Wh, DMEGC-Zellen), 1600W*2 Bürstenloser Motor (5000W Peak).",
     "price": {
       "chf": 1399,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/teverun-blade-gt-ii",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "laut E-Rydez zurzeit nicht lieferbar",
+      "status": "zurzeit nicht lieferbar",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -1340,6 +1544,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 80,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -1348,7 +1553,8 @@ window.NSCOOTS_DATA = {
       "limited": false
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/teverun-blade-gt-ii",
@@ -1372,14 +1578,15 @@ window.NSCOOTS_DATA = {
     "summary": "Teverun Fighter Mini Pro: 60V 31.8Ah Samsung Batterie (1908Wh), 1000W*2 BOSCH Motor (3360W Peak).",
     "price": {
       "chf": 1499,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/teverun-fighter-mini-pro",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "laut E-Rydez lieferbar",
+      "status": "lieferbar",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -1393,6 +1600,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 65,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -1401,7 +1609,8 @@ window.NSCOOTS_DATA = {
       "limited": false
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/teverun-fighter-mini-pro",
@@ -1425,14 +1634,15 @@ window.NSCOOTS_DATA = {
     "summary": "Teverun Blade GT II+: 60V 37.1Ah Samsung Batterie (2226Wh), 1600W*2 Bürstenloser Motor (5000W Peak).",
     "price": {
       "chf": 1649,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/teverun-blade-gt-ii-plus",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "laut E-Rydez zurzeit nicht lieferbar",
+      "status": "zurzeit nicht lieferbar",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -1446,6 +1656,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 85,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -1454,7 +1665,8 @@ window.NSCOOTS_DATA = {
       "limited": false
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/teverun-blade-gt-ii-plus",
@@ -1469,6 +1681,62 @@ window.NSCOOTS_DATA = {
     ]
   },
   {
+    "id": "teverun-fighter-mini-pro-ekfv",
+    "brand": "teverun",
+    "model": "Teverun Fighter Mini Pro eKFV",
+    "fullTitle": "Teverun Fighter Mini Pro eKFV",
+    "category": "escooter",
+    "segment": "alltag",
+    "summary": "Teverun Fighter Mini Pro eKFV 52V 30.8Ah",
+    "price": {
+      "chf": 1799,
+      "kind": "shop",
+      "basis": "swiss-scoots",
+      "source": "https://swiss-scoots.ch/products/teverun-fighter-mini-pro-ekfv",
+      "checked": "2026-10-30",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
+      "from": false
+    },
+    "lieferbarkeit": {
+      "status": "lieferbar",
+      "checked": "2026-10-30"
+    },
+    "specs": {
+      "motorW": null,
+      "peakW": null,
+      "motors": 2,
+      "batteryV": null,
+      "batteryAh": null,
+      "batteryWh": null,
+      "rangeKm": "20",
+      "speedKmh": 20,
+      "weightKg": null,
+      "maxLoadKg": null,
+      "ekfv": true,
+      "tires": null,
+      "brakes": null,
+      "ip": null,
+      "foldable": null,
+      "abe": false,
+      "limited": true
+    },
+    "variants": [],
+    "chLegal": "Strassenzugelassen Schweiz (Händlerangabe, 20 km/h-Version)",
+    "streetLegalCH": true,
+    "sources": [
+      {
+        "url": "https://swiss-scoots.ch/products/teverun-fighter-mini-pro-ekfv",
+        "checked": "2026-10-30",
+        "note": "Händlerseite swiss-scoots.ch (Preis, Akku, Motor, Reichweite, Lieferstatus, Zulassungsangabe)"
+      }
+    ],
+    "images": [
+      "produkte/teverun-fighter-mini-pro-ekfv-1.jpg",
+      "produkte/teverun-fighter-mini-pro-ekfv-2.jpg",
+      "produkte/teverun-fighter-mini-pro-ekfv-3.jpg"
+    ]
+  },
+  {
     "id": "teverun-fighter-supreme-7260r",
     "brand": "teverun",
     "model": "Teverun Fighter Supreme 7260R",
@@ -1478,14 +1746,15 @@ window.NSCOOTS_DATA = {
     "summary": "Teverun Fighter Supreme 7260R: 72V 60Ah SK Pouch Batterie (4320Wh), 2500W*2 Bürstenloser Motor (15'000W Peak).",
     "price": {
       "chf": 3199,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/teverun-fighter-supreme-7260r",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "laut E-Rydez lieferbar",
+      "status": "lieferbar",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -1499,6 +1768,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 120,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -1507,7 +1777,8 @@ window.NSCOOTS_DATA = {
       "limited": true
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/teverun-fighter-supreme-7260r",
@@ -1531,14 +1802,15 @@ window.NSCOOTS_DATA = {
     "summary": "Dualtron Victor LTD mit 60V 37.1Ah Samsung-Akku in Schwarz. Zwei Motoren, hydraulische NUTT-Bremsen und ein EY4-Display mit Bluetooth gehören zur Ausstattung dieser Limited-Version.",
     "price": {
       "chf": 1599,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/dualtron-victor-ltd-dgt-60v-37-1ah-samsung",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "laut E-Rydez lieferbar",
+      "status": "lieferbar",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -1552,6 +1824,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 80,
       "weightKg": 39.1,
       "maxLoadKg": 120,
+      "ekfv": false,
       "tires": "10 Zoll Tubeless",
       "brakes": "hydraulische NUTT-Scheibenbremsen",
       "ip": null,
@@ -1560,7 +1833,8 @@ window.NSCOOTS_DATA = {
       "limited": false
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/dualtron-victor-ltd-dgt-60v-37-1ah-samsung",
@@ -1584,14 +1858,15 @@ window.NSCOOTS_DATA = {
     "summary": "Rovoron R7 / R7 Pro: 60V 28.6Ah (1716Wh) oder 42.4Ah Pro (2544Wh) Samsung Batterie, 900W*2 Bürstenloser Motor (3000W Peak).",
     "price": {
       "chf": 1159,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/rovoron-r7",
       "checked": "2026-10-30",
-      "note": "Referenzpreis ab (günstigste Ausführung), e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Preis ab (günstigste Ausführung). Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": true
     },
     "lieferbarkeit": {
-      "status": "laut E-Rydez lieferbar",
+      "status": "lieferbar",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -1605,6 +1880,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 65,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -1644,7 +1920,8 @@ window.NSCOOTS_DATA = {
         "note": "Referenzpreis 1179 CHF"
       }
     ],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/rovoron-r7",
@@ -1668,14 +1945,15 @@ window.NSCOOTS_DATA = {
     "summary": "Rovoron S7: 84V 37.1Ah Samsung Batterie (3116Wh), 2500W*2 Bürstenloser Motor (bis 11'500W Peak).",
     "price": {
       "chf": 1999,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/rovoron-s7",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "Vorbestellung bei E-Rydez, voraussichtlich 16. November 2026",
+      "status": "Vorbestellung, voraussichtlich 16. November 2026",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -1689,6 +1967,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 100,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -1697,7 +1976,8 @@ window.NSCOOTS_DATA = {
       "limited": false
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/rovoron-s7",
@@ -1721,14 +2001,15 @@ window.NSCOOTS_DATA = {
     "summary": "Ausom L1 Max: 48V 20.8 Ah Batterie (998.4Wh), 1000W Bürstenloser Motor (1344W Peak).",
     "price": {
       "chf": 729,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/ausom-l1-max",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "laut E-Rydez zurzeit nicht lieferbar",
+      "status": "zurzeit nicht lieferbar",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -1742,6 +2023,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 20,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -1750,7 +2032,8 @@ window.NSCOOTS_DATA = {
       "limited": true
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/ausom-l1-max",
@@ -1774,14 +2057,15 @@ window.NSCOOTS_DATA = {
     "summary": "Ausom L2 Max Dual: 48V 20.8 Ah Batterie (998.4Wh), 2 x 1000W Bürstenloser Motor (2688W Peak).",
     "price": {
       "chf": 959,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/ausom-l2-max-dual-motor",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "laut E-Rydez zurzeit nicht lieferbar",
+      "status": "zurzeit nicht lieferbar",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -1795,6 +2079,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 61,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -1803,7 +2088,8 @@ window.NSCOOTS_DATA = {
       "limited": false
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/ausom-l2-max-dual-motor",
@@ -1827,14 +2113,15 @@ window.NSCOOTS_DATA = {
     "summary": "Ausom DT2 Pro: 52V 23.4 Ah Batterie (1216.8Wh), 2 x 1100W Bürstenloser Motor (2912W Peak).",
     "price": {
       "chf": 999,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/ausom-dt2-pro",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "laut E-Rydez zurzeit nicht lieferbar",
+      "status": "zurzeit nicht lieferbar",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -1848,6 +2135,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 64,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -1856,7 +2144,8 @@ window.NSCOOTS_DATA = {
       "limited": false
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/ausom-dt2-pro",
@@ -1880,14 +2169,15 @@ window.NSCOOTS_DATA = {
     "summary": "Ausom F1 Max: 60V 20.8 Ah Batterie, 1400W*2 Bürstenloser Motor.",
     "price": {
       "chf": 1209,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/ausom-f1-max",
       "checked": "2026-10-30",
-      "note": "Referenzpreis e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": false
     },
     "lieferbarkeit": {
-      "status": "laut E-Rydez zurzeit nicht lieferbar",
+      "status": "zurzeit nicht lieferbar",
       "checked": "2026-10-30"
     },
     "specs": {
@@ -1901,6 +2191,7 @@ window.NSCOOTS_DATA = {
       "speedKmh": 72,
       "weightKg": null,
       "maxLoadKg": null,
+      "ekfv": false,
       "tires": null,
       "brakes": null,
       "ip": null,
@@ -1909,7 +2200,8 @@ window.NSCOOTS_DATA = {
       "limited": false
     },
     "variants": [],
-    "chLegal": "nicht ausgewiesen (laut E-Rydez)",
+    "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/ausom-f1-max",
@@ -1933,14 +2225,15 @@ window.NSCOOTS_DATA = {
     "summary": "Ersatzteile für KuKirin G2 Pro: Vorderrad (schlauchlos) -V4 Version, Schlauchloser Reifen -V4 Version, Antriebsrad -V4 Version, Motor-Rad -VMP Version und mehr.",
     "price": {
       "chf": 30,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/kukirin-g2-pro-ersatzteile",
       "checked": "2026-10-30",
-      "note": "Referenzpreis ab (günstigste Ausführung), e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Preis ab (günstigste Ausführung). Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": true
     },
     "lieferbarkeit": {
-      "status": "laut E-Rydez lieferbar",
+      "status": "lieferbar",
       "checked": "2026-10-30"
     },
     "specs": {},
@@ -2027,6 +2320,7 @@ window.NSCOOTS_DATA = {
       }
     ],
     "chLegal": null,
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/kukirin-g2-pro-ersatzteile",
@@ -2050,14 +2344,15 @@ window.NSCOOTS_DATA = {
     "summary": "Ersatzteile für KuKirin G2 Max: Luftreifen (Stück), Vorderrad (ohne Scheibenbremse, Vorderachse), Motor (ohne Schlauch und Reifen), Bremsscheibe (Stück) und mehr.",
     "price": {
       "chf": 30,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/kukirin-g2-max-ersatzteile",
       "checked": "2026-10-30",
-      "note": "Referenzpreis ab (günstigste Ausführung), e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Preis ab (günstigste Ausführung). Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": true
     },
     "lieferbarkeit": {
-      "status": "laut E-Rydez lieferbar",
+      "status": "lieferbar",
       "checked": "2026-10-30"
     },
     "specs": {},
@@ -2119,6 +2414,7 @@ window.NSCOOTS_DATA = {
       }
     ],
     "chLegal": null,
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/kukirin-g2-max-ersatzteile",
@@ -2142,14 +2438,15 @@ window.NSCOOTS_DATA = {
     "summary": "Ersatzteile für KuKirin G2 Master: Pneumatischer Reifen (Stück) -2024 Version, Vorderer Motor (ohne Innen- und Außenreifen) -A version (dreieckiger Anschluss), Hinterradmotor (ohne Schlauch und Reifen) -A Version (Dreiecksanschluss), Schlauchloser Reifen -2025 Version und mehr.",
     "price": {
       "chf": 30,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/kukirin-g2-master-ersatzteile",
       "checked": "2026-10-30",
-      "note": "Referenzpreis ab (günstigste Ausführung), e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Preis ab (günstigste Ausführung). Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": true
     },
     "lieferbarkeit": {
-      "status": "laut E-Rydez lieferbar",
+      "status": "lieferbar",
       "checked": "2026-10-30"
     },
     "specs": {},
@@ -2231,6 +2528,7 @@ window.NSCOOTS_DATA = {
       }
     ],
     "chLegal": null,
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/kukirin-g2-master-ersatzteile",
@@ -2254,14 +2552,15 @@ window.NSCOOTS_DATA = {
     "summary": "Ersatzteile für KuKirin G2: Scheibenbremse (140 mm) -A Version, Bremsscheibe (160mm) -B Version, Vorderrad (ohne Scheibenbremse), Schlauchloser Reifen (Stück) und mehr.",
     "price": {
       "chf": 34,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/kukirin-g2-ersatzteile",
       "checked": "2026-10-30",
-      "note": "Referenzpreis ab (günstigste Ausführung), e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Preis ab (günstigste Ausführung). Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": true
     },
     "lieferbarkeit": {
-      "status": "laut E-Rydez lieferbar",
+      "status": "lieferbar",
       "checked": "2026-10-30"
     },
     "specs": {},
@@ -2313,6 +2612,7 @@ window.NSCOOTS_DATA = {
       }
     ],
     "chLegal": null,
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/kukirin-g2-ersatzteile",
@@ -2336,14 +2636,15 @@ window.NSCOOTS_DATA = {
     "summary": "Ersatzteile für KuKirin G4: Bremsscheibe (140mm) -A version, Bremsscheibe (160mm) -B Version, Vorderrad (11.8 mm) -B version, Tubeless-Reifen für Hinterrad (Stück) und mehr.",
     "price": {
       "chf": 34,
-      "kind": "referenz",
+      "kind": "shop",
+      "basis": "e-rydez",
       "source": "https://e-rydez.ch/products/kukirin-g4-ersatzteile",
       "checked": "2026-10-30",
-      "note": "Referenzpreis ab (günstigste Ausführung), e-rydez.ch. Kein N SCOOTS-Preis.",
+      "note": "Preis ab (günstigste Ausführung). Einführungspreis, unverbindlich bis Verkaufsstart.",
       "from": true
     },
     "lieferbarkeit": {
-      "status": "laut E-Rydez lieferbar",
+      "status": "lieferbar",
       "checked": "2026-10-30"
     },
     "specs": {},
@@ -2405,6 +2706,7 @@ window.NSCOOTS_DATA = {
       }
     ],
     "chLegal": null,
+    "streetLegalCH": false,
     "sources": [
       {
         "url": "https://e-rydez.ch/products/kukirin-g4-ersatzteile",
@@ -2421,7 +2723,7 @@ window.NSCOOTS_DATA = {
 ],
   dirtbikes: {
   "status": "Erstes Modell gelistet, Sortiment im Aufbau",
-  "text": "Mit dem KuKirin X1 ist ein erstes Mini-Dirtbike aus dem E-Rydez-Sortiment gelistet. Weitere E-Dirtbikes und Motocross-Modelle folgen, sobald Daten und Bildrechte gesichert sind. E-Dirtbikes sind für Privatgelände gedacht.",
+  "text": "Mit dem KuKirin X1 ist ein erstes Mini-Dirtbike gelistet. Weitere E-Dirtbikes und Motocross-Modelle folgen, sobald Daten und Bildrechte gesichert sind. E-Dirtbikes sind für Privatgelände gedacht.",
   "planned": [
     {
       "title": "Einsteiger-Dirtbikes",

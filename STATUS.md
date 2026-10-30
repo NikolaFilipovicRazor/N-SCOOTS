@@ -4,8 +4,12 @@ Stand: 2026-10-30
 
 ## Gestaltungskonzept (kurz)
 
-- **Identität:** Anthrazit (#1c1f24) als Grundton, Kobaltblau (#1f4fe0) als einziger Akzent, helle ruhige Produktflächen.
-  Display-Schrift Barlow Condensed (Motorsport-Anklang), Inter für Text. Wortmarke: schräger Kobalt-Block mit «N», daneben «N SCOOTS».
+- **Identität (Stand 2026-10-30):** Schwarz (#0b0b0d) für Header, Hero, Showcase und Footer, Weiss für Produktflächen, Signalrot (#e10600)
+  als einziger Akzent. Wortmarke: kursives rotes «N», daneben «SCOOTS» in Weiss. Positionierung «Premium Scooter».
+  Display-Schrift Barlow Condensed, Inter für Text.
+- **Immersion:** Elemente kommen beim Scrollen aus der Tiefe nach vorne (perspektivischer Reveal), Parallax auf Fotos, rotes Laufband,
+  Marken-Tabs mit Direktwechsel, Showcase-Bühne (sticky), in der drei Modelle beim Scrollen von hinten nach vorne wechseln.
+  Alles respektiert `prefers-reduced-motion` (dann statisch gestapelt).
 - **Aufbau Startseite:** dunkler Hero mit Claim «Dein nächster Ride.», Vertrauensleiste mit belegbaren Aussagen, zwei Kategorie-Einstiege,
   drei Fahrprofile (Alltag, Lange Strecken, Gelände) als Direktlinks in den gefilterten Katalog, ausgewählte Modelle, Marken-Kacheln mit
   «Referenz ab» nur bei belegtem Preis, Kaufhilfe. Struktur-Anregungen aus Referenz-Shops wurden in eigener Gestaltung umgesetzt; Logos,
@@ -35,6 +39,10 @@ Stand: 2026-10-30
 - **Fotos eingebaut:** 114 Produktfotos von e-rydez.ch (Freigabe ausstehend, sichtbar gekennzeichnet), Hero mit grossem Produktbild, sechs frei lizenzierte Stimmungsfotos von Wikimedia Commons mit Namensnennung. Video fehlt noch (siehe ASSETS.md).
 
 ## Sortiment (Stand 2026-10-30)
+
+- Zusätzlich drei in der Schweiz als strassenzugelassen ausgewiesene 20 km/h-Modelle (Teverun eKFV / CH-Edition) aus dem Katalog von swiss-scoots.ch; Filter «Strassenzugelassen CH» zeigt sie.
+- Preise sind jetzt N SCOOTS-Einführungspreise auf dem Niveau des jeweiligen Quell-Händlers (`price.basis`, `price.source`), unverbindlich bis Verkaufsstart; keine Händlernamen auf der Website.
+- Produktbilder ohne Beschriftung am Bild; Herkunft und Freigabestatus in ASSETS.md.
 
 - Vollständiger Import des E-Rydez-Katalogs: 32 E-Scooter, 1 E-Dirtbike (KuKirin X1), 5 Ersatzteil-Sets; Marken KuKirin, Joyor, Teverun, Dualtron, Rovoron, Ausom.
 - Je Produkt: Referenzpreis (ab-Preis bei Varianten), Lieferstatus laut E-Rydez mit Datum, Akku, Motor, Reichweite, Höchstgeschwindigkeit, ABE-Kennzeichnung, Quelle. Reproduzierbar mit `node tools/import-erydez.js`.

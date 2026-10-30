@@ -80,10 +80,11 @@
     info: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>',
     close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>'
   };
-  const legalTag = (p) => p.chLegal ? `<span class="tag tag-signal">CH-Strassentauglichkeit ${esc(p.chLegal)}</span>` : "";
+  const legalTag = (p) => !p.chLegal ? "" : p.streetLegalCH ? `<span class="tag tag-ok">Strassenzugelassen CH · 20 km/h</span>` : `<span class="tag tag-signal">${esc(p.chLegal)}</span>`;
+  const legalTagShort = (p) => p.streetLegalCH ? `<span class="tag tag-ok">CH zugelassen</span>` : (p.category === "escooter" && !p.specs.abe ? `<span class="tag">Privatgelände</span>` : "");
   const priceHtml = (p, big = false) => {
-    if (p.price.kind === "referenz" && p.price.chf != null) {
-      return `<span class="price">${p.price.from ? '<span class="price-from">ab</span> ' : ""}${F.chf(p.price.chf)}</span><span class="price-note">Referenzpreis${big ? "" : "*"}</span>`;
+    if (p.price.chf != null) {
+      return `<span class="price">${p.price.from ? '<span class="price-from">ab</span> ' : ""}${F.chf(p.price.chf)}</span>${big ? "" : `<span class="price-note">inkl. MwSt.*</span>`}`;
     }
     return `<span class="price">Preis offen</span>`;
   };
@@ -100,7 +101,7 @@
       <div class="card-media${pimgs(p).length > 1 && canHover() ? " has-alt" : ""}${isProductImg(p) ? " is-product" : ""}">${img(p, 0, { alt: placeholderAlt(p) })}${pimgs(p).length > 1 && canHover() ? `<img class="alt" src="${esc(imgSrc(p, 1))}" alt="" loading="lazy" decoding="async" width="1100" height="760" onerror="this.closest('.card-media').classList.remove('has-alt');this.remove()">` : ""}${pimgs(p).length > 1 ? `<span class="media-count" aria-hidden="true">${pimgs(p).length} Bilder</span>` : ""}</div>
       <div class="card-body">
         <div class="card-brand">${esc(p.brand ? brandName(p.brand) : catName(p.category))}${p.segment ? " · " + esc(segName(p.segment)) : p.category === "edirtbike" ? " · Dirtbike" : ""}</div>
-        <div class="card-tags">${lieferTag(p)}${abeTag(p)}</div>
+        <div class="card-tags">${legalTagShort(p)}${lieferTag(p)}${abeTag(p)}</div>
         <h3 class="card-title"><a href="#/produkt/${p.id}">${esc(p.model)}</a></h3>
         ${specs.length ? `<ul class="card-specs">${specs.map((s) => `<li>${s}</li>`).join("")}</ul>` : `<p class="small muted" style="margin:0">${esc(p.summary)}</p>`}
         <div class="card-price">${priceHtml(p)}</div>
@@ -112,11 +113,11 @@
     </article>`;
   }
   const notice = (text, neutral = false) => `<div class="notice${neutral ? " notice-neutral" : ""}">${icons.info}<p>${text}</p></div>`;
-  const refNote = `<p class="small muted">* Referenzpreise stammen aus fremden Angeboten (Quelle auf der Produktseite) und sind keine N SCOOTS-Preise. «Preis offen» heisst: noch nicht festgelegt.</p>`;
+  const refNote = `<p class="small muted">* Preise in CHF. Einführungspreise der Shop-Vorschau, unverbindlich bis Verkaufsstart.</p>`;
 
   /* ---------- Startseite ---------- */
   function viewHome() {
-    const featured = ["kukirin-g2-master", "kukirin-g2-pro-abe", "teverun-fighter-mini-pro", "rovoron-r7"].map(byId).filter(Boolean);
+    const featured = ["teverun-fighter-mini-pro-ekfv", "kukirin-g2-master", "teverun-blade-mini-pro-ch-edition", "kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike"].map(byId).filter(Boolean);
     const brands = D.brands;
     const html = `
     ${(() => {
@@ -141,18 +142,18 @@
       <div class="hero-bg" data-parallax="0.25">${media}</div>
       <div class="wrap hero-content">
         <div data-reveal>
-          <p class="hero-kicker">E-Scooter &amp; E-Dirtbikes · Schweiz</p>
-          <h1 id="hero-title">Dein nächster Ride.</h1>
-          <p>E-Scooter von KuKirin, Joyor, Teverun, Dualtron, Rovoron und Ausom, dazu erste E-Dirtbikes. Klare Daten, ehrliche Preise, Schweizer Ansprechpartner. Shop in Vorbereitung.</p>
+          <p class="hero-kicker">Premium Scooter <span class="sep">·</span> E-Mobility Schweiz</p>
+          <h1 id="hero-title">Dein nächster Ride.<br><span class="h1-red">Premium Scooter.</span></h1>
+          <p>KuKirin, Joyor, Teverun, Dualtron, Rovoron und Ausom. Strassenzugelassene Modelle für den Alltag, Performance für Privatgelände, dazu E-Dirtbikes. Persönliche Beratung, Schweizer Ansprechpartner.</p>
           <div class="hero-cta">
-            <a class="btn btn-accent" href="#/katalog?kat=escooter">E-Scooter entdecken</a>
-            <a class="btn btn-ghost" href="#/dirtbikes">E-Dirtbikes</a>
+            <a class="btn btn-accent" href="#/katalog?kat=escooter">Premium Scooter entdecken</a>
+            <a class="btn btn-ghost" href="#/katalog?kat=escooter&zulassung=ch">Strassenzugelassen CH</a>
           </div>
+          <p class="hero-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>${esc(D.meta.kontakt.abholung || "")}</p>
         </div>
         ${hp.photo && !hv ? `<a class="hero-product" href="${hpProd ? `#/produkt/${hpProd.id}` : "#/katalog?kat=escooter"}" data-reveal>
           <img src="${esc(hp.src)}" alt="${esc(hp.alt)}" width="1400" height="1400" fetchpriority="high" decoding="async" onerror="window.NSCOOTS_MEDIA_API.broken(this)">
-          ${hpProd ? `<span class="hero-product-cap"><strong>${esc(hpProd.model)}</strong><span>${hpProd.price.chf != null ? "Referenz ab " + F.chf(hpProd.price.chf) : "Preis offen"} · ${esc(F.num(hpProd.specs.batteryWh, "Wh") || "")} · ${esc(F.num(hpProd.specs.rangeKm, "km") || "")}</span></span>` : ""}
-          <span class="media-credit media-credit-supplier" aria-hidden="true">Foto: ${esc(hp.credit)} · Freigabe ausstehend</span>
+          ${hpProd ? `<span class="hero-product-cap"><strong>${esc(hpProd.model)}</strong><span>${hpProd.streetLegalCH ? "Strassenzugelassen CH · " : ""}${hpProd.price.chf != null ? F.chf(hpProd.price.chf) : "Preis offen"} · ${esc(F.num(hpProd.specs.batteryWh, "Wh") || "")} · ${esc(F.num(hpProd.specs.rangeKm, "km") || "")}</span></span>` : ""}
         </a>` : ""}
         <div class="hero-tools">
           ${hv ? `<button class="btn btn-ghost btn-sm" type="button" data-action="video-toggle">Video pausieren</button>` : ""}
@@ -162,18 +163,20 @@
       <div class="hero-stripe" aria-hidden="true"></div>
     </section>`; })()}
 
+    <div class="ticker" aria-hidden="true"><div class="ticker-track">${[0, 1].map(() => ["Premium Scooter", "Strassenzugelassene Modelle", "KuKirin", "Joyor", "Teverun", "Dualtron", "Rovoron", "Ausom", "E-Dirtbikes", "Schweizer Support", esc(D.meta.kontakt.abholung || "")].map((t) => `<span>${t}</span>`).join("<i>•</i>")).join("<i>•</i>")}</div></div>
+
     <section class="brand-bar" aria-label="Marken">
       <div class="wrap brand-bar-list">
-        ${D.brands.map((b) => `<a class="brand-mark" href="#/katalog?marke=${b.id}"><span class="brand-initial" aria-hidden="true">${esc(b.name[0])}</span><span>${esc(b.name)}</span></a>`).join("")}
+        ${D.brands.map((b) => { const lg = MA.logo(b.id); return `<a class="brand-mark" href="#/katalog?marke=${b.id}"><span class="brand-initial" aria-hidden="true">${lg ? `<img src="${esc(lg)}" alt="">` : esc(b.name[0])}</span><span>${esc(b.name)}</span></a>`; }).join("")}
       </div>
     </section>
 
     <section class="trust" aria-label="So arbeiten wir">
       <div class="wrap">
         <ul class="trust-list">
-          <li><strong>Schweizer Ansprechpartner</strong><span>${esc(D.meta.kontakt.person)}, persönlich und nah</span></li>
-          <li><strong>Sicher bezahlen</strong><span>Zahlungsarten in Vorbereitung</span></li>
-          <li><strong>Lieferbarkeit</strong><span>Status je Modell prüfen</span></li>
+          <li><strong>Schweizer Ansprechpartner</strong><span>${esc(D.meta.kontakt.person)}, ${esc(D.meta.kontakt.ort)}</span></li>
+          <li><strong>Sicher bezahlen</strong><span>TWINT, Karte, Rechnung (ab Verkaufsstart)</span></li>
+          <li><strong>Abholung oder Lieferung</strong><span>${esc(D.meta.kontakt.abholung || "Status je Modell")}</span></li>
           <li><strong>Persönlicher Support</strong><span><a href="#/kontakt">Beratung und Hilfe</a>, ${esc(D.meta.kontakt.zeiten)}</span></li>
         </ul>
       </div>
@@ -210,7 +213,7 @@
         <div class="section-head"><div><h2 id="profiles-title">Was suchst du?</h2><p class="muted">Drei Fahrprofile. Jedes führt direkt zu den passenden Modellen.</p></div></div>
         <div class="profile-grid">
           ${[
-            ["alltag", "Alltag &amp; Pendeln", "Leicht, faltbar, für Bahnhof und Büro. Einzelmotor, teils als 20–25 km/h-Version (ABE).", "kukirin-g2-pro-abe"],
+            ["alltag", "Alltag &amp; Pendeln", "Strassenzugelassene 20 km/h-Modelle und kompakte Einzelmotor-Scooter für Bahnhof und Büro.", "teverun-blade-mini-pro-ch-edition"],
             ["touren", "Lange Strecken", "Grosse Akkus ab rund 900 Wh für Touren und Hügel.", "kukirin-g2-master"],
             ["offroad", "Gelände", "Doppelmotor, grobe Reifen, viel Federweg. Für Privatgelände.", "teverun-blade-gt-ii-plus"]
           ].map(([seg, title, text, pid]) => { const p = byId(pid); const n = D.products.filter((x) => x.segment === seg).length; const r = MA.resolve(MEDIA.profiles && MEDIA.profiles[seg], p ? pimgs(p)[0] : null, p ? placeholderAlt(p) : ""); return `
@@ -224,9 +227,9 @@
 
     <section class="section story" aria-labelledby="story-title">
       <div class="wrap">
-        <h2 id="story-title" class="visually-hidden">Unterwegs mit N SCOOTS</h2>
+        <div class="section-head" data-reveal><div><h2 id="story-title">Mehr als Mobilität.</h2><p class="muted">Drei Situationen, drei Antworten aus dem Sortiment.</p></div></div>
         ${[
-          ["Morgens zum Zug, abends an den See.", "Ein Alltagsscooter wiegt typisch bis 25 kg, faltet sich in Sekunden und hängt am Abend wieder am Ladegerät. Reichweite reicht für den Weg, nicht für den Rekord.", "kukirin-g2-pro-abe", "#/katalog?kat=escooter&segment=alltag", "Alltagsmodelle"],
+          ["Morgens zum Zug, abends an den See.", "Ein Alltagsscooter wiegt typisch bis 25 kg, faltet sich in Sekunden und hängt am Abend wieder am Ladegerät. Reichweite reicht für den Weg, nicht für den Rekord.", "teverun-fighter-mini-pro-ekfv", "#/katalog?kat=escooter&zulassung=ch", "Strassenzugelassene Modelle"],
           ["Mehr Akku, mehr Ruhe.", "Ab rund 1000 Wh wird aus dem Pendler ein Tourenfahrzeug. Doppelmotor-Modelle nehmen Steigungen ohne Drama, kosten aber Gewicht.", "kukirin-g2-master", "#/katalog?kat=escooter&segment=touren", "Tourenmodelle"],
           ["Schotter, Wiese, Waldweg.", "Mit dem KuKirin X1 ist das erste Mini-Dirtbike gelistet. Für Privatgelände gedacht; ob und wie ein Modell auf die Strasse darf, prüfen wir je Ausführung.", "kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike", "#/dirtbikes", "E-Dirtbikes"]
         ].map(([h, t, pid, href, cta], i) => { const p = byId(pid); const r = MA.resolve(MEDIA.story && MEDIA.story[i], p ? pimgs(p)[0] : null, p ? placeholderAlt(p) : ""); return `
@@ -237,10 +240,35 @@
       </div>
     </section>
 
+    ${(() => { const ids = ["teverun-fighter-mini-pro-ekfv", "kukirin-g2-master", "rovoron-s7"]; const items = ids.map(byId).filter(Boolean); if (items.length < 2) return ""; return `
+    <section class="showcase" aria-labelledby="showcase-title">
+      <div class="showcase-sticky">
+        <div class="wrap showcase-inner">
+          <div class="showcase-text">
+            <p class="hero-kicker">Premium Scooter</p>
+            <h2 id="showcase-title">Drei Charaktere.<br><span class="h1-red">Ein Anspruch.</span></h2>
+            <div class="showcase-captions">${items.map((p, i) => `<div class="showcase-cap${i === 0 ? " is-active" : ""}" data-i="${i}"><h3>${esc(p.model)}</h3><p>${esc(p.summary)}</p><p class="showcase-meta">${p.streetLegalCH ? "Strassenzugelassen CH · " : ""}${esc(F.num(p.specs.batteryWh, "Wh") || "")} · ${esc(F.num(p.specs.rangeKm, "km") || "")} · ${F.chf(p.price.chf)}</p><a class="btn btn-accent btn-sm" href="#/produkt/${p.id}">Zum Modell</a></div>`).join("")}</div>
+            <div class="showcase-dots" role="list">${items.map((p, i) => `<span role="listitem" class="${i === 0 ? "is-active" : ""}" data-i="${i}" aria-label="${esc(p.model)}"></span>`).join("")}</div>
+          </div>
+          <div class="showcase-stage">${items.map((p, i) => `<img class="showcase-img${i === 0 ? " is-active" : ""}" data-i="${i}" src="${esc(imgSrc(p, 0))}" alt="${esc(p.model)}" width="1200" height="1200" ${i === 0 ? "" : 'loading="lazy"'} decoding="async" onerror="window.NSCOOTS_MEDIA_API.broken(this)">`).join("")}</div>
+        </div>
+      </div>
+    </section>`; })()}
+
+    <section class="section" aria-labelledby="brand-tabs-title">
+      <div class="wrap">
+        <div class="section-head"><div><h2 id="brand-tabs-title">Marken im Fokus</h2><p class="muted">Wähle eine Marke, die Auswahl wechselt direkt.</p></div></div>
+        <div class="brand-tabs" role="tablist" aria-label="Marken">
+          ${D.brands.map((b, i) => { const lg = MA.logo(b.id); return `<button class="brand-tab" role="tab" type="button" id="tab-${b.id}" aria-selected="${i === 0}" aria-controls="panel-brands" data-brand="${b.id}" tabindex="${i === 0 ? 0 : -1}">${lg ? `<img src="${esc(lg)}" alt="" width="40" height="40">` : `<span class="brand-initial" aria-hidden="true">${esc(b.name[0])}</span>`}<span>${esc(b.name)}</span></button>`; }).join("")}
+        </div>
+        <div id="panel-brands" role="tabpanel" aria-labelledby="tab-${D.brands[0].id}" class="brand-panel"></div>
+      </div>
+    </section>
+
     <section class="section" aria-labelledby="featured-title" data-reveal>
       <div class="wrap">
         <div class="section-head">
-          <div><h2 id="featured-title">Ausgewählte Modelle</h2><p class="muted">Vier Modelle, die den Bereich gut abdecken: Pendeln, Touren, Gelände.</p></div>
+          <div><h2 id="featured-title">Ausgewählte Modelle</h2><p class="muted">Strassenzugelassen für den Alltag, Performance fürs Gelände, dazu das erste Dirtbike.</p></div>
           <a class="btn btn-ghost btn-sm" href="#/katalog">Alle Modelle</a>
         </div>
         <div class="product-grid">${featured.map((p) => productCard(p)).join("")}</div>
@@ -250,9 +278,9 @@
 
     <section class="section" aria-labelledby="brands-title" data-reveal>
       <div class="wrap">
-        <div class="section-head"><div><h2 id="brands-title">Marken</h2><p class="muted">Geplantes Markenportfolio. Händlervereinbarungen sind noch offen.</p></div></div>
+        <div class="section-head"><div><h2 id="brands-title">Alle Marken</h2><p class="muted">Sechs Marken, ein Anspruch: Premium Scooter mit klaren Daten.</p></div></div>
         <div class="brand-strip">
-          ${brands.map((b) => { const prices = D.products.filter((p) => p.brand === b.id && p.price.chf != null).map((p) => p.price.chf); const n = D.products.filter((p) => p.brand === b.id).length; const from = prices.length ? `Referenz ab ${F.chf(Math.min(...prices))}*` : "Preise offen"; const bm = MEDIA.brands && MEDIA.brands[b.id]; const br = MA.usable(bm) ? MA.resolve(bm, null, "") : null; const bimg = br ? `<span class="brand-photo"><img src="${esc(br.src)}" alt="" loading="lazy" decoding="async" onerror="const c=this.closest('.brand-chip');c.classList.remove('has-photo');this.closest('.brand-photo').remove()">${MA.marks(br)}</span>` : ""; return `<a class="brand-chip${b.featured ? " featured" : ""}${bimg ? " has-photo" : ""}" href="#/katalog?marke=${b.id}">${bimg}<span class="brand-top"><strong>${esc(b.name)}</strong><span class="tag">${n} ${n === 1 ? "Modell" : "Modelle"}</span></span><span>${esc(b.blurb)}</span><span class="brand-price">${from}</span></a>`; }).join("")}
+          ${brands.map((b) => { const prices = D.products.filter((p) => p.brand === b.id && p.price.chf != null).map((p) => p.price.chf); const n = D.products.filter((p) => p.brand === b.id).length; const from = prices.length ? `ab ${F.chf(Math.min(...prices))}` : "Preise offen"; const bm = MEDIA.brands && MEDIA.brands[b.id]; const br = MA.usable(bm) ? MA.resolve(bm, null, "") : null; const bimg = br ? `<span class="brand-photo"><img src="${esc(br.src)}" alt="" loading="lazy" decoding="async" onerror="const c=this.closest('.brand-chip');c.classList.remove('has-photo');this.closest('.brand-photo').remove()">${MA.marks(br)}</span>` : ""; return `<a class="brand-chip${b.featured ? " featured" : ""}${bimg ? " has-photo" : ""}" href="#/katalog?marke=${b.id}">${bimg}<span class="brand-top"><strong>${esc(b.name)}</strong><span class="tag">${n} ${n === 1 ? "Modell" : "Modelle"}</span></span><span>${esc(b.blurb)}</span><span class="brand-price">${from}</span></a>`; }).join("")}
         </div>
       </div>
     </section>
@@ -294,7 +322,7 @@
     if (st.kat) list = list.filter((p) => p.category === st.kat);
     if (st.marke.length) list = list.filter((p) => p.brand && st.marke.includes(p.brand));
     if (st.segment) list = list.filter((p) => p.segment === st.segment);
-    if (st.zulassung === "ch") list = list.filter((p) => /bestätigt$/.test(p.chLegal || "") && !/nicht bestätigt/.test(p.chLegal));
+    if (st.zulassung === "ch") list = list.filter((p) => p.streetLegalCH);
     if (st.q) {
       const terms = st.q.toLowerCase().split(/\s+/).filter(Boolean);
       list = list.filter((p) => { const hay = `${p.model} ${brandName(p.brand)} ${p.summary} ${catName(p.category)} ${segName(p.segment)}`.toLowerCase(); return terms.every((t) => hay.includes(t)); });
@@ -323,7 +351,7 @@
     <div class="wrap">
       <div class="page-head">
         <h1>${st.kat ? esc(catName(st.kat)) : "Alle Modelle"}</h1>
-        <p class="muted">Sortiment nach dem Katalog von e-rydez.ch (Stand ${F.date(D.meta.dataVersion)}). Preise sind Referenzpreise, Lieferstatus laut E-Rydez.</p>
+        <p class="muted">Premium Scooter von KuKirin, Joyor, Teverun, Dualtron, Rovoron und Ausom. Preise in CHF, Lieferstatus je Modell.</p>
       </div>
       <div class="catalog-layout">
         <div>
@@ -347,7 +375,7 @@
               ${Object.entries(D.segments).map(([id, s]) => `<label class="check"><input type="radio" name="segment" value="${id}" ${st.segment === id ? "checked" : ""}> ${esc(s.name)}</label>`).join("")}
             </fieldset>
             <fieldset><legend>Strassenzulassung</legend>
-              <label class="check"><input type="checkbox" name="zulassung" value="ch" ${st.zulassung === "ch" ? "checked" : ""}> Nur CH-strassenzugelassen (belegt)</label>
+              <label class="check"><input type="checkbox" name="zulassung" value="ch" ${st.zulassung === "ch" ? "checked" : ""}> Nur strassenzugelassen (CH)</label>
             </fieldset>
             <fieldset><legend>Referenzpreis (CHF)</legend>
               <div class="range-row">
@@ -392,12 +420,12 @@
     st.marke.forEach((m) => chips.push({ k: "marke", v: m, label: brandName(m) }));
     if (st.kat) chips.push({ k: "kat", label: catName(st.kat) });
     if (st.segment) chips.push({ k: "segment", label: segName(st.segment) });
-    if (st.zulassung) chips.push({ k: "zulassung", label: "CH-strassenzugelassen" });
+    if (st.zulassung) chips.push({ k: "zulassung", label: "Strassenzugelassen CH" });
     if (st.min !== "") chips.push({ k: "min", label: `ab ${F.chf(st.min)}` });
     if (st.max !== "") chips.push({ k: "max", label: `bis ${F.chf(st.max)}` });
     active.innerHTML = chips.map((c) => `<button type="button" data-action="remove-filter" data-k="${c.k}" data-v="${esc(c.v || "")}" aria-label="Filter entfernen: ${esc(c.label)}">${esc(c.label)} ✕</button>`).join("");
     if (!list.length) {
-      results.innerHTML = `<div class="empty"><h3>${st.zulassung ? "Noch kein Modell mit belegter CH-Zulassung" : "Nichts gefunden"}</h3><p class="muted">${st.zulassung ? "E-Rydez weist für kein Modell eine Schweizer Strassenzulassung aus; ABE-Modelle haben eine deutsche Betriebserlaubnis. Die CH-Prüfung je Ausführung folgt vor dem Verkaufsstart. Bis dahin findest du alle Modelle ohne diesen Filter." : st.q ? `Für «${esc(st.q)}» gibt es kein Modell.` : "Die Kombination aus Filtern liefert kein Modell."}${hiddenNoPrice ? ` ${hiddenNoPrice} Modelle ohne Preisangabe sind durch den Preisfilter ausgeblendet.` : ""}</p><button class="btn" type="button" data-action="reset-filters">Alle Modelle anzeigen</button></div>`;
+      results.innerHTML = `<div class="empty"><h3>Nichts gefunden</h3><p class="muted">${st.q ? `Für «${esc(st.q)}» gibt es kein Modell.` : "Die Kombination aus Filtern liefert kein Modell."}${hiddenNoPrice ? ` ${hiddenNoPrice} Modelle ohne Preisangabe sind durch den Preisfilter ausgeblendet.` : ""}</p><button class="btn" type="button" data-action="reset-filters">Alle Modelle anzeigen</button></div>`;
     } else {
       results.innerHTML = (hiddenNoPrice ? `<p class="small muted">${hiddenNoPrice} Modelle ohne Preisangabe durch Preisfilter ausgeblendet.</p>` : "") + `<div class="product-grid">${list.map((p) => productCard(p)).join("")}</div>`;
     }
@@ -453,7 +481,7 @@
         <div>
           ${pimgs(p).length ? `<button class="gallery-main${isProductImg(p) ? " is-product" : ""}" id="gallery-main" type="button" data-action="lightbox" data-i="0" aria-label="Bild vergrössern: ${esc(placeholderAlt(p))}">${img(p, 0, { eager: true, alt: placeholderAlt(p) })}</button>` : `<div class="gallery-main"><img src="${FALLBACK}" alt="Kein Bild vorhanden" width="1100" height="760"></div>`}
           ${pimgs(p).length > 1 ? `<div class="gallery-thumbs${isProductImg(p) ? " is-product" : ""}" role="group" aria-label="Bildauswahl">${pimgs(p).map((r, i) => `<button type="button" data-action="thumb" data-i="${i}" aria-pressed="${i === 0}" aria-label="Ansicht ${i + 1}: ${esc(r.alt)}">${img(p, i, { alt: "", marks: false })}</button>`).join("")}</div>` : ""}
-          <p class="small muted" style="margin-top:8px">${pimgs(p)[0] && pimgs(p)[0].photo ? (pimgs(p)[0].product ? "Produktfotos von E-Rydez, Freigabe für die Veröffentlichung ausstehend. Tippen zum Vergrössern." : "Tippen zum Vergrössern.") : "Platzhalter. Produktbilder folgen, sobald die Bildrechte geklärt sind."}</p>
+          <p class="small muted" style="margin-top:8px">${pimgs(p)[0] && pimgs(p)[0].photo ? "Tippen zum Vergrössern." : "Produktbilder folgen."}</p>
         </div>
         <div class="pdp-info">
           <div>
@@ -469,7 +497,7 @@
           <p>${esc(p.summary)}</p>
           <div class="price-block">
             <div>${priceHtml(p, true)}</div>
-            ${p.price.kind === "referenz" ? `<p class="small muted" style="margin:0">Referenzpreis aus einem fremden Angebot (<a href="${esc(p.price.source)}" rel="noopener" target="_blank">Quelle</a>, geprüft ${F.date(p.price.checked)}). Kein N SCOOTS-Angebot.</p>` : `<p class="small muted" style="margin:0">${esc(p.price.note)}</p>`}
+            <p class="small muted" style="margin:0">${esc(p.price.note)} Inkl. MwSt., Versand wird vor Verkaufsstart festgelegt.</p>
           </div>
           ${p.variants.length ? `<fieldset class="variant-list" id="variants"><legend class="visually-hidden">Ausführung</legend>
             ${p.variants.map((v, i) => `<label class="variant"><input type="radio" name="variant" value="${v.id}" ${i === 0 ? "checked" : ""}><span><strong>${esc(v.name)}</strong><span>${esc(v.note)}</span></span></label>`).join("")}
@@ -478,7 +506,7 @@
             <button class="btn btn-accent" type="button" data-action="add" data-id="${p.id}">In den Warenkorb (Demo)</button>
             ${isAcc ? "" : `<button class="btn btn-ghost" type="button" data-action="compare" data-id="${p.id}" aria-pressed="${inCompare}">${inCompare ? "Im Vergleich" : "Vergleichen"}</button>`}
           </div>
-          ${notice(`<strong>Lieferbarkeit:</strong> ${esc(p.lieferbarkeit ? p.lieferbarkeit.status : "offen")} (Stand ${F.date(p.lieferbarkeit && p.lieferbarkeit.checked)}, <a href="${esc(p.price.source)}" rel="noopener" target="_blank">e-rydez.ch</a>). Versandart, Fristen und Kosten bei N SCOOTS werden vor dem Verkaufsstart festgelegt.`, true)}
+          ${notice(`<strong>Lieferbarkeit:</strong> ${esc(p.lieferbarkeit ? p.lieferbarkeit.status : "offen")} (Stand ${F.date(p.lieferbarkeit && p.lieferbarkeit.checked)}). ${esc(D.meta.kontakt.abholung || "")}.`, true)}
           ${isAcc ? "" : `
           <h2 style="margin-top:8px">Technische Daten</h2>
           <table class="spec-table">
@@ -496,7 +524,7 @@
               ${row("Reifen", s.tires)}
               ${row("Bremsen", s.brakes)}
               ${row("Schutzart", s.ip)}
-              <tr><th scope="row">CH-Strassentauglichkeit</th><td><span class="tag tag-signal">${esc(p.chLegal || "nicht bestätigt")}</span></td></tr>
+              <tr><th scope="row">Strassenzulassung Schweiz</th><td>${p.streetLegalCH ? `<span class="tag tag-ok">Ja, 20 km/h-Version (Händlerangabe)</span>` : `<span class="tag tag-signal">${esc(p.chLegal || "nicht ausgewiesen")}</span>`}</td></tr>
             </tbody>
           </table>
           ${notice("Reichweiten sind Herstellerangaben unter deren Testbedingungen (leichter Fahrer, flache Strecke, Eco-Modus). Im Alltag ist deutlich weniger üblich. Eine Zusage ist das nicht.")}
@@ -505,7 +533,7 @@
             <p class="small muted">Angaben wurden nicht selbst gemessen. Abweichungen zwischen Quellen sind bei der jeweiligen Ausführung vermerkt.</p>
           </details>
           <details class="fold"><summary>Strasse oder Gelände?</summary>
-            <p>Ob eine Ausführung in der Schweiz auf öffentlichen Strassen gefahren werden darf, muss je Modell und Variante belegt werden. Eine Geschwindigkeitsbegrenzung, ein CE-Zeichen oder eine deutsche ABE reicht dafür nicht automatisch. E-Rydez weist für seine Modelle keine Schweizer Strassenzulassung aus. Bis ein Nachweis vorliegt, steht hier «nicht ausgewiesen». Offroad-Modelle und Dirtbikes sind für Privatgelände gedacht.</p>
+            <p>In der Schweiz strassenzugelassen sind die als eKFV- bzw. CH-Edition gekennzeichneten 20 km/h-Modelle (Händlerangabe, Nachweis wird vor Verkaufsstart geprüft). Eine deutsche ABE oder ein CE-Zeichen reicht für die Schweiz nicht automatisch. Alle anderen Modelle sind für Privatgelände gedacht.</p>
           </details>`}
         </div>
       </div>
@@ -679,15 +707,15 @@
       <div class="page-head"><h1>Gut zu wissen</h1><p class="muted">Was dieser Prototyp zeigt und was vor dem Verkaufsstart noch offen ist.</p></div>
       <div class="help-grid" style="margin-bottom:28px">
         <div class="help-step"><h3>Demo-Status</h3><p>Es gibt noch keinen Verkauf, keine Bestellung und keine Zahlung. Warenkorb und Vergleich sind Funktionsdemos.</p></div>
-        <div class="help-step"><h3>Preise</h3><p>Referenzpreise stammen vom Händler e-rydez.ch und sind pro Produkt mit Quelle und Prüfdatum angegeben. Sie sind keine N SCOOTS-Preise.</p></div>
-        <div class="help-step"><h3>Zulassung</h3><p>E-Rydez weist für kein Modell eine Schweizer Strassenzulassung aus; einige Modelle haben eine deutsche ABE. Vor dem Verkaufsstart prüfen wir jedes Modell anhand offizieller Schweizer Quellen.</p></div>
+        <div class="help-step"><h3>Preise</h3><p>Einführungspreise in CHF auf aktuellem Schweizer Marktniveau, unverbindlich bis Verkaufsstart.</p></div>
+        <div class="help-step"><h3>Zulassung</h3><p>Strassenzugelassen sind die gekennzeichneten 20 km/h-Modelle (eKFV / CH-Edition). Alle anderen Modelle sind für Privatgelände. Vor dem Verkaufsstart prüfen wir jedes Modell anhand offizieller Schweizer Quellen.</p></div>
       </div>
       <h2>Reichweite richtig lesen</h2>
       <p>Hersteller testen mit leichtem Fahrer, flacher Strecke, moderater Geschwindigkeit und Eco-Modus. Steigungen, Kälte, Gewicht und Tempo senken die Reichweite deutlich. Für die Planung lohnt sich ein Blick auf die Kapazität in Wattstunden: Sie ist vergleichbar, die Kilometerangabe nicht.</p>
       <h2>Bilder</h2>
-      <p>Produktfotos stammen von e-rydez.ch und sind mit «Freigabe ausstehend» gekennzeichnet; vor dem Verkaufsstart holen wir die schriftliche Freigabe ein oder ersetzen sie. Stimmungsfotos stehen unter freien Lizenzen (Wikimedia Commons, CC BY) und tragen den Namen der Fotografin oder des Fotografen am Bild.</p>
+      <p>Produktbilder stammen von den Herstellern und Händlern; die Freigaben werden vor dem Verkaufsstart eingeholt. Stimmungsfotos stehen unter freien Lizenzen (Wikimedia Commons, CC BY) und tragen den Namen der Fotografin oder des Fotografen am Bild.</p>
       <h2>Lieferant</h2>
-      <p>Das gezeigte Sortiment, die Referenzpreise und der Lieferstatus stammen vom Katalog des Schweizer Händlers e-rydez.ch (Stand ${F.date(D.meta.dataVersion)}), der als möglicher B2B-Lieferant im Gespräch ist. Händlervereinbarung, Einkaufspreise, Direktversand und Bildrechte sind nicht bestätigt; die Produktfotos sind mit Freigabevorbehalt eingebunden. N SCOOTS ist kein autorisierter Händler der genannten Marken und betreibt kein eigenes Lager.</p>
+      <p>Sortiment, Einführungspreise und Lieferstatus basieren auf aktuellen Schweizer Marktdaten (Stand ${F.date(D.meta.dataVersion)}). Lieferanten- und Händlervereinbarungen sind in Vorbereitung; Produkt- und Markenbilder werden vor dem Verkaufsstart freigegeben.</p>
     </div>`;
     return { html, title: "Gut zu wissen" };
   }
@@ -726,7 +754,42 @@
   }
 
   /* ---------- Nach dem Rendern ---------- */
+  function bindHome() {
+    const panel = $("#panel-brands"); if (panel) {
+      const show = (brandId) => {
+        const list = D.products.filter((p) => p.brand === brandId && p.category !== "zubehoer").slice(0, 4);
+        const b = D.brands.find((x) => x.id === brandId); const n = D.products.filter((p) => p.brand === brandId).length;
+        panel.innerHTML = `<p class="muted brand-panel-blurb">${esc(b ? b.blurb : "")}</p><div class="product-grid">${list.map((p) => productCard(p)).join("")}</div><p style="margin-top:14px"><a class="btn btn-ghost btn-sm" href="#/katalog?marke=${brandId}">Alle ${n} ${esc(b ? b.name : "")}-Modelle</a></p>`;
+        panel.setAttribute("aria-labelledby", `tab-${brandId}`);
+        document.querySelectorAll(".brand-tab").forEach((t) => { const on = t.dataset.brand === brandId; t.setAttribute("aria-selected", String(on)); t.tabIndex = on ? 0 : -1; });
+        window.NSCOOTS_MOTION && window.NSCOOTS_MOTION.refresh();
+      };
+      show(D.brands[0].id);
+      const tabs = [...document.querySelectorAll(".brand-tab")];
+      const ac = new AbortController(); viewCleanup.push(() => ac.abort());
+      tabs.forEach((t) => t.addEventListener("click", () => show(t.dataset.brand), { signal: ac.signal }));
+      $(".brand-tabs").addEventListener("keydown", (e) => { const i = tabs.indexOf(document.activeElement); if (i < 0) return; let j = null; if (e.key === "ArrowRight") j = (i + 1) % tabs.length; if (e.key === "ArrowLeft") j = (i - 1 + tabs.length) % tabs.length; if (e.key === "Home") j = 0; if (e.key === "End") j = tabs.length - 1; if (j != null) { e.preventDefault(); tabs[j].focus(); show(tabs[j].dataset.brand); } }, { signal: ac.signal });
+    }
+    const sc = $(".showcase"); if (sc) {
+      const imgs = [...sc.querySelectorAll(".showcase-img")], caps = [...sc.querySelectorAll(".showcase-cap")], dots = [...sc.querySelectorAll(".showcase-dots span")];
+      const n = imgs.length; const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+      let ticking = false;
+      const update = () => {
+        ticking = false;
+        const r = sc.getBoundingClientRect(); const total = r.height - window.innerHeight; if (total <= 0) return;
+        const prog = Math.max(0, Math.min(1, -r.top / total)); const pos = prog * (n - 1); const active = Math.round(pos);
+        imgs.forEach((im, i) => { const d = pos - i; const vis = Math.max(0, 1 - Math.abs(d)); im.classList.toggle("is-active", i === active);
+          if (!reduce.matches) { const scale = d <= 0 ? 0.55 + 0.45 * vis : 1 + 0.25 * Math.min(1, d); const y = d <= 0 ? (1 - vis) * 60 : -Math.min(1, d) * 40; im.style.transform = `translate3d(0, ${y.toFixed(1)}px, 0) scale(${scale.toFixed(3)})`; im.style.opacity = vis.toFixed(3); im.style.zIndex = String(10 + Math.round(vis * 10)); }
+        });
+        caps.forEach((c, i) => c.classList.toggle("is-active", i === active)); dots.forEach((dd, i) => dd.classList.toggle("is-active", i === active));
+      };
+      const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+      window.addEventListener("scroll", onScroll, { passive: true }); viewCleanup.push(() => window.removeEventListener("scroll", onScroll));
+      update();
+    }
+  }
   function afterRender(view, route) {
+    if (view === "") bindHome();
     if (view === "katalog") bindCatalog(route.query);
     if (view === "produkt") bindProduct(route.parts[1]);
     if (view === "kontakt") { const f = $("#contact-form"); f.addEventListener("submit", (e) => { e.preventDefault(); if (!f.checkValidity()) { f.reportValidity(); return; } $("#contact-note").textContent = "Noch nicht aktiv: Die Nachricht wurde nicht gesendet. Bitte E-Mail oder Telefon nutzen."; toast("Formular ist im Prototyp noch nicht aktiv."); }); }
