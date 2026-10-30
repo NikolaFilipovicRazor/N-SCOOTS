@@ -21,13 +21,17 @@ const results = []; const ok = (name, cond, info = "") => { results.push({ name,
     await page.goto(BASE + "#/"); await page.waitForSelector("#hero-title");
     await noOverflow("start"); await shot("01-start");
     ok(`${label}: Startseite zeigt Modelle`, (await page.locator(".product-grid .card").count()) === 4);
+    ok(`${label}: Hero mit Produktfoto`, (await page.locator(".hero-product img").count()) === 1);
+    ok(`${label}: Fahrprofile mit Fotos`, (await page.locator('.profile-media img[src*="assets/photos"]').count()) === 3);
+    ok(`${label}: Bildnachweise sichtbar`, (await page.locator(".media-credit").count()) >= 6);
 
     // Brand-Einstieg aktiviert Filter
     await page.click('a.brand-chip[href="#/katalog?marke=kukirin"]');
     await page.waitForSelector("#results .card");
     ok(`${label}: Marken-Einstieg aktiviert Filter`, await page.isChecked('input[name="marke"][value="kukirin"]'));
     const brandCount = await page.locator("#results .card").count();
-    ok(`${label}: nur KuKirin-Modelle (${brandCount})`, brandCount === 4 && (await page.locator("#results .card-brand").allTextContents()).every((t) => t.startsWith("KuKirin")));
+    const kukirinTotal = await page.evaluate(() => window.NSCOOTS_DATA.products.filter((p) => p.brand === "kukirin").length);
+    ok(`${label}: nur KuKirin-Modelle (${brandCount})`, brandCount === kukirinTotal && (await page.locator("#results .card-brand").allTextContents()).every((t) => t.startsWith("KuKirin")));
     await noOverflow("katalog"); await shot("02-katalog-kukirin");
 
     // Suche + leerer Zustand + Reset
@@ -36,25 +40,32 @@ const results = []; const ok = (name, cond, info = "") => { results.push({ name,
     ok(`${label}: Leerer Zustand sichtbar`, await page.locator("#results .empty").isVisible());
     await shot("03-katalog-leer");
     await page.click('#results [data-action="reset-filters"]'); await page.waitForTimeout(100);
-    ok(`${label}: Reset zeigt alle Modelle`, (await page.locator("#results .card").count()) === 15, String(await page.locator("#results .card").count()));
+    const total = await page.evaluate(() => window.NSCOOTS_DATA.products.length);
+    ok(`${label}: Reset zeigt alle Modelle (${total})`, (await page.locator("#results .card").count()) === total, String(await page.locator("#results .card").count()));
     await page.fill("#f-q", "joyor"); await page.waitForTimeout(300);
-    ok(`${label}: Suche «joyor» → 2 Treffer`, (await page.locator("#results .card").count()) === 2);
+    const joyorTotal = await page.evaluate(() => window.NSCOOTS_DATA.products.filter((p) => p.brand === "joyor").length);
+    ok(`${label}: Suche «joyor» → ${joyorTotal} Treffer`, (await page.locator("#results .card").count()) === joyorTotal);
     await page.fill("#f-q", ""); await page.waitForTimeout(300);
     // Preisfilter + Sortierung
-    await page.fill("#f-max", "800"); await page.waitForTimeout(400);
-    ok(`${label}: Preisfilter bis 800 → 1 Modell`, (await page.locator("#results .card").count()) === 1);
+    await page.fill("#f-max", "600"); await page.waitForTimeout(400);
+    const under600 = await page.evaluate(() => window.NSCOOTS_DATA.products.filter((p) => p.price.chf != null && p.price.chf <= 600).length);
+    ok(`${label}: Preisfilter bis 600 → ${under600} Modelle`, (await page.locator("#results .card").count()) === under600);
     await page.fill("#f-max", ""); await page.waitForTimeout(400);
+    await page.selectOption("#f-sort", "preis-auf"); await page.waitForTimeout(100);
+    const cheapest = await page.evaluate(() => window.NSCOOTS_DATA.products.filter((p) => p.price.chf != null).sort((a, b) => a.price.chf - b.price.chf)[0].model);
+    ok(`${label}: Sortierung Preis → günstigstes zuerst`, (await page.locator("#results .card-title").first().textContent()).includes(cheapest), cheapest);
     await page.selectOption("#f-sort", "gewicht"); await page.waitForTimeout(100);
-    ok(`${label}: Sortierung Gewicht → Joyor S5 zuerst`, (await page.locator("#results .card-title").first().textContent()).includes("Joyor S5"));
     ok(`${label}: URL spiegelt Sortierung`, page.url().includes("sort=gewicht"));
 
     // Produktseite
     await page.goto(BASE + "#/produkt/kukirin-g2-master"); await page.waitForSelector(".pdp");
     ok(`${label}: PDP Titel`, (await page.locator("h1").textContent()).includes("G2 Master"));
-    ok(`${label}: PDP Referenzpreis`, (await page.locator(".price-block .price").textContent()) === "CHF 819.–");
-    ok(`${label}: PDP CH-Status`, (await page.locator(".pdp-status .tag-signal").textContent()).includes("nicht bestätigt"));
+    ok(`${label}: PDP Referenzpreis`, (await page.locator(".price-block .price").textContent()).includes("CHF 869.–"));
+    ok(`${label}: PDP Lieferstatus sichtbar`, (await page.locator(".pdp-status").textContent()).includes("Vorbestellung"));
+    ok(`${label}: PDP Produktfoto von E-Rydez gekennzeichnet`, (await page.locator("#gallery-main .media-credit-supplier").count()) === 1);
+    ok(`${label}: PDP CH-Status`, (await page.locator(".pdp-status .tag-signal").textContent()).includes("nicht ausgewiesen"));
     await page.click('[data-action="thumb"][data-i="2"]');
-    ok(`${label}: Galerie wechselt Bild`, (await page.locator("#gallery-main img").getAttribute("src")).includes("-3.svg"));
+    ok(`${label}: Galerie wechselt Bild`, (await page.locator("#gallery-main img").getAttribute("src")).includes("-3.jpg"));
     await noOverflow("pdp"); await shot("04-produkt");
     // Ungültige ID
     await page.goto(BASE + "#/produkt/gibt-es-nicht"); await page.waitForSelector("h1");
@@ -68,15 +79,15 @@ const results = []; const ok = (name, cond, info = "") => { results.push({ name,
     await page.keyboard.press("Escape"); await page.waitForTimeout(100);
     ok(`${label}: Escape schliesst Drawer`, !(await page.locator("#cart-drawer").evaluate((d) => d.open)));
     ok(`${label}: Fokus zurück auf Auslöser`, await page.evaluate(() => document.activeElement?.dataset.action === "add"));
-    await page.goto(BASE + "#/produkt/joyor-s5"); await page.waitForSelector(".pdp");
+    await page.goto(BASE + "#/produkt/joyor-s5-abe-48v-500w"); await page.waitForSelector(".pdp");
     await page.click('.buy-row [data-action="add"]'); await page.waitForSelector("#cart-drawer[open]"); await page.click('#cart-drawer [data-action="close-dialog"]');
     await page.goto(BASE + "#/warenkorb"); await page.waitForSelector(".cart-layout");
     ok(`${label}: 2 Positionen im Warenkorb`, (await page.locator("#cart-list .cart-item").count()) === 2);
     await page.click('#cart-list .cart-item[data-id="kukirin-g2-master"] [data-action="qty-inc"]'); await page.waitForTimeout(100);
     ok(`${label}: Menge erhöht → 2`, (await page.locator('#cart-list .cart-item[data-id="kukirin-g2-master"] input').inputValue()) === "2");
     const sub = await page.locator(".summary-row").nth(1).locator("span").nth(1).textContent();
-    ok(`${label}: Zwischensumme 2×819 = CHF 1’638.–`, sub === "CHF 1’638.–", sub);
-    ok(`${label}: Total offen wegen Preis-offen-Position`, (await page.locator(".summary-row.total span").nth(1).textContent()) === "offen");
+    ok(`${label}: Zwischensumme 2×869 + 499 = CHF 2’237.–`, sub === "CHF 2’237.–", sub);
+    ok(`${label}: Total = Zwischensumme (alle Preise bekannt)`, (await page.locator(".summary-row.total span").nth(1).textContent()) === "CHF 2’237.–");
     await page.reload(); await page.waitForSelector(".cart-layout");
     ok(`${label}: Warenkorb überlebt Neuladen`, (await page.locator('#cart-list .cart-item[data-id="kukirin-g2-master"] input').inputValue()) === "2");
     await noOverflow("warenkorb"); await shot("05-warenkorb");
@@ -84,24 +95,24 @@ const results = []; const ok = (name, cond, info = "") => { results.push({ name,
     ok(`${label}: Checkout-Hinweis sichtbar`, (await page.locator("#checkout-title").textContent()).includes("keine Kasse"));
     await page.keyboard.press("Escape"); await page.waitForTimeout(100);
     ok(`${label}: Fokus nach Checkout-Dialog zurück`, await page.evaluate(() => document.activeElement?.dataset.action === "checkout"));
-    await page.click('#cart-list .cart-item[data-id="joyor-s5"] [data-action="remove"]'); await page.waitForTimeout(100);
+    await page.click('#cart-list .cart-item[data-id="joyor-s5-abe-48v-500w"] [data-action="remove"]'); await page.waitForTimeout(100);
     ok(`${label}: Entfernen funktioniert`, (await page.locator("#cart-list .cart-item").count()) === 1);
     await page.click('[data-action="cart-clear"]'); await page.waitForTimeout(100);
     ok(`${label}: Leerer Warenkorb mit Rückkehr-Link`, await page.locator('.empty a[href="#/katalog"]').isVisible());
 
     // Vergleich mit 3 Modellen
     await page.goto(BASE + "#/katalog?kat=escooter"); await page.waitForSelector("#results .card");
-    for (const id of ["kukirin-g2-pro", "joyor-s5", "teverun-fighter-mini-eco"]) await page.click(`#results [data-action="compare"][data-id="${id}"]`);
-    await page.click(`#results [data-action="compare"][data-id="kukirin-g4-max"]`); await page.waitForTimeout(100);
+    for (const id of ["kukirin-g2-pro", "joyor-s5-abe-48v-500w", "teverun-fighter-mini-pro"]) await page.click(`#results [data-action="compare"][data-id="${id}"]`);
+    await page.click(`#results [data-action="compare"][data-id="kukirin-g4"]`); await page.waitForTimeout(100);
     ok(`${label}: Viertes Modell abgelehnt`, (await page.locator("#toast").textContent()).includes("Maximal 3"));
     await page.goto(BASE + "#/vergleich"); await page.waitForSelector(".compare-table");
     ok(`${label}: Vergleich mit 3 Spalten`, (await page.locator(".compare-table thead th").count()) === 4);
     ok(`${label}: Bester Wert markiert`, (await page.locator(".compare-table td.best").count()) >= 2);
     await noOverflow("vergleich"); await shot("06-vergleich");
-    await page.click('[data-action="compare-remove"][data-id="joyor-s5"]'); await page.waitForTimeout(100);
+    await page.click('[data-action="compare-remove"][data-id="joyor-s5-abe-48v-500w"]'); await page.waitForTimeout(100);
     ok(`${label}: Modell aus Vergleich entfernt`, (await page.locator(".slot.filled").count()) === 2);
     await page.click('[data-action="compare-pick"]'); await page.waitForSelector("#pick-dialog[open]");
-    await page.click('#pick-list [data-action="pick"][data-id="rovoron-kullter-luxury"]'); await page.waitForTimeout(150);
+    await page.click('#pick-list [data-action="pick"][data-id="rovoron-r7"]'); await page.waitForTimeout(150);
     ok(`${label}: Modell per Dialog hinzugefügt`, (await page.locator(".slot.filled").count()) === 3);
 
     // Dirtbikes + Info + Tastatur

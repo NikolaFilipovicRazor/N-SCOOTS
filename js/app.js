@@ -15,8 +15,11 @@
   const imgSrc = (p, i = 0) => { const l = pimgs(p); return (l[i] || l[0] || { src: FALLBACK }).src; };
   const img = (p, i, { eager = false, alt = "", marks = true } = {}) => {
     const l = pimgs(p); const r = l[i] || l[0] || { src: FALLBACK, alt: "", label: "", credit: "" };
-    return `<img src="${esc(r.src)}" alt="${esc(alt || r.alt)}" width="1100" height="760" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" onerror="window.NSCOOTS_MEDIA_API.broken(this)">` + (marks && r.photo ? MA.marks(r) : "");
+    return `<img src="${esc(r.src)}" alt="${esc(alt || r.alt)}" width="1100" height="760" ${r.product ? 'class="is-product"' : ""} ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" onerror="window.NSCOOTS_MEDIA_API.broken(this)">` + (marks && r.photo ? MA.marks(r) : "");
   };
+  const isProductImg = (p, i = 0) => { const r = pimgs(p)[i] || pimgs(p)[0]; return !!(r && r.product); };
+  const lieferTag = (p) => { const s = (p.lieferbarkeit && p.lieferbarkeit.status) || ""; if (!s) return ""; const cls = /nicht lieferbar/.test(s) ? "tag" : /Vorbestellung/.test(s) ? "tag tag-accent" : "tag tag-ok"; const short = /nicht lieferbar/.test(s) ? "Zurzeit nicht lieferbar" : /Vorbestellung/.test(s) ? "Vorbestellung" : "Lieferbar"; return `<span class="${cls}" title="${esc(s)} (Stand ${F.date(p.lieferbarkeit.checked)}, E-Rydez)">${short}</span>`; };
+  const abeTag = (p) => p.specs && p.specs.abe ? `<span class="tag">ABE · ${p.specs.speedKmh || 20} km/h</span>` : "";
   const canHover = () => window.matchMedia("(hover: hover)").matches;
   const placeholderAlt = (p) => { const r = pimgs(p)[0]; return r && r.photo ? r.alt : `Platzhalter-Silhouette für ${p.model}, kein Produktfoto`; };
 
@@ -80,7 +83,7 @@
   const legalTag = (p) => p.chLegal ? `<span class="tag tag-signal">CH-Strassentauglichkeit ${esc(p.chLegal)}</span>` : "";
   const priceHtml = (p, big = false) => {
     if (p.price.kind === "referenz" && p.price.chf != null) {
-      return `<span class="price">${F.chf(p.price.chf)}</span><span class="price-note">Referenzpreis${big ? "" : "*"}</span>`;
+      return `<span class="price">${p.price.from ? '<span class="price-from">ab</span> ' : ""}${F.chf(p.price.chf)}</span><span class="price-note">Referenzpreis${big ? "" : "*"}</span>`;
     }
     return `<span class="price">Preis offen</span>`;
   };
@@ -94,9 +97,10 @@
     const isAcc = p.category === "zubehoer";
     return `
     <article class="card" data-id="${p.id}">
-      <div class="card-media${pimgs(p).length > 1 && canHover() ? " has-alt" : ""}">${img(p, 0, { alt: placeholderAlt(p) })}${pimgs(p).length > 1 && canHover() ? `<img class="alt" src="${esc(imgSrc(p, 1))}" alt="" loading="lazy" decoding="async" width="1100" height="760" onerror="this.closest('.card-media').classList.remove('has-alt');this.remove()">` : ""}${pimgs(p).length > 1 ? `<span class="media-count" aria-hidden="true">${pimgs(p).length} Bilder</span>` : ""}</div>
+      <div class="card-media${pimgs(p).length > 1 && canHover() ? " has-alt" : ""}${isProductImg(p) ? " is-product" : ""}">${img(p, 0, { alt: placeholderAlt(p) })}${pimgs(p).length > 1 && canHover() ? `<img class="alt" src="${esc(imgSrc(p, 1))}" alt="" loading="lazy" decoding="async" width="1100" height="760" onerror="this.closest('.card-media').classList.remove('has-alt');this.remove()">` : ""}${pimgs(p).length > 1 ? `<span class="media-count" aria-hidden="true">${pimgs(p).length} Bilder</span>` : ""}</div>
       <div class="card-body">
-        <div class="card-brand">${esc(p.brand ? brandName(p.brand) : catName(p.category))}${p.segment ? " · " + esc(segName(p.segment)) : ""}</div>
+        <div class="card-brand">${esc(p.brand ? brandName(p.brand) : catName(p.category))}${p.segment ? " · " + esc(segName(p.segment)) : p.category === "edirtbike" ? " · Dirtbike" : ""}</div>
+        <div class="card-tags">${lieferTag(p)}${abeTag(p)}</div>
         <h3 class="card-title"><a href="#/produkt/${p.id}">${esc(p.model)}</a></h3>
         ${specs.length ? `<ul class="card-specs">${specs.map((s) => `<li>${s}</li>`).join("")}</ul>` : `<p class="small muted" style="margin:0">${esc(p.summary)}</p>`}
         <div class="card-price">${priceHtml(p)}</div>
@@ -112,11 +116,13 @@
 
   /* ---------- Startseite ---------- */
   function viewHome() {
-    const featured = ["kukirin-g2-master", "joyor-s5", "teverun-fighter-mini-eco", "kukirin-g4-max"].map(byId).filter(Boolean);
+    const featured = ["kukirin-g2-master", "kukirin-g2-pro-abe", "teverun-fighter-mini-pro", "rovoron-r7"].map(byId).filter(Boolean);
     const brands = D.brands;
     const html = `
     ${(() => {
       const hv = MA.heroVideo(); const hi = MA.resolve(MEDIA.hero && MEDIA.hero.image, null, "E-Scooter-Fahrt durch eine Stadt am Abend");
+      const hp = MA.resolve(MEDIA.hero && MEDIA.hero.product, null, "");
+      const hpProd = hp.photo && MEDIA.hero.product && MEDIA.hero.product.model ? byId(MEDIA.hero.product.model) : null;
       const posterSrc = hv ? (hv.poster || (hi.photo ? hi.src : "")) : "";
       const media = hv
         ? `<video class="hero-video" autoplay muted loop playsinline preload="metadata" ${posterSrc ? `poster="${esc(posterSrc)}"` : ""} aria-label="Fahrt mit dem E-Scooter"><source src="${esc(hv.src)}" type="video/mp4"></video>`
@@ -131,18 +137,23 @@
             </svg>`;
       const note = hv ? [hv.credit ? `Video: ${esc(hv.credit)}` : "", hi.photo && hi.credit ? `Standbild: ${esc(hi.credit)}` : ""].filter(Boolean).join(" · ") : hi.photo ? (hi.credit ? `Foto: ${esc(hi.credit)}` : "") : "Illustration, kein Produktfoto. Hero-Foto oder -Video folgt.";
       return `
-    <section class="hero hero-media" aria-labelledby="hero-title">
+    <section class="hero hero-media${hp.photo && !hv ? " has-product" : ""}" aria-labelledby="hero-title">
       <div class="hero-bg" data-parallax="0.25">${media}</div>
       <div class="wrap hero-content">
         <div data-reveal>
           <p class="hero-kicker">E-Scooter &amp; E-Dirtbikes · Schweiz</p>
           <h1 id="hero-title">Dein nächster Ride.</h1>
-          <p>Elektrische Scooter für Stadt und Strecke, E-Dirtbikes fürs Gelände. Klare Daten, ehrliche Angaben, verständliche Beratung. Shop in Vorbereitung.</p>
+          <p>E-Scooter von KuKirin, Joyor, Teverun, Dualtron, Rovoron und Ausom, dazu erste E-Dirtbikes. Klare Daten, ehrliche Preise, Schweizer Ansprechpartner. Shop in Vorbereitung.</p>
           <div class="hero-cta">
             <a class="btn btn-accent" href="#/katalog?kat=escooter">E-Scooter entdecken</a>
             <a class="btn btn-ghost" href="#/dirtbikes">E-Dirtbikes</a>
           </div>
         </div>
+        ${hp.photo && !hv ? `<a class="hero-product" href="${hpProd ? `#/produkt/${hpProd.id}` : "#/katalog?kat=escooter"}" data-reveal>
+          <img src="${esc(hp.src)}" alt="${esc(hp.alt)}" width="1400" height="1400" fetchpriority="high" decoding="async" onerror="window.NSCOOTS_MEDIA_API.broken(this)">
+          ${hpProd ? `<span class="hero-product-cap"><strong>${esc(hpProd.model)}</strong><span>${hpProd.price.chf != null ? "Referenz ab " + F.chf(hpProd.price.chf) : "Preis offen"} · ${esc(F.num(hpProd.specs.batteryWh, "Wh") || "")} · ${esc(F.num(hpProd.specs.rangeKm, "km") || "")}</span></span>` : ""}
+          <span class="media-credit media-credit-supplier" aria-hidden="true">Foto: ${esc(hp.credit)} · Freigabe ausstehend</span>
+        </a>` : ""}
         <div class="hero-tools">
           ${hv ? `<button class="btn btn-ghost btn-sm" type="button" data-action="video-toggle">Video pausieren</button>` : ""}
           ${note ? `<p class="hero-note">${note}</p>` : ""}
@@ -186,8 +197,8 @@
             <svg viewBox="0 0 120 84" aria-hidden="true" fill="none" stroke="#1c1f24" stroke-width="4" stroke-linecap="round"><circle cx="22" cy="62" r="12"/><circle cx="96" cy="62" r="12"/><path d="M34 62h50M88 60l-8-38M74 22h14"/></svg>
           </a>
           <a class="entry entry-dirt" href="#/dirtbikes">
-            <span class="tag tag-accent">In Vorbereitung</span>
-            <div><h3>E-Dirtbikes</h3><p>Elektrisches Motocross und Trail. Sortiment folgt.</p></div>
+            <span class="tag tag-accent">${D.products.filter((p) => p.category === "edirtbike").length} Modell · Sortiment im Aufbau</span>
+            <div><h3>E-Dirtbikes</h3><p>Elektrisches Motocross und Trail. Erstes Modell gelistet, mehr folgt.</p></div>
             <svg viewBox="0 0 120 84" aria-hidden="true" fill="none" stroke="#1538ab" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="60" r="18"/><circle cx="96" cy="60" r="18"/><path d="M36 52l18-24h26l16 24M54 28l10 18 16-18M80 20l-6 8M72 20h14"/></svg>
           </a>
         </div>
@@ -199,9 +210,9 @@
         <div class="section-head"><div><h2 id="profiles-title">Was suchst du?</h2><p class="muted">Drei Fahrprofile. Jedes führt direkt zu den passenden Modellen.</p></div></div>
         <div class="profile-grid">
           ${[
-            ["alltag", "Alltag &amp; Pendeln", "Leicht, faltbar, für Bahnhof und Büro. Typisch bis 25 kg und 600–950 Wh.", "kukirin-g2-pro"],
-            ["touren", "Lange Strecken", "Grosse Akkus ab 1000 Wh für Touren und Hügel.", "kukirin-g2-master"],
-            ["offroad", "Gelände", "Doppelmotor, grobe Reifen, viel Federweg. Für Privatgelände.", "kukirin-g4-max"]
+            ["alltag", "Alltag &amp; Pendeln", "Leicht, faltbar, für Bahnhof und Büro. Einzelmotor, teils als 20–25 km/h-Version (ABE).", "kukirin-g2-pro-abe"],
+            ["touren", "Lange Strecken", "Grosse Akkus ab rund 900 Wh für Touren und Hügel.", "kukirin-g2-master"],
+            ["offroad", "Gelände", "Doppelmotor, grobe Reifen, viel Federweg. Für Privatgelände.", "teverun-blade-gt-ii-plus"]
           ].map(([seg, title, text, pid]) => { const p = byId(pid); const n = D.products.filter((x) => x.segment === seg).length; const r = MA.resolve(MEDIA.profiles && MEDIA.profiles[seg], p ? pimgs(p)[0] : null, p ? placeholderAlt(p) : ""); return `
           <a class="profile" href="#/katalog?kat=escooter&segment=${seg}" data-reveal>
             <div class="profile-media media" data-parallax="0.12">${MA.tag(r)}${r.photo ? MA.marks(r) : `<span class="media-badge" aria-hidden="true">Platzhalter</span>`}</div>
@@ -215,9 +226,9 @@
       <div class="wrap">
         <h2 id="story-title" class="visually-hidden">Unterwegs mit N SCOOTS</h2>
         ${[
-          ["Morgens zum Zug, abends an den See.", "Ein Alltagsscooter wiegt typisch bis 25 kg, faltet sich in Sekunden und hängt am Abend wieder am Ladegerät. Reichweite reicht für den Weg, nicht für den Rekord.", "kukirin-g2-pro", "#/katalog?kat=escooter&segment=alltag", "Alltagsmodelle"],
+          ["Morgens zum Zug, abends an den See.", "Ein Alltagsscooter wiegt typisch bis 25 kg, faltet sich in Sekunden und hängt am Abend wieder am Ladegerät. Reichweite reicht für den Weg, nicht für den Rekord.", "kukirin-g2-pro-abe", "#/katalog?kat=escooter&segment=alltag", "Alltagsmodelle"],
           ["Mehr Akku, mehr Ruhe.", "Ab rund 1000 Wh wird aus dem Pendler ein Tourenfahrzeug. Doppelmotor-Modelle nehmen Steigungen ohne Drama, kosten aber Gewicht.", "kukirin-g2-master", "#/katalog?kat=escooter&segment=touren", "Tourenmodelle"],
-          ["Schotter, Wiese, Waldweg.", "Grobe Reifen und Federweg für Privatgelände. Ob und wie ein Modell auf die Strasse darf, prüfen wir je Ausführung, bevor wir es verkaufen.", "kukirin-g4-max", "#/katalog?kat=escooter&segment=offroad", "Offroad-Modelle"]
+          ["Schotter, Wiese, Waldweg.", "Mit dem KuKirin X1 ist das erste Mini-Dirtbike gelistet. Für Privatgelände gedacht; ob und wie ein Modell auf die Strasse darf, prüfen wir je Ausführung.", "kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike", "#/dirtbikes", "E-Dirtbikes"]
         ].map(([h, t, pid, href, cta], i) => { const p = byId(pid); const r = MA.resolve(MEDIA.story && MEDIA.story[i], p ? pimgs(p)[0] : null, p ? placeholderAlt(p) : ""); return `
         <article class="story-row${i % 2 ? " flip" : ""}" data-reveal>
           <div class="story-media media" data-parallax="0.2">${MA.tag(r)}${r.photo ? MA.marks(r) : `<span class="media-badge" aria-hidden="true">Platzhalter</span>`}</div>
@@ -278,7 +289,7 @@
   }
   const rangeMax = (r) => { if (r == null) return null; if (typeof r === "number") return r; const m = String(r).match(/\d+(?:\.\d+)?/g); return m ? Math.max(...m.map(Number)) : null; };
   function applyFilters(st) {
-    let list = D.products.filter((p) => p.category !== "edirtbike");
+    let list = D.products.slice();
     let hiddenNoPrice = 0;
     if (st.kat) list = list.filter((p) => p.category === st.kat);
     if (st.marke.length) list = list.filter((p) => p.brand && st.marke.includes(p.brand));
@@ -312,7 +323,7 @@
     <div class="wrap">
       <div class="page-head">
         <h1>${st.kat ? esc(catName(st.kat)) : "Alle Modelle"}</h1>
-        <p class="muted">E-Scooter und Zubehör. E-Dirtbikes findest du <a href="#/dirtbikes">hier in Vorbereitung</a>.</p>
+        <p class="muted">Sortiment nach dem Katalog von e-rydez.ch (Stand ${F.date(D.meta.dataVersion)}). Preise sind Referenzpreise, Lieferstatus laut E-Rydez.</p>
       </div>
       <div class="catalog-layout">
         <div>
@@ -325,7 +336,8 @@
             <fieldset><legend>Kategorie</legend>
               <label class="check"><input type="radio" name="kat" value="" ${st.kat === "" ? "checked" : ""}> Alle</label>
               <label class="check"><input type="radio" name="kat" value="escooter" ${st.kat === "escooter" ? "checked" : ""}> E-Scooter</label>
-              <label class="check"><input type="radio" name="kat" value="zubehoer" ${st.kat === "zubehoer" ? "checked" : ""}> Zubehör</label>
+              <label class="check"><input type="radio" name="kat" value="edirtbike" ${st.kat === "edirtbike" ? "checked" : ""}> E-Dirtbikes</label>
+              <label class="check"><input type="radio" name="kat" value="zubehoer" ${st.kat === "zubehoer" ? "checked" : ""}> Ersatzteile &amp; Zubehör</label>
             </fieldset>
             <fieldset><legend>Marke</legend>
               ${D.brands.map((b) => `<label class="check"><input type="checkbox" name="marke" value="${b.id}" ${st.marke.includes(b.id) ? "checked" : ""}> ${esc(b.name)}</label>`).join("")}
@@ -385,7 +397,7 @@
     if (st.max !== "") chips.push({ k: "max", label: `bis ${F.chf(st.max)}` });
     active.innerHTML = chips.map((c) => `<button type="button" data-action="remove-filter" data-k="${c.k}" data-v="${esc(c.v || "")}" aria-label="Filter entfernen: ${esc(c.label)}">${esc(c.label)} ✕</button>`).join("");
     if (!list.length) {
-      results.innerHTML = `<div class="empty"><h3>${st.zulassung ? "Noch kein Modell mit belegter CH-Zulassung" : "Nichts gefunden"}</h3><p class="muted">${st.zulassung ? "Die Schweizer Strassentauglichkeit wird je Ausführung geprüft und erst nach Nachweis hier angezeigt. Bis dahin findest du alle Modelle ohne diesen Filter." : st.q ? `Für «${esc(st.q)}» gibt es kein Modell.` : "Die Kombination aus Filtern liefert kein Modell."}${hiddenNoPrice ? ` ${hiddenNoPrice} Modelle ohne Preisangabe sind durch den Preisfilter ausgeblendet.` : ""}</p><button class="btn" type="button" data-action="reset-filters">Alle Modelle anzeigen</button></div>`;
+      results.innerHTML = `<div class="empty"><h3>${st.zulassung ? "Noch kein Modell mit belegter CH-Zulassung" : "Nichts gefunden"}</h3><p class="muted">${st.zulassung ? "E-Rydez weist für kein Modell eine Schweizer Strassenzulassung aus; ABE-Modelle haben eine deutsche Betriebserlaubnis. Die CH-Prüfung je Ausführung folgt vor dem Verkaufsstart. Bis dahin findest du alle Modelle ohne diesen Filter." : st.q ? `Für «${esc(st.q)}» gibt es kein Modell.` : "Die Kombination aus Filtern liefert kein Modell."}${hiddenNoPrice ? ` ${hiddenNoPrice} Modelle ohne Preisangabe sind durch den Preisfilter ausgeblendet.` : ""}</p><button class="btn" type="button" data-action="reset-filters">Alle Modelle anzeigen</button></div>`;
     } else {
       results.innerHTML = (hiddenNoPrice ? `<p class="small muted">${hiddenNoPrice} Modelle ohne Preisangabe durch Preisfilter ausgeblendet.</p>` : "") + `<div class="product-grid">${list.map((p) => productCard(p)).join("")}</div>`;
     }
@@ -439,9 +451,9 @@
       <nav class="breadcrumb" aria-label="Pfad"><a href="#/">Start</a><span>/</span><a href="#/katalog?kat=${p.category}">${esc(catName(p.category))}</a>${p.brand ? `<span>/</span><a href="#/katalog?marke=${p.brand}">${esc(brandName(p.brand))}</a>` : ""}</nav>
       <div class="pdp">
         <div>
-          ${pimgs(p).length ? `<button class="gallery-main" id="gallery-main" type="button" data-action="lightbox" data-i="0" aria-label="Bild vergrössern: ${esc(placeholderAlt(p))}">${img(p, 0, { eager: true, alt: placeholderAlt(p) })}</button>` : `<div class="gallery-main"><img src="${FALLBACK}" alt="Kein Bild vorhanden" width="1100" height="760"></div>`}
-          ${pimgs(p).length > 1 ? `<div class="gallery-thumbs" role="group" aria-label="Bildauswahl">${pimgs(p).map((r, i) => `<button type="button" data-action="thumb" data-i="${i}" aria-pressed="${i === 0}" aria-label="Ansicht ${i + 1}: ${esc(r.alt)}">${img(p, i, { alt: "", marks: false })}</button>`).join("")}</div>` : ""}
-          <p class="small muted" style="margin-top:8px">${pimgs(p)[0] && pimgs(p)[0].photo ? "Tippen zum Vergrössern." : "Platzhalter-Silhouetten. Freigegebene Produktbilder folgen, sobald die Bildrechte geklärt sind."}</p>
+          ${pimgs(p).length ? `<button class="gallery-main${isProductImg(p) ? " is-product" : ""}" id="gallery-main" type="button" data-action="lightbox" data-i="0" aria-label="Bild vergrössern: ${esc(placeholderAlt(p))}">${img(p, 0, { eager: true, alt: placeholderAlt(p) })}</button>` : `<div class="gallery-main"><img src="${FALLBACK}" alt="Kein Bild vorhanden" width="1100" height="760"></div>`}
+          ${pimgs(p).length > 1 ? `<div class="gallery-thumbs${isProductImg(p) ? " is-product" : ""}" role="group" aria-label="Bildauswahl">${pimgs(p).map((r, i) => `<button type="button" data-action="thumb" data-i="${i}" aria-pressed="${i === 0}" aria-label="Ansicht ${i + 1}: ${esc(r.alt)}">${img(p, i, { alt: "", marks: false })}</button>`).join("")}</div>` : ""}
+          <p class="small muted" style="margin-top:8px">${pimgs(p)[0] && pimgs(p)[0].photo ? (pimgs(p)[0].product ? "Produktfotos von E-Rydez, Freigabe für die Veröffentlichung ausstehend. Tippen zum Vergrössern." : "Tippen zum Vergrössern.") : "Platzhalter. Produktbilder folgen, sobald die Bildrechte geklärt sind."}</p>
         </div>
         <div class="pdp-info">
           <div>
@@ -449,7 +461,8 @@
             <h1>${esc(p.model)}</h1>
           </div>
           <div class="pdp-status">
-            ${p.segment ? `<span class="tag tag-accent">${esc(segName(p.segment))}</span>` : ""}
+            ${p.segment ? `<span class="tag tag-accent">${esc(segName(p.segment))}</span>` : p.category === "edirtbike" ? `<span class="tag tag-accent">E-Dirtbike</span>` : ""}
+            ${lieferTag(p)}${abeTag(p)}
             ${legalTag(p)}
             <span class="tag">Demo: nicht bestellbar</span>
           </div>
@@ -465,7 +478,7 @@
             <button class="btn btn-accent" type="button" data-action="add" data-id="${p.id}">In den Warenkorb (Demo)</button>
             ${isAcc ? "" : `<button class="btn btn-ghost" type="button" data-action="compare" data-id="${p.id}" aria-pressed="${inCompare}">${inCompare ? "Im Vergleich" : "Vergleichen"}</button>`}
           </div>
-          ${notice("Lieferung und Abholung sind noch nicht geregelt. Versandart, Fristen und Kosten werden vor dem Verkaufsstart festgelegt.", true)}
+          ${notice(`<strong>Lieferbarkeit:</strong> ${esc(p.lieferbarkeit ? p.lieferbarkeit.status : "offen")} (Stand ${F.date(p.lieferbarkeit && p.lieferbarkeit.checked)}, <a href="${esc(p.price.source)}" rel="noopener" target="_blank">e-rydez.ch</a>). Versandart, Fristen und Kosten bei N SCOOTS werden vor dem Verkaufsstart festgelegt.`, true)}
           ${isAcc ? "" : `
           <h2 style="margin-top:8px">Technische Daten</h2>
           <table class="spec-table">
@@ -476,12 +489,13 @@
               ${row("Akku", s.batteryV && s.batteryAh ? `${s.batteryV} V · ${s.batteryAh} Ah` : (s.batteryV ? `${s.batteryV} V` : null))}
               ${row("Kapazität", s.batteryWh, "Wh")}
               ${row("Reichweite (Herstellerangabe)", s.rangeKm, "km")}
+              ${row("Höchstgeschwindigkeit (Herstellerangabe)", s.speedKmh, "km/h")}
+              ${row("Betriebserlaubnis", s.abe ? "Deutsche ABE (Allgemeine Betriebserlaubnis)" : "keine ausgewiesen")}
               ${row("Gewicht", s.weightKg, "kg")}
               ${row("Max. Zuladung", s.maxLoadKg, "kg")}
               ${row("Reifen", s.tires)}
               ${row("Bremsen", s.brakes)}
               ${row("Schutzart", s.ip)}
-              ${row("Faltbar", s.foldable == null ? null : (s.foldable ? "Ja" : "Nein"))}
               <tr><th scope="row">CH-Strassentauglichkeit</th><td><span class="tag tag-signal">${esc(p.chLegal || "nicht bestätigt")}</span></td></tr>
             </tbody>
           </table>
@@ -491,7 +505,7 @@
             <p class="small muted">Angaben wurden nicht selbst gemessen. Abweichungen zwischen Quellen sind bei der jeweiligen Ausführung vermerkt.</p>
           </details>
           <details class="fold"><summary>Strasse oder Gelände?</summary>
-            <p>Ob eine Ausführung in der Schweiz auf öffentlichen Strassen gefahren werden darf, muss je Modell und Variante belegt werden. Eine Geschwindigkeitsbegrenzung, ein CE-Zeichen oder eine ausländische Zulassung reicht dafür nicht automatisch. Bis ein Nachweis vorliegt, steht hier «nicht bestätigt». Offroad-Modelle sind für Privatgelände gedacht.</p>
+            <p>Ob eine Ausführung in der Schweiz auf öffentlichen Strassen gefahren werden darf, muss je Modell und Variante belegt werden. Eine Geschwindigkeitsbegrenzung, ein CE-Zeichen oder eine deutsche ABE reicht dafür nicht automatisch. E-Rydez weist für seine Modelle keine Schweizer Strassenzulassung aus. Bis ein Nachweis vorliegt, steht hier «nicht ausgewiesen». Offroad-Modelle und Dirtbikes sind für Privatgelände gedacht.</p>
           </details>`}
         </div>
       </div>
@@ -644,10 +658,11 @@
           <span class="tag tag-accent">${esc(d.status)}</span>
           <h2 style="margin-top:10px">Elektrisch ins Gelände.</h2>
           <p>${esc(d.text)}</p>
-          <a class="btn" href="#/katalog?kat=escooter">Inzwischen: E-Scooter ansehen</a>
+          <a class="btn" href="#/katalog?kat=edirtbike">Gelistete Dirtbikes</a> <a class="btn btn-ghost" href="#/katalog?kat=escooter">E-Scooter ansehen</a>
         </div>
         ${(() => { const r = MA.resolve(MEDIA.dirtbikes, IMG + "dirtbike-platzhalter.svg", "Platzhalter-Silhouette eines Dirtbikes, kein Produktfoto"); return `<div class="media prep-media" data-parallax="0.15">${MA.tag(r)}${r.photo ? MA.marks(r) : `<span class="media-badge" aria-hidden="true">Platzhalter</span>`}</div>`; })()}
       </div>
+      ${(() => { const list = D.products.filter((p) => p.category === "edirtbike"); return list.length ? `<section class="section" aria-labelledby="dirt-list-title"><h2 id="dirt-list-title">Gelistete Modelle</h2><div class="product-grid">${list.map((p) => productCard(p)).join("")}</div>${refNote}</section>` : ""; })()}
       <section class="section" aria-labelledby="planned-title">
         <h2 id="planned-title">Was geplant ist</h2>
         <div class="help-grid">${d.planned.map((x) => `<div class="help-step"><h3>${esc(x.title)}</h3><p>${esc(x.text)}</p></div>`).join("")}</div>
@@ -664,15 +679,15 @@
       <div class="page-head"><h1>Gut zu wissen</h1><p class="muted">Was dieser Prototyp zeigt und was vor dem Verkaufsstart noch offen ist.</p></div>
       <div class="help-grid" style="margin-bottom:28px">
         <div class="help-step"><h3>Demo-Status</h3><p>Es gibt noch keinen Verkauf, keine Bestellung und keine Zahlung. Warenkorb und Vergleich sind Funktionsdemos.</p></div>
-        <div class="help-step"><h3>Preise</h3><p>Referenzpreise stammen aus fremden Angeboten und sind pro Produkt mit Quelle und Prüfdatum angegeben. Sie sind keine N SCOOTS-Preise.</p></div>
-        <div class="help-step"><h3>Zulassung</h3><p>Die Schweizer Strassentauglichkeit ist für keine Ausführung belegt. Vor dem Verkaufsstart wird sie je Modell anhand offizieller Quellen geprüft.</p></div>
+        <div class="help-step"><h3>Preise</h3><p>Referenzpreise stammen vom Händler e-rydez.ch und sind pro Produkt mit Quelle und Prüfdatum angegeben. Sie sind keine N SCOOTS-Preise.</p></div>
+        <div class="help-step"><h3>Zulassung</h3><p>E-Rydez weist für kein Modell eine Schweizer Strassenzulassung aus; einige Modelle haben eine deutsche ABE. Vor dem Verkaufsstart prüfen wir jedes Modell anhand offizieller Schweizer Quellen.</p></div>
       </div>
       <h2>Reichweite richtig lesen</h2>
       <p>Hersteller testen mit leichtem Fahrer, flacher Strecke, moderater Geschwindigkeit und Eco-Modus. Steigungen, Kälte, Gewicht und Tempo senken die Reichweite deutlich. Für die Planung lohnt sich ein Blick auf die Kapazität in Wattstunden: Sie ist vergleichbar, die Kilometerangabe nicht.</p>
       <h2>Bilder</h2>
-      <p>Alle Produktbilder sind gekennzeichnete Platzhalter. Freigegebene Herstellerbilder werden erst eingesetzt, wenn die Nutzungsrechte vorliegen.</p>
+      <p>Produktfotos stammen von e-rydez.ch und sind mit «Freigabe ausstehend» gekennzeichnet; vor dem Verkaufsstart holen wir die schriftliche Freigabe ein oder ersetzen sie. Stimmungsfotos stehen unter freien Lizenzen (Wikimedia Commons, CC BY) und tragen den Namen der Fotografin oder des Fotografen am Bild.</p>
       <h2>Lieferant</h2>
-      <p>Die Lieferkette ist noch nicht festgelegt. Händlervereinbarung, Einkaufspreise, Direktversand und Bildrechte sind nicht bestätigt. N SCOOTS ist kein autorisierter Händler der genannten Marken und betreibt kein eigenes Lager.</p>
+      <p>Das gezeigte Sortiment, die Referenzpreise und der Lieferstatus stammen vom Katalog des Schweizer Händlers e-rydez.ch (Stand ${F.date(D.meta.dataVersion)}), der als möglicher B2B-Lieferant im Gespräch ist. Händlervereinbarung, Einkaufspreise, Direktversand und Bildrechte sind nicht bestätigt; die Produktfotos sind mit Freigabevorbehalt eingebunden. N SCOOTS ist kein autorisierter Händler der genannten Marken und betreibt kein eigenes Lager.</p>
     </div>`;
     return { html, title: "Gut zu wissen" };
   }

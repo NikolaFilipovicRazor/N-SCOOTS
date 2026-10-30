@@ -1,12 +1,10 @@
 # Asset-Verzeichnis
 
-Stand: 2026-10-28. Es werden **keine** fremden Fotos verwendet. Öffentlich sichtbare Bilder (Hersteller, Händler, E-Rydez)
-bedeuten keine Nutzungsrechte und sind daher nicht eingebunden.
+Stand: 2026-10-30. Stimmungsfotos: Wikimedia Commons (CC BY / CC BY-SA, Namensnennung am Bild). Produktfotos: e-rydez.ch mit Freigabevorbehalt.
+Öffentlich sichtbare Bilder bedeuten keine Nutzungsrechte; der Freigabevorbehalt ist sichtbar am Bild und muss vor dem Verkaufsstart aufgelöst werden.
 
 | Datei | Herkunft | Quelle/URL | Rechte-/Freigabestatus | Verwendung |
 | --- | --- | --- | --- | --- |
-| `assets/img/<produkt-id>-1..3.svg` (36 Dateien) | Selbst erzeugt, `tools/make-placeholders.js` | – | Eigenes Werk, frei verwendbar | Platzhalter, sichtbar als «PLATZHALTER – KEIN PRODUKTFOTO» gekennzeichnet |
-| `assets/img/zubehoer-*.svg` (3) | Selbst erzeugt | – | Eigenes Werk | Platzhalter Zubehör |
 | `assets/img/dirtbike-platzhalter.svg` | Selbst erzeugt | – | Eigenes Werk | Kategorie «in Vorbereitung» |
 | `assets/img/fehlt.svg` | Selbst erzeugt | – | Eigenes Werk | Fallback bei fehlendem Bild |
 | `assets/brand/wordmark.svg`, `favicon.svg` | Selbst gestaltet | – | Eigenes Werk, Markenprüfung offen | Wortmarke N SCOOTS |
@@ -15,27 +13,34 @@ bedeuten keine Nutzungsrechte und sind daher nicht eingebunden.
 
 ## Foto- und Video-Slots (data/media.js)
 
-| Slot | Datei | Status | Quelle/URL | Lizenz | Credit | Freigabedatum | Hinweis |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Hero-Foto | `assets/photos/hero-stadt-abend.jpg` | fehlt | – | – | – | – | Stimmungsfoto Stadt/Abend, Querformat 16:9 oder breiter |
-| Hero-Video | `assets/video/hero-ride.mp4` | fehlt | – | – | – | – | stumm, 10–20 s, H.264, unter 8 MB, Poster = Hero-Foto |
-| Fahrprofile (3) | `assets/photos/profil-alltag.jpg`, `profil-touren.jpg`, `profil-gelaende.jpg` | fehlt | – | – | – | – | Querformat 16:10 |
-| Story (3) | `assets/photos/story-1.jpg` … `story-3.jpg` | fehlt | – | – | – | – | Querformat 3:2 |
-| Marken (6) | `assets/photos/marke-<marke>.jpg` | fehlt | – | – | – | – | Symbolbilder (keine Herstellerbilder), dunkel überlagert |
-| Dirtbikes | `assets/photos/dirtbike.jpg` | fehlt | – | – | – | – | Symbolbild |
-| Produktfotos | `assets/photos/produkt-<id>-<n>.jpg` | fehlt | – | – | – | – | nur mit Hersteller-/Händlerfreigabe |
+Stand 2026-10-30. Alle Stimmungsfotos stammen von Wikimedia Commons unter freien Lizenzen (Namensnennung am Bild und hier).
+Produktfotos stammen vom Händler e-rydez.ch (möglicher B2B-Lieferant) und sind **mit Freigabevorbehalt** eingebunden:
+sichtbar beschriftet «Foto: E-Rydez · Freigabe ausstehend». Vor dem Verkaufsstart schriftliche Freigabe einholen oder ersetzen.
 
-Beim Eintragen eines Fotos diese Zeile ausfüllen und im Manifest `credit` und `license` setzen; `node tools/check-media.js` meldet freigegebene Slots ohne Credit/Lizenz als «RECHTE?». Alt-Texte im Manifest sind Vorschläge und werden beim Einpflegen an das Motiv angepasst.
+| Slot | Datei | Status | Quelle/URL | Lizenz | Credit |
+| --- | --- | --- | --- | --- | --- |
+| Hero-Produktbild | `assets/photos/hero-produkt.jpg` | lieferant | https://e-rydez.ch/products/teverun-fighter-mini-pro | Freigabe ausstehend | E-Rydez |
+| Hero-Hintergrund, Profil Alltag | `assets/photos/hero-stadt-abend.jpg`, `profil-alltag.jpg` | frei | https://commons.wikimedia.org/wiki/File:Generation_Z_kids_on_Electric_Scooter_(48263543577).jpg | CC BY 2.0 | Kristoffer Trolle |
+| Profil Touren | `assets/photos/profil-touren.jpg` | frei | https://commons.wikimedia.org/wiki/File:Grin_e-scooter_rider_in_Mexico_City.jpg | CC BY 3.0 | Sonia Medina |
+| Profil Gelände | `assets/photos/profil-gelaende.jpg` | lieferant | https://e-rydez.ch/products/teverun-blade-gt-ii-plus | Freigabe ausstehend | E-Rydez |
+| Story 1 | `assets/photos/story-1.jpg` | frei | https://commons.wikimedia.org/wiki/File:Frankfurt,_Germany_-_Electric_rental_kick_scooter_handlebars.jpg | CC BY 4.0 | Alexis Jazz |
+| Story 2 | `assets/photos/story-2.jpg` | frei | https://commons.wikimedia.org/wiki/File:Rider_with_scooter_boarding_route_111_bus_at_Haymarket_September_2024.jpg | CC BY 4.0 | 4300streetcar |
+| Story 3, Dirtbikes | `assets/photos/dirtbike.jpg` | frei | https://commons.wikimedia.org/wiki/File:Sur-Ron_Electric_Dirt_Bike_1a.jpg | CC BY 2.0 | Ivan Radic |
+| Nacht (Reserve) | `assets/photos/story-3.jpg` | frei | https://commons.wikimedia.org/wiki/File:Electric_kickbikes_in_Kamppi_on_a_night_in_April_2023.jpg | CC BY-SA 4.0 | JIP |
+| Marken (6) | `assets/photos/produkte/<modell>-1.jpg` | lieferant | e-rydez.ch Produktseiten | Freigabe ausstehend | E-Rydez |
+| Produktfotos (38 Produkte, 114 Dateien) | `assets/photos/produkte/<produkt-id>-1..3.jpg` | lieferant | e-rydez.ch Produktseiten (siehe PRODUKTQUELLEN.md) | Freigabe ausstehend | E-Rydez |
+| Hero-Video | `assets/video/hero-ride.mp4` | fehlt | – | – | – |
 
-Solange ein Slot fehlt, zeigt die Seite den SVG-Platzhalter. Alle Fotos ohne konkretes Verkaufsmodell werden als «Symbolbild» beschriftet, Credits erscheinen am Bildrand.
-Testbilder unter `tests/fixtures/` sind prozedural erzeugt, keine Fotos, und werden nicht veröffentlicht (`.gitignore`).
+Bearbeitung der Commons-Fotos: nur Skalierung auf 1600 px Breite und JPEG-Kompression. CC BY-SA 4.0 (story-3.jpg) verlangt bei Bearbeitung die gleiche Lizenz; die Datei wird nur skaliert und ist als Reserve geführt.
+Produktfotos wurden auf max. 1200 px skaliert, Transparenz auf Weiss gelegt. Keine Wasserzeichen entfernt.
+Testbilder unter `tests/fixtures/` sind prozedural erzeugt und werden nicht veröffentlicht.
 
 ## Noch nicht freigegeben / nicht enthalten
 
 | Gewünscht | Status |
 | --- | --- |
-| Herstellerbilder KuKirin, Joyor, Teverun, Dualtron, Rovoron, Ausom | Keine Freigabe vorhanden. Erst nach schriftlicher Bildfreigabe oder Händlervereinbarung einsetzen. |
-| Lifestyle-/Stadtfotos (wie bei Referenz-Shops) | Nicht vorhanden. Eigene Fotos oder lizenzierte Stockfotos nötig. KI-Bilder nur als Stimmung, nie als Foto eines konkreten Modells. |
-| Markenlogos | Nicht enthalten. Nutzung nur mit Freigabe des Markeninhabers. |
+| Produktfotos E-Rydez | Eingebunden mit Freigabevorbehalt. Schriftliche Freigabe des Betreibers einholen. |
+| Markenlogos KuKirin, Joyor, Teverun, Dualtron, Rovoron, Ausom | Nicht enthalten; Markenleiste zeigt Initialen. Nutzung nur mit Freigabe des Markeninhabers. |
+| Hero-Video | Nicht enthalten. Wikimedia-Commons-Videos waren am Prüftag netzwerkseitig gedrosselt; freie Alternativen (Pexels, Unsplash) sind aus der Arbeitsumgebung gesperrt. Eigenes Video oder lizenziertes Stockvideo nachliefern. |
 
-Wasserzeichen werden nie entfernt. Nicht freigegebene Referenzbilder gelten nicht als veröffentlichungsfertig.
+Wasserzeichen werden nie entfernt. Nicht freigegebene Bilder gelten nicht als veröffentlichungsfertig.

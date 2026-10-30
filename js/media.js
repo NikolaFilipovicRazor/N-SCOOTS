@@ -4,14 +4,17 @@
   const IMG = "assets/img/";
   const FALLBACK = IMG + "fehlt.svg";
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-  const KNOWN = ["fehlt", "frei", "freigegeben"];
+  const KNOWN = ["fehlt", "frei", "freigegeben", "lieferant"];
+  const PHOTOS = "assets/photos/";
+  const SUPPLIER = { credit: "E-Rydez", label: "Freigabe ausstehend" };
   const warned = new Set();
   const norm = (m) => { const st = String(m && m.status || "").trim().toLowerCase(); if (m && m.src && !KNOWN.includes(st) && !warned.has(m.src)) { warned.add(m.src); console.warn(`Medien-Manifest: unbekannter status "${m.status}" bei ${m.src}; wird wie "fehlt" behandelt.`); } return st; };
-  const usable = (m) => { const st = norm(m); return !!(m && m.src && (st === "frei" || st === "freigegeben")); };
+  const usable = (m) => { const st = norm(m); return !!(m && m.src && (st === "frei" || st === "freigegeben" || st === "lieferant")); };
+  const labelOf = (m) => { const st = norm(m); if (st === "lieferant") return SUPPLIER.label; return m.kind === "symbol" ? "Symbolbild" : ""; };
 
   // Liefert {src, alt, photo:boolean, label}. placeholder = Pfad des SVG-Platzhalters.
   function resolve(m, placeholder, altFallback) {
-    if (usable(m)) { const sym = m.kind === "symbol"; const alt = (m.alt || altFallback || "") + (sym ? ", Symbolbild" : ""); return { src: m.src, alt, photo: true, label: sym ? "Symbolbild" : "", credit: m.credit || "" }; }
+    if (usable(m)) { const label = labelOf(m); const alt = (m.alt || altFallback || "") + (label === "Symbolbild" ? ", Symbolbild" : ""); return { src: m.src, alt, photo: true, product: m.kind === "produkt", label, credit: m.credit || "" }; }
     if (placeholder && typeof placeholder === "object") return placeholder; // bereits aufgelöstes Bild (z. B. Produktfoto)
     return { src: placeholder || FALLBACK, alt: altFallback || "", photo: false, label: "Platzhalter", credit: "" };
   }
@@ -23,6 +26,8 @@
   function marks(r) {
     const badge = r.label ? `<span class="media-badge" aria-hidden="true">${esc(r.label)}</span>` : "";
     const credit = r.credit ? `<span class="media-credit" aria-hidden="true">Foto: ${esc(r.credit)}</span>` : "";
+    // Lieferantenfotos: ein kombiniertes Label statt zwei
+    if (r.label === SUPPLIER.label) return `<span class="media-credit media-credit-supplier" aria-hidden="true">Foto: ${esc(r.credit)} · Freigabe ausstehend</span>`;
     return badge + credit;
   }
   function figure(r, opts = {}) {
@@ -36,7 +41,10 @@
   }
   function productImages(p) {
     const list = (M.products && M.products[p.id]) ? M.products[p.id].filter(usable) : [];
-    if (list.length) return list.map((m) => ({ src: m.src, alt: (m.alt || p.model) + (m.kind === "symbol" ? ", Symbolbild" : ""), photo: true, label: m.kind === "symbol" ? "Symbolbild" : "", credit: m.credit || "" }));
+    if (list.length) return list.map((m) => ({ src: m.src, alt: (m.alt || p.model) + (m.kind === "symbol" ? ", Symbolbild" : ""), photo: true, product: m.kind === "produkt", label: labelOf(m), credit: m.credit || "" }));
+    // Lieferanten-Produktfotos (assets/photos/produkte/…): Freigabe ausstehend, sichtbar gekennzeichnet
+    const sup = (p.images || []).filter((f) => /^produkte\//.test(f));
+    if (sup.length) return sup.map((f, i) => ({ src: PHOTOS + f, alt: `${p.model}, Produktfoto ${i + 1} (${SUPPLIER.credit})`, photo: true, product: true, label: SUPPLIER.label, credit: SUPPLIER.credit }));
     return (p.images || []).map((f, i) => ({ src: IMG + f, alt: `Platzhalter-Silhouette für ${p.model}, Ansicht ${i + 1}, kein Produktfoto`, photo: false, label: "Platzhalter", credit: "" }));
   }
   function heroVideo() {

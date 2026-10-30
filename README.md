@@ -27,7 +27,9 @@ Direktes Öffnen von `index.html` per Doppelklick funktioniert ebenfalls.)
 | `data/media.js` | **Medien-Manifest**: welche Fotos/Videos wo erscheinen, mit Rechte-Status und Credit |
 | `assets/photos/`, `assets/video/` | Ablageorte für Fotos und Video (siehe `LIES-MICH.md` darin) |
 | `tools/check-media.js` | Zeigt, welche Medien fehlen oder noch keine Freigabe haben |
-| `data/products.js` | **Austauschbare Produktdatei** mit stabilen IDs, Quellen und Prüfdatum |
+| `data/products.js` | Produktdatei, **erzeugt aus dem E-Rydez-Katalog** (`node tools/import-erydez.js`), mit Quellen, Prüfdatum, Lieferstatus |
+| `tools/import-erydez.js`, `tools/quellen/erydez-products.json` | Importer und gesicherter Katalog-Feed von e-rydez.ch |
+| `assets/photos/produkte/` | Produktfotos von e-rydez.ch (Freigabe ausstehend, sichtbar gekennzeichnet) |
 | `assets/img/` | Gekennzeichnete SVG-Platzhalter (keine Produktfotos), erzeugt mit `tools/make-placeholders.js` |
 | `assets/brand/` | Wortmarke und Favicon |
 | `ASSETS.md` | Asset-Verzeichnis mit Herkunft und Rechte-Status |
@@ -60,7 +62,12 @@ Allgemeine Stimmungsfotos mit freier Lizenz (z. B. Unsplash-, Pexels-Lizenz) als
 
 ## Produktdaten pflegen
 
-Alle Angaben in `data/products.js` sind Hersteller- oder Händlerangaben mit Quelle und Prüfdatum.
+`data/products.js` wird aus `tools/quellen/erydez-products.json` erzeugt. Katalog aktualisieren:
+
+    curl -s "https://e-rydez.ch/products.json?limit=250" > /tmp/erydez.json   # dann in tools/quellen/erydez-products.json übernehmen (Feld "abgerufen" setzen)
+    node tools/import-erydez.js
+
+Alle Angaben sind Händlerangaben von e-rydez.ch mit Quelle und Prüfdatum.
 `price.kind` ist `referenz` (fremdes Angebot, kein N SCOOTS-Preis) oder `offen`.
 `chLegal` bleibt `nicht bestätigt`, bis ein Beleg je Ausführung vorliegt. Unbekannte Werte bleiben `null`.
 

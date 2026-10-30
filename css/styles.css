@@ -246,8 +246,11 @@ p { margin: 0 0 1em; max-width: 68ch; }
 /* ---------- Produktdetail ---------- */
 .breadcrumb { font-size: .85rem; color: var(--ink-3); margin: 18px 0 10px; display: flex; flex-wrap: wrap; gap: 6px; }
 .breadcrumb a { color: var(--ink-2); }
-.pdp { display: grid; gap: 28px; padding-bottom: 48px; }
-@media (min-width: 900px) { .pdp { grid-template-columns: 1.1fr 1fr; align-items: start; } }
+.pdp { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; padding-bottom: 48px; }
+.pdp > * { min-width: 0; }
+.spec-table { table-layout: fixed; }
+.spec-table th, .spec-table td { overflow-wrap: anywhere; }
+@media (min-width: 900px) { .pdp { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: start; } }
 .gallery-main { aspect-ratio: 4 / 3; border-radius: var(--radius); overflow: hidden; background: var(--surface); border: 1px solid var(--line); }
 .gallery-main img { width: 100%; height: 100%; object-fit: cover; }
 .gallery-thumbs { display: flex; gap: 8px; margin-top: 8px; }
@@ -527,3 +530,26 @@ button.gallery-main .media-badge { pointer-events: none; }
 .whatsapp-fab:hover { background: #0f7a40; color: #fff; }
 .whatsapp-fab svg { width: 22px; height: 22px; }
 @media (max-width: 600px) { .whatsapp-fab span { display: none; } .whatsapp-fab { padding: 12px; } }
+
+/* Produktfotos (weisser Hintergrund): einpassen statt beschneiden */
+.is-product img, img.is-product, .card-media.is-product img, .gallery-main.is-product img, .gallery-thumbs.is-product img, .slot img.is-product, .cart-item img.is-product, .pick-list img.is-product { object-fit: contain; background: #fff; }
+.card-media.is-product, .gallery-main.is-product, .gallery-thumbs.is-product button { background: #fff; }
+.card-media.is-product img { padding: 6%; }
+.card-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.card-tags .tag { font-size: .68rem; padding: 2px 7px; }
+.price-from { font-size: .9rem; font-weight: 500; color: var(--ink-2); }
+.media-credit-supplier { background: rgba(28,31,36,.75); color: #fff; }
+/* Hero mit grossem Produktbild */
+.hero-media.has-product .hero-content { grid-template-columns: 1fr; }
+.hero-product { position: relative; display: grid; gap: 8px; text-decoration: none; color: #fff; justify-self: center; width: min(100%, 420px); }
+.hero-product img { width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; filter: drop-shadow(0 24px 40px rgba(0,0,0,.45)); mix-blend-mode: normal; border-radius: 16px; background: #fff; }
+.hero-product-cap { display: grid; gap: 2px; padding: 10px 12px; border-radius: 8px; background: rgba(28,31,36,.7); }
+.hero-product-cap strong { font-family: var(--font-display); font-size: 1.25rem; }
+.hero-product-cap span { font-size: .85rem; color: #d5dae4; }
+.hero-product .media-credit-supplier { position: absolute; right: 10px; top: 10px; bottom: auto; }
+.hero-product:hover img { filter: drop-shadow(0 28px 44px rgba(0,0,0,.55)); }
+@media (min-width: 900px) {
+  .hero-media.has-product .hero-content { grid-template-columns: 1.1fr .9fr auto; align-items: end; }
+  .hero-media.has-product .hero-tools { grid-column: 1 / -1; }
+  .hero-product { width: min(100%, 520px); align-self: center; }
+}

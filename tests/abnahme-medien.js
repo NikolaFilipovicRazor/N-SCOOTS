@@ -29,6 +29,7 @@ const override = `window.__FX = ${JSON.stringify(FX)};
 
     await page.goto(BASE + "#/"); await page.waitForSelector("#hero-title");
     ok(`${label}: Hero-Video vorhanden`, (await page.locator("video.hero-video").count()) === 1);
+    ok(`${label}: Kein Produktbild neben Video`, (await page.locator(".hero-product").count()) === 0);
     await page.waitForTimeout(600);
     ok(`${label}: Hero-Video spielt`, await page.locator("video.hero-video").evaluate((v) => !v.paused));
     await page.click('[data-action="video-toggle"]');
@@ -36,7 +37,7 @@ const override = `window.__FX = ${JSON.stringify(FX)};
     ok(`${label}: Fahrprofile mit Fotos`, (await page.locator('.profile-media img[src*="fixtures"]').count()) === 3);
     ok(`${label}: Symbolbild gekennzeichnet`, (await page.locator(".profile-media .media-badge").allTextContents()).includes("Symbolbild"));
     ok(`${label}: Story-Bilder vorhanden`, (await page.locator('.story-media img[src*="fixtures"]').count()) === 3);
-    ok(`${label}: Marken mit Foto`, (await page.locator(".brand-chip.has-photo").count()) === 2);
+    ok(`${label}: Marken mit Foto`, (await page.locator(".brand-chip.has-photo").count()) >= 2);
     // Parallax: Transform ändert sich beim Scrollen
     await page.waitForLoadState("networkidle"); await page.waitForTimeout(300);
     const before = await page.locator(".story-media img").first().evaluate((i) => i.style.transform);
@@ -71,6 +72,7 @@ const override = `window.__FX = ${JSON.stringify(FX)};
     ok(`${label}: Karte mit Wechselbild`, (await page.locator('.card[data-id="kukirin-g2-master"] .card-media.has-alt').count()) === 1);
     await page.goto(BASE + "#/dirtbikes"); await page.waitForSelector(".prep-hero");
     ok(`${label}: Dirtbike-Foto`, (await page.locator('.prep-media img[src*="fixtures"]').count()) === 1);
+    ok(`${label}: Dirtbike-Modell gelistet`, (await page.locator(".product-grid .card").count()) >= 1);
     await noOverflow("dirtbikes");
 
     // Reduzierte Bewegung

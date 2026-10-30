@@ -1,6 +1,6 @@
 # Status des Prototyps
 
-Stand: 2026-10-28
+Stand: 2026-10-30
 
 ## Gestaltungskonzept (kurz)
 
@@ -12,7 +12,7 @@ Stand: 2026-10-28
   Texte, Fotos und Layouts wurden nicht übernommen.
 - **Bewegung:** Hover-/Fokus-Übergänge, Toast, Parallax und Einblenden beim Scrollen, stummes Hero-Video mit Pause-Taste. Alles respektiert `prefers-reduced-motion`; nichts blockiert das Scrollen.
 
-## Funktioniert (Browser-geprüft, 83/83 Prüfungen bestanden bei 390 px und 1440 px)
+## Funktioniert (Browser-geprüft, 93/93 und 48/48 Prüfungen bestanden bei 390 px und 1440 px)
 
 - Startseite mit Kategorie-Einstiegen, Fahrprofilen, Modellen, Marken, Kaufhilfe
 - Katalog: Suche, Kategorie, Marke (Mehrfach), Einsatz, Preisfilter, 6 Sortierungen, Trefferzahl, aktive Filter-Chips, Reset,
@@ -32,7 +32,14 @@ Stand: 2026-10-28
 - Hero-Video stumm im Hintergrund mit Pause/Play-Button; bei `prefers-reduced-motion` startet es nicht
 - Parallax: Fotos bewegen sich beim Scrollen langsamer als die Seite (Hero, Fahrprofile, Story, Dirtbikes); Sektionen blenden sanft ein; alles im Ruhezustand sichtbar
 - Produktkarten mit Wechselbild beim Zeigen, Produktgalerie mit Lightbox (Pfeiltasten, Escape, Fokusrückgabe)
-- **Offen:** Es liegen noch keine Fotos oder Videos vor. Aus der Arbeitsumgebung waren Bildquellen (Unsplash, Pexels, Wikimedia, Herstellerseiten) netzwerkseitig gesperrt. Siehe README «Fotos und Video einfügen».
+- **Fotos eingebaut:** 114 Produktfotos von e-rydez.ch (Freigabe ausstehend, sichtbar gekennzeichnet), Hero mit grossem Produktbild, sechs frei lizenzierte Stimmungsfotos von Wikimedia Commons mit Namensnennung. Video fehlt noch (siehe ASSETS.md).
+
+## Sortiment (Stand 2026-10-30)
+
+- Vollständiger Import des E-Rydez-Katalogs: 32 E-Scooter, 1 E-Dirtbike (KuKirin X1), 5 Ersatzteil-Sets; Marken KuKirin, Joyor, Teverun, Dualtron, Rovoron, Ausom.
+- Je Produkt: Referenzpreis (ab-Preis bei Varianten), Lieferstatus laut E-Rydez mit Datum, Akku, Motor, Reichweite, Höchstgeschwindigkeit, ABE-Kennzeichnung, Quelle. Reproduzierbar mit `node tools/import-erydez.js`.
+- Zulassung: E-Rydez weist für kein Modell eine CH-Strassenzulassung aus; Filter «Nur CH-strassenzugelassen» bleibt deshalb leer und erklärt das.
+- Neu auf der Startseite: Suchfeld im Header, Navigationszeile, Markenleiste, Vertrauens- und Service-Leiste, WhatsApp-Knopf, Kontaktseite mit Platzhalter-Telefon/E-Mail.
 
 ## Bewusst nicht gebaut
 
