@@ -16,7 +16,7 @@ window.NSCOOTS_MEDIA = {
   hero: {
     /* Grosses Produktbild im Hero (E-Rydez-Produktfoto, Freigabe ausstehend) */
     product: { src: "assets/photos/hersteller/teverun-fighter-mini-pro-ekfv-1.jpg", alt: "Teverun Fighter Mini Pro eKFV, Produktbild", status: "hersteller", kind: "produkt", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" , model: "teverun-fighter-mini-pro-ekfv" },
-    image: { src: "assets/photos/hersteller/kukirin-t3-2025-48v-15-6-ah-akku-800w-2.jpg", alt: "Zwei Freunde mit KuKirin T3 in der Sonne", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
+    image: { src: "assets/photos/hersteller/teverun-fighter-mini-pro-5.jpg", alt: "Fahrer mit Teverun Fighter Mini Pro im Wald", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js", model: "teverun-fighter-mini-pro-ekfv" },
     video: { src: "assets/video/hero-ride.mp4", poster: "assets/photos/hero-stadt-abend.jpg", status: "fehlt", credit: "", license: "" }
   },
   profiles: {
@@ -42,7 +42,7 @@ window.NSCOOTS_MEDIA = {
   nightCity: { src: "assets/photos/story-3.jpg", alt: "E-Scooter nachts in der Stadt", status: "frei", kind: "symbol", credit: "JIP, CC BY-SA 4.0", license: "CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Electric_kickbikes_in_Kamppi_on_a_night_in_April_2023.jpg" },
   /* Bildergalerie «Unterwegs» (Hersteller-Lifestyle-Fotos) */
   gallery: [
-    { src: "assets/photos/hersteller/kukirin-t3-2025-48v-15-6-ah-akku-800w-2.jpg", alt: "Zwei Freunde mit KuKirin T3", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
+    { src: "assets/photos/hersteller/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb-5.jpg", alt: "Mann mit Teverun Blade Mini Ultra in der Stadt", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
     { src: "assets/photos/hersteller/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb-4.jpg", alt: "Teverun Blade Mini Ultra in der Stadt", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
     { src: "assets/photos/hersteller/teverun-fighter-mini-pro-4.jpg", alt: "Teverun Fighter Mini Pro auf dem Waldweg", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
     { src: "assets/photos/hersteller/kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike-5.jpg", alt: "KuKirin X1 im Gelände", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
