@@ -19,6 +19,12 @@ Stand: 2026-10-30. Stimmungsfotos: Wikimedia Commons (CC BY / CC BY-SA, Namensne
 Distributor (Dualtron). Wortmarke `assets/brand/wordmark.svg` ist die eigene N SCOOTS-Identität. Nutzung als Händler ist üblich; schriftliche
 Freigaben der Hersteller vor dem Shopstart einholen. Wikimedia-Commons-Fotos sind nicht mehr auf der Seite im Einsatz (Dateien bleiben als Reserve).
 
+### Umfang je Modell (dritte Runde)
+
+- Der Importer übernimmt alle Bilder aus den Manifesten (Produktbilder zuerst, dann Lifestyle), entfernt Duplikate per Differenz-Hash und hängt vorhandene Lieferantenbilder aus `assets/photos/produkte/` an, sofern sie keine Duplikate sind (Status `lieferant`).
+- Verweise in `data/media.js` sind symbolisch: `hersteller:<produkt-id>:lifestyle:<n>` bzw. `:produkt:<n>`; `js/media.js` löst sie beim Laden auf die aktuelle Datei auf.
+- Auf der Website stehen keine Bildnachweise; sie bleiben hier und in `data/media-hersteller.js` (Feld `license` mit Quell-URL je Bild).
+
 ## Foto- und Video-Slots (data/media.js)
 
 Stand 2026-10-30. Alle Stimmungsfotos stammen von Wikimedia Commons unter freien Lizenzen (Namensnennung am Bild und hier).

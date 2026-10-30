@@ -58,11 +58,22 @@ Stand: 2026-10-30
 - Hero mit grossem Lifestyle-Panel, USP-Zeile, «Was hast du vor?» (Strassenzugelassene, Unter CHF 1’000, Performance), Mosaik-Galerie «Raus. Dein Stil.» mit Lightbox, dunkle Service-Sektion «Du fährst. Wir sind da.», Infokarten, Zahlungsarten im Footer.
 - Kontakt: +41 79 460 18 35 (Telefon und WhatsApp), info@nscoots.ch, Rapperswil-Jona, ohne Personennamen. Versprechen laut Auftraggeber: WhatsApp 24/7, Antwort meistens innerhalb 1–2 Stunden, schnell und einfach geliefert, sicher bezahlen. Diese Zusagen sind vor dem Shopstart organisatorisch sicherzustellen.
 
+## Stand 2026-10-30, dritte Runde (Logo-Reihe, Ticker, Datenblatt, Schweizer Lieferant)
+
+- Weisse Logo-Reihe unter der Navigation auf jeder Seite: sechs offizielle Markenlogos, anklickbar (Katalogfilter), aktive Marke markiert.
+- Roter Laufband-Balken nur mit Text (Schweizer Lieferant & Importeur, Marken, Premium Scooter, E-Dirtbikes, Lieferung, Bezahlung, Support 24/7), Pause-Taste, bei `prefers-reduced-motion` statisch.
+- Claim «Dein Schweizer Online-Shop für Premium E-Scooter» im Header, Hero, Seitentitel; Meta-Beschreibung, Open Graph, JSON-LD (OnlineStore), robots.txt, sitemap.xml für die Sichtbarkeit in Suchmaschinen.
+- «Schweizer Lieferant & Importeur» in Infoleiste, Hero-USPs, Vertrauensleiste, Footer und auf «Gut zu wissen»; dort keine Bildhinweise mehr.
+- Technische Daten mit Symbolen auf Karten (Motor, Akku, Reichweite, Tempo, Gewicht, Zuladung), im Datenblatt (zusätzlich Steigfähigkeit, Ladezeit, Reifen, Bremsen, Federung, Beleuchtung, Display, Schutzart, Faltbar) und im Vergleich. Fehlende Werte stehen als «Angabe offen».
+- Herstellerangaben aus `tools/quellen/specs-hersteller.json` (offizielle Herstellerseiten, geprüft 2026-10-30) überlagern die Händlerdaten; Quelle je Modell unter «Angaben und Prüfdatum». Keine Händlerdomains mehr auf der Website.
+- Mehr Bilder je Modell: alle offiziellen Produkt- und Lifestyle-Bilder (Importer ohne Deckelung, Duplikate per Bildhash aussortiert), zusätzlich Lieferantenbilder als Ergänzung. Bildverweise in `data/media.js` sind symbolisch (`hersteller:<id>:lifestyle:<n>`) und überstehen eine Neunummerierung.
+- Teverun Fighter Mini Pro (CHF 1’499.–) als Hero-Modell und erstes der sechs ausgewählten Modelle.
+
 ## Bewusst nicht gebaut
 
 - Keine Bestellung, Zahlung, Kundenkonto, Formulare mit Datenversand
 - Keine Lagerbestände, Lieferfristen, Rabatte, Bewertungen, Garantieversprechen, Händlerautorisierungen, CH-Zulassungen
-- Keine fremden Fotos oder Markenlogos
+- Keine fremden Fotos ausser Hersteller- und Lieferantenbildern (Freigabe vor Verkaufsstart, siehe ASSETS.md)
 
 ## Offene Produktionspunkte
 

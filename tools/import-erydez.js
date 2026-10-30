@@ -61,7 +61,7 @@ for (const p of ALL) {
   const offroadTag = p.tags.some((x) => /offroad/i.test(x)) || /Gelände|Offroad/i.test(t);
   let segment = null;
   if (ekfv) segment = "alltag"; else if (!isPart && !isDirt) segment = limited && motors === 1 ? "alltag" : (bWh && bWh >= 1500) || (motors === 2 && offroadTag) ? "offroad" : motors === 2 || (bWh && bWh >= 900) ? "touren" : "alltag";
-  const chLegal = ekfv ? "Strassenzugelassen Schweiz (Händlerangabe, 20 km/h-Version)" : abe ? "Deutsche ABE (20–25 km/h), keine Schweizer Zulassung ausgewiesen" : "Nicht strassenzugelassen in der Schweiz, für Privatgelände";
+  const chLegal = ekfv ? "Strassenzugelassen Schweiz (Herstellerangabe, 20 km/h-Version)" : abe ? "Deutsche ABE (20–25 km/h), keine Schweizer Zulassung ausgewiesen" : "Nicht strassenzugelassen in der Schweiz, für Privatgelände";
   const url = p._url;
   const imgs = p.images.slice(0, 3).map((im, i) => `produkte/${p.handle}-${i + 1}.jpg`); // alle Bilder liegen als JPG vor
   const variants = p.variants.filter((v) => v.title !== "Default Title").map((v) => ({ id: String(v.id), name: v.title, note: `Referenzpreis ${Number(v.price).toFixed(0)} CHF${v.available ? "" : ", laut E-Rydez zurzeit nicht lieferbar"}` }));
@@ -77,6 +77,19 @@ for (const p of ALL) {
     sources: [{ url, checked: p._checked, note: `Händlerseite ${p._src === "swiss-scoots" ? "swiss-scoots.ch" : "e-rydez.ch"} (Preis, Akku, Motor, Reichweite, Lieferstatus${ekfv ? ", Zulassungsangabe" : ""})` }],
     images: imgs
   });
+}
+// Herstellerangaben (tools/quellen/specs-hersteller.json, von den offiziellen Herstellerseiten) über die Händlerdaten legen
+const specsFile = path.join(__dirname, "quellen", "specs-hersteller.json");
+if (fs.existsSync(specsFile)) {
+  const H = JSON.parse(fs.readFileSync(specsFile, "utf8"));
+  const FIELDS = ["weightKg", "maxLoadKg", "tires", "brakes", "ip", "foldable", "peakW", "speedKmh", "rangeKm", "batteryWh", "chargeHours", "climbPct", "suspension", "lights", "display", "motorW", "motors"];
+  for (const p of products) {
+    const h = H[p.id]; if (!h || p.category === "zubehoer") continue;
+    for (const k of FIELDS) { const v = h[k]; if (v === undefined || v === null || v === "") continue; if (p.specs[k] == null || p.specs[k] === "" || ["tires", "brakes", "ip", "suspension", "lights", "display", "weightKg", "maxLoadKg", "foldable", "chargeHours", "climbPct"].includes(k)) p.specs[k] = v; }
+    if (h.source) p.specsSource = h.source;
+    if (h.checked) p.specsChecked = h.checked;
+    if (h.source) p.sources.push({ url: h.source, checked: h.checked || p.sources[0].checked, note: "Herstellerseite (technische Daten)" });
+  }
 }
 // Reihenfolge: KuKirin zuerst, dann nach Marke, Zubehör zuletzt
 const order = { kukirin: 0, joyor: 1, teverun: 2, dualtron: 3, rovoron: 4, ausom: 5 };
