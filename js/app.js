@@ -575,7 +575,7 @@
           </table>
           ${notice("Reichweiten sind Herstellerangaben unter deren Testbedingungen (leichter Fahrer, flache Strecke, Eco-Modus). Im Alltag ist deutlich weniger üblich. Eine Zusage ist das nicht.")}
           <details class="fold"><summary>Angaben und Prüfdatum</summary>
-            <p class="small muted">Technische Daten sind Herstellerangaben${p.specsSource ? ` (<a href="${esc(p.specsSource)}" rel="noopener" target="_blank">Herstellerseite</a>)` : ""}, zuletzt geprüft am ${F.date(p.specsChecked || p.price.checked || D.meta.dataVersion)}. Preise und Lieferstatus Stand ${F.date(D.meta.dataVersion)}. Angaben wurden nicht selbst gemessen.</p>
+            <p class="small muted">Technische Daten sind Herstellerangaben${p.specsSource ? ` (<a href="${esc(p.specsSource)}" rel="noopener" target="_blank">Quelle</a>)` : ""}, zuletzt geprüft am ${F.date(p.specsChecked || p.price.checked || D.meta.dataVersion)}. Preise und Lieferstatus Stand ${F.date(D.meta.dataVersion)}. Angaben wurden nicht selbst gemessen.</p>
           </details>
           <details class="fold"><summary>Strasse oder Gelände?</summary>
             <p>In der Schweiz strassenzugelassen sind die als eKFV- bzw. CH-Edition gekennzeichneten 20 km/h-Modelle (Angabe des Herstellers, Nachweis wird vor Verkaufsstart geprüft). Eine deutsche ABE oder ein CE-Zeichen reicht für die Schweiz nicht automatisch. Alle anderen Modelle sind für Privatgelände gedacht.</p>

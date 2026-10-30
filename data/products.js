@@ -132,15 +132,18 @@ window.NSCOOTS_DATA = {
       "batteryWh": 374,
       "rangeKm": "39",
       "speedKmh": 25,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 16,
+      "maxLoadKg": 100,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
-      "ip": null,
-      "foldable": null,
+      "tires": "8\" Reifen",
+      "brakes": "Elektronische Bremse + mechanische Bremse",
+      "ip": "IP54",
+      "foldable": true,
       "abe": false,
-      "limited": true
+      "limited": true,
+      "chargeHours": "7-8",
+      "climbPct": 27,
+      "lights": "Scheinwerfer"
     },
     "variants": [],
     "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
@@ -150,13 +153,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/kukirin-s1-max-36v-10-4ah-akku-350w",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://www.kukirin.net/en/productdetail?documentId=jhbf4lb0eu4sfcqmyy7kibod",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/kukirin-s1-max-36v-10-4ah-akku-350w-1.jpg",
       "produkte/kukirin-s1-max-36v-10-4ah-akku-350w-2.jpg",
       "produkte/kukirin-s1-max-36v-10-4ah-akku-350w-3.jpg"
-    ]
+    ],
+    "specsSource": "https://www.kukirin.net/en/productdetail?documentId=jhbf4lb0eu4sfcqmyy7kibod",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "kukirin-g2-pro-abe",
@@ -188,15 +198,20 @@ window.NSCOOTS_DATA = {
       "batteryWh": 749,
       "rangeKm": "55",
       "speedKmh": 20,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 22.3,
+      "maxLoadKg": 120,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
+      "tires": "9\" Luftreifen (Schlauchlos, Offroad-Profil)",
+      "brakes": "Doppelscheibenbremsen vorne und hinten + Abschaltbremse",
       "ip": null,
-      "foldable": null,
+      "foldable": true,
       "abe": true,
-      "limited": true
+      "limited": true,
+      "chargeHours": "7-8",
+      "climbPct": 34,
+      "suspension": "Federdämpfer",
+      "lights": "Front- und Rücklicht, 3 Lichtmodi, reflektierende Aufkleber",
+      "display": "Display mit Tastenbedienfeld"
     },
     "variants": [],
     "chLegal": "Deutsche ABE (20–25 km/h), keine Schweizer Zulassung ausgewiesen",
@@ -206,13 +221,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/kukirin-g2-pro-abe",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://kukirin.it.com/en/products/kukirin-g2-pro-abe-electric-scooter",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/kukirin-g2-pro-abe-1.jpg",
       "produkte/kukirin-g2-pro-abe-2.jpg",
       "produkte/kukirin-g2-pro-abe-3.jpg"
-    ]
+    ],
+    "specsSource": "https://kukirin.it.com/en/products/kukirin-g2-pro-abe-electric-scooter",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "kukirin-g2-pro",
@@ -244,15 +266,20 @@ window.NSCOOTS_DATA = {
       "batteryWh": 749,
       "rangeKm": "55",
       "speedKmh": 45,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 25,
+      "maxLoadKg": 120,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
-      "ip": null,
-      "foldable": null,
+      "tires": "9\" Luftreifen (Schlauchlos, Offroad-Profil)",
+      "brakes": "Scheibenbremsen vorne und hinten + elektronische Bremse (E-Brake)",
+      "ip": "IP54",
+      "foldable": true,
       "abe": false,
-      "limited": false
+      "limited": false,
+      "chargeHours": "8-9",
+      "climbPct": 34,
+      "suspension": "Federdämpfer vorne und hinten",
+      "lights": "6-Licht-System: LED-Scheinwerfer, Blinker, Bremslicht",
+      "display": "LED-Display"
     },
     "variants": [],
     "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
@@ -262,13 +289,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/kukirin-g2-pro",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://kukirin.it.com/en/products/kukirin-g2-pro-electric-scooter",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/kukirin-g2-pro-1.jpg",
       "produkte/kukirin-g2-pro-2.jpg",
       "produkte/kukirin-g2-pro-3.jpg"
-    ]
+    ],
+    "specsSource": "https://kukirin.it.com/en/products/kukirin-g2-pro-electric-scooter",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "kukirin-g2-abe",
@@ -300,15 +334,20 @@ window.NSCOOTS_DATA = {
       "batteryWh": 748.8,
       "rangeKm": "55",
       "speedKmh": 25,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 25.3,
+      "maxLoadKg": 120,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
-      "ip": null,
-      "foldable": null,
+      "tires": "10\" Luftreifen (Schlauchlos, Offroad-Profil)",
+      "brakes": "Scheibenbremsen vorne und hinten + elektronische Bremse (E-Brake)",
+      "ip": "IP54",
+      "foldable": true,
       "abe": true,
-      "limited": true
+      "limited": true,
+      "chargeHours": "8-9",
+      "climbPct": 36,
+      "suspension": "Vierarm-Federung mit Federdämpfern vorne und hinten",
+      "lights": "7-Licht-System: LED-Scheinwerfer (6 W), 4 Blinker (vorne und hinten), Rücklicht, Bremslicht",
+      "display": "Touchscreen-Display"
     },
     "variants": [],
     "chLegal": "Deutsche ABE (20–25 km/h), keine Schweizer Zulassung ausgewiesen",
@@ -318,13 +357,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/kukirin-g2-abe",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://kukirin.it.com/en/products/kukirin-g2-electric-scooter",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/kukirin-g2-abe-1.jpg",
       "produkte/kukirin-g2-abe-2.jpg",
       "produkte/kukirin-g2-abe-3.jpg"
-    ]
+    ],
+    "specsSource": "https://kukirin.it.com/en/products/kukirin-g2-electric-scooter",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "kukirin-t3-2025-48v-15-6-ah-akku-800w",
@@ -356,15 +402,18 @@ window.NSCOOTS_DATA = {
       "batteryWh": 748.8,
       "rangeKm": "58",
       "speedKmh": 45,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 25.5,
+      "maxLoadKg": 120,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
-      "ip": null,
-      "foldable": null,
+      "tires": "10\" Luftreifen (Schlauchlos)",
+      "brakes": "Scheibenbremsen vorne und hinten + elektronische Bremse (E-Brake)",
+      "ip": "IP54",
+      "foldable": true,
       "abe": false,
-      "limited": false
+      "limited": false,
+      "chargeHours": "7-8",
+      "climbPct": 36,
+      "suspension": "Vierarm-Federung"
     },
     "variants": [],
     "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
@@ -374,13 +423,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/kukirin-t3-2025-48v-15-6-ah-akku-800w",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://www.kukirin.net/en/productdetail?documentId=k4lo52nb307tsl6d0tw0qpmc",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/kukirin-t3-2025-48v-15-6-ah-akku-800w-1.jpg",
       "produkte/kukirin-t3-2025-48v-15-6-ah-akku-800w-2.jpg",
       "produkte/kukirin-t3-2025-48v-15-6-ah-akku-800w-3.jpg"
-    ]
+    ],
+    "specsSource": "https://www.kukirin.net/en/productdetail?documentId=k4lo52nb307tsl6d0tw0qpmc",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "kukirin-g2",
@@ -412,15 +468,20 @@ window.NSCOOTS_DATA = {
       "batteryWh": 720,
       "rangeKm": "55",
       "speedKmh": 45,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 25.3,
+      "maxLoadKg": 120,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
-      "ip": null,
-      "foldable": null,
+      "tires": "10\" Luftreifen (Schlauchlos, Offroad-Profil)",
+      "brakes": "Scheibenbremsen vorne und hinten + elektronische Bremse (E-Brake)",
+      "ip": "IP54",
+      "foldable": true,
       "abe": false,
-      "limited": false
+      "limited": false,
+      "chargeHours": "8-9",
+      "climbPct": 36,
+      "suspension": "Vierarm-Federung mit Federdämpfern vorne und hinten",
+      "lights": "7-Licht-System: LED-Scheinwerfer (6 W), 4 Blinker (vorne und hinten), Rücklicht, Bremslicht",
+      "display": "Touchscreen-Display"
     },
     "variants": [],
     "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
@@ -430,13 +491,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/kukirin-g2",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://kukirin.it.com/en/products/kukirin-g2-electric-scooter",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/kukirin-g2-1.jpg",
       "produkte/kukirin-g2-2.jpg",
       "produkte/kukirin-g2-3.jpg"
-    ]
+    ],
+    "specsSource": "https://kukirin.it.com/en/products/kukirin-g2-electric-scooter",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "kukirin-m4-max-20255-48v-18ah-akku-800w",
@@ -468,15 +536,19 @@ window.NSCOOTS_DATA = {
       "batteryWh": 864,
       "rangeKm": "65",
       "speedKmh": 45,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 24,
+      "maxLoadKg": 120,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
-      "ip": null,
-      "foldable": null,
+      "tires": "10\" Luftreifen (Schlauchlos, verschleissfest)",
+      "brakes": "Doppelscheibenbremsen + elektronische Bremse (E-Brake)",
+      "ip": "IP54",
+      "foldable": true,
       "abe": false,
-      "limited": false
+      "limited": false,
+      "chargeHours": "9-10",
+      "climbPct": 36,
+      "suspension": "Doppelgabel-Federung vorne, doppelte Federdämpfer hinten",
+      "lights": "Scheinwerfer, Rücklicht, Blinker, mehrzonige Ambientebeleuchtung"
     },
     "variants": [],
     "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
@@ -486,13 +558,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/kukirin-m4-max-20255-48v-18ah-akku-800w",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://kukirin.it.com/en/products/kukirin-m4-max-electric-scooter",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/kukirin-m4-max-20255-48v-18ah-akku-800w-1.jpg",
       "produkte/kukirin-m4-max-20255-48v-18ah-akku-800w-2.jpg",
       "produkte/kukirin-m4-max-20255-48v-18ah-akku-800w-3.jpg"
-    ]
+    ],
+    "specsSource": "https://kukirin.it.com/en/products/kukirin-m4-max-electric-scooter",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "kukirin-g3",
@@ -524,15 +603,17 @@ window.NSCOOTS_DATA = {
       "batteryWh": 936,
       "rangeKm": "60-70",
       "speedKmh": 50,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 25,
+      "maxLoadKg": 120,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
-      "ip": null,
-      "foldable": null,
+      "tires": "10\" Luftreifen (Schlauchlos)",
+      "brakes": "Scheibenbremsen vorne und hinten",
+      "ip": "IP54",
+      "foldable": true,
       "abe": false,
-      "limited": false
+      "limited": false,
+      "chargeHours": "9-10",
+      "climbPct": 42
     },
     "variants": [],
     "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
@@ -542,13 +623,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/kukirin-g3",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://www.kukirin.net/en/productdetail?documentId=p9jmfw00npaq2terxnrzknmb",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/kukirin-g3-1.jpg",
       "produkte/kukirin-g3-2.jpg",
       "produkte/kukirin-g3-3.jpg"
-    ]
+    ],
+    "specsSource": "https://www.kukirin.net/en/productdetail?documentId=p9jmfw00npaq2terxnrzknmb",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "kukirin-g2-ultra-48v-18ah-akku-2-x-800w-dual-motor",
@@ -580,15 +668,19 @@ window.NSCOOTS_DATA = {
       "batteryWh": 864,
       "rangeKm": "50-55",
       "speedKmh": 55,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 30.4,
+      "maxLoadKg": 120,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
-      "ip": null,
-      "foldable": null,
+      "tires": "10\" Luftreifen (Schlauchlos, Offroad-Profil)",
+      "brakes": "Scheibenbremsen vorne und hinten + Abschaltbremse",
+      "ip": "IPX4",
+      "foldable": true,
       "abe": false,
-      "limited": false
+      "limited": false,
+      "chargeHours": "9-10",
+      "climbPct": 49,
+      "suspension": "Doppelschwingen-Federdämpfer vorne und hinten",
+      "lights": "Intelligenter LED-Scheinwerfer mit Fern- und Abblendlicht (Reichweite bis 15 m), Rücklicht"
     },
     "variants": [],
     "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
@@ -598,13 +690,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/kukirin-g2-ultra-48v-18ah-akku-2-x-800w-dual-motor",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://kukirin.it.com/en/products/kukirin-g2-ultra-electric-scooter",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/kukirin-g2-ultra-48v-18ah-akku-2-x-800w-dual-motor-1.jpg",
       "produkte/kukirin-g2-ultra-48v-18ah-akku-2-x-800w-dual-motor-2.jpg",
       "produkte/kukirin-g2-ultra-48v-18ah-akku-2-x-800w-dual-motor-3.jpg"
-    ]
+    ],
+    "specsSource": "https://kukirin.it.com/en/products/kukirin-g2-ultra-electric-scooter",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "kukirin-g2-max-48v-20ah-akku-1000w",
@@ -636,15 +735,19 @@ window.NSCOOTS_DATA = {
       "batteryWh": 960,
       "rangeKm": "80",
       "speedKmh": 25,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 31.6,
+      "maxLoadKg": 120,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
-      "ip": null,
-      "foldable": null,
+      "tires": "10\" Luftreifen (mit Schlauch, Offroad-Profil)",
+      "brakes": "Scheibenbremsen vorne und hinten + elektronische Bremse (E-Brake)",
+      "ip": "IP54",
+      "foldable": true,
       "abe": false,
-      "limited": true
+      "limited": true,
+      "chargeHours": "10-11",
+      "climbPct": 40,
+      "suspension": "Federdämpfer vorne und hinten (Hohlbauweise Vorderarm)",
+      "lights": "6-LED-System: Scheinwerfer, Blinker vorne/hinten, Bremslicht"
     },
     "variants": [],
     "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
@@ -654,13 +757,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/kukirin-g2-max-48v-20ah-akku-1000w",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://kukirin.it.com/en/products/kukirin-g2-max-electric-scooter",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/kukirin-g2-max-48v-20ah-akku-1000w-1.jpg",
       "produkte/kukirin-g2-max-48v-20ah-akku-1000w-2.jpg",
       "produkte/kukirin-g2-max-48v-20ah-akku-1000w-3.jpg"
-    ]
+    ],
+    "specsSource": "https://kukirin.it.com/en/products/kukirin-g2-max-electric-scooter",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "kukirin-g2-master",
@@ -692,15 +802,20 @@ window.NSCOOTS_DATA = {
       "batteryWh": 1082,
       "rangeKm": "70",
       "speedKmh": 60,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 33.1,
+      "maxLoadKg": 120,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
-      "ip": null,
-      "foldable": null,
+      "tires": "10\" Luftreifen (Schlauchlos)",
+      "brakes": "Scheibenbremsen vorne und hinten + elektronische Bremse (E-Brake)",
+      "ip": "IP54",
+      "foldable": true,
       "abe": false,
-      "limited": false
+      "limited": false,
+      "chargeHours": "7-8",
+      "climbPct": 53,
+      "suspension": "Hydraulische Stossdämpfer vorne und hinten",
+      "lights": "8-Licht-System: LED-Scheinwerfer, Blinker, Rücklicht, Ambientebeleuchtung",
+      "display": "Grosses LCD-Display"
     },
     "variants": [],
     "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
@@ -710,13 +825,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/kukirin-g2-master",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://kukirin.it.com/en/products/kukirin-g2-master-electric-scooter",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/kukirin-g2-master-1.jpg",
       "produkte/kukirin-g2-master-2.jpg",
       "produkte/kukirin-g2-master-3.jpg"
-    ]
+    ],
+    "specsSource": "https://kukirin.it.com/en/products/kukirin-g2-master-electric-scooter",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "kukirin-g4",
@@ -748,15 +870,20 @@ window.NSCOOTS_DATA = {
       "batteryWh": 1200,
       "rangeKm": "75",
       "speedKmh": 70,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 41.5,
+      "maxLoadKg": 120,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
+      "tires": "11\" Luftreifen (Schlauchlos, 90 mm breit, Offroad-Profil)",
+      "brakes": "Scheibenbremsen vorne und hinten + elektronische Bremse (E-Brake)",
       "ip": null,
-      "foldable": null,
+      "foldable": true,
       "abe": false,
-      "limited": false
+      "limited": false,
+      "chargeHours": "10-11",
+      "climbPct": 58,
+      "suspension": "Vierarm-Federung mit Federdämpfern",
+      "lights": "6-LED-System: Scheinwerfer, 2 Blinker vorne, 2 Blinker hinten, Bremslicht",
+      "display": "Touchscreen-Display"
     },
     "variants": [],
     "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
@@ -766,13 +893,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/kukirin-g4",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://kukirin.it.com/en/products/kukirin-g4-electric-scooter",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/kukirin-g4-1.jpg",
       "produkte/kukirin-g4-2.jpg",
       "produkte/kukirin-g4-3.jpg"
-    ]
+    ],
+    "specsSource": "https://kukirin.it.com/en/products/kukirin-g4-electric-scooter",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike",
@@ -804,15 +938,19 @@ window.NSCOOTS_DATA = {
       "batteryWh": 998,
       "rangeKm": "40",
       "speedKmh": 50,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 52,
+      "maxLoadKg": 120,
       "ekfv": false,
-      "tires": "14'' vorne & 12'' hinten Geländereifen",
-      "brakes": "Hydraulische Bremsen vorne & hinten ",
+      "tires": "14\" vorne / 12\" hinten Offroad-Luftreifen",
+      "brakes": "Hydraulische Bremsen vorne und hinten + elektronische Bremse",
       "ip": "IP65",
-      "foldable": null,
+      "foldable": false,
       "abe": false,
-      "limited": false
+      "limited": false,
+      "chargeHours": "8-9",
+      "suspension": "Hydraulische Stossdämpfer vorne und hinten",
+      "lights": "LED-Scheinwerfer",
+      "display": "Display"
     },
     "variants": [],
     "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
@@ -822,13 +960,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://kukirin.it.com/en/products/kukirin-x1-electric-bike",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike-1.jpg",
       "produkte/kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike-2.jpg",
       "produkte/kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike-3.jpg"
-    ]
+    ],
+    "specsSource": "https://kukirin.it.com/en/products/kukirin-x1-electric-bike",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "joyor-s5-abe-48v-500w",
@@ -860,15 +1005,19 @@ window.NSCOOTS_DATA = {
       "batteryWh": 624,
       "rangeKm": "≤45",
       "speedKmh": 20,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 22.7,
+      "maxLoadKg": 120,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
+      "tires": "10\" Luftreifen",
+      "brakes": "Scheibenbremsen vorne und hinten",
       "ip": null,
-      "foldable": null,
+      "foldable": true,
       "abe": true,
-      "limited": true
+      "limited": true,
+      "chargeHours": "5-7",
+      "suspension": "Vorne und hinten gefedert, Schwingarm-Federung (Rocker-Arm)",
+      "lights": "LED-Frontlicht, Bremslicht hinten, Reflektoren",
+      "display": "HD-Farbdisplay"
     },
     "variants": [
       {
@@ -889,13 +1038,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/joyor-s5-abe-48v-500w",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://joyorprime.com/products/joyor-s5-abe",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/joyor-s5-abe-48v-500w-1.jpg",
       "produkte/joyor-s5-abe-48v-500w-2.jpg",
       "produkte/joyor-s5-abe-48v-500w-3.jpg"
-    ]
+    ],
+    "specsSource": "https://joyorprime.com/products/joyor-s5-abe",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "joyor-s5z-48v-13ah-600w",
@@ -927,15 +1083,20 @@ window.NSCOOTS_DATA = {
       "batteryWh": 624,
       "rangeKm": "55",
       "speedKmh": 25,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 22.5,
+      "maxLoadKg": 120,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
-      "ip": null,
-      "foldable": null,
+      "tires": "10\" Luftreifen",
+      "brakes": "Scheibenbremsen vorne und hinten",
+      "ip": "IP45",
+      "foldable": true,
       "abe": false,
-      "limited": true
+      "limited": true,
+      "chargeHours": "5-7",
+      "climbPct": 47,
+      "suspension": "Vorne und hinten gefedert, Schwingarm-Federung (Rocker-Arm)",
+      "lights": "Front- und Rücklicht, Blinker vorne und hinten, seitliche Reflektoren",
+      "display": "HD-Farbdisplay (Multifunktions-LCD)"
     },
     "variants": [],
     "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
@@ -945,13 +1106,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/joyor-s5z-48v-13ah-600w",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://joyorprime.com/products/joyor-s5-z-electric-scooter",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/joyor-s5z-48v-13ah-600w-1.jpg",
       "produkte/joyor-s5z-48v-13ah-600w-2.jpg",
       "produkte/joyor-s5z-48v-13ah-600w-3.jpg"
-    ]
+    ],
+    "specsSource": "https://joyorprime.com/products/joyor-s5-z-electric-scooter",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "joyor-t6-48v-18ah-600w",
@@ -983,15 +1151,20 @@ window.NSCOOTS_DATA = {
       "batteryWh": 864,
       "rangeKm": "≤70",
       "speedKmh": 25,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 25.6,
+      "maxLoadKg": 120,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
+      "tires": "10\" Luftreifen (Offroad)",
+      "brakes": "Mechanische Scheibenbremsen vorne und hinten",
       "ip": null,
-      "foldable": null,
+      "foldable": true,
       "abe": false,
-      "limited": true
+      "limited": true,
+      "chargeHours": 10,
+      "climbPct": 47,
+      "suspension": "Vorne und hinten hydraulische Federbein-Dämpfer",
+      "lights": "Frontscheinwerfer, Bremslicht, Blinker, Seitenlichter",
+      "display": "Integriertes Bedienpanel mit Fahrdaten-Anzeige"
     },
     "variants": [],
     "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
@@ -1001,13 +1174,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/joyor-t6-48v-18ah-600w",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://joyorprime.com/products/joyor-t6",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/joyor-t6-48v-18ah-600w-1.jpg",
       "produkte/joyor-t6-48v-18ah-600w-2.jpg",
       "produkte/joyor-t6-48v-18ah-600w-3.jpg"
-    ]
+    ],
+    "specsSource": "https://joyorprime.com/products/joyor-t6",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "joyor-s8-48v-26ah-600w",
@@ -1039,15 +1219,20 @@ window.NSCOOTS_DATA = {
       "batteryWh": 1248,
       "rangeKm": "90",
       "speedKmh": 25,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 25.8,
+      "maxLoadKg": 120,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
+      "tires": "10\" Luftreifen (Offroad)",
+      "brakes": "Mechanische Scheibenbremsen vorne und hinten",
       "ip": null,
-      "foldable": null,
+      "foldable": true,
       "abe": false,
-      "limited": true
+      "limited": true,
+      "chargeHours": "12-14",
+      "climbPct": 47,
+      "suspension": "Vorne und hinten gefedert, hochelastische Schwingarm-Federung",
+      "lights": "4-Licht-System: Frontlicht, Rücklicht, Seitenbeleuchtung, Warnlicht; Blinker vorne und hinten",
+      "display": "HD-Farbdisplay"
     },
     "variants": [],
     "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
@@ -1057,13 +1242,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/joyor-s8-48v-26ah-600w",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://joyorprime.com/products/joyor-s8-z-electric-scooter",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/joyor-s8-48v-26ah-600w-1.jpg",
       "produkte/joyor-s8-48v-26ah-600w-2.jpg",
       "produkte/joyor-s8-48v-26ah-600w-3.jpg"
-    ]
+    ],
+    "specsSource": "https://joyorprime.com/products/joyor-s8-z-electric-scooter",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "joyor-t6e-48v-500w-abe",
@@ -1088,22 +1280,27 @@ window.NSCOOTS_DATA = {
     },
     "specs": {
       "motorW": 500,
-      "peakW": null,
+      "peakW": 1600,
       "motors": 1,
       "batteryV": 48,
       "batteryAh": 18,
       "batteryWh": 864,
       "rangeKm": "≤70",
       "speedKmh": 20,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 25.6,
+      "maxLoadKg": 148,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
+      "tires": "10\" Luftreifen (Offroad)",
+      "brakes": "Mechanische Scheibenbremsen vorne und hinten",
       "ip": null,
-      "foldable": null,
+      "foldable": true,
       "abe": true,
-      "limited": true
+      "limited": true,
+      "chargeHours": 10,
+      "climbPct": 47,
+      "suspension": "Vorne und hinten hydraulische Federbein-Dämpfer (Herstellertext; Spezifikationstabelle nennt hinten 'No')",
+      "lights": "Frontscheinwerfer, Rücklicht, Blinker am Lenker",
+      "display": "HD-Display mit Lenker-Bedienelementen"
     },
     "variants": [
       {
@@ -1124,13 +1321,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/joyor-t6e-48v-500w-abe",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://joyorprime.com/products/joyor-t6e",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/joyor-t6e-48v-500w-abe-1.jpg",
       "produkte/joyor-t6e-48v-500w-abe-2.jpg",
       "produkte/joyor-t6e-48v-500w-abe-3.jpg"
-    ]
+    ],
+    "specsSource": "https://joyorprime.com/products/joyor-t6e",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "joyor-s10sz-60v-18ah-2x1000w",
@@ -1162,15 +1366,20 @@ window.NSCOOTS_DATA = {
       "batteryWh": 1080,
       "rangeKm": "≤75",
       "speedKmh": 25,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 29.8,
+      "maxLoadKg": 120,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
+      "tires": "10\" Luftreifen (Offroad)",
+      "brakes": "Hydraulische Scheibenbremsen vorne und hinten (120 mm Scheiben)",
       "ip": null,
-      "foldable": null,
+      "foldable": true,
       "abe": false,
-      "limited": true
+      "limited": true,
+      "chargeHours": 10,
+      "climbPct": 70,
+      "suspension": "Vorne und hinten Elastomer-Federung (Schwingarm)",
+      "lights": "LED-Frontlicht, Bremslicht hinten, Blinker",
+      "display": "HD-Farbdisplay"
     },
     "variants": [],
     "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
@@ -1180,13 +1389,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/joyor-s10sz-60v-18ah-2x1000w",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://joyorprime.com/products/joyor-s10s-z",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/joyor-s10sz-60v-18ah-2x1000w-1.jpg",
       "produkte/joyor-s10sz-60v-18ah-2x1000w-2.jpg",
       "produkte/joyor-s10sz-60v-18ah-2x1000w-3.jpg"
-    ]
+    ],
+    "specsSource": "https://joyorprime.com/products/joyor-s10s-z",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "joyor-t10-60v-18ah-2x1000w",
@@ -1218,15 +1434,20 @@ window.NSCOOTS_DATA = {
       "batteryWh": 1080,
       "rangeKm": "≤75",
       "speedKmh": 25,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 29.6,
+      "maxLoadKg": 120,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
+      "tires": "10\" Luftreifen (All-Terrain/Offroad)",
+      "brakes": "Hydraulische Scheibenbremsen vorne und hinten",
       "ip": null,
-      "foldable": null,
+      "foldable": true,
       "abe": false,
-      "limited": true
+      "limited": true,
+      "chargeHours": 10,
+      "climbPct": 70,
+      "suspension": "Vorne und hinten hydraulische Federbein-Dämpfer",
+      "lights": "Frontscheinwerfer, Bremslicht, Blinker",
+      "display": "LCD-Display mit Bedienpanel"
     },
     "variants": [],
     "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
@@ -1236,13 +1457,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/joyor-t10-60v-18ah-2x1000w",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://joyorprime.com/products/joyor-t10-1000w-dual-motors-75km-endurance",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/joyor-t10-60v-18ah-2x1000w-1.jpg",
       "produkte/joyor-t10-60v-18ah-2x1000w-2.jpg",
       "produkte/joyor-t10-60v-18ah-2x1000w-3.jpg"
-    ]
+    ],
+    "specsSource": "https://joyorprime.com/products/joyor-t10-1000w-dual-motors-75km-endurance",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "teverun-blade-mini-pro-ch-edition",
@@ -1277,12 +1505,15 @@ window.NSCOOTS_DATA = {
       "weightKg": 31.2,
       "maxLoadKg": 150,
       "ekfv": true,
-      "tires": null,
-      "brakes": null,
+      "tires": "10\" Luftreifen (Schlauchlos, 10x3.00-6)",
+      "brakes": "Mechanische Scheibenbremsen vorne und hinten, E-Brake-Taste",
       "ip": null,
       "foldable": null,
       "abe": false,
-      "limited": true
+      "limited": true,
+      "suspension": "Gekapselte Stahlfederung",
+      "lights": "Komplette Beleuchtungsanlage nach eKFV, Blinker im Lenker integriert",
+      "display": "Integriertes LCD-Display"
     },
     "variants": [
       {
@@ -1296,20 +1527,27 @@ window.NSCOOTS_DATA = {
         "note": "Referenzpreis 939 CHF"
       }
     ],
-    "chLegal": "Strassenzugelassen Schweiz (Händlerangabe, 20 km/h-Version)",
+    "chLegal": "Strassenzugelassen Schweiz (Herstellerangabe, 20 km/h-Version)",
     "streetLegalCH": true,
     "sources": [
       {
         "url": "https://swiss-scoots.ch/products/teverun-blade-mini-pro-ch-edition",
         "checked": "2026-10-30",
         "note": "Händlerseite swiss-scoots.ch (Preis, Akku, Motor, Reichweite, Lieferstatus, Zulassungsangabe)"
+      },
+      {
+        "url": "https://teverun-europe.com/product/blade-mini-pro-ekfv-black/",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/teverun-blade-mini-pro-ch-edition-1.jpg",
       "produkte/teverun-blade-mini-pro-ch-edition-2.jpg",
       "produkte/teverun-blade-mini-pro-ch-edition-3.jpg"
-    ]
+    ],
+    "specsSource": "https://teverun-europe.com/product/blade-mini-pro-ekfv-black/",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb",
@@ -1341,15 +1579,18 @@ window.NSCOOTS_DATA = {
       "batteryWh": 1620,
       "rangeKm": "80",
       "speedKmh": 25,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 29,
+      "maxLoadKg": 120,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
+      "tires": "10\" Luftreifen (mit Schlauch, 10x3.00-6)",
+      "brakes": "Hydraulische Scheibenbremsen",
       "ip": null,
-      "foldable": null,
+      "foldable": true,
       "abe": false,
-      "limited": true
+      "limited": true,
+      "climbPct": 58,
+      "suspension": "Stahlfederung",
+      "display": "Integriertes LCD-Display mit NFC-Leser"
     },
     "variants": [
       {
@@ -1370,13 +1611,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://teverun-europe.com/product/blade-mini-ultra-yellow/",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb-1.jpg",
       "produkte/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb-2.jpg",
       "produkte/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb-3.jpg"
-    ]
+    ],
+    "specsSource": "https://teverun-europe.com/product/blade-mini-ultra-yellow/",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "teverun-blade-mini-ultra-60v-27ah-akku-1000w-2",
@@ -1408,15 +1656,18 @@ window.NSCOOTS_DATA = {
       "batteryWh": 1620,
       "rangeKm": "80",
       "speedKmh": 25,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 30,
+      "maxLoadKg": 120,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
+      "tires": "10\" Luftreifen (mit Schlauch, 10x3.00-6)",
+      "brakes": "Hydraulische Scheibenbremsen",
       "ip": null,
-      "foldable": null,
+      "foldable": true,
       "abe": false,
-      "limited": true
+      "limited": true,
+      "climbPct": 58,
+      "suspension": "Stahlfederung",
+      "display": "Integriertes LCD-Display mit NFC-Leser"
     },
     "variants": [
       {
@@ -1437,13 +1688,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://teverun-europe.com/product/blade-mini-ultra-black/",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-1.jpg",
       "produkte/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-2.jpg",
       "produkte/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-3.jpg"
-    ]
+    ],
+    "specsSource": "https://teverun-europe.com/product/blade-mini-ultra-black/",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "teverun-blade-mini-ultra-ch-edition",
@@ -1475,15 +1733,18 @@ window.NSCOOTS_DATA = {
       "batteryWh": 1560,
       "rangeKm": "90",
       "speedKmh": 20,
-      "weightKg": null,
+      "weightKg": 32.8,
       "maxLoadKg": 150,
       "ekfv": true,
-      "tires": null,
-      "brakes": "hydraulische Bremsen und das stärkere 6A Ladegerät. Dadurch ist er die bessere Wahl, wenn Reichweite, Komfort und Bremsleistung besonders wichtig sind. ",
+      "tires": "10\" Luftreifen (Schlauchlos, 10x3.00-6)",
+      "brakes": "Hydraulische Scheibenbremsen",
       "ip": null,
       "foldable": null,
       "abe": false,
-      "limited": true
+      "limited": true,
+      "chargeHours": "4-6",
+      "suspension": "Stahlfederung, mit Lenkungsdämpfer",
+      "display": "Integriertes LCD-Display"
     },
     "variants": [
       {
@@ -1497,20 +1758,27 @@ window.NSCOOTS_DATA = {
         "note": "Referenzpreis 1300 CHF"
       }
     ],
-    "chLegal": "Strassenzugelassen Schweiz (Händlerangabe, 20 km/h-Version)",
+    "chLegal": "Strassenzugelassen Schweiz (Herstellerangabe, 20 km/h-Version)",
     "streetLegalCH": true,
     "sources": [
       {
         "url": "https://swiss-scoots.ch/products/teverun-blade-mini-ultra-ch-edition",
         "checked": "2026-10-30",
         "note": "Händlerseite swiss-scoots.ch (Preis, Akku, Motor, Reichweite, Lieferstatus, Zulassungsangabe)"
+      },
+      {
+        "url": "https://teverun-europe.com/product/blade-mini-ultra-ekfv-yellow/",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/teverun-blade-mini-ultra-ch-edition-1.jpg",
       "produkte/teverun-blade-mini-ultra-ch-edition-2.jpg",
       "produkte/teverun-blade-mini-ultra-ch-edition-3.jpg"
-    ]
+    ],
+    "specsSource": "https://teverun-europe.com/product/blade-mini-ultra-ekfv-yellow/",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "teverun-blade-gt-ii",
@@ -1542,15 +1810,17 @@ window.NSCOOTS_DATA = {
       "batteryWh": 1560,
       "rangeKm": "80",
       "speedKmh": 80,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 42,
+      "maxLoadKg": 120,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
-      "ip": null,
-      "foldable": null,
+      "tires": "11\" Luftreifen (Schlauchlos, pannensicher mit Gel-Schicht, 90/65-6.5)",
+      "brakes": "Hydraulische Scheibenbremsen",
+      "ip": "IP67",
+      "foldable": true,
       "abe": false,
-      "limited": false
+      "limited": false,
+      "suspension": "Stahlfederung, mit Lenkungsdämpfer",
+      "display": "Integriertes LCD-Display im Lenker"
     },
     "variants": [],
     "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
@@ -1560,13 +1830,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/teverun-blade-gt-ii",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/teverun-blade-gt-ii-1.jpg",
       "produkte/teverun-blade-gt-ii-2.jpg",
       "produkte/teverun-blade-gt-ii-3.jpg"
-    ]
+    ],
+    "specsSource": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "teverun-fighter-mini-pro",
@@ -1598,15 +1875,17 @@ window.NSCOOTS_DATA = {
       "batteryWh": 1908,
       "rangeKm": "100",
       "speedKmh": 65,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 36,
+      "maxLoadKg": 120,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
+      "tires": "10\" Luftreifen (Schlauchlos, pannensicher mit Gel-Schicht, 10x3.00-6)",
+      "brakes": "Hydraulische Scheibenbremsen",
       "ip": null,
-      "foldable": null,
+      "foldable": true,
       "abe": false,
-      "limited": false
+      "limited": false,
+      "suspension": "KKE Hydraulikfederung, zweifach einstellbar",
+      "display": "Farb-TFT-Display"
     },
     "variants": [],
     "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
@@ -1616,13 +1895,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/teverun-fighter-mini-pro",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://teverun-europe.com/product/fighter-mini-pro-2/",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/teverun-fighter-mini-pro-1.jpg",
       "produkte/teverun-fighter-mini-pro-2.jpg",
       "produkte/teverun-fighter-mini-pro-3.jpg"
-    ]
+    ],
+    "specsSource": "https://teverun-europe.com/product/fighter-mini-pro-2/",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "teverun-blade-gt-ii-plus",
@@ -1654,15 +1940,17 @@ window.NSCOOTS_DATA = {
       "batteryWh": 2226,
       "rangeKm": "120",
       "speedKmh": 85,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 44,
+      "maxLoadKg": 120,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
-      "ip": null,
-      "foldable": null,
+      "tires": "11\" Luftreifen (Schlauchlos, pannensicher mit Gel-Schicht, 90/65-6.5)",
+      "brakes": "Hydraulische Scheibenbremsen",
+      "ip": "IP67",
+      "foldable": true,
       "abe": false,
-      "limited": false
+      "limited": false,
+      "suspension": "KKE Hydraulikfederung, zweifach einstellbar, mit Lenkungsdämpfer",
+      "display": "Integriertes LCD-Display"
     },
     "variants": [],
     "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
@@ -1672,13 +1960,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/teverun-blade-gt-ii-plus",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://teverun-europe.com/product/blade-gt-ii/",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/teverun-blade-gt-ii-plus-1.jpg",
       "produkte/teverun-blade-gt-ii-plus-2.jpg",
       "produkte/teverun-blade-gt-ii-plus-3.jpg"
-    ]
+    ],
+    "specsSource": "https://teverun-europe.com/product/blade-gt-ii/",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "teverun-fighter-mini-pro-ekfv",
@@ -1703,38 +1998,47 @@ window.NSCOOTS_DATA = {
     },
     "specs": {
       "motorW": 500,
-      "peakW": null,
+      "peakW": 2600,
       "motors": 2,
       "batteryV": 52,
       "batteryAh": 30.8,
       "batteryWh": 1602,
       "rangeKm": "100",
       "speedKmh": 20,
-      "weightKg": null,
+      "weightKg": 35.6,
       "maxLoadKg": 150,
       "ekfv": true,
-      "tires": null,
-      "brakes": null,
+      "tires": "10\" Luftreifen (Schlauchlos, pannensicher, 10x3.00-6)",
+      "brakes": "Hydraulische Scheibenbremsen mit elektronischem Bremsmanagement",
       "ip": null,
       "foldable": null,
       "abe": false,
-      "limited": true
+      "limited": true,
+      "suspension": "KKE Hydraulikfederung, zweifach einstellbar",
+      "display": "Integriertes TFT-Display"
     },
     "variants": [],
-    "chLegal": "Strassenzugelassen Schweiz (Händlerangabe, 20 km/h-Version)",
+    "chLegal": "Strassenzugelassen Schweiz (Herstellerangabe, 20 km/h-Version)",
     "streetLegalCH": true,
     "sources": [
       {
         "url": "https://swiss-scoots.ch/products/teverun-fighter-mini-pro-ekfv",
         "checked": "2026-10-30",
         "note": "Händlerseite swiss-scoots.ch (Preis, Akku, Motor, Reichweite, Lieferstatus, Zulassungsangabe)"
+      },
+      {
+        "url": "https://teverun-europe.com/product/fighter-mini-pro-ekfv-2/",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/teverun-fighter-mini-pro-ekfv-1.jpg",
       "produkte/teverun-fighter-mini-pro-ekfv-2.jpg",
       "produkte/teverun-fighter-mini-pro-ekfv-3.jpg"
-    ]
+    ],
+    "specsSource": "https://teverun-europe.com/product/fighter-mini-pro-ekfv-2/",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "teverun-fighter-supreme-7260r",
@@ -1766,15 +2070,19 @@ window.NSCOOTS_DATA = {
       "batteryWh": 4320,
       "rangeKm": "200",
       "speedKmh": 120,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 68,
+      "maxLoadKg": 150,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
+      "tires": "13\" Luftreifen (Schlauchlos, 120/60-7)",
+      "brakes": "Hydraulische 4-Kolben-Scheibenbremsen vorne und hinten",
       "ip": null,
-      "foldable": null,
+      "foldable": true,
       "abe": false,
-      "limited": true
+      "limited": true,
+      "climbPct": 84,
+      "suspension": "KKE Hydraulikfederung, zweifach einstellbar, mit einstellbarem Lenkungsdämpfer",
+      "lights": "Helles, verstellbares Frontlicht; Beleuchtung per App einstellbar",
+      "display": "4\" TFT-Display mit NFC-Leser"
     },
     "variants": [],
     "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
@@ -1784,13 +2092,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/teverun-fighter-supreme-7260r",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://teverun-europe.com/product/supreme-7260r/",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/teverun-fighter-supreme-7260r-1.jpg",
       "produkte/teverun-fighter-supreme-7260r-2.jpg",
       "produkte/teverun-fighter-supreme-7260r-3.jpg"
-    ]
+    ],
+    "specsSource": "https://teverun-europe.com/product/supreme-7260r/",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "dualtron-victor-ltd-dgt-60v-37-1ah-samsung",
@@ -1825,12 +2140,15 @@ window.NSCOOTS_DATA = {
       "weightKg": 39.1,
       "maxLoadKg": 120,
       "ekfv": false,
-      "tires": "10 Zoll Tubeless",
-      "brakes": "hydraulische NUTT-Scheibenbremsen",
+      "tires": "10\" Luftreifen 10x3.0-6.5 (Schlauchlos)",
+      "brakes": "Hydraulische NUTT-Scheibenbremsen vorne und hinten, ABS & EBS (elektronisch)",
       "ip": null,
-      "foldable": null,
+      "foldable": true,
       "abe": false,
-      "limited": false
+      "limited": false,
+      "climbPct": 70,
+      "suspension": "Federung vorne und hinten mit austauschbaren Federpatronen (Cartridge)",
+      "display": "EY4 LCD-Display mit Bluetooth (Verbindung zur Dualtron-App)"
     },
     "variants": [],
     "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
@@ -1840,13 +2158,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/dualtron-victor-ltd-dgt-60v-37-1ah-samsung",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://www.minimotors.com/product_detail.html?code=1844651270416556034",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/dualtron-victor-ltd-dgt-60v-37-1ah-samsung-1.jpg",
       "produkte/dualtron-victor-ltd-dgt-60v-37-1ah-samsung-2.jpg",
       "produkte/dualtron-victor-ltd-dgt-60v-37-1ah-samsung-3.jpg"
-    ]
+    ],
+    "specsSource": "https://www.minimotors.com/product_detail.html?code=1844651270416556034",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "rovoron-r7",
@@ -1878,15 +2203,19 @@ window.NSCOOTS_DATA = {
       "batteryWh": 1716,
       "rangeKm": "90",
       "speedKmh": 65,
-      "weightKg": null,
+      "weightKg": 48.7,
       "maxLoadKg": null,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
-      "ip": null,
-      "foldable": null,
+      "tires": "11\" Luftreifen (Schlauchlos), vorne und hinten",
+      "brakes": "Scheibenbremsen vorne und hinten (R7 Pro: hydraulische NUTT-Scheibenbremsen)",
+      "ip": "IPX6",
+      "foldable": true,
       "abe": false,
-      "limited": false
+      "limited": false,
+      "climbPct": 36,
+      "suspension": "Einstellbare Federung mit Stahlfedern vorne und hinten",
+      "lights": "Beleuchtung und Blinker",
+      "display": "NEW EY3 Display"
     },
     "variants": [
       {
@@ -1927,13 +2256,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/rovoron-r7",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://www.rovoron.com/shop/rovoronr760v-trottinette-electrique-rovoron-r7-v2-60v-28ah-13053",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/rovoron-r7-1.jpg",
       "produkte/rovoron-r7-2.jpg",
       "produkte/rovoron-r7-3.jpg"
-    ]
+    ],
+    "specsSource": "https://www.rovoron.com/shop/rovoronr760v-trottinette-electrique-rovoron-r7-v2-60v-28ah-13053",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "rovoron-s7",
@@ -1965,15 +2301,19 @@ window.NSCOOTS_DATA = {
       "batteryWh": 3116,
       "rangeKm": "140",
       "speedKmh": 100,
-      "weightKg": null,
+      "weightKg": 49.5,
       "maxLoadKg": null,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
-      "ip": null,
-      "foldable": null,
+      "tires": "11\" Luftreifen (Schlauchlos), vorne und hinten",
+      "brakes": "Hydraulische Scheibenbremsen vorne und hinten (4-Kolben)",
+      "ip": "IPX5",
+      "foldable": true,
       "abe": false,
-      "limited": false
+      "limited": false,
+      "climbPct": 76,
+      "suspension": "Federung mit austauschbaren Kartuschen vorne und hinten",
+      "lights": "Blinker (Beleuchtung nicht näher spezifiziert)",
+      "display": "EY4 LCD Display mit Bluetooth"
     },
     "variants": [],
     "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
@@ -1983,13 +2323,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/rovoron-s7",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://www.rovoron.com/shop/rovorons784v37a-trottinette-electrique-rovoron-s7-84v-37ah-15665",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/rovoron-s7-1.jpg",
       "produkte/rovoron-s7-2.jpg",
       "produkte/rovoron-s7-3.jpg"
-    ]
+    ],
+    "specsSource": "https://www.rovoron.com/shop/rovorons784v37a-trottinette-electrique-rovoron-s7-84v-37ah-15665",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "ausom-l1-max",
@@ -2045,7 +2392,8 @@ window.NSCOOTS_DATA = {
       "produkte/ausom-l1-max-1.jpg",
       "produkte/ausom-l1-max-2.jpg",
       "produkte/ausom-l1-max-3.jpg"
-    ]
+    ],
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "ausom-l2-max-dual-motor",
@@ -2077,15 +2425,20 @@ window.NSCOOTS_DATA = {
       "batteryWh": 998.4,
       "rangeKm": "90",
       "speedKmh": 61,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 33.3,
+      "maxLoadKg": 130,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
-      "ip": null,
-      "foldable": null,
+      "tires": "10\" x 3\" Luftreifen (Schlauchlos)",
+      "brakes": "E-ABS + Scheibenbremsen vorne und hinten",
+      "ip": "IP54",
+      "foldable": true,
       "abe": false,
-      "limited": false
+      "limited": false,
+      "chargeHours": "5.5-12",
+      "climbPct": 34,
+      "suspension": "ShocFree Doppel-Schwingarm-Federung, einstellbar",
+      "lights": "LED-Scheinwerfer, Rück-/Bremslicht, Ambientebeleuchtung, Blinker",
+      "display": "LCD-Display 4.5\""
     },
     "variants": [],
     "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
@@ -2095,13 +2448,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/ausom-l2-max-dual-motor",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/ausom-l2-max-dual-motor-1.jpg",
       "produkte/ausom-l2-max-dual-motor-2.jpg",
       "produkte/ausom-l2-max-dual-motor-3.jpg"
-    ]
+    ],
+    "specsSource": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "ausom-dt2-pro",
@@ -2133,15 +2493,20 @@ window.NSCOOTS_DATA = {
       "batteryWh": 1216.8,
       "rangeKm": "114",
       "speedKmh": 64,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 33.5,
+      "maxLoadKg": 135,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
-      "ip": null,
-      "foldable": null,
+      "tires": "10\" x 3\" Luftreifen (Schlauchlos)",
+      "brakes": "E-ABS + hydraulische Scheibenbremsen vorne und hinten",
+      "ip": "IP54",
+      "foldable": true,
       "abe": false,
-      "limited": false
+      "limited": false,
+      "chargeHours": "6-12.5",
+      "climbPct": 36,
+      "suspension": "Doppel-Schwingarm-Federung vorne und hinten",
+      "lights": "LED-Scheinwerfer, Rücklicht und seitliche Blinker",
+      "display": "LCD-Display 4.5\""
     },
     "variants": [],
     "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
@@ -2151,13 +2516,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/ausom-dt2-pro",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://www.ausom.com/products/ausom-dt2-pro-e-scooter",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/ausom-dt2-pro-1.jpg",
       "produkte/ausom-dt2-pro-2.jpg",
       "produkte/ausom-dt2-pro-3.jpg"
-    ]
+    ],
+    "specsSource": "https://www.ausom.com/products/ausom-dt2-pro-e-scooter",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "ausom-f1-max",
@@ -2182,22 +2554,27 @@ window.NSCOOTS_DATA = {
     },
     "specs": {
       "motorW": 2800,
-      "peakW": null,
+      "peakW": 3840,
       "motors": 2,
       "batteryV": 60,
       "batteryAh": 20.8,
       "batteryWh": 1248,
       "rangeKm": "90-100",
       "speedKmh": 72,
-      "weightKg": null,
-      "maxLoadKg": null,
+      "weightKg": 36,
+      "maxLoadKg": 150,
       "ekfv": false,
-      "tires": null,
-      "brakes": null,
-      "ip": null,
-      "foldable": null,
+      "tires": "10\" x 3\" Luftreifen (All-Terrain)",
+      "brakes": "E-ABS + hydraulische Scheibenbremsen vorne und hinten",
+      "ip": "IP54",
+      "foldable": true,
       "abe": false,
-      "limited": false
+      "limited": false,
+      "chargeHours": "6-12",
+      "climbPct": 38,
+      "suspension": "Schwingarm-Federung mit vier unabhängigen Federn",
+      "lights": "LED-Scheinwerfer, Rücklicht und seitliche Blinker",
+      "display": "LCD-Display 4.5\""
     },
     "variants": [],
     "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",
@@ -2207,13 +2584,20 @@ window.NSCOOTS_DATA = {
         "url": "https://e-rydez.ch/products/ausom-f1-max",
         "checked": "2026-10-30",
         "note": "Händlerseite e-rydez.ch (Preis, Akku, Motor, Reichweite, Lieferstatus)"
+      },
+      {
+        "url": "https://www.ausom.com/products/ausom-f1-max-electric-scooter",
+        "checked": "2026-10-30",
+        "note": "Herstellerseite (technische Daten)"
       }
     ],
     "images": [
       "produkte/ausom-f1-max-1.jpg",
       "produkte/ausom-f1-max-2.jpg",
       "produkte/ausom-f1-max-3.jpg"
-    ]
+    ],
+    "specsSource": "https://www.ausom.com/products/ausom-f1-max-electric-scooter",
+    "specsChecked": "2026-10-30"
   },
   {
     "id": "kukirin-g2-pro-ersatzteile",
