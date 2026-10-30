@@ -339,16 +339,7 @@
    }
   ]
  },
- "logos": {
-  "joyor": {
-   "src": "assets/brand/logos/joyor.png",
-   "alt": "joyor Logo",
-   "status": "hersteller",
-   "kind": "logo",
-   "credit": "Hersteller",
-   "license": "Herstellerlogo, https://joyorprime.com/cdn/shop/files/logo_png.png?v=1733666033"
-  }
- }
+ "logos": {}
 };
   window.__HERSTELLER = Object.assign({ quellen: {
  "joyor-s5-abe-48v-500w": {
@@ -388,6 +379,6 @@
  }
 } }, H);
   const M = window.NSCOOTS_MEDIA; if (!M) return;
-  M.logos = Object.assign({}, M.logos || {}, H.logos);
+  M.logos = Object.assign({}, H.logos, M.logos || {}); // manuell gepflegte Logos in data/media.js haben Vorrang
   M.products = Object.assign({}, H.products, M.products || {});
 })();

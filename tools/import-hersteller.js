@@ -12,12 +12,7 @@ const sizeOf = (f) => { try { const o = execFileSync("ffprobe", ["-v", "error", 
 for (const brand of fs.readdirSync(src)) {
   const mf = path.join(src, brand, "manifest.json"); if (!fs.existsSync(mf)) continue;
   const m = JSON.parse(fs.readFileSync(mf, "utf8"));
-  if (m.logo && m.logo.file && fs.existsSync(m.logo.file)) {
-    const ext = m.logo.file.toLowerCase().endsWith(".svg") ? "svg" : "png";
-    const dst = path.join(root, "assets", "brand", "logos", `${brand}.${ext}`);
-    if (ext === "svg") fs.copyFileSync(m.logo.file, dst); else execFileSync("ffmpeg", ["-loglevel", "error", "-y", "-i", m.logo.file, "-vf", "format=rgba,scale='min(600,iw)':-2", dst]);
-    existing.logos[brand] = { src: `assets/brand/logos/${brand}.${ext}`, alt: `${brand} Logo`, status: "hersteller", kind: "logo", credit: "Hersteller", license: `Herstellerlogo, ${m.logo.sourceUrl}` };
-  }
+  // Logos werden manuell in data/media.js gepflegt (1:1 von den Herstellerseiten); Agenten-Logos werden ignoriert.
   for (const p of m.products || []) {
     if (!p.images || !p.images.length || p.matchQuality === "none") continue;
     const prod = p.images.filter((i) => i.kind === "product" && fs.existsSync(i.file)).slice(0, 3);
@@ -39,10 +34,10 @@ const out = `/* Automatisch erzeugt: node tools/import-hersteller.js – offizie
  * status "hersteller": Bilder von den offiziellen Herstellerseiten (Quelle je Bild in "license").
  * Nutzung als Händler üblich, schriftliche Freigabe vor Verkaufsstart einholen (siehe ASSETS.md). */
 (function () {
-  const H = ${JSON.stringify({ products: existing.products, logos: existing.logos }, null, 1)};
+  const H = ${JSON.stringify({ products: existing.products, logos: {} }, null, 1)};
   window.__HERSTELLER = Object.assign({ quellen: ${JSON.stringify(existing.quellen, null, 1)} }, H);
   const M = window.NSCOOTS_MEDIA; if (!M) return;
-  M.logos = Object.assign({}, M.logos || {}, H.logos);
+  M.logos = Object.assign({}, H.logos, M.logos || {}); // manuell gepflegte Logos in data/media.js haben Vorrang
   M.products = Object.assign({}, H.products, M.products || {});
 })();
 `;

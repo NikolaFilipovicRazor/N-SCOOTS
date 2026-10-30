@@ -82,6 +82,10 @@ p { margin: 0 0 1em; max-width: 68ch; }
 .site-header .wrap { display: flex; align-items: center; gap: 12px; min-height: var(--header-h); }
 .wordmark { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
 .wordmark svg { height: 30px; width: auto; }
+.wm { display: inline-flex; align-items: baseline; font-family: "Exo 2", "Barlow Condensed", "Arial Black", Arial, sans-serif; font-weight: 900; font-style: italic; font-size: 1.9rem; line-height: 1; letter-spacing: -0.02em; text-transform: uppercase; white-space: nowrap; }
+.wm-n { color: var(--red); font-size: 1.22em; margin-right: -0.04em; position: relative; top: .02em; }
+.wm-s { color: #fff; }
+@media (min-width: 720px) { .wm { font-size: 2.1rem; } }
 .wordmark-sub { font-size: .72rem; color: var(--ink-3); display: none; }
 @media (min-width: 720px) { .wordmark-sub { display: block; } }
 .main-nav { display: none; gap: 4px; }
@@ -609,7 +613,8 @@ button.gallery-main .media-badge { pointer-events: none; }
 /* Marken-Tabs */
 .brand-tabs { display: flex; gap: 6px; overflow-x: auto; border-bottom: 1px solid var(--line); margin-bottom: 18px; scrollbar-width: thin; }
 .brand-tab { display: inline-flex; align-items: center; gap: 10px; flex: none; padding: 10px 16px 12px; border: 0; border-bottom: 3px solid transparent; background: transparent; cursor: pointer; font-weight: 600; color: var(--ink-2); margin-bottom: -1px; }
-.brand-tab img { width: auto; max-width: 96px; height: 32px; object-fit: contain; border-radius: 6px; background: #fff; border: 1px solid var(--line); padding: 4px 8px; }
+.brand-tab img { width: auto; max-width: 110px; height: 36px; object-fit: contain; border-radius: 6px; background: #fff; border: 1px solid var(--line); padding: 4px 8px; }
+.brand-tab img[src*="kukirin"], .brand-tab img[src*="teverun"], .brand-tab img[src*="ausom"] { height: 40px; }
 .brand-tab .brand-initial { width: 36px; height: 36px; font-size: 1.1rem; }
 .brand-tab:hover { color: var(--ink); }
 .brand-tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--red); }
