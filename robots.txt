@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nikolafilipovicrazor.github.io/N-SCOOTS/sitemap.xml

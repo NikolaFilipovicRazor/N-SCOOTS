@@ -20,7 +20,7 @@ const results = []; const ok = (name, cond, info = "") => { results.push({ name,
     // Start
     await page.goto(BASE + "#/"); await page.waitForSelector("#hero-title");
     await noOverflow("start"); await shot("01-start");
-    ok(`${label}: Startseite zeigt Modelle`, (await page.locator('section[aria-labelledby="featured-title"] .card').count()) === 4);
+    ok(`${label}: Startseite zeigt Modelle`, (await page.locator('section[aria-labelledby="featured-title"] .card').count()) === 6);
     ok(`${label}: Hero mit Lifestyle-Foto`, (await page.locator(".hero-panel img").count()) === 1);
     ok(`${label}: «Premium Scooter» im Hero`, (await page.locator(".hero h1").textContent()).includes("Premium Scooter"));
     ok(`${label}: Showcase vorhanden`, (await page.locator(".showcase-img").count()) === 3);
@@ -31,7 +31,9 @@ const results = []; const ok = (name, cond, info = "") => { results.push({ name,
     ok(`${label}: Fahrprofile mit Fotos`, (await page.locator('.profile-media img[src*="assets/photos"]').count()) === 3);
     ok(`${label}: keine Fotoreferenzen am Bild`, (await page.locator(".media-credit:not([hidden]), .media-badge:not([hidden])").filter({ hasText: /\S/ }).count()) === 0);
     ok(`${label}: Galerie vorhanden`, (await page.locator(".mosaic-item").count()) >= 8);
-    ok(`${label}: Logo-Leiste mit Markenlogos`, (await page.locator(".brand-pill-logo img").count()) >= 6);
+    ok(`${label}: Logo-Reihe mit 6 anklickbaren Markenlogos`, (await page.locator("#brand-row a.brand-row-item img").count()) >= 6);
+    ok(`${label}: roter Text-Ticker ohne Logos`, (await page.locator("#usp-band-track img").count()) === 0 && (await page.locator("#usp-band-track .usp-item").filter({ hasText: /Schweizer Lieferant/ }).count()) >= 1);
+    ok(`${label}: Specs mit Emojis auf Karten`, (await page.locator(".card-specgrid .spec-ico").count()) >= 6);
     ok(`${label}: Wortmarke als SVG`, (await page.locator(".site-header .wm-img").count()) === 1);
 
     // Brand-Einstieg aktiviert Filter

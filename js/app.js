@@ -55,7 +55,7 @@
     else if (view === "kontakt") { ({ html, title } = viewKontakt()); }
     else { ({ html, title } = viewNotFound()); }
     app.innerHTML = html;
-    document.title = title ? `${title} – N SCOOTS` : "N SCOOTS – E-Scooter & E-Dirtbikes";
+    document.title = title ? `${title} – N SCOOTS` : "N SCOOTS – Dein Schweizer Online-Shop für Premium E-Scooter";
     updateNav(view);
     afterRender(view, route);
     const samePage = lastPath === route.path;
@@ -88,16 +88,22 @@
     }
     return `<span class="price">Preis offen</span>`;
   };
+  const SPEC_ICON = { motor: "⚡", peak: "🚀", battery: "🔋", wh: "🔌", range: "🛣️", speed: "🏁", weight: "⚖️", load: "🧍", tires: "🛞", brakes: "🛑", ip: "💧", fold: "📐", legal: "🇨🇭", abe: "📄", charge: "⏱️", climb: "⛰️", suspension: "🪃", lights: "💡", display: "📟", brand: "🏷️", price: "💰", use: "🎯" };
+  const si = (k, label) => `<span class="spec-ico" aria-hidden="true">${SPEC_ICON[k] || ""}</span>${label}`;
+  const akkuText = (s) => s.batteryV && s.batteryAh ? `${s.batteryV} V · ${s.batteryAh} Ah` : (s.batteryV ? `${s.batteryV} V` : null);
   function productCard(p, { compact = false } = {}) {
     const inCompare = S.compare().includes(p.id);
     const isAcc = p.category === "zubehoer";
     const lg = p.brand ? MA.logo(p.brand) : null;
     const cell = (k, v) => `<div><span>${k}</span><strong>${v == null ? "offen" : esc(v)}</strong></div>`;
+    const s0 = p.specs || {};
     const specGrid = isAcc ? "" : `<div class="card-specgrid">
-        ${cell("Motor", p.specs.motorW ? F.num(p.specs.motorW, "W") + (p.specs.motors === 2 ? " · 2 Motoren" : "") : null)}
-        ${cell("Akku", p.specs.batteryV && p.specs.batteryAh ? `${p.specs.batteryV} V · ${p.specs.batteryAh} Ah` : (p.specs.batteryWh ? F.num(p.specs.batteryWh, "Wh") : null))}
-        ${cell("Reichweite*", p.specs.rangeKm ? F.num(p.specs.rangeKm, "km") : null)}
-        ${cell("Gewicht", p.specs.weightKg ? F.num(p.specs.weightKg, "kg") : null)}
+        ${cell(si("motor", "Motor"), s0.motorW ? F.num(s0.motorW, "W") + (s0.motors === 2 ? " · 2×" : "") : null)}
+        ${cell(si("battery", "Akku"), akkuText(s0) || (s0.batteryWh ? F.num(s0.batteryWh, "Wh") : null))}
+        ${cell(si("range", "Reichweite*"), s0.rangeKm ? F.num(s0.rangeKm, "km") : null)}
+        ${cell(si("speed", "Tempo*"), s0.speedKmh ? F.num(s0.speedKmh, "km/h") : null)}
+        ${cell(si("weight", "Gewicht"), s0.weightKg ? F.num(s0.weightKg, "kg") : null)}
+        ${cell(si("load", "Zuladung"), s0.maxLoadKg ? F.num(s0.maxLoadKg, "kg") : null)}
       </div>`;
     const legalLine = isAcc ? "" : `<div class="card-legal ${p.streetLegalCH ? "ok" : ""}">${p.streetLegalCH ? "Strassenzugelassen CH" : p.category === "edirtbike" ? "Für Privatgelände" : p.specs.abe ? `Deutsche ABE · ${p.specs.speedKmh || 20} km/h` : "Für private Fahrflächen"}</div>`;
     return `
@@ -122,7 +128,7 @@
 
   /* ---------- Startseite ---------- */
   function viewHome() {
-    const featured = ["teverun-fighter-mini-pro-ekfv", "kukirin-g2-master", "teverun-blade-mini-pro-ch-edition", "kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike"].map(byId).filter(Boolean);
+    const featured = ["teverun-fighter-mini-pro", "teverun-fighter-mini-pro-ekfv", "kukirin-g2-master", "teverun-blade-mini-pro-ch-edition", "kukirin-g4", "kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike"].map(byId).filter(Boolean);
     const brands = D.brands;
     const html = `
     ${(() => {
@@ -147,7 +153,7 @@
       <div class="hero-bg${hv ? "" : " hero-bg-plain"}" ${hv ? 'data-parallax="0.25"' : 'aria-hidden="true"'}>${hv ? media : ""}</div>
       <div class="wrap hero-content">
         <div data-reveal>
-          <p class="hero-kicker">Premium Scooter <span class="sep">·</span> E-Mobility Schweiz</p>
+          <p class="hero-kicker">Dein Schweizer Online-Shop für Premium E-Scooter <span class="sep">·</span> Schweizer Lieferant &amp; Importeur</p>
           <h1 id="hero-title">Dein nächster Ride.<br><span class="h1-red">Premium Scooter.</span></h1>
           <p>Finde den Scooter, der zu dir passt: strassenzugelassen für den Alltag oder voller Power fürs Gelände. Schnell und einfach geliefert, sicher bezahlt, persönlich beraten, auf WhatsApp rund um die Uhr erreichbar.</p>
           <div class="hero-cta">
@@ -155,7 +161,7 @@
             <a class="btn btn-ghost" href="#/katalog?kat=escooter&zulassung=ch">Strassenzugelassen CH</a>
           </div>
           <p class="hero-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>${esc(D.meta.kontakt.abholung || "")}</p>
-          <ul class="hero-usps"><li>Schnell &amp; einfach geliefert</li><li>Sicher bezahlen</li><li>WhatsApp-Support 24/7</li></ul>
+          <ul class="hero-usps"><li>🇨🇭 Schweizer Lieferant &amp; Importeur</li><li>🚚 Schnell &amp; einfach geliefert</li><li>🔒 Sicher bezahlen</li><li>💬 Support 24/7</li></ul>
         </div>
         ${hi.photo && !hv ? (() => { const hm = byId((MEDIA.hero.image && MEDIA.hero.image.model) || "kukirin-t3-2025-48v-15-6-ah-akku-800w"); return `<a class="hero-panel" href="${hm ? `#/produkt/${hm.id}` : "#/katalog?kat=escooter"}" data-reveal data-parallax="0.18">
           ${MA.tag(hi, { eager: true })}
@@ -171,17 +177,13 @@
       <div class="hero-stripe" aria-hidden="true"></div>
     </section>`; })()}
 
-    <section class="brand-band" aria-label="Marken">
-      <div class="brand-band-track">${[0, 1].map((k) => D.brands.map((b) => { const lg = MA.logo(b.id); return `<a class="brand-pill" href="#/katalog?marke=${b.id}" ${k ? 'tabindex="-1" aria-hidden="true"' : ""}><span class="brand-pill-logo">${lg ? `<img src="${esc(lg)}" alt="">` : esc(b.name[0])}</span><span>${esc(b.name)}</span></a>`; }).join("")).join("")}</div>
-    </section>
-
     <section class="trust" aria-label="So arbeiten wir">
       <div class="wrap">
         <ul class="trust-list">
-          <li><strong>Schweizer Ansprechpartner</strong><span>Persönlich und nah, ${esc(D.meta.kontakt.ort)}</span></li>
-          <li><strong>Sicher bezahlen</strong><span>TWINT, Karte, Rechnung zum Shopstart</span></li>
-          <li><strong>Schnell &amp; einfach geliefert</strong><span>${esc(D.meta.kontakt.abholung || "")}</span></li>
-          <li><strong>WhatsApp-Support 24/7</strong><span>Antwort meistens innerhalb 1–2 Stunden</span></li>
+          <li><strong>🇨🇭 Schweizer Lieferant &amp; Importeur</strong><span>Import, Lager und Service in der Schweiz, persönlich in ${esc(D.meta.kontakt.ort)}</span></li>
+          <li><strong>🔒 Sicher bezahlen</strong><span>TWINT, Karte, Rechnung zum Shopstart</span></li>
+          <li><strong>🚚 Schnell &amp; einfach geliefert</strong><span>${esc(D.meta.kontakt.abholung || "")}</span></li>
+          <li><strong>💬 WhatsApp-Support 24/7</strong><span>Antwort meistens innerhalb 1–2 Stunden</span></li>
         </ul>
       </div>
     </section>
@@ -280,7 +282,7 @@
     <section class="section" aria-labelledby="featured-title" data-reveal>
       <div class="wrap">
         <div class="section-head">
-          <div><h2 id="featured-title">Ausgewählte Modelle</h2><p class="muted">Strassenzugelassen für den Alltag, Performance fürs Gelände, dazu das erste Dirtbike.</p></div>
+          <div><h2 id="featured-title">Ausgewählte Modelle</h2><p class="muted">Teverun Fighter Mini Pro als Highlight, strassenzugelassene Alltagsmodelle, Performance fürs Gelände und das erste Dirtbike.</p></div>
           <a class="btn btn-ghost btn-sm" href="#/katalog">Alle Modelle</a>
         </div>
         <div class="product-grid">${featured.map((p) => productCard(p)).join("")}</div>
@@ -550,29 +552,33 @@
           <h2 style="margin-top:8px">Technische Daten</h2>
           <table class="spec-table">
             <tbody>
-              ${row("Motor (nominal)", s.motorW, "W")}
-              ${row("Spitzenleistung", s.peakW, "W")}
-              ${row("Anzahl Motoren", s.motors)}
-              ${row("Akku", s.batteryV && s.batteryAh ? `${s.batteryV} V · ${s.batteryAh} Ah` : (s.batteryV ? `${s.batteryV} V` : null))}
-              ${row("Kapazität", s.batteryWh, "Wh")}
-              ${row("Reichweite (Herstellerangabe)", s.rangeKm, "km")}
-              ${row("Höchstgeschwindigkeit (Herstellerangabe)", s.speedKmh, "km/h")}
-              ${row("Betriebserlaubnis", s.abe ? "Deutsche ABE (Allgemeine Betriebserlaubnis)" : "keine ausgewiesen")}
-              ${row("Gewicht", s.weightKg, "kg")}
-              ${row("Max. Zuladung", s.maxLoadKg, "kg")}
-              ${row("Reifen", s.tires)}
-              ${row("Bremsen", s.brakes)}
-              ${row("Schutzart", s.ip)}
-              <tr><th scope="row">Strassenzulassung Schweiz</th><td>${p.streetLegalCH ? `<span class="tag tag-ok">Ja, 20 km/h-Version (Händlerangabe)</span>` : `<span class="tag tag-signal">${esc(p.chLegal || "nicht ausgewiesen")}</span>`}</td></tr>
+              ${row(si("motor", "Motor (nominal)"), s.motorW ? F.num(s.motorW, "W") + (s.motors === 2 ? " · 2 Motoren" : s.motors === 1 ? " · 1 Motor" : "") : null)}
+              ${row(si("peak", "Spitzenleistung"), s.peakW, "W")}
+              ${row(si("battery", "Akku"), akkuText(s))}
+              ${row(si("wh", "Kapazität"), s.batteryWh, "Wh")}
+              ${row(si("range", "Reichweite (Herstellerangabe)"), s.rangeKm, "km")}
+              ${row(si("speed", "Höchstgeschwindigkeit (Herstellerangabe)"), s.speedKmh, "km/h")}
+              ${row(si("climb", "Steigfähigkeit"), s.climbPct, "%")}
+              ${row(si("charge", "Ladezeit"), s.chargeHours, "h")}
+              ${row(si("weight", "Gewicht"), s.weightKg, "kg")}
+              ${row(si("load", "Max. Zuladung"), s.maxLoadKg, "kg")}
+              ${row(si("tires", "Reifen"), s.tires)}
+              ${row(si("brakes", "Bremsen"), s.brakes)}
+              ${row(si("suspension", "Federung"), s.suspension)}
+              ${row(si("lights", "Beleuchtung"), s.lights)}
+              ${row(si("display", "Display"), s.display)}
+              ${row(si("ip", "Schutzart"), s.ip)}
+              ${row(si("fold", "Faltbar"), s.foldable == null ? null : (s.foldable ? "Ja" : "Nein"))}
+              ${row(si("abe", "Betriebserlaubnis"), s.abe ? "Deutsche ABE (Allgemeine Betriebserlaubnis)" : "keine ausgewiesen")}
+              <tr><th scope="row">${si("legal", "Strassenzulassung Schweiz")}</th><td>${p.streetLegalCH ? `<span class="tag tag-ok">Ja, 20 km/h-Version (Herstellerangabe)</span>` : `<span class="tag tag-signal">${esc(p.chLegal || "nicht ausgewiesen")}</span>`}</td></tr>
             </tbody>
           </table>
           ${notice("Reichweiten sind Herstellerangaben unter deren Testbedingungen (leichter Fahrer, flache Strecke, Eco-Modus). Im Alltag ist deutlich weniger üblich. Eine Zusage ist das nicht.")}
-          <details class="fold"><summary>Quellen und Prüfdatum</summary>
-            <ul class="source-list">${p.sources.map((src) => `<li><a href="${esc(src.url)}" rel="noopener" target="_blank">${esc(src.url.replace(/^https?:\/\//, "").split("/")[0])}</a> – ${esc(src.note)} (geprüft ${F.date(src.checked)})</li>`).join("")}</ul>
-            <p class="small muted">Angaben wurden nicht selbst gemessen. Abweichungen zwischen Quellen sind bei der jeweiligen Ausführung vermerkt.</p>
+          <details class="fold"><summary>Angaben und Prüfdatum</summary>
+            <p class="small muted">Technische Daten sind Herstellerangaben${p.specsSource ? ` (<a href="${esc(p.specsSource)}" rel="noopener" target="_blank">Herstellerseite</a>)` : ""}, zuletzt geprüft am ${F.date(p.specsChecked || p.price.checked || D.meta.dataVersion)}. Preise und Lieferstatus Stand ${F.date(D.meta.dataVersion)}. Angaben wurden nicht selbst gemessen.</p>
           </details>
           <details class="fold"><summary>Strasse oder Gelände?</summary>
-            <p>In der Schweiz strassenzugelassen sind die als eKFV- bzw. CH-Edition gekennzeichneten 20 km/h-Modelle (Händlerangabe, Nachweis wird vor Verkaufsstart geprüft). Eine deutsche ABE oder ein CE-Zeichen reicht für die Schweiz nicht automatisch. Alle anderen Modelle sind für Privatgelände gedacht.</p>
+            <p>In der Schweiz strassenzugelassen sind die als eKFV- bzw. CH-Edition gekennzeichneten 20 km/h-Modelle (Angabe des Herstellers, Nachweis wird vor Verkaufsstart geprüft). Eine deutsche ABE oder ein CE-Zeichen reicht für die Schweiz nicht automatisch. Alle anderen Modelle sind für Privatgelände gedacht.</p>
           </details>`}
         </div>
       </div>
@@ -621,21 +627,27 @@
         : `<div class="slot"><button class="btn btn-ghost" type="button" data-action="compare-pick">+ Modell wählen</button><span class="small muted">Platz ${i + 1} von ${S.MAX_COMPARE}</span></div>`);
     }
     const rows = [
-      ["Marke", (p) => brandName(p.brand)],
-      ["Einsatz", (p) => segName(p.segment)],
-      ["Preis", (p) => p.price.chf != null ? F.chf(p.price.chf) + (p.price.kind === "referenz" ? "*" : "") : null, (p) => p.price.chf, "min"],
-      ["Motor (nominal)", (p) => F.num(p.specs.motorW, "W")],
-      ["Spitzenleistung", (p) => F.num(p.specs.peakW, "W")],
-      ["Motoren", (p) => p.specs.motors],
-      ["Akku", (p) => p.specs.batteryV && p.specs.batteryAh ? `${p.specs.batteryV} V · ${p.specs.batteryAh} Ah` : (p.specs.batteryV ? `${p.specs.batteryV} V` : null)],
-      ["Kapazität", (p) => F.num(p.specs.batteryWh, "Wh"), (p) => p.specs.batteryWh, "max"],
-      ["Reichweite (Hersteller)", (p) => F.num(p.specs.rangeKm, "km")],
-      ["Gewicht", (p) => F.num(p.specs.weightKg, "kg"), (p) => p.specs.weightKg, "min"],
-      ["Max. Zuladung", (p) => F.num(p.specs.maxLoadKg, "kg")],
-      ["Reifen", (p) => p.specs.tires],
-      ["Bremsen", (p) => p.specs.brakes],
-      ["Schutzart", (p) => p.specs.ip],
-      ["CH-Strassentauglichkeit", (p) => p.chLegal || "nicht bestätigt"]
+      [si("brand", "Marke"), (p) => brandName(p.brand)],
+      [si("use", "Einsatz"), (p) => segName(p.segment)],
+      [si("price", "Preis"), (p) => p.price.chf != null ? F.chf(p.price.chf) + (p.price.kind === "referenz" ? "*" : "") : null, (p) => p.price.chf, "min"],
+      [si("motor", "Motor (nominal)"), (p) => F.num(p.specs.motorW, "W"), (p) => p.specs.motorW, "max"],
+      [si("peak", "Spitzenleistung"), (p) => F.num(p.specs.peakW, "W"), (p) => p.specs.peakW, "max"],
+      [si("motor", "Motoren"), (p) => p.specs.motors],
+      [si("battery", "Akku"), (p) => akkuText(p.specs)],
+      [si("wh", "Kapazität"), (p) => F.num(p.specs.batteryWh, "Wh"), (p) => p.specs.batteryWh, "max"],
+      [si("range", "Reichweite (Hersteller)"), (p) => F.num(p.specs.rangeKm, "km"), (p) => rangeMax(p.specs.rangeKm), "max"],
+      [si("speed", "Höchstgeschwindigkeit"), (p) => F.num(p.specs.speedKmh, "km/h")],
+      [si("climb", "Steigfähigkeit"), (p) => F.num(p.specs.climbPct, "%")],
+      [si("charge", "Ladezeit"), (p) => F.num(p.specs.chargeHours, "h")],
+      [si("weight", "Gewicht"), (p) => F.num(p.specs.weightKg, "kg"), (p) => p.specs.weightKg, "min"],
+      [si("load", "Max. Zuladung"), (p) => F.num(p.specs.maxLoadKg, "kg"), (p) => p.specs.maxLoadKg, "max"],
+      [si("tires", "Reifen"), (p) => p.specs.tires],
+      [si("brakes", "Bremsen"), (p) => p.specs.brakes],
+      [si("suspension", "Federung"), (p) => p.specs.suspension],
+      [si("lights", "Beleuchtung"), (p) => p.specs.lights],
+      [si("ip", "Schutzart"), (p) => p.specs.ip],
+      [si("fold", "Faltbar"), (p) => p.specs.foldable == null ? null : (p.specs.foldable ? "Ja" : "Nein")],
+      [si("legal", "Strassenzulassung CH"), (p) => p.streetLegalCH ? "Ja, 20 km/h-Version" : (p.chLegal || "nicht ausgewiesen")]
     ];
     const table = items.length >= 2 ? `
       <div class="compare-table-wrap">
@@ -733,7 +745,7 @@
       <section class="section" aria-labelledby="planned-title">
         <h2 id="planned-title">Was geplant ist</h2>
         <div class="help-grid">${d.planned.map((x) => `<div class="help-step"><h3>${esc(x.title)}</h3><p>${esc(x.text)}</p></div>`).join("")}</div>
-        <p class="small muted" style="margin-top:16px">Keine Marken, Preise oder Liefertermine, bis Händlervereinbarungen und Bildrechte vorliegen. Ob ein E-Dirtbike in der Schweiz auf öffentlichen Strassen gefahren werden darf, muss je Modell geprüft werden; der Einsatz ist zunächst für Privatgelände vorgesehen.</p>
+        <p class="small muted" style="margin-top:16px">Weitere Modelle folgen. Ob ein E-Dirtbike in der Schweiz auf öffentlichen Strassen gefahren werden darf, muss je Modell geprüft werden; der Einsatz ist zunächst für Privatgelände vorgesehen.</p>
       </section>
     </div>`;
     return { html, title: "E-Dirtbikes" };
@@ -751,10 +763,15 @@
       </div>
       <h2>Reichweite richtig lesen</h2>
       <p>Hersteller testen mit leichtem Fahrer, flacher Strecke, moderater Geschwindigkeit und Eco-Modus. Steigungen, Kälte, Gewicht und Tempo senken die Reichweite deutlich. Für die Planung lohnt sich ein Blick auf die Kapazität in Wattstunden: Sie ist vergleichbar, die Kilometerangabe nicht.</p>
-      <h2>Bilder</h2>
-      <p>Produktbilder stammen von den Herstellern und Händlern; die Freigaben werden vor dem Verkaufsstart eingeholt. Stimmungsfotos stehen unter freien Lizenzen (Wikimedia Commons, CC BY) und tragen den Namen der Fotografin oder des Fotografen am Bild.</p>
-      <h2>Lieferant</h2>
-      <p>Sortiment, Einführungspreise und Lieferstatus basieren auf aktuellen Schweizer Marktdaten (Stand ${F.date(D.meta.dataVersion)}). Lieferanten- und Händlervereinbarungen sind in Vorbereitung; Produkt- und Markenbilder werden vor dem Verkaufsstart freigegeben.</p>
+      <h2>🇨🇭 Schweizer Lieferant und Importeur</h2>
+      <p>N SCOOTS ist dein Schweizer Lieferant und Importeur für Premium Scooter und E-Dirtbikes: Import, Lager, Beratung, Lieferung und Service aus einer Hand, mit persönlichem Ansprechpartner in ${esc(D.meta.kontakt.ort)}. Du kaufst in der Schweiz, zahlst in CHF und hast für Fragen, Ersatzteile und Garantiefälle eine Anlaufstelle im Land.</p>
+      <div class="help-grid" style="margin:18px 0 28px">
+        <div class="help-step"><h3>🚚 Schnell &amp; einfach geliefert</h3><p>${esc(D.meta.kontakt.abholung || "")}. Versandkosten und Lieferfristen werden zum Verkaufsstart festgelegt.</p></div>
+        <div class="help-step"><h3>🔒 Sicher bezahlen</h3><p>TWINT, Karte, Apple Pay, Google Pay und Rechnung zum Shopstart.</p></div>
+        <div class="help-step"><h3>💬 Support 24/7</h3><p>WhatsApp rund um die Uhr, ${esc(D.meta.kontakt.zeiten.replace(/^WhatsApp 24\/7 · /, "").replace(/^Antwort/, "Antwort"))}.</p></div>
+      </div>
+      <h2>Technische Angaben</h2>
+      <p>Alle technischen Daten sind Herstellerangaben (Stand ${F.date(D.meta.dataVersion)}). Gewicht, Zuladung, Reifen und Bremsen stehen bei jedem Modell im Datenblatt und im Vergleich. Wo eine Angabe fehlt, steht «Angabe offen», wir tragen sie nach.</p>
     </div>`;
     return { html, title: "Gut zu wissen" };
   }
@@ -943,6 +960,22 @@
   // Links in Drawer/Dialog: Dialog schliessen, dann navigieren
   document.querySelectorAll("dialog").forEach((dlg) => dlg.addEventListener("click", (e) => { if (e.target.closest("a[href^='#']")) closeDialog(dlg); }));
   $("#mobile-nav").addEventListener("click", (e) => { if (e.target.closest("a")) { $("#mobile-nav").dataset.open = "false"; $("#menu-btn").setAttribute("aria-expanded", "false"); } });
+
+  // Marken-Logoreihe (immer sichtbar, anklickbar) und roter Text-Ticker
+  $("#brand-row").innerHTML = `<div class="wrap brand-row-inner">${D.brands.map((b) => { const lg = MA.logo(b.id); const n = D.products.filter((p) => p.brand === b.id && p.category !== "zubehoer").length; return `<a class="brand-row-item" href="#/katalog?marke=${b.id}" data-brand="${b.id}" aria-label="${esc(b.name)}, ${n} Modelle"><span class="brand-row-logo">${lg ? `<img src="${esc(lg)}" alt="" width="64" height="64" loading="eager" decoding="async">` : `<span class="brand-initial" aria-hidden="true">${esc(b.name[0])}</span>`}</span><span class="brand-row-name">${esc(b.name)}</span></a>`; }).join("")}</div>`;
+  {
+    const k = D.meta.kontakt;
+    const items = ["🇨🇭 Schweizer Lieferant & Importeur", ...D.brands.map((b) => b.name), "Premium Scooter", "E-Dirtbikes", "🚚 Schnell & einfach geliefert", "🔒 Sicher bezahlen", "💬 Support 24/7 auf WhatsApp", k.abholung || "", "Schweizer Support", "Ersatzteile & Service"].filter(Boolean);
+    const track = $("#usp-band-track");
+    track.innerHTML = [0, 1].map((rep) => `<span class="usp-band-group" ${rep ? 'aria-hidden="true"' : ""}>${items.map((x) => `<span class="usp-item">${esc(x)}</span><span class="usp-dot" aria-hidden="true">•</span>`).join("")}</span>`).join("");
+    const tgl = $("#usp-band-toggle");
+    let paused = false; try { paused = localStorage.getItem("nscoots-ticker") === "pause"; } catch (e) {}
+    const apply = () => { track.classList.toggle("is-paused", paused); tgl.setAttribute("aria-pressed", String(paused)); tgl.setAttribute("aria-label", paused ? "Laufband starten" : "Laufband anhalten"); tgl.textContent = paused ? "▶" : "❚❚"; };
+    tgl.addEventListener("click", () => { paused = !paused; try { localStorage.setItem("nscoots-ticker", paused ? "pause" : "run"); } catch (e) {} apply(); });
+    apply();
+  }
+  const markBrandRow = () => { const q = parseHash().query || {}; const cur = parseHash().parts[0] === "katalog" && q.marke && !q.marke.includes(",") ? q.marke : (parseHash().parts[0] === "produkt" ? (byId(parseHash().parts[1]) || {}).brand : null); document.querySelectorAll(".brand-row-item").forEach((a) => { const on = a.dataset.brand === cur; a.classList.toggle("is-active", on); if (on) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current"); }); };
+  window.addEventListener("hashchange", markBrandRow); markBrandRow();
 
   S.subscribe(renderBadges);
   window.addEventListener("hashchange", render);

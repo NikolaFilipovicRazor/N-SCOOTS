@@ -8,6 +8,13 @@
   const PHOTOS = "assets/photos/";
   const SUPPLIER = { credit: "E-Rydez", label: "Freigabe ausstehend" };
   const warned = new Set();
+  // Symbolische Referenzen "hersteller:<produkt-id>:<lifestyle|produkt>:<n>" auf die aktuelle Datei auflösen
+  // (die Nummerierung der importierten Herstellerbilder kann sich bei jedem Import ändern)
+  (function resolveSymbolic() {
+    const pick = (id, kind, n) => { const list = (M.products && M.products[id]) || []; const k = kind === "lifestyle" ? "lifestyle" : "produkt"; const hits = list.filter((m) => m.kind === k && m.status === "hersteller"); return hits[n] || hits[hits.length - 1] || null; };
+    const walk = (o) => { if (!o || typeof o !== "object") return; if (typeof o.src === "string" && o.src.startsWith("hersteller:")) { const [, id, kind, n] = o.src.split(":"); const hit = pick(id, kind, Number(n) || 0); if (hit) { o.src = hit.src; if (!o.status) o.status = "hersteller"; if (!o.model) o.model = id; } else { o.status = "fehlt"; } return; } Object.keys(o).forEach((k) => { if (k !== "products") walk(o[k]); }); };
+    walk(M);
+  })();
   const norm = (m) => { const st = String(m && m.status || "").trim().toLowerCase(); if (m && m.src && !KNOWN.includes(st) && !warned.has(m.src)) { warned.add(m.src); console.warn(`Medien-Manifest: unbekannter status "${m.status}" bei ${m.src}; wird wie "fehlt" behandelt.`); } return st; };
   const usable = (m) => { const st = norm(m); return !!(m && m.src && (st === "frei" || st === "freigegeben" || st === "lieferant" || st === "hersteller")); };
   // Händler-/Herstellerfotos: keine Beschriftung am Bild (Nachweis in ASSETS.md und Footer)

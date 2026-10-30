@@ -15,45 +15,45 @@
 window.NSCOOTS_MEDIA = {
   hero: {
     /* Grosses Produktbild im Hero (E-Rydez-Produktfoto, Freigabe ausstehend) */
-    product: { src: "assets/photos/hersteller/teverun-fighter-mini-pro-ekfv-1.jpg", alt: "Teverun Fighter Mini Pro eKFV, Produktbild", status: "hersteller", kind: "produkt", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" , model: "teverun-fighter-mini-pro-ekfv" },
-    image: { src: "assets/photos/hersteller/teverun-fighter-mini-pro-5.jpg", alt: "Fahrer mit Teverun Fighter Mini Pro im Wald", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js", model: "teverun-fighter-mini-pro-ekfv" },
+    product: { src: "hersteller:teverun-fighter-mini-pro-ekfv:produkt:0", alt: "Teverun Fighter Mini Pro eKFV, Produktbild", status: "hersteller", kind: "produkt", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" , model: "teverun-fighter-mini-pro-ekfv" },
+    image: { src: "hersteller:teverun-fighter-mini-pro:lifestyle:1", alt: "Fahrer mit Teverun Fighter Mini Pro im Wald", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js", model: "teverun-fighter-mini-pro" },
     video: { src: "assets/video/hero-ride.mp4", poster: "assets/photos/hero-stadt-abend.jpg", status: "fehlt", credit: "", license: "" }
   },
   profiles: {
-    alltag:  { src: "assets/photos/hersteller/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb-4.jpg", alt: "Frau mit Teverun Blade Mini Ultra in der Stadt", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
-    touren:  { src: "assets/photos/hersteller/teverun-fighter-mini-pro-5.jpg", alt: "Fahrer mit Teverun Fighter Mini Pro im Wald", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
-    offroad: { src: "assets/photos/hersteller/ausom-f1-max-5.jpg", alt: "Fahrer mit Ausom F1 Max in den Dünen", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" }
+    alltag:  { src: "hersteller:teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb:lifestyle:0", alt: "Frau mit Teverun Blade Mini Ultra in der Stadt", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
+    touren:  { src: "hersteller:teverun-fighter-mini-pro:lifestyle:1", alt: "Fahrer mit Teverun Fighter Mini Pro im Wald", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
+    offroad: { src: "hersteller:ausom-f1-max:lifestyle:1", alt: "Fahrer mit Ausom F1 Max in den Dünen", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" }
   },
   story: [
-    { src: "assets/photos/hersteller/teverun-blade-gt-ii-4.jpg", alt: "Pause am Fluss mit dem Teverun Blade GT II", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
-    { src: "assets/photos/hersteller/teverun-blade-gt-ii-plus-4.jpg", alt: "Frau fährt mit dem Teverun Blade GT II+ durch den Wald", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
-    { src: "assets/photos/hersteller/kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike-5.jpg", alt: "Fahrer auf dem KuKirin X1 Dirtbike im Gelände", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" }
+    { src: "hersteller:teverun-blade-gt-ii:lifestyle:0", alt: "Pause am Fluss mit dem Teverun Blade GT II", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
+    { src: "hersteller:teverun-blade-gt-ii-plus:lifestyle:0", alt: "Frau fährt mit dem Teverun Blade GT II+ durch den Wald", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
+    { src: "hersteller:kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike:lifestyle:1", alt: "Fahrer auf dem KuKirin X1 Dirtbike im Gelände", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" }
   ],
   /* Marken-Kacheln: Produktfoto eines Modells der Marke (E-Rydez, Freigabe ausstehend) */
   brands: {
-    kukirin:  { src: "assets/photos/hersteller/kukirin-g2-master-4.jpg", alt: "KuKirin G2 Master unterwegs", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
-    joyor:    { src: "assets/photos/hersteller/joyor-t10-60v-18ah-2x1000w-5.jpg", alt: "Joyor T10 am Meer", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
-    teverun:  { src: "assets/photos/hersteller/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb-5.jpg", alt: "Teverun Blade Mini Ultra in der Stadt", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
-    dualtron: { src: "assets/photos/hersteller/dualtron-victor-ltd-dgt-60v-37-1ah-samsung-4.jpg", alt: "Dualtron Victor LTD im Neonlicht", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
-    rovoron:  { src: "assets/photos/hersteller/rovoron-s7-1.jpg", alt: "Rovoron S7", status: "hersteller", kind: "produkt", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
-    ausom:    { src: "assets/photos/hersteller/ausom-f1-max-4.jpg", alt: "Ausom F1 Max in den Dünen", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" }
+    kukirin:  { src: "hersteller:kukirin-g2-master:lifestyle:0", alt: "KuKirin G2 Master unterwegs", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
+    joyor:    { src: "hersteller:joyor-t10-60v-18ah-2x1000w:lifestyle:1", alt: "Joyor T10 am Meer", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
+    teverun:  { src: "hersteller:teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb:lifestyle:1", alt: "Teverun Blade Mini Ultra in der Stadt", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
+    dualtron: { src: "hersteller:dualtron-victor-ltd-dgt-60v-37-1ah-samsung:lifestyle:0", alt: "Dualtron Victor LTD im Neonlicht", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
+    rovoron:  { src: "hersteller:rovoron-s7:produkt:0", alt: "Rovoron S7", status: "hersteller", kind: "produkt", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
+    ausom:    { src: "hersteller:ausom-f1-max:lifestyle:0", alt: "Ausom F1 Max in den Dünen", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" }
   },
-  dirtbikes: { src: "assets/photos/hersteller/kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike-4.jpg", alt: "KuKirin X1 Dirtbike mit Fahrer", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
+  dirtbikes: { src: "hersteller:kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike:lifestyle:0", alt: "KuKirin X1 Dirtbike mit Fahrer", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
   nightCity: { src: "assets/photos/story-3.jpg", alt: "E-Scooter nachts in der Stadt", status: "frei", kind: "symbol", credit: "JIP, CC BY-SA 4.0", license: "CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Electric_kickbikes_in_Kamppi_on_a_night_in_April_2023.jpg" },
   /* Bildergalerie «Unterwegs» (Hersteller-Lifestyle-Fotos) */
   gallery: [
-    { src: "assets/photos/hersteller/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb-5.jpg", alt: "Mann mit Teverun Blade Mini Ultra in der Stadt", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
-    { src: "assets/photos/hersteller/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb-4.jpg", alt: "Teverun Blade Mini Ultra in der Stadt", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
-    { src: "assets/photos/hersteller/teverun-fighter-mini-pro-4.jpg", alt: "Teverun Fighter Mini Pro auf dem Waldweg", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
-    { src: "assets/photos/hersteller/kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike-5.jpg", alt: "KuKirin X1 im Gelände", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
-    { src: "assets/photos/hersteller/joyor-t10-60v-18ah-2x1000w-5.jpg", alt: "Joyor T10 an der Küste", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
-    { src: "assets/photos/hersteller/teverun-blade-gt-ii-5.jpg", alt: "Teverun Blade GT II im Park", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
-    { src: "assets/photos/hersteller/ausom-f1-max-5.jpg", alt: "Ausom F1 Max in den Dünen", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
-    { src: "assets/photos/hersteller/dualtron-victor-ltd-dgt-60v-37-1ah-samsung-4.jpg", alt: "Dualtron Victor LTD im Neonlicht", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
-    { src: "assets/photos/hersteller/teverun-blade-gt-ii-plus-5.jpg", alt: "Teverun Blade GT II+ am Fluss", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
-    { src: "assets/photos/hersteller/kukirin-m4-max-20255-48v-18ah-akku-800w-4.jpg", alt: "KuKirin M4 Max beim Camping", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
-    { src: "assets/photos/hersteller/joyor-s5z-48v-13ah-600w-4.jpg", alt: "Joyor S5-Z im Herbst", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
-    { src: "assets/photos/hersteller/teverun-fighter-supreme-7260r-4.jpg", alt: "Teverun Fighter Supreme auf der Strasse", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" }
+    { src: "hersteller:teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb:lifestyle:1", alt: "Mann mit Teverun Blade Mini Ultra in der Stadt", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
+    { src: "hersteller:teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb:lifestyle:0", alt: "Teverun Blade Mini Ultra in der Stadt", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
+    { src: "hersteller:teverun-fighter-mini-pro:lifestyle:0", alt: "Teverun Fighter Mini Pro auf dem Waldweg", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
+    { src: "hersteller:kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike:lifestyle:1", alt: "KuKirin X1 im Gelände", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
+    { src: "hersteller:joyor-t10-60v-18ah-2x1000w:lifestyle:1", alt: "Joyor T10 an der Küste", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
+    { src: "hersteller:teverun-blade-gt-ii:lifestyle:1", alt: "Teverun Blade GT II im Park", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
+    { src: "hersteller:ausom-f1-max:lifestyle:1", alt: "Ausom F1 Max in den Dünen", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
+    { src: "hersteller:dualtron-victor-ltd-dgt-60v-37-1ah-samsung:lifestyle:0", alt: "Dualtron Victor LTD im Neonlicht", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
+    { src: "hersteller:teverun-blade-gt-ii-plus:lifestyle:1", alt: "Teverun Blade GT II+ am Fluss", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
+    { src: "hersteller:kukirin-m4-max-20255-48v-18ah-akku-800w:lifestyle:0", alt: "KuKirin M4 Max beim Camping", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
+    { src: "hersteller:joyor-s5z-48v-13ah-600w:lifestyle:0", alt: "Joyor S5-Z im Herbst", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" },
+    { src: "hersteller:teverun-fighter-supreme-7260r:lifestyle:0", alt: "Teverun Fighter Supreme auf der Strasse", status: "hersteller", kind: "lifestyle", credit: "Hersteller", license: "Herstellerbild, Quelle in data/media-hersteller.js" }
   ],
   /* Markenlogos 1:1 von den offiziellen Seiten (Hersteller bzw. offizieller Distributor), unverändert ausser Skalierung;
      Rovoron: offizielle weisse Variante monochrom invertiert für helle Flächen. Nutzung als Händler, Freigabe vor Verkaufsstart. */
