@@ -8,9 +8,9 @@ window.NSCOOTS_FMT = {
   },
   num(value, unit = "") {
     if (value == null || value === "") return null;
-    if (typeof value === "string") return value + (unit ? " " + unit : "");
+    if (typeof value === "string") return value + (unit ? "\u00a0" + unit : "");
     const s = Number(value).toLocaleString("de-CH", { maximumFractionDigits: 1 }).replace(/'/g, "’");
-    return s + (unit ? " " + unit : "");
+    return s + (unit ? "\u00a0" + unit : "");
   },
   date(iso) {
     if (!iso) return "";

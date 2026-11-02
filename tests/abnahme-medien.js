@@ -37,7 +37,7 @@ const override = `window.__FX = ${JSON.stringify(FX)};
     ok(`${label}: Fahrprofile mit Fotos`, (await page.locator('.profile-media img[src*="fixtures"]').count()) === 3);
     ok(`${label}: Symbolbild gekennzeichnet`, (await page.locator(".profile-media .media-badge").allTextContents()).includes("Symbolbild"));
     ok(`${label}: Story-Bilder vorhanden`, (await page.locator('.story-media img[src*="fixtures"]').count()) === 3);
-    ok(`${label}: Marken mit Foto`, (await page.locator(".brand-chip.has-photo").count()) >= 2);
+    ok(`${label}: Marken-Logos anklickbar`, (await page.locator("#brand-row a.brand-row-item img").count()) >= 6);
     // Parallax: Transform ändert sich beim Scrollen
     await page.waitForLoadState("networkidle"); await page.waitForTimeout(300);
     const before = await page.locator(".story-media img").first().evaluate((i) => i.style.transform);

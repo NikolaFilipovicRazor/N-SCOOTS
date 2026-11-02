@@ -128,146 +128,85 @@
 
   /* ---------- Startseite ---------- */
   function viewHome() {
-    const featured = ["teverun-fighter-mini-pro", "teverun-fighter-mini-pro-ekfv", "kukirin-g2-master", "teverun-blade-mini-pro-ch-edition", "kukirin-g4", "kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike"].map(byId).filter(Boolean);
-    const brands = D.brands;
+    const HERO_ID = "teverun-fighter-mini-pro-ekfv";
+    const BEST = ["kukirin-s1-max-36v-10-4ah-akku-350w", "kukirin-g2-pro", "kukirin-g2-master", "teverun-blade-mini-pro-ch-edition", "teverun-fighter-mini-pro", "teverun-blade-gt-ii", "kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike", "teverun-fighter-supreme-7260r"];
+    const vehicles = D.products.filter((p) => p.category !== "zubehoer");
+    const minPrice = Math.min(...vehicles.filter((p) => p.price.chf != null).map((p) => p.price.chf));
+    const hero = byId(HERO_ID);
+    const hv = MA.heroVideo();
+    const heroImg = hero ? pimgs(hero)[0] : null;
+    const kpi = hero ? [hero.specs.speedKmh ? F.num(hero.specs.speedKmh, "km/h") : null, hero.specs.rangeKm ? F.num(hero.specs.rangeKm, "km") : null, hero.specs.batteryWh ? F.num(hero.specs.batteryWh, "Wh") : null].filter(Boolean).join(" · ") : "";
     const html = `
-    ${(() => {
-      const hv = MA.heroVideo(); const hi = MA.resolve(MEDIA.hero && MEDIA.hero.image, null, "E-Scooter-Fahrt durch eine Stadt am Abend");
-      const hp = MA.resolve(MEDIA.hero && MEDIA.hero.product, null, "");
-      const hpProd = hp.photo && MEDIA.hero.product && MEDIA.hero.product.model ? byId(MEDIA.hero.product.model) : null;
-      const posterSrc = hv ? (hv.poster || (hi.photo ? hi.src : "")) : "";
-      const media = hv
-        ? `<video class="hero-video" autoplay muted loop playsinline preload="metadata" ${posterSrc ? `poster="${esc(posterSrc)}"` : ""} aria-label="Fahrt mit dem E-Scooter"><source src="${esc(hv.src)}" type="video/mp4"></video>`
-        : hi.photo ? MA.tag(hi, { eager: true, cls: "hero-img" }) + MA.marks(hi)
-        : `<svg class="hero-illu" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Abstrakte Illustration eines E-Scooters auf dunklem Grund" preserveAspectRatio="xMidYMid slice">
-              <defs><pattern id="hl" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(-20)"><path d="M0 0V40" stroke="#2f343d" stroke-width="1"/></pattern></defs>
-              <rect width="1600" height="900" fill="#262a31"/><rect width="1600" height="900" fill="url(#hl)"/>
-              <path d="M-40 700 H1640" stroke="#1f4fe0" stroke-width="12"/><path d="M-40 740 H1640" stroke="#3a3f49" stroke-width="2"/>
-              <g fill="none" stroke="#f3f4f7" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" transform="translate(700 40) scale(1.1)">
-                <circle cx="190" cy="500" r="56"/><circle cx="640" cy="500" r="56"/><path d="M246 500 H586"/><path d="M270 484 H370"/><path d="M604 484 L560 250 L545 190"/><path d="M505 190 H590"/>
-              </g><circle cx="1404" cy="590" r="26" fill="none" stroke="#1f4fe0" stroke-width="9"/>
-            </svg>`;
-      const note = hv ? [hv.credit ? `Video: ${esc(hv.credit)}` : "", hi.photo && hi.credit ? `Standbild: ${esc(hi.credit)}` : ""].filter(Boolean).join(" · ") : hi.photo ? (hi.credit ? `Foto: ${esc(hi.credit)}` : "") : "Illustration, kein Produktfoto. Hero-Foto oder -Video folgt.";
-      return `
-    <section class="hero hero-media${hp.photo && !hv ? " has-product" : ""}${hi.photo ? " has-panel" : ""}" aria-labelledby="hero-title">
-      <div class="hero-bg${hv ? "" : " hero-bg-plain"}" ${hv ? 'data-parallax="0.25"' : 'aria-hidden="true"'}>${hv ? media : ""}</div>
-      <div class="wrap hero-content">
-        <div data-reveal>
-          <p class="hero-kicker">Dein Schweizer Online-Shop für Premium E-Scooter <span class="sep">·</span> Schweizer Lieferant &amp; Importeur</p>
+    <section class="hero hero-media${hv ? " has-video" : " has-panel"}" aria-labelledby="hero-title">
+      <div class="hero-bg${hv ? "" : " hero-bg-plain"}" ${hv ? 'data-parallax="0.25"' : 'aria-hidden="true"'}>${hv ? `<video class="hero-video" autoplay muted loop playsinline preload="metadata" ${hv.poster ? `poster="${esc(hv.poster)}"` : ""} aria-label="Fahrt mit dem E-Scooter"><source src="${esc(hv.src)}" type="video/mp4"></video>` : ""}</div>
+      <div class="wrap hero-content hero-grid">
+        <div class="hero-head" data-reveal>
+          <p class="hero-kicker">Dein Schweizer Online-Shop für Premium E-Scooter</p>
           <h1 id="hero-title">Dein nächster Ride.<br><span class="h1-red">Premium Scooter.</span></h1>
-          <p>Finde den Scooter, der zu dir passt: strassenzugelassen für den Alltag oder voller Power fürs Gelände. Schnell und einfach geliefert, sicher bezahlt, persönlich beraten, auf WhatsApp rund um die Uhr erreichbar.</p>
+        </div>
+        ${hero && heroImg && !hv ? `<a class="hero-panel hero-panel-product" href="#/produkt/${hero.id}" data-reveal aria-label="${esc(hero.model)}, ${esc(F.chf(hero.price.chf))}, zum Modell">
+          <span class="hero-panel-img"><img src="${esc(heroImg.src)}" alt="${esc(heroImg.alt)}" width="1200" height="1200" fetchpriority="high" decoding="async" onerror="window.NSCOOTS_MEDIA_API.broken(this)"></span>
+          <span class="hero-panel-cap">
+            <span class="hero-panel-text"><strong>${esc(hero.model)}</strong><small>${hero.streetLegalCH ? `<span class="tag tag-ok">Strassenzugelassen CH</span>` : ""}${kpi ? `<span class="hero-kpi">${esc(kpi)}</span>` : ""}</small></span>
+            <span class="hero-panel-buy"><span class="hero-price">${esc(F.chf(hero.price.chf))}</span><span class="btn btn-accent btn-sm">Zum Modell</span></span>
+          </span>
+        </a>` : ""}
+        <div class="hero-body" data-reveal>
+          <p>Strassenzugelassen für den Alltag oder volle Power fürs Gelände, vom Schweizer Importeur: schnell geliefert, sicher bezahlt, WhatsApp-Support 24/7.</p>
           <div class="hero-cta">
             <a class="btn btn-accent" href="#/katalog?kat=escooter">Premium Scooter entdecken</a>
             <a class="btn btn-ghost" href="#/katalog?kat=escooter&zulassung=ch">Strassenzugelassen CH</a>
           </div>
-          <p class="hero-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>${esc(D.meta.kontakt.abholung || "")}</p>
-          <ul class="hero-usps"><li>🇨🇭 Schweizer Lieferant &amp; Importeur</li><li>🚚 Schnell &amp; einfach geliefert</li><li>🔒 Sicher bezahlen</li><li>💬 Support 24/7</li></ul>
-        </div>
-        ${hi.photo && !hv ? (() => { const hm = byId((MEDIA.hero.image && MEDIA.hero.image.model) || "kukirin-t3-2025-48v-15-6-ah-akku-800w"); return `<a class="hero-panel" href="${hm ? `#/produkt/${hm.id}` : "#/katalog?kat=escooter"}" data-reveal data-parallax="0.18">
-          ${MA.tag(hi, { eager: true })}
-          <span class="hero-panel-cap"><span><strong>${esc(hm ? hm.model : "Premium Scooter")}</strong><small>${hm ? (hm.streetLegalCH ? "Strassenzugelassen CH" : "Für private Fahrflächen") : ""}</small></span><span class="btn btn-ghost btn-sm">Modell ansehen</span></span>
-        </a>`; })() : hp.photo && !hv ? `<a class="hero-product" href="${hpProd ? `#/produkt/${hpProd.id}` : "#/katalog?kat=escooter"}" data-reveal>
-          <img src="${esc(hp.src)}" alt="${esc(hp.alt)}" width="1400" height="1400" fetchpriority="high" decoding="async" onerror="window.NSCOOTS_MEDIA_API.broken(this)">
-        </a>` : ""}
-        <div class="hero-tools">
-          ${hv ? `<button class="btn btn-ghost btn-sm" type="button" data-action="video-toggle">Video pausieren</button>` : ""}
-          ${note ? `<p class="hero-note">${note}</p>` : ""}
+          <p class="hero-count"><strong>${vehicles.length} Modelle</strong> · ab ${esc(F.chf(minPrice))} · <span class="muted-on-black">${esc(D.meta.kontakt.abholung || "")}</span></p>
+          ${hv ? `<div class="hero-tools"><button class="btn btn-ghost btn-sm" type="button" data-action="video-toggle">Video pausieren</button></div>` : ""}
         </div>
       </div>
       <div class="hero-stripe" aria-hidden="true"></div>
-    </section>`; })()}
+    </section>
+
+    <section class="section bestseller" aria-labelledby="featured-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><h2 id="featured-title">Bestseller</h2><p class="muted">Vom Einsteiger bis zum Offroad-Monster. Tippe eine Auswahl, die Karten wechseln direkt.</p></div>
+          <a class="btn btn-ghost btn-sm" href="#/katalog">Alle ${vehicles.length} Modelle</a>
+        </div>
+        <div class="chip-row" role="tablist" aria-label="Auswahl">
+          ${[["alle", "Alle"], ["ch", "🇨🇭 Strassenzugelassen"], ["budget", "Unter CHF 1’000"], ["offroad", "⚡ Performance"], ["dirt", "E-Dirtbikes"]].map(([k, l], i) => `<button class="chip-tab" role="tab" type="button" id="best-${k}" data-filter="${k}" aria-selected="${i === 0}" aria-controls="bestseller-panel" tabindex="${i === 0 ? 0 : -1}">${l}</button>`).join("")}
+        </div>
+        <div id="bestseller-panel" class="product-row" role="tabpanel" aria-labelledby="best-alle" data-best="${esc(BEST.join(","))}"></div>
+        ${refNote}
+      </div>
+    </section>
 
     <section class="trust" aria-label="So arbeiten wir">
       <div class="wrap">
-        <ul class="trust-list">
-          <li><strong>🇨🇭 Schweizer Lieferant &amp; Importeur</strong><span>Import, Lager und Service in der Schweiz, persönlich in ${esc(D.meta.kontakt.ort)}</span></li>
-          <li><strong>🔒 Sicher bezahlen</strong><span>TWINT, Karte, Rechnung zum Shopstart</span></li>
-          <li><strong>🚚 Schnell &amp; einfach geliefert</strong><span>${esc(D.meta.kontakt.abholung || "")}</span></li>
-          <li><strong>💬 WhatsApp-Support 24/7</strong><span>Antwort meistens innerhalb 1–2 Stunden</span></li>
+        <ul class="trust-line">
+          <li>🇨🇭 <strong>Schweizer Lieferant &amp; Importeur</strong></li>
+          <li>🔒 <strong>TWINT, Karte, Rechnung</strong></li>
+          <li>🚚 <strong>Lieferung oder Abholung ${esc(D.meta.kontakt.ort)}</strong></li>
+          <li>🛡️ <strong>2 Jahre Gewährleistung</strong></li>
+          <li>💬 <strong>WhatsApp 24/7</strong></li>
         </ul>
-      </div>
-    </section>
-
-    <section class="service-strip" aria-label="Service">
-      <div class="wrap service-list">
-        <a href="#/info"><strong>2 Jahre Gewährleistung</strong><span>Gesetzliche Frist in der Schweiz</span></a>
-        <a href="#/katalog?kat=zubehoer"><strong>Ersatzteile &amp; Service</strong><span>Das passende Teil direkt bestellen</span></a>
-        <a href="#" data-action="whatsapp"><strong>WhatsApp 24/7</strong><span>Schnelle Antwort, persönlich</span></a>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="entries-title" data-reveal>
-      <div class="wrap">
-        <h2 id="entries-title" class="visually-hidden">Kategorien</h2>
-        <div class="entry-grid">
-          <a class="entry" href="#/katalog?kat=escooter">
-            <span class="tag">${D.products.filter((p) => p.category === "escooter").length} Modelle</span>
-            <div><h3>E-Scooter</h3><p>Alltag, Touren und Offroad. Von ${brandName("kukirin")} bis ${brandName("dualtron")}.</p></div>
-            <svg viewBox="0 0 120 84" aria-hidden="true" fill="none" stroke="#1c1f24" stroke-width="4" stroke-linecap="round"><circle cx="22" cy="62" r="12"/><circle cx="96" cy="62" r="12"/><path d="M34 62h50M88 60l-8-38M74 22h14"/></svg>
-          </a>
-          <a class="entry entry-dirt" href="#/dirtbikes">
-            <span class="tag tag-accent">${D.products.filter((p) => p.category === "edirtbike").length} Modell · Sortiment im Aufbau</span>
-            <div><h3>E-Dirtbikes</h3><p>Elektrisches Motocross und Trail. Erstes Modell gelistet, mehr folgt.</p></div>
-            <svg viewBox="0 0 120 84" aria-hidden="true" fill="none" stroke="#1538ab" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="60" r="18"/><circle cx="96" cy="60" r="18"/><path d="M36 52l18-24h26l16 24M54 28l10 18 16-18M80 20l-6 8M72 20h14"/></svg>
-          </a>
-        </div>
       </div>
     </section>
 
     <section class="section" aria-labelledby="profiles-title">
       <div class="wrap">
         <div class="section-head"><div><h2 id="profiles-title">Was hast du vor?</h2><p class="muted">Wähle deinen Einsatz. Wir zeigen dir die passende Auswahl.</p></div></div>
-        <div class="profile-grid">
+        <div class="profile-grid profile-grid-4">
           ${[
-            ["alltag", "Strassenzugelassene", "Für deinen Alltag und den Weg zur Arbeit. 20 km/h, legal auf Schweizer Strassen.", "teverun-blade-mini-pro-ch-edition", "#/katalog?kat=escooter&zulassung=ch", D.products.filter((x) => x.streetLegalCH).length],
-            ["touren", "Unter CHF 1’000", "Viel Scooter für dein Budget: Alltag, Pendeln, erste Touren.", "kukirin-g2-master", "#/katalog?kat=escooter&max=1000", D.products.filter((x) => x.category === "escooter" && x.price.chf != null && x.price.chf <= 1000).length],
-            ["offroad", "Performance", "Doppelmotor, grosse Akkus, viel Federweg. Für private Fahrflächen.", "teverun-blade-gt-ii-plus", "#/katalog?kat=escooter&segment=offroad", D.products.filter((x) => x.segment === "offroad").length]
-          ].map(([seg, title, text, pid, href, n]) => { const p = byId(pid); const r = MA.resolve(MEDIA.profiles && MEDIA.profiles[seg], p ? pimgs(p)[0] : null, p ? placeholderAlt(p) : ""); return `
+            ["alltag", "Strassenzugelassen", "20 km/h, legal auf Schweizer Strassen. Für Alltag und Arbeitsweg.", "teverun-blade-mini-pro-ch-edition", "#/katalog?kat=escooter&zulassung=ch", D.products.filter((x) => x.streetLegalCH).length],
+            ["touren", "Unter CHF 1’000", "Viel Scooter für dein Budget: Pendeln, Stadt, erste Touren.", "kukirin-g2-master", "#/katalog?kat=escooter&max=1000", D.products.filter((x) => x.category === "escooter" && x.price.chf != null && x.price.chf <= 1000).length],
+            ["offroad", "Performance", "Doppelmotor, grosse Akkus, viel Federweg. Für private Fahrflächen.", "teverun-blade-gt-ii-plus", "#/katalog?kat=escooter&segment=offroad", D.products.filter((x) => x.segment === "offroad").length],
+            ["dirt", "E-Dirtbikes", "Elektrisches Motocross und Trail. Erstes Modell gelistet, mehr folgt.", "kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike", "#/dirtbikes", D.products.filter((x) => x.category === "edirtbike").length]
+          ].map(([seg, title, text, pid, href, n]) => { const p = byId(pid); const r = seg === "dirt" ? (p ? (pimgs(p).find((x) => x.lifestyle) || pimgs(p)[0]) : MA.resolve(null, null, "")) : MA.resolve(MEDIA.profiles && MEDIA.profiles[seg], p ? pimgs(p)[0] : null, p ? placeholderAlt(p) : ""); return `
           <a class="profile" href="${href}" data-reveal>
             <div class="profile-media media" data-parallax="0.12">${MA.tag(r)}${r.photo ? MA.marks(r) : `<span class="media-badge" aria-hidden="true">Platzhalter</span>`}</div>
-            <div class="profile-body"><h3>${title}</h3><p>${text}</p><span class="profile-link">${n} Modelle ansehen</span></div>
+            <div class="profile-body"><h3>${title}</h3><p>${text}</p><span class="profile-link">${n} ${n === 1 ? "Modell" : "Modelle"} ansehen</span></div>
           </a>`; }).join("")}
         </div>
       </div>
     </section>
-
-    <section class="section story" aria-labelledby="story-title">
-      <div class="wrap">
-        <div class="section-head" data-reveal><div><h2 id="story-title">Mehr als Mobilität.</h2><p class="muted">Drei Situationen, drei Antworten aus dem Sortiment.</p></div></div>
-        ${[
-          ["Morgens zum Zug, abends an den See.", "Ein Alltagsscooter wiegt typisch bis 25 kg, faltet sich in Sekunden und hängt am Abend wieder am Ladegerät. Reichweite reicht für den Weg, nicht für den Rekord.", "teverun-fighter-mini-pro-ekfv", "#/katalog?kat=escooter&zulassung=ch", "Strassenzugelassene Modelle"],
-          ["Mehr Akku, mehr Ruhe.", "Ab rund 1000 Wh wird aus dem Pendler ein Tourenfahrzeug. Doppelmotor-Modelle nehmen Steigungen ohne Drama, kosten aber Gewicht.", "kukirin-g2-master", "#/katalog?kat=escooter&segment=touren", "Tourenmodelle"],
-          ["Schotter, Wiese, Waldweg.", "Mit dem KuKirin X1 ist das erste Mini-Dirtbike gelistet. Für Privatgelände gedacht; ob und wie ein Modell auf die Strasse darf, prüfen wir je Ausführung.", "kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike", "#/dirtbikes", "E-Dirtbikes"]
-        ].map(([h, t, pid, href, cta], i) => { const p = byId(pid); const r = MA.resolve(MEDIA.story && MEDIA.story[i], p ? pimgs(p)[0] : null, p ? placeholderAlt(p) : ""); return `
-        <article class="story-row${i % 2 ? " flip" : ""}" data-reveal>
-          <div class="story-media media" data-parallax="0.2">${MA.tag(r)}${r.photo ? MA.marks(r) : `<span class="media-badge" aria-hidden="true">Platzhalter</span>`}</div>
-          <div class="story-text"><h3>${h}</h3><p>${t}</p><a class="btn btn-ghost btn-sm" href="${href}">${cta}</a></div>
-        </article>`; }).join("")}
-      </div>
-    </section>
-
-    ${(() => { const g = (MEDIA.gallery || []).map((m) => MA.resolve(m, null, "")).filter((r) => r.photo); if (!g.length) return ""; return `
-    <section class="section gallery" aria-labelledby="gallery-title">
-      <div class="wrap">
-        <div class="section-head" data-reveal><div><h2 id="gallery-title">Raus. <span class="h1-red">Dein Stil.</span></h2><p class="muted">Unterwegs mit unseren Marken. Tippe ein Bild, um es gross zu sehen.</p></div></div>
-        <div class="mosaic">${g.map((r, i) => `<button class="mosaic-item" type="button" data-action="gallery" data-i="${i}" data-reveal aria-label="Bild vergrössern: ${esc(r.alt)}"><img src="${esc(r.src)}" alt="${esc(r.alt)}" loading="lazy" decoding="async" width="1600" height="1066" onerror="window.NSCOOTS_MEDIA_API.broken(this)"></button>`).join("")}</div>
-      </div>
-    </section>`; })()}
-
-    ${(() => { const ids = ["teverun-fighter-mini-pro-ekfv", "kukirin-g2-master", "rovoron-s7"]; const items = ids.map(byId).filter(Boolean); if (items.length < 2) return ""; return `
-    <section class="showcase" aria-labelledby="showcase-title">
-      <div class="showcase-sticky">
-        <div class="wrap showcase-inner">
-          <div class="showcase-text">
-            <p class="hero-kicker">Premium Scooter</p>
-            <h2 id="showcase-title">Drei Charaktere.<br><span class="h1-red">Ein Anspruch.</span></h2>
-            <div class="showcase-captions">${items.map((p, i) => `<div class="showcase-cap${i === 0 ? " is-active" : ""}" data-i="${i}"><h3>${esc(p.model)}</h3><p>${esc(p.summary)}</p><p class="showcase-meta">${p.streetLegalCH ? "Strassenzugelassen CH · " : ""}${esc(F.num(p.specs.batteryWh, "Wh") || "")} · ${esc(F.num(p.specs.rangeKm, "km") || "")} · ${F.chf(p.price.chf)}</p><a class="btn btn-accent btn-sm" href="#/produkt/${p.id}">Zum Modell</a></div>`).join("")}</div>
-            <div class="showcase-dots" role="list">${items.map((p, i) => `<span role="listitem" class="${i === 0 ? "is-active" : ""}" data-i="${i}" aria-label="${esc(p.model)}"></span>`).join("")}</div>
-          </div>
-          <div class="showcase-stage">${items.map((p, i) => `<img class="showcase-img${i === 0 ? " is-active" : ""}" data-i="${i}" src="${esc(imgSrc(p, 0))}" alt="${esc(p.model)}" width="1200" height="1200" ${i === 0 ? "" : 'loading="lazy"'} decoding="async" onerror="window.NSCOOTS_MEDIA_API.broken(this)">`).join("")}</div>
-        </div>
-      </div>
-    </section>`; })()}
 
     <section class="section" aria-labelledby="brand-tabs-title">
       <div class="wrap">
@@ -279,32 +218,37 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="featured-title" data-reveal>
+    <section class="section story story-compact" aria-labelledby="story-title">
       <div class="wrap">
-        <div class="section-head">
-          <div><h2 id="featured-title">Ausgewählte Modelle</h2><p class="muted">Teverun Fighter Mini Pro als Highlight, strassenzugelassene Alltagsmodelle, Performance fürs Gelände und das erste Dirtbike.</p></div>
-          <a class="btn btn-ghost btn-sm" href="#/katalog">Alle Modelle</a>
+        <div class="section-head" data-reveal><div><h2 id="story-title">Mehr als Mobilität.</h2><p class="muted">Drei Situationen, drei Antworten aus dem Sortiment.</p></div></div>
+        <div class="story-grid">
+        ${[
+          ["Morgens zum Zug, abends an den See.", "Alltagsscooter bis 25 kg, strassenzugelassen, in Sekunden gefaltet.", "teverun-fighter-mini-pro-ekfv", "#/katalog?kat=escooter&zulassung=ch", "Strassenzugelassene Modelle"],
+          ["Mehr Akku, mehr Ruhe.", "Ab rund 1000 Wh wird aus dem Pendler ein Tourenfahrzeug.", "kukirin-g2-master", "#/katalog?kat=escooter&segment=touren", "Tourenmodelle"],
+          ["Schotter, Wiese, Waldweg.", "Das erste Mini-Dirtbike ist da. Für Privatgelände gedacht.", "kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike", "#/dirtbikes", "E-Dirtbikes"]
+        ].map(([h, t, pid, href, cta], i) => { const p = byId(pid); const r = MA.resolve(MEDIA.story && MEDIA.story[i], p ? pimgs(p)[0] : null, p ? placeholderAlt(p) : ""); return `
+          <a class="story-tile" href="${href}" data-reveal>
+            <div class="story-media media" data-parallax="0.12">${MA.tag(r)}${r.photo ? MA.marks(r) : `<span class="media-badge" aria-hidden="true">Platzhalter</span>`}</div>
+            <div class="story-text"><h3>${h}</h3><p>${t}</p><span class="profile-link">${cta}</span></div>
+          </a>`; }).join("")}
         </div>
-        <div class="product-grid">${featured.map((p) => productCard(p)).join("")}</div>
-        ${refNote}
       </div>
     </section>
 
-    <section class="section" aria-labelledby="brands-title" data-reveal>
+    ${(() => { const g = (MEDIA.gallery || []).map((m) => MA.resolve(m, null, "")).filter((r) => r.photo).slice(0, 6); if (!g.length) return ""; return `
+    <section class="section gallery" aria-labelledby="gallery-title">
       <div class="wrap">
-        <div class="section-head"><div><h2 id="brands-title">Alle Marken</h2><p class="muted">Sechs Marken, ein Anspruch: Premium Scooter mit klaren Daten.</p></div></div>
-        <div class="brand-strip">
-          ${brands.map((b) => { const prices = D.products.filter((p) => p.brand === b.id && p.price.chf != null).map((p) => p.price.chf); const n = D.products.filter((p) => p.brand === b.id).length; const from = prices.length ? `ab ${F.chf(Math.min(...prices))}` : "Preise offen"; const bm = MEDIA.brands && MEDIA.brands[b.id]; const br = MA.usable(bm) ? MA.resolve(bm, null, "") : null; const bimg = br ? `<span class="brand-photo"><img src="${esc(br.src)}" alt="" loading="lazy" decoding="async" onerror="const c=this.closest('.brand-chip');c.classList.remove('has-photo');this.closest('.brand-photo').remove()">${MA.marks(br)}</span>` : ""; return `<a class="brand-chip${b.featured ? " featured" : ""}${bimg ? " has-photo" : ""}" href="#/katalog?marke=${b.id}">${bimg}<span class="brand-top"><strong>${esc(b.name)}</strong><span class="tag">${n} ${n === 1 ? "Modell" : "Modelle"}</span></span><span>${esc(b.blurb)}</span><span class="brand-price">${from}</span></a>`; }).join("")}
-        </div>
+        <div class="section-head" data-reveal><div><h2 id="gallery-title">Raus. <span class="h1-red">Dein Stil.</span></h2><p class="muted">Unterwegs mit unseren Marken. Tippe ein Bild, um es gross zu sehen.</p></div></div>
+        <div class="mosaic">${g.map((r, i) => `<button class="mosaic-item" type="button" data-action="gallery" data-i="${i}" data-reveal aria-label="Bild vergrössern: ${esc(r.alt)}"><img src="${esc(r.src)}" alt="${esc(r.alt)}" loading="lazy" decoding="async" width="1600" height="1066" onerror="window.NSCOOTS_MEDIA_API.broken(this)"></button>`).join("")}</div>
       </div>
-    </section>
+    </section>`; })()}
 
     <section class="service-dark" aria-labelledby="service-title">
       <div class="wrap service-dark-inner">
         <div data-reveal>
           <p class="hero-kicker">N SCOOTS in ${esc(D.meta.kontakt.ort)}</p>
           <h2 id="service-title">Du fährst.<br>Wir sind da.</h2>
-          <p>Ehrliche Beratung, klare Antworten und persönlicher Support. Auf WhatsApp rund um die Uhr erreichbar, Antwort meistens innerhalb 1–2 Stunden.</p>
+          <p>Schweizer Lieferant und Importeur: ehrliche Beratung, klare Antworten, persönlicher Support. Auf WhatsApp rund um die Uhr erreichbar, Antwort meistens innerhalb 1–2 Stunden.</p>
           <div class="hero-cta"><a class="btn btn-accent" href="#" data-action="whatsapp">Per WhatsApp fragen</a><a class="btn btn-ghost" href="tel:${esc((D.meta.kontakt.telefon || "").replace(/\s+/g, ""))}">${esc(D.meta.kontakt.telefon)}</a></div>
         </div>
         <dl class="service-rows" data-reveal>
@@ -316,23 +260,13 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="info-cards-title">
-      <div class="wrap">
-        <h2 id="info-cards-title" class="visually-hidden">Kontakt und Abholung</h2>
-        <div class="info-cards">
-          <a class="info-card" href="#/kontakt" data-reveal><h3>Ein Ansprechpartner. Für deinen Ride.</h3><p>Fragen zum Modell, zu Ersatzteilen oder zu deiner Auswahl? Wir beraten dich persönlich.</p><strong>${esc(D.meta.kontakt.telefon)}</strong><span>WhatsApp 24/7, Antwort meistens innerhalb 1–2 Stunden · ${esc(D.meta.kontakt.email)}</span></a>
-          <a class="info-card" href="#/info" data-reveal><h3>Abholung in ${esc(D.meta.kontakt.ort)}</h3><p>Hol deinen Scooter nach Terminvereinbarung bei uns ab oder lass ihn dir nach Hause liefern.</p><strong>Lieferung in die ganze Schweiz</strong><span>Schnell und einfach, Details zum Shopstart</span></a>
-        </div>
-      </div>
-    </section>
-
     <section class="section" aria-labelledby="help-title" data-reveal>
       <div class="wrap">
         <div class="section-head"><div><h2 id="help-title">Welcher Scooter passt zu dir?</h2><p class="muted">Drei Fragen, die den Grossteil der Entscheidung ausmachen.</p></div></div>
         <div class="help-grid">
-          <div class="help-step"><h3>Wie weit fährst du?</h3><p>Bis 15 km am Tag reichen 600–800 Wh. Für Touren und Hügel lohnen sich 1000 Wh und mehr. Reichweiten sind Herstellerangaben unter Idealbedingungen.</p></div>
-          <div class="help-step"><h3>Trägst du ihn?</h3><p>Treppen, Bahn, Kofferraum: unter 25 kg ist angenehm. Doppelmotor-Modelle wiegen 30 kg und mehr.</p></div>
-          <div class="help-step"><h3>Strasse oder Gelände?</h3><p>Für den Strassenverkehr braucht jede Ausführung einen Zulassungsnachweis. Offroad-Modelle sind fürs Privatgelände gedacht.</p></div>
+          <div class="help-step"><h3>Wie weit fährst du?</h3><p>Bis 15 km am Tag reichen 600–800 Wh. Für Touren und Hügel lohnen sich 1000 Wh und mehr. Doppelmotor-Modelle nehmen Steigungen ohne Drama, kosten aber Gewicht.</p></div>
+          <div class="help-step"><h3>Trägst du ihn?</h3><p>Treppen, Bahn, Kofferraum: unter 25 kg ist angenehm und in Sekunden gefaltet. Doppelmotor-Modelle wiegen 30 kg und mehr.</p></div>
+          <div class="help-step"><h3>Strasse oder Gelände?</h3><p>Auf Schweizer Strassen dürfen nur die gekennzeichneten 20 km/h-Modelle. Offroad-Modelle und Dirtbikes sind fürs Privatgelände gedacht.</p></div>
         </div>
         <p style="margin-top:16px"><a href="#/info">Mehr zu Zulassung, Reichweite und Demo-Status</a></p>
       </div>
@@ -826,22 +760,31 @@
       tabs.forEach((t) => t.addEventListener("click", () => show(t.dataset.brand), { signal: ac.signal }));
       $(".brand-tabs").addEventListener("keydown", (e) => { const i = tabs.indexOf(document.activeElement); if (i < 0) return; let j = null; if (e.key === "ArrowRight") j = (i + 1) % tabs.length; if (e.key === "ArrowLeft") j = (i - 1 + tabs.length) % tabs.length; if (e.key === "Home") j = 0; if (e.key === "End") j = tabs.length - 1; if (j != null) { e.preventDefault(); tabs[j].focus(); show(tabs[j].dataset.brand); } }, { signal: ac.signal });
     }
-    const sc = $(".showcase"); if (sc) {
-      const imgs = [...sc.querySelectorAll(".showcase-img")], caps = [...sc.querySelectorAll(".showcase-cap")], dots = [...sc.querySelectorAll(".showcase-dots span")];
-      const n = imgs.length; const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
-      let ticking = false;
-      const update = () => {
-        ticking = false;
-        const r = sc.getBoundingClientRect(); const total = r.height - window.innerHeight; if (total <= 0) return;
-        const prog = Math.max(0, Math.min(1, -r.top / total)); const pos = prog * (n - 1); const active = Math.round(pos);
-        imgs.forEach((im, i) => { const d = pos - i; const vis = Math.max(0, 1 - Math.abs(d)); im.classList.toggle("is-active", i === active);
-          if (!reduce.matches) { const scale = d <= 0 ? 0.55 + 0.45 * vis : 1 + 0.25 * Math.min(1, d); const y = d <= 0 ? (1 - vis) * 60 : -Math.min(1, d) * 40; im.style.transform = `translate3d(0, ${y.toFixed(1)}px, 0) scale(${scale.toFixed(3)})`; im.style.opacity = vis.toFixed(3); im.style.zIndex = String(10 + Math.round(vis * 10)); }
-        });
-        caps.forEach((c, i) => c.classList.toggle("is-active", i === active)); dots.forEach((dd, i) => dd.classList.toggle("is-active", i === active));
+    const bp = $("#bestseller-panel"); if (bp) {
+      const best = (bp.dataset.best || "").split(",").map(byId).filter(Boolean);
+      const veh = D.products.filter((p) => p.category !== "zubehoer");
+      const byPrice = (a, b) => (a.price.chf || 1e9) - (b.price.chf || 1e9);
+      const pick = (k) => {
+        if (k === "ch") return veh.filter((p) => p.streetLegalCH).sort(byPrice);
+        if (k === "budget") return veh.filter((p) => p.category === "escooter" && p.price.chf != null && p.price.chf <= 1000).sort(byPrice);
+        if (k === "offroad") return veh.filter((p) => p.segment === "offroad").sort(byPrice);
+        if (k === "dirt") return veh.filter((p) => p.category === "edirtbike");
+        return best;
       };
-      const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
-      window.addEventListener("scroll", onScroll, { passive: true }); viewCleanup.push(() => window.removeEventListener("scroll", onScroll));
-      update();
+      const showBest = (k) => {
+        const list = pick(k).slice(0, 8);
+        bp.innerHTML = list.length ? list.map((p) => productCard(p)).join("") : `<p class="muted">Noch keine Modelle in dieser Auswahl.</p>`;
+        bp.setAttribute("aria-labelledby", `best-${k}`);
+        document.querySelectorAll(".chip-tab").forEach((c) => { const on = c.dataset.filter === k; c.setAttribute("aria-selected", String(on)); c.tabIndex = on ? 0 : -1; });
+        bp.scrollLeft = 0;
+        window.NSCOOTS_MOTION && window.NSCOOTS_MOTION.refresh();
+      };
+      showBest("alle");
+      const chips = [...document.querySelectorAll(".chip-tab")];
+      const ac2 = new AbortController(); viewCleanup.push(() => ac2.abort());
+      chips.forEach((c) => c.addEventListener("click", () => showBest(c.dataset.filter), { signal: ac2.signal }));
+      $(".chip-row").addEventListener("keydown", (e) => { const i = chips.indexOf(document.activeElement); if (i < 0) return; let j = null; if (e.key === "ArrowRight") j = (i + 1) % chips.length; if (e.key === "ArrowLeft") j = (i - 1 + chips.length) % chips.length; if (j != null) { e.preventDefault(); chips[j].focus(); showBest(chips[j].dataset.filter); } }, { signal: ac2.signal });
+      viewCleanup.push(S.subscribe(() => { if (parseHash().parts[0] === "" && $("#bestseller-panel")) { const cur = document.querySelector('.chip-tab[aria-selected="true"]'); showBest(cur ? cur.dataset.filter : "alle"); } }));
     }
   }
   function afterRender(view, route) {
@@ -965,7 +908,7 @@
   $("#brand-row").innerHTML = `<div class="wrap brand-row-inner">${D.brands.map((b) => { const lg = MA.logo(b.id); const n = D.products.filter((p) => p.brand === b.id && p.category !== "zubehoer").length; return `<a class="brand-row-item" href="#/katalog?marke=${b.id}" data-brand="${b.id}" aria-label="${esc(b.name)}, ${n} Modelle"><span class="brand-row-logo">${lg ? `<img src="${esc(lg)}" alt="" width="64" height="64" loading="eager" decoding="async">` : `<span class="brand-initial" aria-hidden="true">${esc(b.name[0])}</span>`}</span><span class="brand-row-name">${esc(b.name)}</span></a>`; }).join("")}</div>`;
   {
     const k = D.meta.kontakt;
-    const items = ["🇨🇭 Schweizer Lieferant & Importeur", ...D.brands.map((b) => b.name), "Premium Scooter", "E-Dirtbikes", "🚚 Schnell & einfach geliefert", "🔒 Sicher bezahlen", "💬 Support 24/7 auf WhatsApp", k.abholung || "", "Schweizer Support", "Ersatzteile & Service"].filter(Boolean);
+    const items = ["🇨🇭 Schweizer Lieferant & Importeur", ...D.brands.map((b) => b.name), "Premium Scooter", "E-Dirtbikes", "🚚 Schnell & einfach geliefert", "🔒 Sicher bezahlen", "💬 Support 24/7 auf WhatsApp", k.abholung || "", "Shop-Vorschau · Einführungspreise unverbindlich", "Ersatzteile & Service"].filter(Boolean);
     const track = $("#usp-band-track");
     track.innerHTML = [0, 1].map((rep) => `<span class="usp-band-group" ${rep ? 'aria-hidden="true"' : ""}>${items.map((x) => `<span class="usp-item">${esc(x)}</span><span class="usp-dot" aria-hidden="true">•</span>`).join("")}</span>`).join("");
     const tgl = $("#usp-band-toggle");

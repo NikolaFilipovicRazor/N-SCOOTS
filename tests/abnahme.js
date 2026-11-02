@@ -20,24 +20,24 @@ const results = []; const ok = (name, cond, info = "") => { results.push({ name,
     // Start
     await page.goto(BASE + "#/"); await page.waitForSelector("#hero-title");
     await noOverflow("start"); await shot("01-start");
-    ok(`${label}: Startseite zeigt Modelle`, (await page.locator('section[aria-labelledby="featured-title"] .card').count()) === 6);
+    ok(`${label}: Startseite zeigt Modelle`, (await page.locator('section[aria-labelledby="featured-title"] .card').count()) === 8);
     ok(`${label}: Hero mit Lifestyle-Foto`, (await page.locator(".hero-panel img").count()) === 1);
     ok(`${label}: «Premium Scooter» im Hero`, (await page.locator(".hero h1").textContent()).includes("Premium Scooter"));
-    ok(`${label}: Showcase vorhanden`, (await page.locator(".showcase-img").count()) === 3);
+    ok(`${label}: Bestseller-Chips wechseln`, await (async () => { await page.click('.chip-tab[data-filter="ch"]'); await page.waitForTimeout(150); const n = await page.locator('#bestseller-panel .card').count(); await page.click('.chip-tab[data-filter="alle"]'); await page.waitForTimeout(150); return n === 3; })());
     await page.click('.brand-tab[data-brand="joyor"]'); await page.waitForTimeout(150);
     ok(`${label}: Marken-Tab wechselt Auswahl`, (await page.locator("#panel-brands .card-brand").first().textContent()).startsWith("Joyor"));
     await page.focus('.brand-tab[data-brand="joyor"]'); await page.keyboard.press("ArrowRight"); await page.waitForTimeout(150);
     ok(`${label}: Tabs per Pfeiltaste`, (await page.locator('.brand-tab[aria-selected="true"]').getAttribute("data-brand")) === "teverun");
-    ok(`${label}: Fahrprofile mit Fotos`, (await page.locator('.profile-media img[src*="assets/photos"]').count()) === 3);
+    ok(`${label}: Fahrprofile mit Fotos`, (await page.locator('.profile-media img[src*="assets/photos"]').count()) === 4);
     ok(`${label}: keine Fotoreferenzen am Bild`, (await page.locator(".media-credit:not([hidden]), .media-badge:not([hidden])").filter({ hasText: /\S/ }).count()) === 0);
-    ok(`${label}: Galerie vorhanden`, (await page.locator(".mosaic-item").count()) >= 8);
+    ok(`${label}: Galerie vorhanden`, (await page.locator(".mosaic-item").count()) >= 6);
     ok(`${label}: Logo-Reihe mit 6 anklickbaren Markenlogos`, (await page.locator("#brand-row a.brand-row-item img").count()) >= 6);
     ok(`${label}: roter Text-Ticker ohne Logos`, (await page.locator("#usp-band-track img").count()) === 0 && (await page.locator("#usp-band-track .usp-item").filter({ hasText: /Schweizer Lieferant/ }).count()) >= 1);
     ok(`${label}: Specs mit Emojis auf Karten`, (await page.locator(".card-specgrid .spec-ico").count()) >= 6);
     ok(`${label}: Wortmarke als SVG`, (await page.locator(".site-header .wm-img").count()) === 1);
 
     // Brand-Einstieg aktiviert Filter
-    await page.click('a.brand-chip[href="#/katalog?marke=kukirin"]');
+    await page.click('a.brand-row-item[data-brand="kukirin"]');
     await page.waitForSelector("#results .card");
     ok(`${label}: Marken-Einstieg aktiviert Filter`, await page.isChecked('input[name="marke"][value="kukirin"]'));
     const brandCount = await page.locator("#results .card").count();

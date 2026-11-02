@@ -742,3 +742,98 @@ button.gallery-main .media-badge { pointer-events: none; }
 .wm-img { height: 34px; width: auto; display: block; }
 .wm-img-footer { height: 40px; margin-bottom: 10px; }
 @media (min-width: 720px) { .wm-img { height: 38px; } }
+
+/* ===== Runde 4: Kundenblick (Hero mit Produkt, Bestseller zuerst, kompakter Kopf) ===== */
+.hero-media .hero-content.hero-grid { padding-top: 28px; padding-bottom: 28px; gap: 16px; display: grid; grid-template-columns: 1fr; grid-template-areas: "head" "panel" "body"; align-items: start; }
+.hero-head { grid-area: head; } .hero-body { grid-area: body; }
+.hero-grid .hero-kicker { font-size: .9rem; margin-bottom: 6px; }
+.hero-media .hero-grid h1 { font-size: clamp(2.4rem, 8vw, 5.6rem); margin-bottom: 0; line-height: .95; }
+.hero-grid .hero-body p { font-size: 1rem; max-width: 46ch; margin: 0 0 12px; }
+.hero-count { margin: 12px 0 0 !important; font-size: .9rem !important; color: #e9ecf3 !important; }
+.hero-count strong { color: #fff; } .muted-on-black { color: var(--on-black-2); }
+.hero-panel.hero-panel-product { grid-area: panel; aspect-ratio: auto; display: grid; grid-template-rows: auto auto; background: #fff; color: var(--ink); text-decoration: none; border-radius: 16px; overflow: hidden; }
+.hero-panel-product .hero-panel-img { display: block; aspect-ratio: 5 / 3; background: #fff; }
+.hero-panel-product .hero-panel-img img { width: 100%; height: 100%; object-fit: contain; padding: 4% 6%; }
+.hero-panel-product .hero-panel-cap { position: static; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 14px; background: var(--black-2, #16171a); color: #fff; }
+.hero-panel-product .hero-panel-text { display: grid; gap: 4px; min-width: 0; }
+.hero-panel-product .hero-panel-text strong { font-size: 1.25rem; line-height: 1.1; }
+.hero-panel-product .hero-panel-text small { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; color: #d5dae4; font-size: .8rem; }
+.hero-panel-product .hero-kpi { white-space: nowrap; }
+.hero-panel-product .hero-panel-buy { display: grid; gap: 6px; justify-items: end; flex: 0 0 auto; }
+.hero-price { font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; color: #fff; white-space: nowrap; }
+.hero-panel-product:hover .hero-panel-img img { transform: scale(1.04); }
+@media (min-width: 900px) {
+  .hero-media .hero-content.hero-grid { grid-template-columns: minmax(0, 1fr) 460px; grid-template-areas: "head panel" "body panel"; align-items: center; gap: 12px 48px; padding-top: 48px; padding-bottom: 48px; }
+  .hero-media.has-panel { min-height: 0; }
+  .hero-panel-product .hero-panel-img { aspect-ratio: 1 / 1; }
+  .hero-panel-product .hero-panel-text strong { font-size: 1.4rem; }
+}
+@media (min-width: 1200px) { .hero-media .hero-content.hero-grid { grid-template-columns: minmax(0, 1fr) 520px; } }
+
+/* Bestseller-Reihe mit Chips */
+.chip-row { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding: 2px 0 10px; margin: 0 calc(-1 * var(--gutter)); padding-left: var(--gutter); padding-right: var(--gutter); }
+.chip-row::-webkit-scrollbar { display: none; }
+.chip-tab { flex: 0 0 auto; border: 1px solid var(--line); background: var(--paper); color: var(--ink); border-radius: 999px; padding: 9px 16px; font: inherit; font-weight: 600; font-size: .9rem; cursor: pointer; white-space: nowrap; transition: background var(--ease), color var(--ease), border-color var(--ease); }
+.chip-tab:hover { border-color: var(--ink); }
+.chip-tab[aria-selected="true"] { background: var(--black); color: #fff; border-color: var(--black); }
+.product-row { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px var(--gutter) 12px; margin: 0 calc(-1 * var(--gutter)); scrollbar-width: thin; }
+.product-row > .card { flex: 0 0 78vw; max-width: 320px; scroll-snap-align: start; }
+@media (min-width: 720px) { .product-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; overflow: visible; margin: 0; padding: 0; } .product-row > .card { flex: none; max-width: none; } }
+@media (min-width: 1100px) { .product-row { grid-template-columns: repeat(4, 1fr); } }
+
+/* Vertrauenszeile */
+.trust-line { list-style: none; margin: 0; padding: 12px 0; display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: .88rem; color: var(--ink-2); justify-content: center; }
+.trust-line li { white-space: nowrap; } .trust-line strong { color: var(--ink); font-weight: 600; }
+@media (max-width: 599px) { .trust-line { justify-content: flex-start; gap: 6px 16px; font-size: .82rem; } .trust-line li:nth-child(4) { display: none; } }
+
+/* Vier Einsatz-Kacheln */
+.profile-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.profile-grid-4 .profile-body { padding: 12px; } .profile-grid-4 .profile-body h3 { font-size: 1.25rem; } .profile-grid-4 .profile-body p { font-size: .85rem; }
+@media (min-width: 720px) { .profile-grid.profile-grid-4 { grid-template-columns: repeat(4, 1fr); gap: 14px; } }
+
+/* Kompakte Story */
+.story-compact .wrap { display: block; }
+.story-grid { display: grid; gap: 14px; grid-template-columns: 1fr; }
+.story-tile { display: grid; gap: 10px; text-decoration: none; color: inherit; }
+.story-tile .story-media { aspect-ratio: 4 / 3; border-radius: var(--radius); overflow: hidden; }
+.story-tile h3 { font-size: 1.35rem; margin: 0 0 4px; } .story-tile p { margin: 0 0 6px; color: var(--ink-2); font-size: .92rem; }
+.story-tile:hover .profile-link { text-decoration: underline; }
+@media (min-width: 720px) { .story-grid { grid-template-columns: repeat(3, 1fr); gap: 18px; } }
+.mosaic { grid-auto-rows: 130px; }
+@media (min-width: 900px) { .mosaic { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 170px; } }
+
+/* Schlankerer Kopfbereich */
+.usp-band-track { padding: 6px 0; font-size: .85rem; animation-duration: 70s; }
+.usp-item { padding: 0 14px; }
+.usp-band-toggle { width: 34px; font-size: .7rem; }
+@media (max-width: 599px) {
+  .brand-row-inner { padding: 6px 6px; }
+  .brand-row-item { gap: 2px; padding: 2px; }
+  .brand-row-logo { width: 44px; height: 44px; border-width: 1.5px; }
+  .brand-row-logo img { padding: 6px; }
+  .brand-row-name { font-size: .62rem; }
+}
+
+/* Produktkarten auf schmalen Bildschirmen */
+@media (max-width: 480px) {
+  .card-specgrid { grid-template-columns: repeat(2, 1fr); }
+  .card-specgrid span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
+  .card-specgrid .spec-ico { display: inline; }
+}
+
+/* WhatsApp-Knopf auf dem Desktop nur als Icon, Text beim Zeigen */
+@media (min-width: 900px) {
+  .whatsapp-fab span { display: none; }
+  .whatsapp-fab { padding: 14px; }
+  .whatsapp-fab:hover span, .whatsapp-fab:focus-visible span { display: inline; }
+  .whatsapp-fab:hover, .whatsapp-fab:focus-visible { padding: 12px 18px; }
+}
+
+/* Produktseite: Thumbnails auf dem Handy als Streifen */
+@media (max-width: 899px) {
+  .gallery-thumbs { flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x proximity; padding-bottom: 6px; scrollbar-width: thin; }
+  .gallery-thumbs button { flex: 0 0 72px; width: 72px; scroll-snap-align: start; }
+}
+@media (min-width: 900px) { .hero-head { align-self: end; } .hero-body { align-self: start; } .hero-media .hero-content.hero-grid { grid-template-columns: minmax(0, 1fr) 440px; } }
+@media (min-width: 1200px) { .hero-media .hero-content.hero-grid { grid-template-columns: minmax(0, 1fr) 470px; } }
+@media (max-width: 599px) { .trust-line { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; } .trust-line li { white-space: normal; } .trust-line li:nth-child(4) { display: list-item; } }
