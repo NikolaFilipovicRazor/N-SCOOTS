@@ -23,9 +23,15 @@ for (const brand of fs.readdirSync(src)) {
     // Alle offiziellen Bilder übernehmen (Produktbilder zuerst, dann Lifestyle); Duplikate per Bildhash aussortieren
     const prod = p.images.filter((i) => i.kind === "product" && fs.existsSync(i.file));
     const life = p.images.filter((i) => i.kind === "lifestyle" && fs.existsSync(i.file));
-    const seen = new Set(); const uniq = [];
+    // Lieferantenbilder (E-Rydez-Sortiment, assets/photos/produkte) zuerst als Hauptbilder, danach die offiziellen Herstellerbilder
+    const seen = new Set(); const list = [];
+    for (let n = 1; n <= 12; n++) {
+      const f = path.join(root, "assets", "photos", "produkte", `${p.id}-${n}.jpg`); if (!fs.existsSync(f)) break;
+      const h = dhash(f); if (h) seen.add(h);
+      list.push({ src: `assets/photos/produkte/${p.id}-${n}.jpg`, alt: `${p.model}, Ansicht ${list.length + 1}`, status: "lieferant", kind: "produkt", credit: "", license: "Lieferantenbild (Sortiment)", page: "", match: "" });
+    }
+    const uniq = [];
     for (const im of [...prod, ...life]) { const h = dhash(im.file); if (h && [...seen].some((s) => hamming(s, h) <= 6)) continue; if (h) seen.add(h); uniq.push(im); }
-    const list = [];
     uniq.forEach((im, i) => {
       const dst = path.join(root, "assets", "photos", "hersteller", `${p.id}-${i + 1}.jpg`);
       try {
@@ -35,12 +41,6 @@ for (const brand of fs.readdirSync(src)) {
         list.push({ src: `assets/photos/hersteller/${p.id}-${i + 1}.jpg`, alt: `${p.model}, ${isProduct ? "Produktbild" : "Lifestyle-Foto"} ${i + 1}`, status: "hersteller", kind: isProduct ? "produkt" : "lifestyle", credit: "Hersteller", license: `Herstellerbild, ${im.sourceUrl}`, page: p.matchedPageUrl || "", match: p.matchQuality });
       } catch (e) { console.warn("skip", im.file, e.message.split("\n")[0]); }
     });
-    // Zusätzliche Händler-/Lieferantenbilder aus assets/photos/produkte anhängen (nur, wenn kein Duplikat)
-    for (let n = 1; n <= 12; n++) {
-      const f = path.join(root, "assets", "photos", "produkte", `${p.id}-${n}.jpg`); if (!fs.existsSync(f)) break;
-      const h = dhash(f); if (h && [...seen].some((s) => hamming(s, h) <= 6)) continue; if (h) seen.add(h);
-      list.push({ src: `assets/photos/produkte/${p.id}-${n}.jpg`, alt: `${p.model}, Ansicht ${list.length + 1}`, status: "lieferant", kind: "produkt", credit: "", license: "Lieferantenbild", page: "", match: "" });
-    }
     if (list.length) { existing.products[p.id] = list; existing.quellen[p.id] = { page: p.matchedPageUrl, match: p.matchQuality, notes: p.notes || "" }; }
   }
 }

@@ -856,3 +856,25 @@ button.gallery-main .media-badge { pointer-events: none; }
 .card-media.is-product img { image-rendering: auto; }
 @media (min-width: 1200px) { .catalog-layout .product-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
 .catalog-layout .card { border-color: #e6e8ee; } .catalog-layout .card:hover { box-shadow: 0 14px 34px rgba(0,0,0,.09); border-color: #d6d9e0; }
+
+/* Grössere, selbstbewusste Typografie */
+html { font-size: 17px; }
+@media (min-width: 900px) { html { font-size: 18px; } }
+.small { font-size: .95rem; } .muted { font-size: inherit; }
+.tag { font-size: .85rem; padding: 4px 11px; }
+.card-tags .tag { font-size: .8rem; padding: 3px 9px; }
+.card-specgrid span { font-size: .82rem; } .card-specgrid strong { font-size: 1.02rem; }
+.card-legal { font-size: .88rem; } .media-count { font-size: .8rem; padding: 4px 9px; }
+.card-title { font-size: 1.45rem; } .card-brand { font-size: .9rem; }
+.price { font-size: 1.6rem; }
+.brand-row-name { font-size: .95rem; } @media (min-width: 900px) { .brand-row-name { font-size: 1.05rem; } }
+.trust-line { font-size: 1rem; }
+.hero-panel-product .hero-panel-text small { font-size: .92rem; }
+.hero-grid .hero-body p { font-size: 1.12rem; } .hero-count { font-size: 1rem !important; }
+.spec-table th, .spec-table td, .compare-table { font-size: .98rem; }
+.section-head p.muted, .page-head p.muted { font-size: 1.08rem; }
+.profile-grid-4 .profile-body p { font-size: .95rem; } .story-tile p { font-size: 1rem; }
+.chip-tab { font-size: 1rem; padding: 10px 18px; }
+.site-footer, .site-footer .small { font-size: .95rem; }
+.usp-band-track { font-size: .95rem; }
+@media (max-width: 599px) { .brand-row-name { font-size: .72rem; } .hero-panel-product .hero-kpi { white-space: normal; } .hero-panel-product .hero-panel-text small { font-size: .85rem; } .hero-panel-product .hero-panel-buy { flex-wrap: wrap; gap: 8px; } }
