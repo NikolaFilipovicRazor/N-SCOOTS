@@ -128,14 +128,14 @@
 
   /* ---------- Startseite ---------- */
   function viewHome() {
-    const HERO_ID = "teverun-fighter-mini-pro-ekfv";
+    const HERO_ID = "teverun-fighter-mini-pro";
     const BEST = ["kukirin-s1-max-36v-10-4ah-akku-350w", "kukirin-g2-pro", "kukirin-g2-master", "teverun-blade-mini-pro-ch-edition", "teverun-fighter-mini-pro", "teverun-blade-gt-ii", "kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike", "teverun-fighter-supreme-7260r"];
     const vehicles = D.products.filter((p) => p.category !== "zubehoer");
     const minPrice = Math.min(...vehicles.filter((p) => p.price.chf != null).map((p) => p.price.chf));
     const hero = byId(HERO_ID);
     const hv = MA.heroVideo();
     const heroImg = hero ? pimgs(hero)[0] : null;
-    const kpi = hero ? [hero.specs.speedKmh ? F.num(hero.specs.speedKmh, "km/h") : null, hero.specs.rangeKm ? F.num(hero.specs.rangeKm, "km") : null, hero.specs.batteryWh ? F.num(hero.specs.batteryWh, "Wh") : null].filter(Boolean).join(" · ") : "";
+    const kpi = hero ? [hero.specs.batteryV && hero.specs.batteryAh ? `${hero.specs.batteryV} V · ${hero.specs.batteryAh} Ah` : null, hero.specs.motorW ? (hero.specs.motors === 2 ? "2 × " + F.num(hero.specs.motorW / 2, "W") : F.num(hero.specs.motorW, "W")) : null, hero.specs.speedKmh ? F.num(hero.specs.speedKmh, "km/h") : null, hero.specs.display ? "neues Display" : null].filter(Boolean).join(" · ") : "";
     const html = `
     <section class="hero hero-media${hv ? " has-video" : " has-panel"}" aria-labelledby="hero-title">
       <div class="hero-bg${hv ? "" : " hero-bg-plain"}" ${hv ? 'data-parallax="0.25"' : 'aria-hidden="true"'}>${hv ? `<video class="hero-video" autoplay muted loop playsinline preload="metadata" ${hv.poster ? `poster="${esc(hv.poster)}"` : ""} aria-label="Fahrt mit dem E-Scooter"><source src="${esc(hv.src)}" type="video/mp4"></video>` : ""}</div>

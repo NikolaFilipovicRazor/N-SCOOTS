@@ -1885,7 +1885,7 @@ window.NSCOOTS_DATA = {
       "abe": false,
       "limited": false,
       "suspension": "KKE Hydraulikfederung, zweifach einstellbar",
-      "display": "Farb-TFT-Display"
+      "display": "Neues Farb-TFT-Display"
     },
     "variants": [],
     "chLegal": "Nicht strassenzugelassen in der Schweiz, für Privatgelände",

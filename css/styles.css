@@ -837,3 +837,13 @@ button.gallery-main .media-badge { pointer-events: none; }
 @media (min-width: 900px) { .hero-head { align-self: end; } .hero-body { align-self: start; } .hero-media .hero-content.hero-grid { grid-template-columns: minmax(0, 1fr) 440px; } }
 @media (min-width: 1200px) { .hero-media .hero-content.hero-grid { grid-template-columns: minmax(0, 1fr) 470px; } }
 @media (max-width: 599px) { .trust-line { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; } .trust-line li { white-space: normal; } .trust-line li:nth-child(4) { display: list-item; } }
+
+/* Logo-Reihe: grössere, klarere Logos in abgerundeten Kacheln (breite Wortmarken füllen die Breite) */
+.brand-row-logo { width: 96px; height: 56px; border-radius: 14px; border: 1px solid var(--line); background: #fff; }
+.brand-row-logo img { padding: 6px 8px; image-rendering: auto; }
+.brand-row-item { min-width: 0; }
+.brand-row-name { font-size: .78rem; }
+@media (max-width: 599px) { .brand-row-logo { width: 56px; height: 42px; border-radius: 10px; } .brand-row-logo img { padding: 4px 5px; } .brand-row-name { font-size: .62rem; } }
+@media (min-width: 900px) { .brand-row-inner { gap: 22px; } .brand-row-logo { width: 164px; height: 88px; border-radius: 18px; } .brand-row-logo img { padding: 10px 14px; } .brand-row-item:hover .brand-row-logo, .brand-row-item.is-active .brand-row-logo { border-color: var(--red); box-shadow: 0 6px 18px rgba(0,0,0,.08); } .brand-row-name { font-size: .95rem; } }
+.brand-row-logo img { box-sizing: border-box; }
+@media (max-width: 599px) { .hero-panel-product .hero-panel-cap { flex-direction: column; align-items: stretch; gap: 10px; } .hero-panel-product .hero-panel-buy { display: flex; justify-content: space-between; align-items: center; } }
