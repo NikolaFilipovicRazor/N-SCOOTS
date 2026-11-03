@@ -98,7 +98,7 @@
     const cell = (k, v) => `<div><span>${k}</span><strong>${v == null ? "offen" : esc(v)}</strong></div>`;
     const s0 = p.specs || {};
     const specGrid = isAcc ? "" : `<div class="card-specgrid">
-        ${cell(si("motor", "Motor"), s0.motorW ? F.num(s0.motorW, "W") + (s0.motors === 2 ? " · 2×" : "") : null)}
+        ${cell(si("motor", "Motor"), s0.motorW ? (s0.motors === 2 ? "2 × " + F.num(s0.motorW / 2, "W") : F.num(s0.motorW, "W")) : null)}
         ${cell(si("battery", "Akku"), akkuText(s0) || (s0.batteryWh ? F.num(s0.batteryWh, "Wh") : null))}
         ${cell(si("range", "Reichweite*"), s0.rangeKm ? F.num(s0.rangeKm, "km") : null)}
         ${cell(si("speed", "Tempo*"), s0.speedKmh ? F.num(s0.speedKmh, "km/h") : null)}
@@ -486,7 +486,7 @@
           <h2 style="margin-top:8px">Technische Daten</h2>
           <table class="spec-table">
             <tbody>
-              ${row(si("motor", "Motor (nominal)"), s.motorW ? F.num(s.motorW, "W") + (s.motors === 2 ? " · 2 Motoren" : s.motors === 1 ? " · 1 Motor" : "") : null)}
+              ${row(si("motor", "Motor (nominal)"), s.motorW ? (s.motors === 2 ? "2 × " + F.num(s.motorW / 2, "W") + " (" + F.num(s.motorW, "W") + " gesamt)" : F.num(s.motorW, "W")) : null)}
               ${row(si("peak", "Spitzenleistung"), s.peakW, "W")}
               ${row(si("battery", "Akku"), akkuText(s))}
               ${row(si("wh", "Kapazität"), s.batteryWh, "Wh")}

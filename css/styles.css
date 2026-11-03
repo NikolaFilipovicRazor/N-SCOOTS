@@ -854,3 +854,5 @@ button.gallery-main .media-badge { pointer-events: none; }
 .catalog-layout .card-media.is-product { aspect-ratio: 1 / 1; }
 .catalog-layout .card-media.is-product img { padding: 3%; }
 .card-media.is-product img { image-rendering: auto; }
+@media (min-width: 1200px) { .catalog-layout .product-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
+.catalog-layout .card { border-color: #e6e8ee; } .catalog-layout .card:hover { box-shadow: 0 14px 34px rgba(0,0,0,.09); border-color: #d6d9e0; }
