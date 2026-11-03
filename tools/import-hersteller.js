@@ -31,7 +31,7 @@ for (const brand of fs.readdirSync(src)) {
       try {
         const isProduct = im.kind === "product";
         // Transparenz auf Weiss legen (sonst schwarz), dann skalieren
-        execFileSync("ffmpeg", ["-loglevel", "error", "-y", "-i", im.file, "-filter_complex", `[0:v]format=rgba,scale='min(${isProduct ? 1200 : 1600},iw)':-2[img];color=white[bg];[bg][img]scale2ref[bg2][img2];[bg2][img2]overlay=format=auto:shortest=1,format=rgb24`, "-q:v", isProduct ? "4" : "5", dst]);
+        execFileSync("ffmpeg", ["-loglevel", "error", "-y", "-i", im.file, "-filter_complex", `[0:v]format=rgba,scale='min(${isProduct ? 1800 : 1600},iw)':-2[img];color=white[bg];[bg][img]scale2ref[bg2][img2];[bg2][img2]overlay=format=auto:shortest=1,format=rgb24`, "-q:v", isProduct ? "2" : "4", dst]);
         list.push({ src: `assets/photos/hersteller/${p.id}-${i + 1}.jpg`, alt: `${p.model}, ${isProduct ? "Produktbild" : "Lifestyle-Foto"} ${i + 1}`, status: "hersteller", kind: isProduct ? "produkt" : "lifestyle", credit: "Hersteller", license: `Herstellerbild, ${im.sourceUrl}`, page: p.matchedPageUrl || "", match: p.matchQuality });
       } catch (e) { console.warn("skip", im.file, e.message.split("\n")[0]); }
     });

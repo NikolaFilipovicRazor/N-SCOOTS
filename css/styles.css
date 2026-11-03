@@ -847,3 +847,10 @@ button.gallery-main .media-badge { pointer-events: none; }
 @media (min-width: 900px) { .brand-row-inner { gap: 22px; } .brand-row-logo { width: 164px; height: 88px; border-radius: 18px; } .brand-row-logo img { padding: 10px 14px; } .brand-row-item:hover .brand-row-logo, .brand-row-item.is-active .brand-row-logo { border-color: var(--red); box-shadow: 0 6px 18px rgba(0,0,0,.08); } .brand-row-name { font-size: .95rem; } }
 .brand-row-logo img { box-sizing: border-box; }
 @media (max-width: 599px) { .hero-panel-product .hero-panel-cap { flex-direction: column; align-items: stretch; gap: 10px; } .hero-panel-product .hero-panel-buy { display: flex; justify-content: space-between; align-items: center; } }
+
+/* Katalog: grössere Kacheln, quadratische Bildfläche, Filter links */
+@media (min-width: 900px) { .catalog-layout .product-grid { grid-template-columns: repeat(2, 1fr); gap: 22px; } }
+@media (min-width: 1500px) { .catalog-layout .product-grid { grid-template-columns: repeat(3, 1fr); } }
+.catalog-layout .card-media.is-product { aspect-ratio: 1 / 1; }
+.catalog-layout .card-media.is-product img { padding: 3%; }
+.card-media.is-product img { image-rendering: auto; }
