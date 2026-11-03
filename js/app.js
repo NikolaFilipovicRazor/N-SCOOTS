@@ -18,7 +18,7 @@
     return `<img src="${esc(r.src)}" alt="${esc(alt || r.alt)}" width="1100" height="760" ${r.product ? 'class="is-product"' : ""} ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" onerror="window.NSCOOTS_MEDIA_API.broken(this)">` + (marks && r.photo ? MA.marks(r) : "");
   };
   const isProductImg = (p, i = 0) => { const r = pimgs(p)[i] || pimgs(p)[0]; return !!(r && r.product); };
-  const lieferTag = (p) => { const s = (p.lieferbarkeit && p.lieferbarkeit.status) || ""; if (!s) return ""; const cls = /nicht lieferbar/.test(s) ? "tag" : /Vorbestellung/.test(s) ? "tag tag-accent" : "tag tag-ok"; const short = /nicht lieferbar/.test(s) ? "Zurzeit nicht lieferbar" : /Vorbestellung/.test(s) ? "Vorbestellung" : "Lieferbar"; return `<span class="${cls}" title="${esc(s)} (Stand ${F.date(p.lieferbarkeit.checked)}, E-Rydez)">${short}</span>`; };
+  const lieferTag = (p) => p.category === "zubehoer" ? `<span class="tag tag-ok">Lieferbar auf Anfrage</span>` : `<span class="tag tag-ok" title="Lieferzeit auf Anfrage, meist kurzfristig. Abholung oder Lieferung schweizweit.">Lieferbar auf Anfrage</span>`;
   const abeTag = (p) => p.specs && p.specs.abe ? `<span class="tag">ABE · ${p.specs.speedKmh || 20} km/h</span>` : "";
   const canHover = () => window.matchMedia("(hover: hover)").matches;
   const placeholderAlt = (p) => { const r = pimgs(p)[0]; return r && r.photo ? r.alt : `Platzhalter-Silhouette für ${p.model}, kein Produktfoto`; };
@@ -326,7 +326,7 @@
     <div class="wrap">
       <div class="page-head">
         <h1>${st.kat ? esc(catName(st.kat)) : "Alle Modelle"}</h1>
-        <p class="muted">Premium Scooter von KuKirin, Joyor, Teverun, Dualtron, Rovoron und Ausom. Preise in CHF, Lieferstatus je Modell.</p>
+        <p class="muted">Premium Scooter von KuKirin, Joyor, Teverun, Dualtron, Rovoron und Ausom. Preise in CHF, Lieferzeit auf Anfrage.</p>
       </div>
       <div class="catalog-layout">
         <div>
@@ -481,7 +481,7 @@
             <button class="btn btn-accent" type="button" data-action="add" data-id="${p.id}">In den Warenkorb (Demo)</button>
             ${isAcc ? "" : `<button class="btn btn-ghost" type="button" data-action="compare" data-id="${p.id}" aria-pressed="${inCompare}">${inCompare ? "Im Vergleich" : "Vergleichen"}</button>`}
           </div>
-          ${notice(`<strong>Lieferbarkeit:</strong> ${esc(p.lieferbarkeit ? p.lieferbarkeit.status : "offen")} (Stand ${F.date(p.lieferbarkeit && p.lieferbarkeit.checked)}). ${esc(D.meta.kontakt.abholung || "")}.`, true)}
+          ${notice(`<strong>Lieferbarkeit:</strong> auf Anfrage, meist kurzfristig. Frag uns kurz auf WhatsApp. ${esc(D.meta.kontakt.abholung || "")}.`, true)}
           ${isAcc ? "" : `
           <h2 style="margin-top:8px">Technische Daten</h2>
           <table class="spec-table">
@@ -509,7 +509,7 @@
           </table>
           ${notice("Reichweiten sind Herstellerangaben unter deren Testbedingungen (leichter Fahrer, flache Strecke, Eco-Modus). Im Alltag ist deutlich weniger üblich. Eine Zusage ist das nicht.")}
           <details class="fold"><summary>Angaben und Prüfdatum</summary>
-            <p class="small muted">Technische Daten sind Herstellerangaben${p.specsSource ? ` (<a href="${esc(p.specsSource)}" rel="noopener" target="_blank">Quelle</a>)` : ""}, zuletzt geprüft am ${F.date(p.specsChecked || p.price.checked || D.meta.dataVersion)}. Preise und Lieferstatus Stand ${F.date(D.meta.dataVersion)}. Angaben wurden nicht selbst gemessen.</p>
+            <p class="small muted">Technische Daten sind Herstellerangaben${p.specsSource ? ` (<a href="${esc(p.specsSource)}" rel="noopener" target="_blank">Quelle</a>)` : ""}, zuletzt geprüft am ${F.date(p.specsChecked || p.price.checked || D.meta.dataVersion)}. Preise Stand ${F.date(D.meta.dataVersion)}. Angaben wurden nicht selbst gemessen.</p>
           </details>
           <details class="fold"><summary>Strasse oder Gelände?</summary>
             <p>In der Schweiz strassenzugelassen sind die als eKFV- bzw. CH-Edition gekennzeichneten 20 km/h-Modelle (Angabe des Herstellers, Nachweis wird vor Verkaufsstart geprüft). Eine deutsche ABE oder ein CE-Zeichen reicht für die Schweiz nicht automatisch. Alle anderen Modelle sind für Privatgelände gedacht.</p>

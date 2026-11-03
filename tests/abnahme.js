@@ -72,7 +72,7 @@ const results = []; const ok = (name, cond, info = "") => { results.push({ name,
     await page.goto(BASE + "#/produkt/kukirin-g2-master"); await page.waitForSelector(".pdp");
     ok(`${label}: PDP Titel`, (await page.locator("h1").textContent()).includes("G2 Master"));
     ok(`${label}: PDP Preis`, (await page.locator(".price-block .price").textContent()).includes("CHF 869.–"));
-    ok(`${label}: PDP Lieferstatus sichtbar`, (await page.locator(".pdp-status").textContent()).includes("Vorbestellung"));
+    ok(`${label}: PDP Lieferstatus sichtbar`, (await page.locator(".pdp-status").textContent()).includes("Lieferbar auf Anfrage"));
     ok(`${label}: PDP ohne Händler-Beschriftung am Bild`, (await page.locator("#gallery-main .media-credit").count()) === 0);
     ok(`${label}: PDP CH-Status`, (await page.locator(".pdp-status .tag-signal").textContent()).includes("Privatgelände"));
     await page.goto(BASE + "#/produkt/teverun-fighter-mini-pro-ekfv"); await page.waitForSelector(".pdp");

@@ -6,7 +6,7 @@
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const KNOWN = ["fehlt", "frei", "freigegeben", "lieferant", "hersteller"];
   const PHOTOS = "assets/photos/";
-  const SUPPLIER = { credit: "E-Rydez", label: "Freigabe ausstehend" };
+  const SUPPLIER = { credit: "", label: "" };
   const warned = new Set();
   // Symbolische Referenzen "hersteller:<produkt-id>:<lifestyle|produkt>:<n>" auf die aktuelle Datei auflösen
   // (die Nummerierung der importierten Herstellerbilder kann sich bei jedem Import ändern)
