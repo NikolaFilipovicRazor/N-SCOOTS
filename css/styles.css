@@ -893,3 +893,49 @@ html { font-size: 17px; }
 .brand-row-item[data-brand="ausom"] img { max-height: 90%; max-width: 92%; }
 @media (min-width: 900px) { .brand-row-logo { width: 150px; height: 76px; } .brand-row-inner { gap: 30px; } }
 @media (max-width: 599px) { .brand-row-logo { width: 56px; height: 36px; } }
+
+/* Typografie ausbalanciert: Grundschrift zurück, Überschriften kräftig, mehr Luft in Karten */
+html { font-size: 16px; }
+@media (min-width: 900px) { html { font-size: 17px; } }
+.card-body { padding: 16px 16px 14px; gap: 10px; }
+.card-title { font-size: 1.3rem; line-height: 1.15; }
+.card-specgrid div { padding: 9px 10px; }
+.card-specgrid span { font-size: .76rem; } .card-specgrid strong { font-size: .95rem; }
+.card-legal { font-size: .82rem; padding: 8px 0; }
+.card-tags .tag, .tag { font-size: .78rem; }
+.price { font-size: 1.5rem; }
+.card-actions { padding: 12px 16px 16px; gap: 8px; }
+.spec-table th, .spec-table td, .compare-table { font-size: .92rem; }
+.trust-line { font-size: .92rem; }
+.chip-tab { font-size: .92rem; }
+.profile-grid-4 .profile-body { padding: 14px; } .profile-grid-4 .profile-body p { font-size: .9rem; }
+.story-tile p { font-size: .95rem; }
+.hero-grid .hero-body p { font-size: 1.05rem; }
+.section-head p.muted, .page-head p.muted { font-size: 1rem; }
+.catalog-layout .card-media.is-product img { padding: 5%; }
+.product-row > .card { flex-basis: 82vw; max-width: 340px; }
+
+/* ===== Kontrolle: Bild- und Layoutkorrekturen ===== */
+.wm-img { width: auto; height: auto; max-height: 34px; max-width: 100%; display: block; }
+@media (min-width: 720px) { .wm-img { max-height: 38px; } }
+.wm-img-footer { max-height: 40px; }
+.gallery-main.is-product { aspect-ratio: 1 / 1; }
+.gallery-main.is-product img { object-fit: contain; padding: 3%; background: #fff; }
+.gallery-main:not(.is-product) img { object-fit: cover; }
+.gallery-thumbs button { background: var(--surface); }
+.gallery-thumbs button:has(img.is-product) { background: #fff; }
+.gallery-thumbs button img.is-product { object-fit: contain; padding: 6%; }
+.card-media.is-product { aspect-ratio: 1 / 1; }
+.card-media.is-product img { padding: 4%; }
+.card-logo { width: auto; max-width: 76px; height: 26px; border-radius: 6px; padding: 3px 6px; }
+.card-specgrid span { white-space: normal; overflow: visible; text-overflow: clip; display: block; font-size: .78rem; line-height: 1.2; }
+.card-specgrid strong { white-space: nowrap; overflow-wrap: normal; font-size: .95rem; }
+.card-specgrid div { padding: 8px 8px; }
+@media (max-width: 599px) { .product-grid, .catalog-layout .product-grid, .brand-panel .product-grid { grid-template-columns: 1fr; } .card-specgrid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 600px) and (max-width: 899px) { .card-specgrid { grid-template-columns: repeat(2, 1fr); } }
+.spec-table th { overflow-wrap: normal; hyphens: auto; }
+.tag, .card-tags .tag, .media-count, .card-legal, .pay-badges span, .brand-row-name, .wordmark-sub, .price-note, .card-brand { font-size: max(.82rem, 14px); }
+.card-specgrid span { font-size: max(.78rem, 13px); }
+.usp-band-track { -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 70px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 70px), transparent); }
+.card-actions .btn { font-size: .85rem; padding: 0 8px; }
+.card-specgrid strong { white-space: normal; overflow-wrap: anywhere; }

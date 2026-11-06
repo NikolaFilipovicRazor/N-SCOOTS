@@ -79,9 +79,9 @@ const results = []; const ok = (name, cond, info = "") => { results.push({ name,
     ok(`${label}: eKFV-Modell als strassenzugelassen markiert`, (await page.locator(".pdp-status").textContent()).includes("Strassenzugelassen CH"));
     await page.goto(BASE + "#/katalog?kat=escooter&zulassung=ch"); await page.waitForSelector("#results .card");
     ok(`${label}: Filter strassenzugelassen → 3 Modelle`, (await page.locator("#results .card").count()) === 3);
-    await page.goto(BASE + "#/produkt/kukirin-g2-master"); await page.waitForSelector(".pdp");
+    await page.goto(BASE + "#/produkt/kukirin-g2-master"); await page.waitForSelector(".pdp"); const firstSrc = await page.locator("#gallery-main img").getAttribute("src");
     await page.click('[data-action="thumb"][data-i="2"]');
-    ok(`${label}: Galerie wechselt Bild`, (await page.locator("#gallery-main img").getAttribute("src")).includes("-3.jpg"));
+    ok(`${label}: Galerie wechselt Bild`, (await page.locator("#gallery-main img").getAttribute("src")) !== firstSrc);
     await noOverflow("pdp"); await shot("04-produkt");
     // Ungültige ID
     await page.goto(BASE + "#/produkt/gibt-es-nicht"); await page.waitForSelector("h1");

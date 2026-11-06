@@ -89,7 +89,7 @@
     return `<span class="price">Preis offen</span>`;
   };
   const SPEC_ICON = { motor: "⚡", peak: "🚀", battery: "🔋", wh: "🔌", range: "🛣️", speed: "🏁", weight: "⚖️", load: "🧍", tires: "🛞", brakes: "🛑", ip: "💧", fold: "📐", legal: "🇨🇭", abe: "📄", charge: "⏱️", climb: "⛰️", suspension: "🪃", lights: "💡", display: "📟", brand: "🏷️", price: "💰", use: "🎯" };
-  const si = (k, label) => `<span class="spec-ico" aria-hidden="true">${SPEC_ICON[k] || ""}</span>${label}`;
+  const si = (k, label) => `<span class="spec-ico" aria-hidden="true">${SPEC_ICON[k] || ""}</span>&nbsp;${label}`;
   const akkuText = (s) => s.batteryV && s.batteryAh ? `${s.batteryV} V · ${s.batteryAh} Ah` : (s.batteryV ? `${s.batteryV} V` : null);
   function productCard(p, { compact = false } = {}) {
     const inCompare = S.compare().includes(p.id);
@@ -108,7 +108,7 @@
     const legalLine = isAcc ? "" : `<div class="card-legal ${p.streetLegalCH ? "ok" : ""}">${p.streetLegalCH ? "Strassenzugelassen CH" : p.category === "edirtbike" ? "Für Privatgelände" : p.specs.abe ? `Deutsche ABE · ${p.specs.speedKmh || 20} km/h` : "Für private Fahrflächen"}</div>`;
     return `
     <article class="card" data-id="${p.id}">
-      <div class="card-media${pimgs(p).length > 1 && canHover() ? " has-alt" : ""}${isProductImg(p) ? " is-product" : ""}">${img(p, 0, { alt: placeholderAlt(p) })}${pimgs(p).length > 1 && canHover() ? `<img class="alt" src="${esc(imgSrc(p, 1))}" alt="" loading="lazy" decoding="async" width="1100" height="760" onerror="this.closest('.card-media').classList.remove('has-alt');this.remove()">` : ""}${pimgs(p).length > 1 ? `<span class="media-count" aria-hidden="true">${pimgs(p).length} Bilder</span>` : ""}</div>
+      <div class="card-media${pimgs(p).length > 1 && canHover() && imgSrc(p, 1) !== imgSrc(p, 0) ? " has-alt" : ""}${isProductImg(p) ? " is-product" : ""}">${img(p, 0, { alt: placeholderAlt(p) })}${pimgs(p).length > 1 && canHover() ? `<img class="alt" src="${esc(imgSrc(p, 1))}" alt="" loading="lazy" decoding="async" width="1100" height="760" onerror="this.closest('.card-media').classList.remove('has-alt');this.remove()">` : ""}${pimgs(p).length > 1 ? `<span class="media-count" aria-hidden="true">${pimgs(p).length} Bilder</span>` : ""}</div>
       <div class="card-body">
         <div class="card-head">${lg ? `<img class="card-logo" src="${esc(lg)}" alt="${esc(brandName(p.brand))}" loading="lazy">` : ""}<div class="card-brand">${esc(p.brand ? brandName(p.brand) : catName(p.category))}${p.segment ? " · " + esc(segName(p.segment)) : p.category === "edirtbike" ? " · Dirtbike" : ""}</div></div>
         <h3 class="card-title"><a href="#/produkt/${p.id}">${esc(p.model)}</a></h3>
@@ -526,7 +526,7 @@
       const b = e.target.closest('[data-action="thumb"]'); if (!b) return;
       const i = Number(b.dataset.i);
       const r = pimgs(p)[i]; const alt = (r ? r.alt : placeholderAlt(p)) + `, Ansicht ${i + 1}`;
-      $("#gallery-main").innerHTML = img(p, i, { eager: true, alt });
+      $("#gallery-main").innerHTML = img(p, i, { eager: true, alt }); $("#gallery-main").classList.toggle("is-product", !!(pimgs(p)[i] && pimgs(p)[i].product));
       $("#gallery-main").dataset.i = i; $("#gallery-main").setAttribute("aria-label", `Bild vergrössern: ${alt}`);
       document.querySelectorAll('[data-action="thumb"]').forEach((t) => t.setAttribute("aria-pressed", String(t === b)));
     }, { signal: ac.signal });

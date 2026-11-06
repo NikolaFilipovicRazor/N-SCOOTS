@@ -64,9 +64,9 @@ for (const p of ALL) {
   const chLegal = ekfv ? "Strassenzugelassen Schweiz (Herstellerangabe, 20 km/h-Version)" : abe ? "Deutsche ABE (20–25 km/h), keine Schweizer Zulassung ausgewiesen" : "Nicht strassenzugelassen in der Schweiz, für Privatgelände";
   const url = p._url;
   const imgs = p.images.slice(0, 3).map((im, i) => `produkte/${p.handle}-${i + 1}.jpg`); // alle Bilder liegen als JPG vor
-  const variants = p.variants.filter((v) => v.title !== "Default Title").map((v) => ({ id: String(v.id), name: v.title, note: `Referenzpreis ${Number(v.price).toFixed(0)} CHF${v.available ? "" : ", laut E-Rydez zurzeit nicht lieferbar"}` }));
+  const variants = p.variants.filter((v) => v.title !== "Default Title").map((v) => ({ id: String(v.id), name: (/^(Ja|Nein)$/.test(v.title) && p.options && p.options[0] ? `${p.options[0].name}: ${v.title}` : v.title).replace(/ß/g, "ss").replace(/ version\b/g, " Version"), note: `Referenzpreis ${Number(v.price).toFixed(0)} CHF${v.available ? "" : ", laut E-Rydez zurzeit nicht lieferbar"}` }));
   products.push({
-    id: p.handle, brand, model: pretty(p.title), fullTitle: p.title,
+    id: p.handle, brand, model: pretty(p.title) + (/\(Gelb\)/i.test(p.title) ? " Gelb" : /\(Schwarz\)/i.test(p.title) ? " Schwarz" : ""), fullTitle: p.title,
     category: isPart ? "zubehoer" : isDirt ? "edirtbike" : "escooter", segment,
     summary: isPart ? `Ersatzteile für ${pretty(p.title).replace(/ Ersatzteile$/, "")}: ${p.variants.slice(0, 4).map((v) => v.title).join(", ")}${p.variants.length > 4 ? " und mehr" : ""}.` : lines.filter((l) => !/Vorbestellung|^[🔋🕤⚡⚙️📡📋🏍️🛡️🔑✓]/.test(l) && l.length > 30)[0] || `${pretty(p.title)}: ${battery || ""}${motor ? ", " + motor : ""}.`,
     /* N SCOOTS-Einführungspreis = Marktpreis des Quell-Händlers (Stand Prüfdatum), unverbindlich bis Verkaufsstart */
@@ -125,5 +125,5 @@ window.NSCOOTS_DATA = {
   dirtbikes: ${JSON.stringify(data.dirtbikes, null, 2)}
 };
 `;
-fs.writeFileSync(path.join(__dirname, "..", "data", "products.js"), out);
+fs.writeFileSync(path.join(__dirname, "..", "data", "products.js"), out.replace(/ß/g, "ss"));
 console.log(`${products.length} Produkte geschrieben (${products.filter((p) => p.category === "escooter").length} E-Scooter, ${products.filter((p) => p.category === "edirtbike").length} Dirtbike, ${products.filter((p) => p.category === "zubehoer").length} Ersatzteile)`);

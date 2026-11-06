@@ -1552,7 +1552,7 @@ window.NSCOOTS_DATA = {
   {
     "id": "teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb",
     "brand": "teverun",
-    "model": "Teverun Blade Mini Ultra",
+    "model": "Teverun Blade Mini Ultra Gelb",
     "fullTitle": "Teverun Blade Mini Ultra 60V 27Ah Akku, 2x1000W (Gelb)",
     "category": "escooter",
     "segment": "offroad",
@@ -1629,7 +1629,7 @@ window.NSCOOTS_DATA = {
   {
     "id": "teverun-blade-mini-ultra-60v-27ah-akku-1000w-2",
     "brand": "teverun",
-    "model": "Teverun Blade Mini Ultra",
+    "model": "Teverun Blade Mini Ultra Schwarz",
     "fullTitle": "Teverun Blade Mini Ultra 60V 27Ah Akku, 2x1000W (Schwarz)",
     "category": "escooter",
     "segment": "offroad",
@@ -2649,7 +2649,7 @@ window.NSCOOTS_DATA = {
       },
       {
         "id": "56980991115590",
-        "name": "Batterie -V3 version",
+        "name": "Batterie -V3 Version",
         "note": "Referenzpreis 304 CHF"
       },
       {
@@ -2659,7 +2659,7 @@ window.NSCOOTS_DATA = {
       },
       {
         "id": "56980991443270",
-        "name": "Display-Armaturenbrett -V3 version (TFM13 -FEIMI-4)",
+        "name": "Display-Armaturenbrett -V3 Version (TFM13 -FEIMI-4)",
         "note": "Referenzpreis 64 CHF"
       },
       {
@@ -2689,7 +2689,7 @@ window.NSCOOTS_DATA = {
       },
       {
         "id": "56980991738182",
-        "name": "Controller -SZ-V4 version (blauer Anschluss) (Kompatibel mit QS version)",
+        "name": "Controller -SZ-V4 Version (blauer Anschluss) (Kompatibel mit QS Version)",
         "note": "Referenzpreis 90 CHF"
       },
       {
@@ -2773,7 +2773,7 @@ window.NSCOOTS_DATA = {
       },
       {
         "id": "56980988625222",
-        "name": "Display-Armaturenbrett (5 Pin) -C version (TFM13 -FEIMI-4)",
+        "name": "Display-Armaturenbrett (5 Pin) -C Version (TFM13 -FEIMI-4)",
         "note": "Referenzpreis 64 CHF"
       },
       {
@@ -2783,7 +2783,7 @@ window.NSCOOTS_DATA = {
       },
       {
         "id": "56980988690758",
-        "name": "Display-Armaturenbrett (Farbdisplay) -E version",
+        "name": "Display-Armaturenbrett (Farbdisplay) -E Version",
         "note": "Referenzpreis 74 CHF"
       },
       {
@@ -2819,7 +2819,7 @@ window.NSCOOTS_DATA = {
     "fullTitle": "KuKirin G2 Master Ersatzteile",
     "category": "zubehoer",
     "segment": null,
-    "summary": "Ersatzteile für KuKirin G2 Master: Pneumatischer Reifen (Stück) -2024 Version, Vorderer Motor (ohne Innen- und Außenreifen) -A version (dreieckiger Anschluss), Hinterradmotor (ohne Schlauch und Reifen) -A Version (Dreiecksanschluss), Schlauchloser Reifen -2025 Version und mehr.",
+    "summary": "Ersatzteile für KuKirin G2 Master: Pneumatischer Reifen (Stück) -2024 Version, Vorderer Motor (ohne Innen- und Aussenreifen) -A version (dreieckiger Anschluss), Hinterradmotor (ohne Schlauch und Reifen) -A Version (Dreiecksanschluss), Schlauchloser Reifen -2025 Version und mehr.",
     "price": {
       "chf": 30,
       "kind": "shop",
@@ -2842,7 +2842,7 @@ window.NSCOOTS_DATA = {
       },
       {
         "id": "56980984168774",
-        "name": "Vorderer Motor (ohne Innen- und Außenreifen) -A version (dreieckiger Anschluss)",
+        "name": "Vorderer Motor (ohne Innen- und Aussenreifen) -A Version (dreieckiger Anschluss)",
         "note": "Referenzpreis 174 CHF"
       },
       {
@@ -2857,7 +2857,7 @@ window.NSCOOTS_DATA = {
       },
       {
         "id": "56980984267078",
-        "name": "Vorderer Motor -B version (gerader Anschluss)",
+        "name": "Vorderer Motor -B Version (gerader Anschluss)",
         "note": "Referenzpreis 184 CHF"
       },
       {
@@ -2986,7 +2986,7 @@ window.NSCOOTS_DATA = {
       },
       {
         "id": "56980982661446",
-        "name": "Display-Armaturenbrett-Kit -B version (Kompatibel mit A version)",
+        "name": "Display-Armaturenbrett-Kit -B Version (Kompatibel mit A Version)",
         "note": "Referenzpreis 100 CHF"
       },
       {
@@ -3035,7 +3035,7 @@ window.NSCOOTS_DATA = {
     "variants": [
       {
         "id": "56980995834182",
-        "name": "Bremsscheibe (140mm) -A version",
+        "name": "Bremsscheibe (140mm) -A Version",
         "note": "Referenzpreis 34 CHF"
       },
       {
@@ -3045,7 +3045,7 @@ window.NSCOOTS_DATA = {
       },
       {
         "id": "56980995998022",
-        "name": "Vorderrad (11.8 mm) -B version",
+        "name": "Vorderrad (11.8 mm) -B Version",
         "note": "Referenzpreis 70 CHF"
       },
       {
@@ -3070,12 +3070,12 @@ window.NSCOOTS_DATA = {
       },
       {
         "id": "56980996292934",
-        "name": "Batterie -C version",
+        "name": "Batterie -C Version",
         "note": "Referenzpreis 494 CHF"
       },
       {
         "id": "56980996489542",
-        "name": "Display-Armaturenbrett-Kit -B version (Kompatibel mit A version)",
+        "name": "Display-Armaturenbrett-Kit -B Version (Kompatibel mit A Version)",
         "note": "Referenzpreis 100 CHF"
       },
       {
