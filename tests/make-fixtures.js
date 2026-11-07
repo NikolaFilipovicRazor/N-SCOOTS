@@ -15,5 +15,8 @@ const { chromium } = require("playwright"); const fs = require("fs"); const path
     }, i);
     fs.writeFileSync(path.join(__dirname, "fixtures", names[i] + ".jpg"), Buffer.from(data.split(",")[1], "base64"));
   }
-  await b.close(); console.log("Fixtures:", names.length);
+  await b.close();
+  // Kurzes synthetisches Testvideo (kein echtes Material) für den Hero-Video-Test
+  try { require("child_process").execFileSync("ffmpeg", ["-loglevel", "error", "-y", "-f", "lavfi", "-i", "testsrc=size=640x360:rate=24", "-t", "2", "-pix_fmt", "yuv420p", "-an", path.join(__dirname, "fixtures", "hero-ride.mp4")]); } catch (e) { console.warn("ffmpeg fehlt, kein Testvideo:", e.message.split("\n")[0]); }
+  console.log("Fixtures:", names.length + (fs.existsSync(path.join(__dirname, "fixtures", "hero-ride.mp4")) ? 1 : 0));
 })();

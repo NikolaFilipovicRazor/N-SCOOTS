@@ -63,19 +63,21 @@ for (const p of ALL) {
   if (ekfv) segment = "alltag"; else if (!isPart && !isDirt) segment = limited && motors === 1 ? "alltag" : (bWh && bWh >= 1500) || (motors === 2 && offroadTag) ? "offroad" : motors === 2 || (bWh && bWh >= 900) ? "touren" : "alltag";
   const chLegal = ekfv ? "Strassenzugelassen Schweiz (Herstellerangabe, 20 km/h-Version)" : abe ? "Deutsche ABE (20–25 km/h), keine Schweizer Zulassung ausgewiesen" : "Nicht strassenzugelassen in der Schweiz, für Privatgelände";
   const url = p._url;
-  const imgs = p.images.slice(0, 3).map((im, i) => `produkte/${p.handle}-${i + 1}.jpg`); // alle Bilder liegen als JPG vor
+  // Händlerfotos werden NICHT eingebettet, nur verlinkt (Freigabe ausstehend); auf der Website erscheinen Herstellerbilder oder Platzhalter
+  const supplierPhotos = p.images.map((im) => ({ url: im.src, page: url, source: p._src === "swiss-scoots" ? "swiss-scoots.ch" : "e-rydez.ch", status: "Freigabe ausstehend", checked: p._checked }));
+  const imgs = [];
   const variants = p.variants.filter((v) => v.title !== "Default Title").map((v) => ({ id: String(v.id), name: (/^(Ja|Nein)$/.test(v.title) && p.options && p.options[0] ? `${p.options[0].name}: ${v.title}` : v.title).replace(/ß/g, "ss").replace(/ version\b/g, " Version"), note: `Referenzpreis ${Number(v.price).toFixed(0)} CHF${v.available ? "" : ", laut E-Rydez zurzeit nicht lieferbar"}` }));
   products.push({
     id: p.handle, brand, model: pretty(p.title) + (/\(Gelb\)/i.test(p.title) ? " Gelb" : /\(Schwarz\)/i.test(p.title) ? " Schwarz" : ""), fullTitle: p.title,
     category: isPart ? "zubehoer" : isDirt ? "edirtbike" : "escooter", segment,
     summary: isPart ? `Ersatzteile für ${pretty(p.title).replace(/ Ersatzteile$/, "")}: ${p.variants.slice(0, 4).map((v) => v.title).join(", ")}${p.variants.length > 4 ? " und mehr" : ""}.` : lines.filter((l) => !/Vorbestellung|^[🔋🕤⚡⚙️📡📋🏍️🛡️🔑✓]/.test(l) && l.length > 30)[0] || `${pretty(p.title)}: ${battery || ""}${motor ? ", " + motor : ""}.`,
-    /* N SCOOTS-Einführungspreis = Marktpreis des Quell-Händlers (Stand Prüfdatum), unverbindlich bis Verkaufsstart */
-    price: { chf: minPrice, kind: "shop", basis: p._src, source: url, checked: p._checked, note: isPart || variants.length ? "Preis ab (günstigste Ausführung). Einführungspreis, unverbindlich bis Verkaufsstart." : "Einführungspreis, unverbindlich bis Verkaufsstart.", from: isPart || variants.length > 0 },
+    /* Referenzpreis = Preis des Quell-Händlers am Prüfdatum (kind "referenz"), kein N SCOOTS-Preis */
+    price: { chf: minPrice, kind: "referenz", basis: p._src, source: url, checked: p._checked, note: isPart || variants.length ? "Referenzpreis ab (günstigste Ausführung), Stand Prüfdatum. Kein N SCOOTS-Preis." : "Referenzpreis, Stand Prüfdatum. Kein N SCOOTS-Preis.", from: isPart || variants.length > 0 },
     lieferbarkeit: isPart ? { status: available ? "lieferbar" : "zurzeit nicht lieferbar", checked: p._checked } : available ? (preorder ? { status: `Vorbestellung${preDate ? ", voraussichtlich " + preDate : ""}`, checked: p._checked } : { status: "lieferbar", checked: p._checked }) : { status: "zurzeit nicht lieferbar", checked: p._checked },
     specs: isPart ? {} : { motorW, peakW, motors, batteryV: bV, batteryAh: bAh, batteryWh: bWh, rangeKm, speedKmh, weightKg: num(weight), maxLoadKg: num(load), ekfv, tires: (t.match(/Bereifung:\s*([^\n]+)/) || t.match(/(\d{2}'' [^\n]*reifen)/i) || [])[1] || null, brakes: (t.match(/Bremsen:\s*([^\n]+)/) || t.match(/(Hydraulische Bremsen[^\n|]*)/i) || [])[1] || null, ip: (t.match(/\bIP\d\d\b/) || [])[0] || null, foldable: null, abe, limited },
     variants, chLegal: isPart ? null : chLegal, streetLegalCH: !!ekfv && !isPart,
     sources: [{ url, checked: p._checked, note: `Händlerseite ${p._src === "swiss-scoots" ? "swiss-scoots.ch" : "e-rydez.ch"} (Preis, Akku, Motor, Reichweite, Lieferstatus${ekfv ? ", Zulassungsangabe" : ""})` }],
-    images: imgs
+    images: imgs, supplierPhotos
   });
 }
 // Herstellerangaben (tools/quellen/specs-hersteller.json, von den offiziellen Herstellerseiten) über die Händlerdaten legen
@@ -108,9 +110,10 @@ const out = `/* N SCOOTS – Produktdaten (automatisch erzeugt aus dem E-Rydez-K
  * Quellen: ${src.quelle} (abgerufen ${CHECKED}) und ${src2.quelle} (nur eKFV-Modelle mit
  * ausgewiesener CH-Strassenzulassung), gesichert unter tools/quellen/.
  * Neu erzeugen: node tools/import-erydez.js
- * Technische Angaben sind Händler-/Herstellerangaben. Preise (kind "shop") sind
- * N SCOOTS-Einführungspreise auf dem Niveau des Quell-Händlers (price.basis,
- * price.source), unverbindlich bis Verkaufsstart. Reichweiten: Herstellerangaben.
+ * Technische Angaben sind Händler-/Herstellerangaben. Preise (kind "referenz")
+ * sind Referenzpreise des Quell-Händlers am Prüfdatum (price.basis, price.source),
+ * keine N SCOOTS-Preise. Reichweiten: Herstellerangaben. supplierPhotos: Händler-
+ * fotos nur als Link, Freigabe ausstehend, nicht eingebettet.
  * chLegal: nur eKFV-/CH-Edition-Modelle sind laut Händler in der Schweiz
  * strassenzugelassen; ABE-Modelle haben eine deutsche Betriebserlaubnis; alle
  * anderen sind für Privatgelände. Vor Verkaufsstart je Ausführung anhand

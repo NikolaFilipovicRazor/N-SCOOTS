@@ -5,7 +5,6 @@
   const FALLBACK = IMG + "fehlt.svg";
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const KNOWN = ["fehlt", "frei", "freigegeben", "lieferant", "hersteller"];
-  const PHOTOS = "assets/photos/";
   const SUPPLIER = { credit: "", label: "" };
   const warned = new Set();
   // Symbolische Referenzen "hersteller:<produkt-id>:<lifestyle|produkt>:<n>" auf die aktuelle Datei auflösen
@@ -17,9 +16,11 @@
   })();
   const norm = (m) => { const st = String(m && m.status || "").trim().toLowerCase(); if (m && m.src && !KNOWN.includes(st) && !warned.has(m.src)) { warned.add(m.src); console.warn(`Medien-Manifest: unbekannter status "${m.status}" bei ${m.src}; wird wie "fehlt" behandelt.`); } return st; };
   const usable = (m) => { const st = norm(m); return !!(m && m.src && (st === "frei" || st === "freigegeben" || st === "lieferant" || st === "hersteller")); };
-  // Händler-/Herstellerfotos: keine Beschriftung am Bild (Nachweis in ASSETS.md und Footer)
+  // Hersteller-/Produktfotos: keine Beschriftung am Bild; freie Stimmungsfotos tragen den Hinweis «Symbolbild»
   const labelOf = (m) => { const st = norm(m); if (st === "lieferant" || st === "hersteller") return ""; return m.kind === "symbol" ? "Symbolbild" : ""; };
-  const creditOf = (m) => { const st = norm(m); return (st === "lieferant" || st === "hersteller") ? "" : (m.credit || ""); };
+  // Keine Bildnachweise am Bild (Entscheid Website): Credits und Lizenzen stehen im Manifest und in ASSETS.md.
+  // Unsplash- und Pexels-Lizenz verlangen keine Namensnennung; Symbolbilder bleiben als solche beschriftet.
+  const creditOf = () => "";
 
   // Liefert {src, alt, photo:boolean, label}. placeholder = Pfad des SVG-Platzhalters.
   function resolve(m, placeholder, altFallback) {
@@ -50,9 +51,7 @@
   function productImages(p) {
     const list = (M.products && M.products[p.id]) ? M.products[p.id].filter(usable) : [];
     if (list.length) return list.map((m) => ({ src: m.src, alt: (m.alt || p.model) + (m.kind === "symbol" ? ", Symbolbild" : ""), photo: true, product: m.kind !== "lifestyle", lifestyle: m.kind === "lifestyle", label: labelOf(m), credit: creditOf(m) }));
-    // Lieferanten-Produktfotos (assets/photos/produkte/…): Freigabe ausstehend, sichtbar gekennzeichnet
-    const sup = (p.images || []).filter((f) => /^produkte\//.test(f));
-    if (sup.length) return sup.map((f, i) => ({ src: PHOTOS + f, alt: `${p.model}, Produktfoto ${i + 1}`, photo: true, product: true, label: "", credit: "" }));
+    // Händlerfotos (e-rydez.ch) werden nicht eingebettet (nur verlinkt in products.js, Freigabe ausstehend); ohne Herstellerbild folgt der Platzhalter
     return (p.images || []).map((f, i) => ({ src: IMG + f, alt: `Platzhalter-Silhouette für ${p.model}, Ansicht ${i + 1}, kein Produktfoto`, photo: false, label: "Platzhalter", credit: "" }));
   }
   function heroVideo() {

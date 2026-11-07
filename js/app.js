@@ -124,7 +124,7 @@
     </article>`;
   }
   const notice = (text, neutral = false) => `<div class="notice${neutral ? " notice-neutral" : ""}">${icons.info}<p>${text}</p></div>`;
-  const refNote = `<p class="small muted">* Preise in CHF. Einführungspreise der Shop-Vorschau, unverbindlich bis Verkaufsstart.</p>`;
+  const refNote = `<p class="small muted">* Preise in CHF: Referenzpreise aus fremden Angeboten (Stand Prüfdatum), keine N SCOOTS-Preise.</p>`;
 
   /* ---------- Startseite ---------- */
   function viewHome() {
@@ -472,7 +472,7 @@
           <p>${esc(p.summary)}</p>
           <div class="price-block">
             <div>${priceHtml(p, true)}</div>
-            <p class="small muted" style="margin:0">${esc(p.price.note)} Inkl. MwSt., Versand wird vor Verkaufsstart festgelegt.</p>
+            <p class="small muted" style="margin:0">${esc(p.price.note)} Quelle und Prüfdatum unter «Angaben und Prüfdatum».</p>
           </div>
           ${p.variants.length ? `<fieldset class="variant-list" id="variants"><legend class="visually-hidden">Ausführung</legend>
             ${p.variants.map((v, i) => `<label class="variant"><input type="radio" name="variant" value="${v.id}" ${i === 0 ? "checked" : ""}><span><strong>${esc(v.name)}</strong><span>${esc(v.note)}</span></span></label>`).join("")}
@@ -692,7 +692,7 @@
       <div class="page-head"><h1>Gut zu wissen</h1><p class="muted">Was dieser Prototyp zeigt und was vor dem Verkaufsstart noch offen ist.</p></div>
       <div class="help-grid" style="margin-bottom:28px">
         <div class="help-step"><h3>Demo-Status</h3><p>Es gibt noch keinen Verkauf, keine Bestellung und keine Zahlung. Warenkorb und Vergleich sind Funktionsdemos.</p></div>
-        <div class="help-step"><h3>Preise</h3><p>Einführungspreise in CHF auf aktuellem Schweizer Marktniveau, unverbindlich bis Verkaufsstart.</p></div>
+        <div class="help-step"><h3>Preise</h3><p>Referenzpreise in CHF aus fremden Angeboten, mit Quelle und Prüfdatum. Eigene Verkaufspreise folgen zum Verkaufsstart.</p></div>
         <div class="help-step"><h3>Zulassung</h3><p>Strassenzugelassen sind die gekennzeichneten 20 km/h-Modelle (eKFV / CH-Edition). Alle anderen Modelle sind für Privatgelände. Vor dem Verkaufsstart prüfen wir jedes Modell anhand offizieller Schweizer Quellen.</p></div>
       </div>
       <h2>Reichweite richtig lesen</h2>
@@ -908,7 +908,7 @@
   $("#brand-row").innerHTML = `<div class="wrap brand-row-inner">${D.brands.map((b) => { const lg = MA.logo(b.id); const n = D.products.filter((p) => p.brand === b.id && p.category !== "zubehoer").length; return `<a class="brand-row-item" href="#/katalog?marke=${b.id}" data-brand="${b.id}" aria-label="${esc(b.name)}, ${n} Modelle"><span class="brand-row-logo">${lg ? `<img src="${esc(lg)}" alt="" width="64" height="64" loading="eager" decoding="async">` : `<span class="brand-initial" aria-hidden="true">${esc(b.name[0])}</span>`}</span><span class="brand-row-name">${esc(b.name)}</span></a>`; }).join("")}</div>`;
   {
     const k = D.meta.kontakt;
-    const items = ["🇨🇭 Schweizer Lieferant & Importeur", ...D.brands.map((b) => b.name), "Premium Scooter", "E-Dirtbikes", "🚚 Schnell & einfach geliefert", "🔒 Sicher bezahlen", "💬 Support 24/7 auf WhatsApp", k.abholung || "", "Shop-Vorschau · Einführungspreise unverbindlich", "Ersatzteile & Service"].filter(Boolean);
+    const items = ["🇨🇭 Schweizer Lieferant & Importeur", ...D.brands.map((b) => b.name), "Premium Scooter", "E-Dirtbikes", "🚚 Schnell & einfach geliefert", "🔒 Sicher bezahlen", "💬 Support 24/7 auf WhatsApp", k.abholung || "", "Shop-Vorschau · Referenzpreise, keine Verkaufspreise", "Ersatzteile & Service"].filter(Boolean);
     const track = $("#usp-band-track");
     track.innerHTML = [0, 1].map((rep) => `<span class="usp-band-group" ${rep ? 'aria-hidden="true"' : ""}>${items.map((x) => `<span class="usp-item">${esc(x)}</span><span class="usp-dot" aria-hidden="true">•</span>`).join("")}</span>`).join("");
     const tgl = $("#usp-band-toggle");

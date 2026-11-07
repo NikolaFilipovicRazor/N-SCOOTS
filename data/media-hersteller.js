@@ -1,40 +1,11 @@
 /* Automatisch erzeugt: node tools/import-hersteller.js – offizielle Herstellerbilder und Logos.
  * status "hersteller": Bilder von den offiziellen Herstellerseiten (Quelle je Bild in "license").
- * Nutzung als Händler üblich, schriftliche Freigabe vor Verkaufsstart einholen (siehe ASSETS.md). */
+ * Nutzung als Händler üblich, schriftliche Freigabe vor Verkaufsstart einholen (siehe ASSETS.md).
+ * Händlerfotos (e-rydez.ch) sind nicht mehr eingebettet; sie stehen nur als Links in data/products.js (supplierPhotos). */
 (function () {
   const H = {
  "products": {
   "joyor-s5-abe-48v-500w": [
-   {
-    "src": "assets/photos/produkte/joyor-s5-abe-48v-500w-1.jpg",
-    "alt": "Joyor S5 ABE, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/joyor-s5-abe-48v-500w-2.jpg",
-    "alt": "Joyor S5 ABE, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/joyor-s5-abe-48v-500w-3.jpg",
-    "alt": "Joyor S5 ABE, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
    {
     "src": "assets/photos/hersteller/joyor-s5-abe-48v-500w-1.jpg",
     "alt": "Joyor S5 ABE, Produktbild 1",
@@ -147,26 +118,6 @@
    }
   ],
   "joyor-s5z-48v-13ah-600w": [
-   {
-    "src": "assets/photos/produkte/joyor-s5z-48v-13ah-600w-2.jpg",
-    "alt": "Joyor S5-Z, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/joyor-s5z-48v-13ah-600w-3.jpg",
-    "alt": "Joyor S5-Z, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
    {
     "src": "assets/photos/hersteller/joyor-s5z-48v-13ah-600w-1.jpg",
     "alt": "Joyor S5-Z, Produktbild 1",
@@ -299,36 +250,6 @@
    }
   ],
   "joyor-t6-48v-18ah-600w": [
-   {
-    "src": "assets/photos/produkte/joyor-t6-48v-18ah-600w-1.jpg",
-    "alt": "Joyor T6, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/joyor-t6-48v-18ah-600w-2.jpg",
-    "alt": "Joyor T6, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/joyor-t6-48v-18ah-600w-3.jpg",
-    "alt": "Joyor T6, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
    {
     "src": "assets/photos/hersteller/joyor-t6-48v-18ah-600w-1.jpg",
     "alt": "Joyor T6, Produktbild 1",
@@ -482,36 +403,6 @@
   ],
   "joyor-s8-48v-26ah-600w": [
    {
-    "src": "assets/photos/produkte/joyor-s8-48v-26ah-600w-1.jpg",
-    "alt": "Joyor S8, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/joyor-s8-48v-26ah-600w-2.jpg",
-    "alt": "Joyor S8, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/joyor-s8-48v-26ah-600w-3.jpg",
-    "alt": "Joyor S8, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
     "src": "assets/photos/hersteller/joyor-s8-48v-26ah-600w-1.jpg",
     "alt": "Joyor S8, Produktbild 1",
     "status": "hersteller",
@@ -614,26 +505,6 @@
   ],
   "joyor-t6e-48v-500w-abe": [
    {
-    "src": "assets/photos/produkte/joyor-t6e-48v-500w-abe-1.jpg",
-    "alt": "Joyor T6E ABE, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/joyor-t6e-48v-500w-abe-3.jpg",
-    "alt": "Joyor T6E ABE, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
     "src": "assets/photos/hersteller/joyor-t6e-48v-500w-abe-1.jpg",
     "alt": "Joyor T6E ABE, Produktbild 1",
     "status": "hersteller",
@@ -672,16 +543,6 @@
     "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0622/2161/5174/files/JoyorT6_b12626c8-0d09-407d-b166-613c010abf7b.png",
     "page": "https://joyorprime.com/products/joyor-t6e",
     "match": "exact"
-   },
-   {
-    "src": "assets/photos/produkte/joyor-t6e-48v-500w-abe-2.jpg",
-    "alt": "Joyor T6E ABE, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
    },
    {
     "src": "assets/photos/hersteller/joyor-t6e-48v-500w-abe-5.jpg",
@@ -805,36 +666,6 @@
    }
   ],
   "joyor-s10sz-60v-18ah-2x1000w": [
-   {
-    "src": "assets/photos/produkte/joyor-s10sz-60v-18ah-2x1000w-1.jpg",
-    "alt": "Joyor S10-S-Z, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/joyor-s10sz-60v-18ah-2x1000w-2.jpg",
-    "alt": "Joyor S10-S-Z, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/joyor-s10sz-60v-18ah-2x1000w-3.jpg",
-    "alt": "Joyor S10-S-Z, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
    {
     "src": "assets/photos/hersteller/joyor-s10sz-60v-18ah-2x1000w-1.jpg",
     "alt": "Joyor S10-S-Z, Produktbild 1",
@@ -988,36 +819,6 @@
   ],
   "joyor-t10-60v-18ah-2x1000w": [
    {
-    "src": "assets/photos/produkte/joyor-t10-60v-18ah-2x1000w-1.jpg",
-    "alt": "Joyor T10, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/joyor-t10-60v-18ah-2x1000w-2.jpg",
-    "alt": "Joyor T10, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/joyor-t10-60v-18ah-2x1000w-3.jpg",
-    "alt": "Joyor T10, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
     "src": "assets/photos/hersteller/joyor-t10-60v-18ah-2x1000w-1.jpg",
     "alt": "Joyor T10, Produktbild 1",
     "status": "hersteller",
@@ -1129,36 +930,6 @@
    }
   ],
   "ausom-f1-max": [
-   {
-    "src": "assets/photos/produkte/ausom-f1-max-1.jpg",
-    "alt": "Ausom F1 Max, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/ausom-f1-max-2.jpg",
-    "alt": "Ausom F1 Max, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/ausom-f1-max-3.jpg",
-    "alt": "Ausom F1 Max, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
    {
     "src": "assets/photos/hersteller/ausom-f1-max-1.jpg",
     "alt": "Ausom F1 Max, Produktbild 1",
@@ -1351,36 +1122,6 @@
    }
   ],
   "ausom-l2-max-dual-motor": [
-   {
-    "src": "assets/photos/produkte/ausom-l2-max-dual-motor-1.jpg",
-    "alt": "Ausom L2 Max Dual, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/ausom-l2-max-dual-motor-2.jpg",
-    "alt": "Ausom L2 Max Dual, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/ausom-l2-max-dual-motor-3.jpg",
-    "alt": "Ausom L2 Max Dual, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
    {
     "src": "assets/photos/hersteller/ausom-l2-max-dual-motor-1.jpg",
     "alt": "Ausom L2 Max Dual, Produktbild 1",
@@ -1594,36 +1335,6 @@
   ],
   "ausom-dt2-pro": [
    {
-    "src": "assets/photos/produkte/ausom-dt2-pro-1.jpg",
-    "alt": "Ausom DT2 Pro, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/ausom-dt2-pro-2.jpg",
-    "alt": "Ausom DT2 Pro, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/ausom-dt2-pro-3.jpg",
-    "alt": "Ausom DT2 Pro, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
     "src": "assets/photos/hersteller/ausom-dt2-pro-1.jpg",
     "alt": "Ausom DT2 Pro, Produktbild 1",
     "status": "hersteller",
@@ -1835,36 +1546,6 @@
    }
   ],
   "ausom-l1-max": [
-   {
-    "src": "assets/photos/produkte/ausom-l1-max-1.jpg",
-    "alt": "Ausom L1 Max, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/ausom-l1-max-2.jpg",
-    "alt": "Ausom L1 Max, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/ausom-l1-max-3.jpg",
-    "alt": "Ausom L1 Max, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
    {
     "src": "assets/photos/hersteller/ausom-l1-max-1.jpg",
     "alt": "Ausom L1 Max, Produktbild 1",
@@ -2098,36 +1779,6 @@
   ],
   "dualtron-victor-ltd-dgt-60v-37-1ah-samsung": [
    {
-    "src": "assets/photos/produkte/dualtron-victor-ltd-dgt-60v-37-1ah-samsung-1.jpg",
-    "alt": "Dualtron Victor LTD, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/dualtron-victor-ltd-dgt-60v-37-1ah-samsung-2.jpg",
-    "alt": "Dualtron Victor LTD, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/dualtron-victor-ltd-dgt-60v-37-1ah-samsung-3.jpg",
-    "alt": "Dualtron Victor LTD, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
     "src": "assets/photos/hersteller/dualtron-victor-ltd-dgt-60v-37-1ah-samsung-1.jpg",
     "alt": "Dualtron Victor LTD, Produktbild 1",
     "status": "hersteller",
@@ -2220,26 +1871,6 @@
   ],
   "rovoron-s7": [
    {
-    "src": "assets/photos/produkte/rovoron-s7-1.jpg",
-    "alt": "Rovoron S7, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/rovoron-s7-2.jpg",
-    "alt": "Rovoron S7, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
     "src": "assets/photos/hersteller/rovoron-s7-1.jpg",
     "alt": "Rovoron S7, Produktbild 1",
     "status": "hersteller",
@@ -2312,36 +1943,6 @@
   ],
   "rovoron-r7": [
    {
-    "src": "assets/photos/produkte/rovoron-r7-1.jpg",
-    "alt": "Rovoron R7 / R7 Pro, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/rovoron-r7-2.jpg",
-    "alt": "Rovoron R7 / R7 Pro, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/rovoron-r7-3.jpg",
-    "alt": "Rovoron R7 / R7 Pro, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
     "src": "assets/photos/hersteller/rovoron-r7-1.jpg",
     "alt": "Rovoron R7 / R7 Pro, Produktbild 1",
     "status": "hersteller",
@@ -2413,16 +2014,6 @@
    }
   ],
   "teverun-blade-mini-pro-ch-edition": [
-   {
-    "src": "assets/photos/produkte/teverun-blade-mini-pro-ch-edition-1.jpg",
-    "alt": "Teverun Blade Mini Pro eKFV, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
    {
     "src": "assets/photos/hersteller/teverun-blade-mini-pro-ch-edition-1.jpg",
     "alt": "Teverun Blade Mini Pro eKFV, Produktbild 1",
@@ -2522,16 +2113,6 @@
     "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/09/blade-mini-pro-white-background.webp",
     "page": "https://teverun-europe.com/product/blade-mini-pro-ekfv-black/",
     "match": "exact"
-   },
-   {
-    "src": "assets/photos/produkte/teverun-blade-mini-pro-ch-edition-3.jpg",
-    "alt": "Teverun Blade Mini Pro eKFV, Ansicht 3",
-    "status": "lieferant",
-    "kind": "lifestyle",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
    },
    {
     "src": "assets/photos/hersteller/teverun-blade-mini-pro-ch-edition-3.jpg",
@@ -2645,36 +2226,6 @@
    }
   ],
   "teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb": [
-   {
-    "src": "assets/photos/produkte/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb-1.jpg",
-    "alt": "Teverun Blade Mini Ultra (gelb), Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb-2.jpg",
-    "alt": "Teverun Blade Mini Ultra (gelb), Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb-3.jpg",
-    "alt": "Teverun Blade Mini Ultra (gelb), Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
    {
     "src": "assets/photos/hersteller/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb-1.jpg",
     "alt": "Teverun Blade Mini Ultra (gelb), Produktbild 1",
@@ -2858,26 +2409,6 @@
   ],
   "teverun-blade-mini-ultra-60v-27ah-akku-1000w-2": [
    {
-    "src": "assets/photos/produkte/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-2.jpg",
-    "alt": "Teverun Blade Mini Ultra (schwarz), Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-3.jpg",
-    "alt": "Teverun Blade Mini Ultra (schwarz), Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
     "src": "assets/photos/hersteller/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-1.jpg",
     "alt": "Teverun Blade Mini Ultra (schwarz), Produktbild 1",
     "status": "hersteller",
@@ -2936,16 +2467,6 @@
     "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/8170786581c477a9d9b9643d6673400e.jpg",
     "page": "https://teverun-europe.com/product/blade-mini-ultra-black/",
     "match": "exact"
-   },
-   {
-    "src": "assets/photos/produkte/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-1.jpg",
-    "alt": "Teverun Blade Mini Ultra (schwarz), Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
    },
    {
     "src": "assets/photos/hersteller/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-4.jpg",
@@ -3060,16 +2581,6 @@
   ],
   "teverun-blade-mini-ultra-ch-edition": [
    {
-    "src": "assets/photos/produkte/teverun-blade-mini-ultra-ch-edition-1.jpg",
-    "alt": "Teverun Blade Mini Ultra eKFV, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
     "src": "assets/photos/hersteller/teverun-blade-mini-ultra-ch-edition-1.jpg",
     "alt": "Teverun Blade Mini Ultra eKFV, Produktbild 1",
     "status": "hersteller",
@@ -3168,16 +2679,6 @@
     "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/8e358813494e2924bc5626c71d8aff9d.jpg",
     "page": "https://teverun-europe.com/product/blade-mini-ultra-ekfv-yellow/",
     "match": "exact"
-   },
-   {
-    "src": "assets/photos/produkte/teverun-blade-mini-ultra-ch-edition-3.jpg",
-    "alt": "Teverun Blade Mini Ultra eKFV, Ansicht 3",
-    "status": "lieferant",
-    "kind": "lifestyle",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
    },
    {
     "src": "assets/photos/hersteller/teverun-blade-mini-ultra-ch-edition-3.jpg",
@@ -3291,36 +2792,6 @@
    }
   ],
   "teverun-blade-gt-ii": [
-   {
-    "src": "assets/photos/produkte/teverun-blade-gt-ii-1.jpg",
-    "alt": "Teverun Blade GT II, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/teverun-blade-gt-ii-2.jpg",
-    "alt": "Teverun Blade GT II, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/teverun-blade-gt-ii-3.jpg",
-    "alt": "Teverun Blade GT II, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
    {
     "src": "assets/photos/hersteller/teverun-blade-gt-ii-7.jpg",
     "alt": "Teverun Blade GT II, Produktbild 7",
@@ -3544,36 +3015,6 @@
   ],
   "teverun-fighter-mini-pro": [
    {
-    "src": "assets/photos/produkte/teverun-fighter-mini-pro-1.jpg",
-    "alt": "Teverun Fighter Mini Pro, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/teverun-fighter-mini-pro-2.jpg",
-    "alt": "Teverun Fighter Mini Pro, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/teverun-fighter-mini-pro-3.jpg",
-    "alt": "Teverun Fighter Mini Pro, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
     "src": "assets/photos/hersteller/teverun-fighter-mini-pro-1.jpg",
     "alt": "Teverun Fighter Mini Pro, Produktbild 1",
     "status": "hersteller",
@@ -3755,36 +3196,6 @@
    }
   ],
   "teverun-blade-gt-ii-plus": [
-   {
-    "src": "assets/photos/produkte/teverun-blade-gt-ii-plus-1.jpg",
-    "alt": "Teverun Blade GT II+, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/teverun-blade-gt-ii-plus-2.jpg",
-    "alt": "Teverun Blade GT II+, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/teverun-blade-gt-ii-plus-3.jpg",
-    "alt": "Teverun Blade GT II+, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
    {
     "src": "assets/photos/hersteller/teverun-blade-gt-ii-plus-9.jpg",
     "alt": "Teverun Blade GT II+, Produktbild 9",
@@ -3998,26 +3409,6 @@
   ],
   "teverun-fighter-mini-pro-ekfv": [
    {
-    "src": "assets/photos/produkte/teverun-fighter-mini-pro-ekfv-1.jpg",
-    "alt": "Teverun Fighter Mini Pro eKFV, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/teverun-fighter-mini-pro-ekfv-3.jpg",
-    "alt": "Teverun Fighter Mini Pro eKFV, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
     "src": "assets/photos/hersteller/teverun-fighter-mini-pro-ekfv-1.jpg",
     "alt": "Teverun Fighter Mini Pro eKFV, Produktbild 1",
     "status": "hersteller",
@@ -4138,16 +3529,6 @@
     "match": "exact"
    },
    {
-    "src": "assets/photos/produkte/teverun-fighter-mini-pro-ekfv-2.jpg",
-    "alt": "Teverun Fighter Mini Pro eKFV, Ansicht 2",
-    "status": "lieferant",
-    "kind": "lifestyle",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
     "src": "assets/photos/hersteller/teverun-fighter-mini-pro-ekfv-12.jpg",
     "alt": "Teverun Fighter Mini Pro eKFV, Foto 12",
     "status": "hersteller",
@@ -4220,26 +3601,6 @@
   ],
   "teverun-fighter-supreme-7260r": [
    {
-    "src": "assets/photos/produkte/teverun-fighter-supreme-7260r-2.jpg",
-    "alt": "Teverun Fighter Supreme 7260R, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/teverun-fighter-supreme-7260r-3.jpg",
-    "alt": "Teverun Fighter Supreme 7260R, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
     "src": "assets/photos/hersteller/teverun-fighter-supreme-7260r-1.jpg",
     "alt": "Teverun Fighter Supreme 7260R, Produktbild 1",
     "status": "hersteller",
@@ -4278,16 +3639,6 @@
     "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/380d6bad4910529166b1119b47d248ed.jpg",
     "page": "https://teverun-europe.com/product/supreme-7260r/",
     "match": "exact"
-   },
-   {
-    "src": "assets/photos/produkte/teverun-fighter-supreme-7260r-1.jpg",
-    "alt": "Teverun Fighter Supreme 7260R, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
    },
    {
     "src": "assets/photos/hersteller/teverun-fighter-supreme-7260r-5.jpg",
@@ -4562,36 +3913,6 @@
     "match": "exact"
    },
    {
-    "src": "assets/photos/produkte/kukirin-g2-1.jpg",
-    "alt": "KuKirin G2, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/kukirin-g2-2.jpg",
-    "alt": "KuKirin G2, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/kukirin-g2-3.jpg",
-    "alt": "KuKirin G2, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
     "src": "assets/photos/hersteller/kukirin-g2-10.jpg",
     "alt": "KuKirin G2, Lifestyle-Foto 10",
     "status": "hersteller",
@@ -4643,16 +3964,6 @@
    }
   ],
   "kukirin-g2-abe": [
-   {
-    "src": "assets/photos/produkte/kukirin-g2-abe-1.jpg",
-    "alt": "KuKirin G2 ABE, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
    {
     "src": "assets/photos/hersteller/kukirin-g2-abe-1.jpg",
     "alt": "KuKirin G2 ABE, Produktbild 1",
@@ -4744,26 +4055,6 @@
     "match": "variant"
    },
    {
-    "src": "assets/photos/produkte/kukirin-g2-abe-2.jpg",
-    "alt": "KuKirin G2 ABE, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/kukirin-g2-abe-3.jpg",
-    "alt": "KuKirin G2 ABE, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
     "src": "assets/photos/hersteller/kukirin-g2-abe-10.jpg",
     "alt": "KuKirin G2 ABE, Lifestyle-Foto 10",
     "status": "hersteller",
@@ -4825,36 +4116,6 @@
    }
   ],
   "kukirin-g2-pro": [
-   {
-    "src": "assets/photos/produkte/kukirin-g2-pro-1.jpg",
-    "alt": "KuKirin G2 Pro, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/kukirin-g2-pro-2.jpg",
-    "alt": "KuKirin G2 Pro, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/kukirin-g2-pro-3.jpg",
-    "alt": "KuKirin G2 Pro, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
    {
     "src": "assets/photos/hersteller/kukirin-g2-pro-1.jpg",
     "alt": "KuKirin G2 Pro, Produktbild 1",
@@ -5038,36 +4299,6 @@
   ],
   "kukirin-g2-pro-abe": [
    {
-    "src": "assets/photos/produkte/kukirin-g2-pro-abe-1.jpg",
-    "alt": "KuKirin G2 Pro ABE, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/kukirin-g2-pro-abe-2.jpg",
-    "alt": "KuKirin G2 Pro ABE, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/kukirin-g2-pro-abe-3.jpg",
-    "alt": "KuKirin G2 Pro ABE, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
     "src": "assets/photos/hersteller/kukirin-g2-pro-abe-1.jpg",
     "alt": "KuKirin G2 Pro ABE, Produktbild 1",
     "status": "hersteller",
@@ -5250,36 +4481,6 @@
   ],
   "kukirin-g2-max-48v-20ah-akku-1000w": [
    {
-    "src": "assets/photos/produkte/kukirin-g2-max-48v-20ah-akku-1000w-1.jpg",
-    "alt": "KuKirin G2 Max, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/kukirin-g2-max-48v-20ah-akku-1000w-2.jpg",
-    "alt": "KuKirin G2 Max, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/kukirin-g2-max-48v-20ah-akku-1000w-3.jpg",
-    "alt": "KuKirin G2 Max, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
     "src": "assets/photos/hersteller/kukirin-g2-max-48v-20ah-akku-1000w-1.jpg",
     "alt": "KuKirin G2 Max, Produktbild 1",
     "status": "hersteller",
@@ -5432,26 +4633,6 @@
   ],
   "kukirin-g2-master": [
    {
-    "src": "assets/photos/produkte/kukirin-g2-master-1.jpg",
-    "alt": "KuKirin G2 Master, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/kukirin-g2-master-2.jpg",
-    "alt": "KuKirin G2 Master, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
     "src": "assets/photos/hersteller/kukirin-g2-master-1.jpg",
     "alt": "KuKirin G2 Master, Produktbild 1",
     "status": "hersteller",
@@ -5542,16 +4723,6 @@
     "match": "exact"
    },
    {
-    "src": "assets/photos/produkte/kukirin-g2-master-3.jpg",
-    "alt": "KuKirin G2 Master, Ansicht 3",
-    "status": "lieferant",
-    "kind": "lifestyle",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
     "src": "assets/photos/hersteller/kukirin-g2-master-8.jpg",
     "alt": "KuKirin G2 Master, Foto 8",
     "status": "hersteller",
@@ -5623,26 +4794,6 @@
    }
   ],
   "kukirin-g2-ultra-48v-18ah-akku-2-x-800w-dual-motor": [
-   {
-    "src": "assets/photos/produkte/kukirin-g2-ultra-48v-18ah-akku-2-x-800w-dual-motor-1.jpg",
-    "alt": "KuKirin G2 Ultra, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/kukirin-g2-ultra-48v-18ah-akku-2-x-800w-dual-motor-2.jpg",
-    "alt": "KuKirin G2 Ultra, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
    {
     "src": "assets/photos/hersteller/kukirin-g2-ultra-48v-18ah-akku-2-x-800w-dual-motor-1.jpg",
     "alt": "KuKirin G2 Ultra, Produktbild 1",
@@ -5764,16 +4915,6 @@
     "match": "exact"
    },
    {
-    "src": "assets/photos/produkte/kukirin-g2-ultra-48v-18ah-akku-2-x-800w-dual-motor-3.jpg",
-    "alt": "KuKirin G2 Ultra, Ansicht 3",
-    "status": "lieferant",
-    "kind": "lifestyle",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
     "src": "assets/photos/hersteller/kukirin-g2-ultra-48v-18ah-akku-2-x-800w-dual-motor-11.jpg",
     "alt": "KuKirin G2 Ultra, Foto 11",
     "status": "hersteller",
@@ -5865,36 +5006,6 @@
    }
   ],
   "kukirin-g3": [
-   {
-    "src": "assets/photos/produkte/kukirin-g3-1.jpg",
-    "alt": "KuKirin G3, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/kukirin-g3-2.jpg",
-    "alt": "KuKirin G3, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/kukirin-g3-3.jpg",
-    "alt": "KuKirin G3, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
    {
     "src": "assets/photos/hersteller/kukirin-g3-1.jpg",
     "alt": "KuKirin G3, Produktbild 1",
@@ -6068,26 +5179,6 @@
   ],
   "kukirin-g4": [
    {
-    "src": "assets/photos/produkte/kukirin-g4-1.jpg",
-    "alt": "KuKirin G4, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/kukirin-g4-3.jpg",
-    "alt": "KuKirin G4, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
     "src": "assets/photos/hersteller/kukirin-g4-1.jpg",
     "alt": "KuKirin G4, Produktbild 1",
     "status": "hersteller",
@@ -6228,16 +5319,6 @@
     "match": "exact"
    },
    {
-    "src": "assets/photos/produkte/kukirin-g4-2.jpg",
-    "alt": "KuKirin G4, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
     "src": "assets/photos/hersteller/kukirin-g4-15.jpg",
     "alt": "KuKirin G4, Lifestyle-Foto 15",
     "status": "hersteller",
@@ -6319,36 +5400,6 @@
    }
   ],
   "kukirin-m4-max-20255-48v-18ah-akku-800w": [
-   {
-    "src": "assets/photos/produkte/kukirin-m4-max-20255-48v-18ah-akku-800w-1.jpg",
-    "alt": "KuKirin M4 Max, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/kukirin-m4-max-20255-48v-18ah-akku-800w-2.jpg",
-    "alt": "KuKirin M4 Max, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/kukirin-m4-max-20255-48v-18ah-akku-800w-3.jpg",
-    "alt": "KuKirin M4 Max, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
    {
     "src": "assets/photos/hersteller/kukirin-m4-max-20255-48v-18ah-akku-800w-1.jpg",
     "alt": "KuKirin M4 Max, Produktbild 1",
@@ -6552,16 +5603,6 @@
   ],
   "kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike": [
    {
-    "src": "assets/photos/produkte/kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike-1.jpg",
-    "alt": "KuKirin X1, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
     "src": "assets/photos/hersteller/kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike-1.jpg",
     "alt": "KuKirin X1, Produktbild 1",
     "status": "hersteller",
@@ -6672,16 +5713,6 @@
     "match": "exact"
    },
    {
-    "src": "assets/photos/produkte/kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike-3.jpg",
-    "alt": "KuKirin X1, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
     "src": "assets/photos/hersteller/kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike-10.jpg",
     "alt": "KuKirin X1, Foto 10",
     "status": "hersteller",
@@ -6773,36 +5804,6 @@
    }
   ],
   "kukirin-s1-max-36v-10-4ah-akku-350w": [
-   {
-    "src": "assets/photos/produkte/kukirin-s1-max-36v-10-4ah-akku-350w-1.jpg",
-    "alt": "KuKirin S1 Max, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/kukirin-s1-max-36v-10-4ah-akku-350w-2.jpg",
-    "alt": "KuKirin S1 Max, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/kukirin-s1-max-36v-10-4ah-akku-350w-3.jpg",
-    "alt": "KuKirin S1 Max, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
    {
     "src": "assets/photos/hersteller/kukirin-s1-max-36v-10-4ah-akku-350w-1.jpg",
     "alt": "KuKirin S1 Max, Produktbild 1",
@@ -6955,36 +5956,6 @@
    }
   ],
   "kukirin-t3-2025-48v-15-6-ah-akku-800w": [
-   {
-    "src": "assets/photos/produkte/kukirin-t3-2025-48v-15-6-ah-akku-800w-1.jpg",
-    "alt": "KuKirin T3, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/kukirin-t3-2025-48v-15-6-ah-akku-800w-2.jpg",
-    "alt": "KuKirin T3, Ansicht 2",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
-   {
-    "src": "assets/photos/produkte/kukirin-t3-2025-48v-15-6-ah-akku-800w-3.jpg",
-    "alt": "KuKirin T3, Ansicht 3",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
-   },
    {
     "src": "assets/photos/hersteller/kukirin-t3-2025-48v-15-6-ah-akku-800w-1.jpg",
     "alt": "KuKirin T3, Produktbild 1",

@@ -1,6 +1,14 @@
 # Status des Prototyps
 
-Stand: 2026-10-30
+Stand: 2026-11-06
+
+## Stand 2026-11-06 (Katalog-Aktualisierung, freie Fotos, Hero-Video)
+
+- E-Rydez-Katalog neu abgerufen (2026-11-06, 38 Produkte): einzige Änderung gegenüber 2026-10-30 ist Teverun Fighter Mini Pro, jetzt «zurzeit nicht lieferbar». Preise sind wieder **Referenzpreise** (`price.kind = "referenz"`, Quelle und Prüfdatum je Produkt), keine Einführungs- oder Verkaufspreise; Texte auf der Website entsprechend angepasst.
+- Händlerfotos von e-rydez.ch/swiss-scoots.ch sind nicht mehr im Repository und werden nicht eingebettet (123 Dateien unter `assets/photos/produkte/` entfernt). Je Produkt sind die Bild-URLs als `supplierPhotos` mit Status «Freigabe ausstehend» verlinkt. Produktseiten zeigen die offiziellen Herstellerbilder.
+- Alle Stimmungs-Slots in `data/media.js` (Hero-Foto, drei Fahrprofile, drei Story-Bilder, sechs Marken-Kacheln, Dirtbikes, Nacht) sind mit frei lizenzierten Unsplash-Fotos belegt (Status `frei`, Credit und Lizenz im Manifest und in ASSETS.md). Sie sind Symbolbilder und als solche beschriftet; keine Fotografennamen am Bild (Entscheid Website).
+- Hero-Video: Pexels-Clip (Gustavo Fring), gekürzt auf 12 s, 1280 × 720, stumm, 1.9 MB, mit Poster-Standbild. Das Produktpanel im Hero erscheint nur, wenn kein Video vorhanden ist.
+- Abnahme: `node tests/abnahme.js` 115/115 und `node tests/abnahme-medien.js` 48/48 bestanden (390 px und 1440 px). `tests/make-fixtures.js` erzeugt jetzt auch ein synthetisches Testvideo. `tools/check-media.js` löst Herstellerverweise auf und zählt 16 freie Medien.
 
 ## Gestaltungskonzept (kurz)
 
@@ -36,13 +44,13 @@ Stand: 2026-10-30
 - Hero-Video stumm im Hintergrund mit Pause/Play-Button; bei `prefers-reduced-motion` startet es nicht
 - Parallax: Fotos bewegen sich beim Scrollen langsamer als die Seite (Hero, Fahrprofile, Story, Dirtbikes); Sektionen blenden sanft ein; alles im Ruhezustand sichtbar
 - Produktkarten mit Wechselbild beim Zeigen, Produktgalerie mit Lightbox (Pfeiltasten, Escape, Fokusrückgabe)
-- **Fotos eingebaut:** 114 Produktfotos von e-rydez.ch (Freigabe ausstehend, sichtbar gekennzeichnet), Hero mit grossem Produktbild, sechs frei lizenzierte Stimmungsfotos von Wikimedia Commons mit Namensnennung. Video fehlt noch (siehe ASSETS.md).
+- **Fotos eingebaut (Stand 2026-11-06):** 16 frei lizenzierte Unsplash-Symbolbilder in allen Stimmungs-Slots, Pexels-Hero-Video, offizielle Herstellerbilder je Modell. Händlerfotos nur verlinkt (siehe ASSETS.md).
 
 ## Sortiment (Stand 2026-10-30)
 
 - Zusätzlich drei in der Schweiz als strassenzugelassen ausgewiesene 20 km/h-Modelle (Teverun eKFV / CH-Edition) aus dem Katalog von swiss-scoots.ch; Filter «Strassenzugelassen CH» zeigt sie.
 - Die technischen Daten dieser drei Modelle werden aus dem Fliesstext der Quelle gelesen (Motor 500 W, Akku 1170/1560/1602 Wh, Reichweite 60/90/100 km, 20 km/h, 150 kg Zuladung); Stand 2026-10-30.
-- Preise sind jetzt N SCOOTS-Einführungspreise auf dem Niveau des jeweiligen Quell-Händlers (`price.basis`, `price.source`), unverbindlich bis Verkaufsstart; keine Händlernamen auf der Website.
+- Preise waren vorübergehend als Einführungspreise geführt; seit 2026-11-06 wieder Referenzpreise des Quell-Händlers (`price.basis`, `price.source`); keine Händlernamen auf der Website.
 - Produktbilder ohne Beschriftung am Bild; Herkunft und Freigabestatus in ASSETS.md.
 
 - Vollständiger Import des E-Rydez-Katalogs: 32 E-Scooter, 1 E-Dirtbike (KuKirin X1), 5 Ersatzteil-Sets; Marken KuKirin, Joyor, Teverun, Dualtron, Rovoron, Ausom.
@@ -73,7 +81,7 @@ Stand: 2026-10-30
 
 - Keine Bestellung, Zahlung, Kundenkonto, Formulare mit Datenversand
 - Keine Lagerbestände, Lieferfristen, Rabatte, Bewertungen, Garantieversprechen, Händlerautorisierungen, CH-Zulassungen
-- Keine fremden Fotos ausser Hersteller- und Lieferantenbildern (Freigabe vor Verkaufsstart, siehe ASSETS.md)
+- Keine fremden Fotos ausser Herstellerbildern (Freigabe vor Verkaufsstart) und frei lizenzierten Symbolbildern von Unsplash/Pexels (siehe ASSETS.md); Händlerfotos nur verlinkt
 
 ## Offene Produktionspunkte
 

@@ -29,7 +29,7 @@ Direktes Öffnen von `index.html` per Doppelklick funktioniert ebenfalls.)
 | `tools/check-media.js` | Zeigt, welche Medien fehlen oder noch keine Freigabe haben |
 | `data/products.js` | Produktdatei, **erzeugt aus dem E-Rydez-Katalog** (`node tools/import-erydez.js`), mit Quellen, Prüfdatum, Lieferstatus |
 | `tools/import-erydez.js`, `tools/quellen/erydez-products.json` | Importer und gesicherter Katalog-Feed von e-rydez.ch |
-| `assets/photos/produkte/` | Produktfotos von e-rydez.ch (Freigabe ausstehend, sichtbar gekennzeichnet) |
+| `assets/photos/hersteller/` | Offizielle Herstellerbilder je Modell (`data/media-hersteller.js`); Händlerfotos sind nur in `data/products.js` verlinkt (`supplierPhotos`, Freigabe ausstehend) |
 | `assets/img/` | Gekennzeichnete SVG-Platzhalter (keine Produktfotos), erzeugt mit `tools/make-placeholders.js` |
 | `assets/brand/` | Wortmarke und Favicon |
 | `ASSETS.md` | Asset-Verzeichnis mit Herkunft und Rechte-Status |
@@ -47,6 +47,7 @@ Direktes Öffnen von `index.html` per Doppelklick funktioniert ebenfalls.)
 
     python3 -m http.server 8080 &
     node tests/abnahme.js
+    node tests/make-fixtures.js && node tests/abnahme-medien.js
 
 Erzeugt Screenshots unter `tests/screenshots/` und prüft Suche, Filter, Produktseite, Vergleich, Warenkorb inkl. Neuladen,
 Tastaturnavigation, Dialoge, Konsolenfehler und horizontalen Überlauf.
@@ -58,7 +59,7 @@ Tastaturnavigation, Dialoge, Konsolenfehler und horizontalen Überlauf.
 3. `node tools/check-media.js` zeigt, was noch fehlt. Fehlende Slots zeigen automatisch den Platzhalter.
 
 Produktfotos einzelner Modelle nur mit Freigabe des Herstellers oder Händlers (`status: "freigegeben"`).
-Allgemeine Stimmungsfotos mit freier Lizenz (z. B. Unsplash-, Pexels-Lizenz) als `kind: "symbol"` eintragen; sie werden sichtbar als «Symbolbild» beschriftet.
+Allgemeine Stimmungsfotos mit freier Lizenz (Unsplash-, Pexels-Lizenz) als `kind: "symbol"` eintragen; sie werden sichtbar als «Symbolbild» beschriftet, Credits stehen im Manifest und in ASSETS.md. Stand 2026-11-06 sind alle Stimmungs-Slots und das Hero-Video so belegt.
 
 ## Produktdaten pflegen
 
@@ -68,7 +69,7 @@ Allgemeine Stimmungsfotos mit freier Lizenz (z. B. Unsplash-, Pexels-Lizenz) als
     node tools/import-erydez.js
 
 Alle Angaben sind Händlerangaben von e-rydez.ch mit Quelle und Prüfdatum.
-`price.kind` ist `referenz` (fremdes Angebot, kein N SCOOTS-Preis) oder `offen`.
+`price.kind` ist `referenz` (Referenzpreis des Quell-Händlers am Prüfdatum, kein N SCOOTS-Preis) oder `offen`. Händlerfotos werden nicht eingebettet, sondern je Produkt als `supplierPhotos` (URL, Produktseite, «Freigabe ausstehend») verlinkt.
 `chLegal` bleibt `nicht bestätigt`, bis ein Beleg je Ausführung vorliegt. Unbekannte Werte bleiben `null`.
 
 ## Online stellen

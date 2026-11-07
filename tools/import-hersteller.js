@@ -24,16 +24,8 @@ for (const brand of fs.readdirSync(src)) {
     // Alle offiziellen Bilder übernehmen (Produktbilder zuerst, dann Lifestyle); Duplikate per Bildhash aussortieren
     const prod = p.images.filter((i) => i.kind === "product" && fs.existsSync(i.file));
     const life = p.images.filter((i) => i.kind === "lifestyle" && fs.existsSync(i.file));
-    // Lieferantenbilder (E-Rydez-Sortiment, assets/photos/produkte) zuerst als Hauptbilder, danach die offiziellen Herstellerbilder
-    const seen = new Set(); const list = [];
-    const late = [];
-    for (let n = 1; n <= 12; n++) {
-      const f = path.join(root, "assets", "photos", "produkte", `${p.id}-${n}.jpg`); if (!fs.existsSync(f)) break;
-      if (SKIP.has(`${p.id}-${n}`)) continue; // zeigt ein anderes Modell oder ist eine Dublette
-      const h = dhash(f); if (h && [...seen].some((s) => hamming(s, h) <= 6)) continue; if (h) seen.add(h);
-      const sz = sizeOf(f); const entry = { src: `assets/photos/produkte/${p.id}-${n}.jpg`, alt: `${p.model}, Ansicht ${n}`, status: "lieferant", kind: p.id.includes("ersatzteile") ? "lifestyle" : "produkt", credit: "", license: "Lieferantenbild (Sortiment)", page: "", match: "" };
-      if (sz && sz.w < 1000) late.push(entry); else list.push(entry); // zu kleine Bilder hinter die Herstellerbilder
-    }
+    // Nur offizielle Herstellerbilder; Händlerfotos (e-rydez.ch) werden nicht eingebettet, sondern nur in data/products.js verlinkt
+    const seen = new Set(); const list = []; const late = [];
     const uniq = [];
     for (const im of [...prod, ...life]) { const h = dhash(im.file); if (h && [...seen].some((s) => hamming(s, h) <= 6)) continue; if (h) seen.add(h); uniq.push(im); }
     uniq.forEach((im, i) => {
