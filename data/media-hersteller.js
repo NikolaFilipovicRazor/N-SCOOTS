@@ -1372,8 +1372,8 @@
     "match": ""
    },
    {
-    "src": "assets/photos/hersteller/ausom-l2-max-dual-motor-4.jpg",
-    "alt": "Ausom L2 Max Dual, Produktbild 4",
+    "src": "assets/photos/hersteller/ausom-l2-max-dual-motor-3.jpg",
+    "alt": "Ausom L2 Max Dual, Produktbild 3",
     "status": "hersteller",
     "kind": "produkt",
     "credit": "Hersteller",
@@ -1382,8 +1382,8 @@
     "match": "exact"
    },
    {
-    "src": "assets/photos/hersteller/ausom-l2-max-dual-motor-6.jpg",
-    "alt": "Ausom L2 Max Dual, Produktbild 6",
+    "src": "assets/photos/hersteller/ausom-l2-max-dual-motor-5.jpg",
+    "alt": "Ausom L2 Max Dual, Produktbild 5",
     "status": "hersteller",
     "kind": "produkt",
     "credit": "Hersteller",
@@ -1392,8 +1392,8 @@
     "match": "exact"
    },
    {
-    "src": "assets/photos/hersteller/ausom-l2-max-dual-motor-11.jpg",
-    "alt": "Ausom L2 Max Dual, Produktbild 11",
+    "src": "assets/photos/hersteller/ausom-l2-max-dual-motor-10.jpg",
+    "alt": "Ausom L2 Max Dual, Produktbild 10",
     "status": "hersteller",
     "kind": "produkt",
     "credit": "Hersteller",
@@ -1427,7 +1427,7 @@
     "status": "hersteller",
     "kind": "produkt",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/1_44ce8e84-c835-4d5c-8119-c7c3dad88b6d.jpg?v=1747932926",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/2_ff082a27-85e6-4c56-8318-29a31d891ae7.jpg?v=1747932926",
     "page": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
     "match": "exact"
    },
@@ -1437,27 +1437,27 @@
     "status": "hersteller",
     "kind": "produkt",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/2_ff082a27-85e6-4c56-8318-29a31d891ae7.jpg?v=1747932926",
-    "page": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
-    "match": "exact"
-   },
-   {
-    "src": "assets/photos/hersteller/ausom-l2-max-dual-motor-3.jpg",
-    "alt": "Ausom L2 Max Dual, Produktbild 3",
-    "status": "hersteller",
-    "kind": "produkt",
-    "credit": "Hersteller",
     "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/8_ffa0024a-9083-4fe9-935c-3eeb89943337.jpg?v=1747932926",
     "page": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
     "match": "exact"
    },
    {
-    "src": "assets/photos/hersteller/ausom-l2-max-dual-motor-5.jpg",
-    "alt": "Ausom L2 Max Dual, Produktbild 5",
+    "src": "assets/photos/hersteller/ausom-l2-max-dual-motor-4.jpg",
+    "alt": "Ausom L2 Max Dual, Produktbild 4",
     "status": "hersteller",
     "kind": "produkt",
     "credit": "Hersteller",
     "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/5_87778178-9288-48c4-ae16-72acf8a59fd6.jpg?v=1747932926",
+    "page": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/ausom-l2-max-dual-motor-6.jpg",
+    "alt": "Ausom L2 Max Dual, Produktbild 6",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/9_33043168-31f3-4abe-8e93-69e7e14f9e71.jpg?v=1747932926",
     "page": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
     "match": "exact"
    },
@@ -1467,7 +1467,7 @@
     "status": "hersteller",
     "kind": "produkt",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/9_33043168-31f3-4abe-8e93-69e7e14f9e71.jpg?v=1747932926",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/10_dbde6320-e8e2-4ef4-803a-ce2acfb1eafc.jpg?v=1747932927",
     "page": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
     "match": "exact"
    },
@@ -1477,7 +1477,7 @@
     "status": "hersteller",
     "kind": "produkt",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/10_dbde6320-e8e2-4ef4-803a-ce2acfb1eafc.jpg?v=1747932927",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/11_a1c8c76d-01fc-4e62-b7a4-9029986ef329.jpg?v=1747932926",
     "page": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
     "match": "exact"
    },
@@ -1487,23 +1487,13 @@
     "status": "hersteller",
     "kind": "produkt",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/11_a1c8c76d-01fc-4e62-b7a4-9029986ef329.jpg?v=1747932926",
-    "page": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
-    "match": "exact"
-   },
-   {
-    "src": "assets/photos/hersteller/ausom-l2-max-dual-motor-10.jpg",
-    "alt": "Ausom L2 Max Dual, Produktbild 10",
-    "status": "hersteller",
-    "kind": "produkt",
-    "credit": "Hersteller",
     "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/12_dc389b5a-044a-450f-8476-609bdd45391d.jpg?v=1747932927",
     "page": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
     "match": "exact"
    },
    {
-    "src": "assets/photos/hersteller/ausom-l2-max-dual-motor-12.jpg",
-    "alt": "Ausom L2 Max Dual, Produktbild 12",
+    "src": "assets/photos/hersteller/ausom-l2-max-dual-motor-11.jpg",
+    "alt": "Ausom L2 Max Dual, Produktbild 11",
     "status": "hersteller",
     "kind": "produkt",
     "credit": "Hersteller",
@@ -1512,12 +1502,22 @@
     "match": "exact"
    },
    {
-    "src": "assets/photos/hersteller/ausom-l2-max-dual-motor-13.jpg",
-    "alt": "Ausom L2 Max Dual, Foto 13",
+    "src": "assets/photos/hersteller/ausom-l2-max-dual-motor-12.jpg",
+    "alt": "Ausom L2 Max Dual, Foto 12",
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
     "license": "Herstellerbild, https://www.ausom.com/cdn/shop/files/l2-max-dual-deck-new.jpg",
+    "page": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/ausom-l2-max-dual-motor-13.jpg",
+    "alt": "Ausom L2 Max Dual, Lifestyle-Foto 13",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/L2-MAX-DUAL-1_75d50f62-c659-4ac5-9c83-86521190ff04.jpg?v=1747932927",
     "page": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
     "match": "exact"
    },
@@ -1527,7 +1527,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/L2-MAX-DUAL-1_75d50f62-c659-4ac5-9c83-86521190ff04.jpg?v=1747932927",
+    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/L2-MAX-DUAL-2_3bb56048-a930-4c36-ae3a-d1e5b89a2651.jpg?v=1747932926",
     "page": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
     "match": "exact"
    },
@@ -1537,7 +1537,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://cdn.shopify.com/s/files/1/0937/3270/0462/files/L2-MAX-DUAL-2_3bb56048-a930-4c36-ae3a-d1e5b89a2651.jpg?v=1747932926",
+    "license": "Herstellerbild, https://www.ausom.com/cdn/shop/files/l2-max-dual-1_464f3562-4837-438c-8e34-9194e14f4913.jpg?v=1747932317",
     "page": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
     "match": "exact"
    },
@@ -1547,7 +1547,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://www.ausom.com/cdn/shop/files/l2-max-dual-1_464f3562-4837-438c-8e34-9194e14f4913.jpg?v=1747932317",
+    "license": "Herstellerbild, https://www.ausom.com/cdn/shop/files/l2-max-dual-2_6873053a-c4b6-4078-9404-03c4dae5163e.jpg?v=1747932323",
     "page": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
     "match": "exact"
    },
@@ -1557,7 +1557,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://www.ausom.com/cdn/shop/files/l2-max-dual-2_6873053a-c4b6-4078-9404-03c4dae5163e.jpg?v=1747932323",
+    "license": "Herstellerbild, https://www.ausom.com/cdn/shop/files/l2-max-dual-3.jpg?v=1747932325",
     "page": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
     "match": "exact"
    },
@@ -1567,7 +1567,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://www.ausom.com/cdn/shop/files/l2-max-dual-3.jpg?v=1747932325",
+    "license": "Herstellerbild, https://www.ausom.com/cdn/shop/files/l2-max-dual-4.jpg?v=1747932329",
     "page": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
     "match": "exact"
    },
@@ -1577,7 +1577,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://www.ausom.com/cdn/shop/files/l2-max-dual-4.jpg?v=1747932329",
+    "license": "Herstellerbild, https://www.ausom.com/cdn/shop/files/l2-max-dual-brake-new.jpg",
     "page": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
     "match": "exact"
    },
@@ -1587,23 +1587,13 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://www.ausom.com/cdn/shop/files/l2-max-dual-brake-new.jpg",
+    "license": "Herstellerbild, https://www.ausom.com/cdn/shop/files/l2-max-dual-suspension-new.jpg",
     "page": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
     "match": "exact"
    },
    {
     "src": "assets/photos/hersteller/ausom-l2-max-dual-motor-21.jpg",
     "alt": "Ausom L2 Max Dual, Lifestyle-Foto 21",
-    "status": "hersteller",
-    "kind": "lifestyle",
-    "credit": "Hersteller",
-    "license": "Herstellerbild, https://www.ausom.com/cdn/shop/files/l2-max-dual-suspension-new.jpg",
-    "page": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
-    "match": "exact"
-   },
-   {
-    "src": "assets/photos/hersteller/ausom-l2-max-dual-motor-22.jpg",
-    "alt": "Ausom L2 Max Dual, Lifestyle-Foto 22",
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
@@ -3362,16 +3352,6 @@
   ],
   "teverun-blade-gt-ii": [
    {
-    "src": "assets/photos/hersteller/teverun-blade-gt-ii-10.jpg",
-    "alt": "Teverun Blade GT II, Produktbild 10",
-    "status": "hersteller",
-    "kind": "produkt",
-    "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/21d9140f111a82307079d61db59246c1.jpg",
-    "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
-    "match": "exact"
-   },
-   {
     "src": "assets/photos/produkte/teverun-blade-gt-ii-1.jpg",
     "alt": "Teverun Blade GT II, Ansicht 1",
     "status": "lieferant",
@@ -3380,6 +3360,16 @@
     "license": "Lieferantenbild (Sortiment)",
     "page": "",
     "match": ""
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-blade-gt-ii-11.jpg",
+    "alt": "Teverun Blade GT II, Produktbild 11",
+    "status": "hersteller",
+    "kind": "produkt",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/21d9140f111a82307079d61db59246c1.jpg",
+    "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
+    "match": "exact"
    },
    {
     "src": "assets/photos/produkte/teverun-blade-gt-ii-2.jpg",
@@ -3402,22 +3392,22 @@
     "match": ""
    },
    {
-    "src": "assets/photos/hersteller/teverun-blade-gt-ii-7.jpg",
-    "alt": "Teverun Blade GT II, Produktbild 7",
+    "src": "assets/photos/hersteller/teverun-blade-gt-ii-1.jpg",
+    "alt": "Teverun Blade GT II, Produktbild 1",
     "status": "hersteller",
     "kind": "produkt",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/108aeceaf02afbb2f5d5cc17bd9c08ee.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/f6c2a2f00ee32961bbbedadd5eee613d.jpg",
     "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
     "match": "exact"
    },
    {
-    "src": "assets/photos/hersteller/teverun-blade-gt-ii-1.jpg",
-    "alt": "Teverun Blade GT II, Foto 1",
+    "src": "assets/photos/hersteller/teverun-blade-gt-ii-8.jpg",
+    "alt": "Teverun Blade GT II, Produktbild 8",
     "status": "hersteller",
-    "kind": "lifestyle",
+    "kind": "produkt",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/2b323b55aa0e3ed5d010cce06205051f.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/108aeceaf02afbb2f5d5cc17bd9c08ee.jpg",
     "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
     "match": "exact"
    },
@@ -3427,7 +3417,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-gt-ii-electric-scooter-product-detail-full-black-background-01.webp",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/2b323b55aa0e3ed5d010cce06205051f.jpg",
     "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
     "match": "exact"
    },
@@ -3437,7 +3427,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/8b1b2eb102cbabcbff32cdbfbe66a3d2.jpg",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-gt-ii-electric-scooter-product-detail-full-black-background-01.webp",
     "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
     "match": "exact"
    },
@@ -3447,7 +3437,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/03bc40027574ab5020ff5cc724fa988c.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/8b1b2eb102cbabcbff32cdbfbe66a3d2.jpg",
     "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
     "match": "exact"
    },
@@ -3457,7 +3447,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/da44cc3cacb6cccccd81962346d1da9a.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/03bc40027574ab5020ff5cc724fa988c.jpg",
     "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
     "match": "exact"
    },
@@ -3467,17 +3457,17 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/d106484f9c208c4c53f8b4972c8e864d.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/da44cc3cacb6cccccd81962346d1da9a.jpg",
     "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
     "match": "exact"
    },
    {
-    "src": "assets/photos/hersteller/teverun-blade-gt-ii-8.jpg",
-    "alt": "Teverun Blade GT II, Foto 8",
+    "src": "assets/photos/hersteller/teverun-blade-gt-ii-7.jpg",
+    "alt": "Teverun Blade GT II, Foto 7",
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/233fb4fff44ab5ca8472e78f72ffd357.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/d106484f9c208c4c53f8b4972c8e864d.jpg",
     "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
     "match": "exact"
    },
@@ -3487,17 +3477,17 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/02f2bef29886f1cbddbd4c96785e1d84.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/233fb4fff44ab5ca8472e78f72ffd357.jpg",
     "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
     "match": "exact"
    },
    {
-    "src": "assets/photos/hersteller/teverun-blade-gt-ii-11.jpg",
-    "alt": "Teverun Blade GT II, Foto 11",
+    "src": "assets/photos/hersteller/teverun-blade-gt-ii-10.jpg",
+    "alt": "Teverun Blade GT II, Foto 10",
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/643b54ca8ec93cf500cd6be153b0fafc.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/02f2bef29886f1cbddbd4c96785e1d84.jpg",
     "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
     "match": "exact"
    },
@@ -3507,7 +3497,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-gt-ii-electric-scooter-product-detail-11inch-puncture-proof-tire-01-e1758002169905.webp",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/643b54ca8ec93cf500cd6be153b0fafc.jpg",
     "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
     "match": "exact"
    },
@@ -3517,7 +3507,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-gt-ii-electric-scooter-product-detail-steering-damper-01-e1758001967174.webp",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-gt-ii-electric-scooter-product-detail-11inch-puncture-proof-tire-01-e1758002169905.webp",
     "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
     "match": "exact"
    },
@@ -3527,17 +3517,17 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/09/teverun-blade-gtii-lighting-e1758002121825.webp",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-gt-ii-electric-scooter-product-detail-steering-damper-01-e1758001967174.webp",
     "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
     "match": "exact"
    },
    {
     "src": "assets/photos/hersteller/teverun-blade-gt-ii-15.jpg",
-    "alt": "Teverun Blade GT II, Lifestyle-Foto 15",
+    "alt": "Teverun Blade GT II, Foto 15",
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/a6ef7c52468cbb53b874c9f555226ed9.jpg",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/09/teverun-blade-gtii-lighting-e1758002121825.webp",
     "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
     "match": "exact"
    },
@@ -3547,7 +3537,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/fed2115d56b882f5e7bfc4d4cc389238.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/a6ef7c52468cbb53b874c9f555226ed9.jpg",
     "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
     "match": "exact"
    },
@@ -3557,7 +3547,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/719f0ac4309f28ea51ae0dd54b5d43e8.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/fed2115d56b882f5e7bfc4d4cc389238.jpg",
     "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
     "match": "exact"
    },
@@ -3567,7 +3557,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-gt-ii-electric-scooter-product-detail-scene-01-e1758002147693.webp",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/719f0ac4309f28ea51ae0dd54b5d43e8.jpg",
     "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
     "match": "exact"
    },
@@ -3577,7 +3567,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-gt-ii-electric-scooter-product-detail-scene-02.webp",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-gt-ii-electric-scooter-product-detail-scene-01-e1758002147693.webp",
     "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
     "match": "exact"
    },
@@ -3587,7 +3577,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-gt-ii-electric-scooter-product-detail-scene-03-e1758001923740.webp",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-gt-ii-electric-scooter-product-detail-scene-02.webp",
     "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
     "match": "exact"
    },
@@ -3597,13 +3587,23 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-gt-ii-electric-scooter-product-detail-scene-04-e1758001985726.webp",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-gt-ii-electric-scooter-product-detail-scene-03-e1758001923740.webp",
     "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
     "match": "exact"
    },
    {
     "src": "assets/photos/hersteller/teverun-blade-gt-ii-22.jpg",
     "alt": "Teverun Blade GT II, Lifestyle-Foto 22",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-gt-ii-electric-scooter-product-detail-scene-04-e1758001985726.webp",
+    "page": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-blade-gt-ii-23.jpg",
+    "alt": "Teverun Blade GT II, Lifestyle-Foto 23",
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
@@ -3836,6 +3836,16 @@
   ],
   "teverun-blade-gt-ii-plus": [
    {
+    "src": "assets/photos/produkte/teverun-blade-gt-ii-plus-1.jpg",
+    "alt": "Teverun Blade GT II+, Ansicht 1",
+    "status": "lieferant",
+    "kind": "produkt",
+    "credit": "",
+    "license": "Lieferantenbild (Sortiment)",
+    "page": "",
+    "match": ""
+   },
+   {
     "src": "assets/photos/produkte/teverun-blade-gt-ii-plus-3.jpg",
     "alt": "Teverun Blade GT II+, Ansicht 3",
     "status": "lieferant",
@@ -3846,24 +3856,14 @@
     "match": ""
    },
    {
-    "src": "assets/photos/hersteller/teverun-blade-gt-ii-plus-10.jpg",
-    "alt": "Teverun Blade GT II+, Produktbild 10",
+    "src": "assets/photos/hersteller/teverun-blade-gt-ii-plus-11.jpg",
+    "alt": "Teverun Blade GT II+, Produktbild 11",
     "status": "hersteller",
     "kind": "produkt",
     "credit": "Hersteller",
     "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/009fc4939a1e4f82f6c53b4eb9bc1552.jpg",
     "page": "https://teverun-europe.com/product/blade-gt-ii/",
     "match": "exact"
-   },
-   {
-    "src": "assets/photos/produkte/teverun-blade-gt-ii-plus-1.jpg",
-    "alt": "Teverun Blade GT II+, Ansicht 1",
-    "status": "lieferant",
-    "kind": "produkt",
-    "credit": "",
-    "license": "Lieferantenbild (Sortiment)",
-    "page": "",
-    "match": ""
    },
    {
     "src": "assets/photos/produkte/teverun-blade-gt-ii-plus-2.jpg",
@@ -3876,22 +3876,22 @@
     "match": ""
    },
    {
-    "src": "assets/photos/hersteller/teverun-blade-gt-ii-plus-9.jpg",
-    "alt": "Teverun Blade GT II+, Produktbild 9",
+    "src": "assets/photos/hersteller/teverun-blade-gt-ii-plus-1.jpg",
+    "alt": "Teverun Blade GT II+, Produktbild 1",
     "status": "hersteller",
     "kind": "produkt",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/1916cb4a4bb5e13ef50ffdf0701e2d86.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/f7a637ee33100bd0ab8b393153fa45f9.jpg",
     "page": "https://teverun-europe.com/product/blade-gt-ii/",
     "match": "exact"
    },
    {
-    "src": "assets/photos/hersteller/teverun-blade-gt-ii-plus-1.jpg",
-    "alt": "Teverun Blade GT II+, Foto 1",
+    "src": "assets/photos/hersteller/teverun-blade-gt-ii-plus-10.jpg",
+    "alt": "Teverun Blade GT II+, Produktbild 10",
     "status": "hersteller",
-    "kind": "lifestyle",
+    "kind": "produkt",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/77933dc663f5b25cf82799094e09b74c.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/1916cb4a4bb5e13ef50ffdf0701e2d86.jpg",
     "page": "https://teverun-europe.com/product/blade-gt-ii/",
     "match": "exact"
    },
@@ -3901,7 +3901,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/7c8f0ecb16864eb6157a365f88ffcbe0.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/77933dc663f5b25cf82799094e09b74c.jpg",
     "page": "https://teverun-europe.com/product/blade-gt-ii/",
     "match": "exact"
    },
@@ -3911,7 +3911,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/bd2a34dc11177ed4da4c599d0e32ab65.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/7c8f0ecb16864eb6157a365f88ffcbe0.jpg",
     "page": "https://teverun-europe.com/product/blade-gt-ii/",
     "match": "exact"
    },
@@ -3921,7 +3921,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/5c5a7658252636fc2f6c8e73fcf0b0e2.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/bd2a34dc11177ed4da4c599d0e32ab65.jpg",
     "page": "https://teverun-europe.com/product/blade-gt-ii/",
     "match": "exact"
    },
@@ -3931,7 +3931,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/555b22c61f453507de13d92bba1f177b.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/5c5a7658252636fc2f6c8e73fcf0b0e2.jpg",
     "page": "https://teverun-europe.com/product/blade-gt-ii/",
     "match": "exact"
    },
@@ -3941,7 +3941,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/d177d3417cc3eabb2b720387ad6313fd.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/555b22c61f453507de13d92bba1f177b.jpg",
     "page": "https://teverun-europe.com/product/blade-gt-ii/",
     "match": "exact"
    },
@@ -3951,7 +3951,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/218e6300e468103b5d53033e70822f3e.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/d177d3417cc3eabb2b720387ad6313fd.jpg",
     "page": "https://teverun-europe.com/product/blade-gt-ii/",
     "match": "exact"
    },
@@ -3961,17 +3961,17 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/c83a97a1204a122624ed913344ab55c1.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/218e6300e468103b5d53033e70822f3e.jpg",
     "page": "https://teverun-europe.com/product/blade-gt-ii/",
     "match": "exact"
    },
    {
-    "src": "assets/photos/hersteller/teverun-blade-gt-ii-plus-11.jpg",
-    "alt": "Teverun Blade GT II+, Foto 11",
+    "src": "assets/photos/hersteller/teverun-blade-gt-ii-plus-9.jpg",
+    "alt": "Teverun Blade GT II+, Foto 9",
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-gt-ii-electric-scooter-product-detail-11inch-puncture-proof-tire-01-e1758002169905.webp",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/c83a97a1204a122624ed913344ab55c1.jpg",
     "page": "https://teverun-europe.com/product/blade-gt-ii/",
     "match": "exact"
    },
@@ -3981,7 +3981,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-gt-ii-electric-scooter-product-detail-steering-damper-01-e1758001967174.webp",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-gt-ii-electric-scooter-product-detail-11inch-puncture-proof-tire-01-e1758002169905.webp",
     "page": "https://teverun-europe.com/product/blade-gt-ii/",
     "match": "exact"
    },
@@ -3991,17 +3991,17 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/09/teverun-blade-gtii-lighting-e1758002121825.webp",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-gt-ii-electric-scooter-product-detail-steering-damper-01-e1758001967174.webp",
     "page": "https://teverun-europe.com/product/blade-gt-ii/",
     "match": "exact"
    },
    {
     "src": "assets/photos/hersteller/teverun-blade-gt-ii-plus-14.jpg",
-    "alt": "Teverun Blade GT II+, Lifestyle-Foto 14",
+    "alt": "Teverun Blade GT II+, Foto 14",
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/4c404403b5eaa3470a48d95ef1ece128.jpg",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/09/teverun-blade-gtii-lighting-e1758002121825.webp",
     "page": "https://teverun-europe.com/product/blade-gt-ii/",
     "match": "exact"
    },
@@ -4011,7 +4011,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/e0f8b0a4c0bbb43b9f2c743b479cd9b6.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/4c404403b5eaa3470a48d95ef1ece128.jpg",
     "page": "https://teverun-europe.com/product/blade-gt-ii/",
     "match": "exact"
    },
@@ -4021,7 +4021,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/c51a9cec33dc4ce38b610e58429cbc33.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/e0f8b0a4c0bbb43b9f2c743b479cd9b6.jpg",
     "page": "https://teverun-europe.com/product/blade-gt-ii/",
     "match": "exact"
    },
@@ -4031,7 +4031,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-gt-ii-electric-scooter-product-detail-scene-01-e1758002147693.webp",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/c51a9cec33dc4ce38b610e58429cbc33.jpg",
     "page": "https://teverun-europe.com/product/blade-gt-ii/",
     "match": "exact"
    },
@@ -4041,7 +4041,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-gt-ii-electric-scooter-product-detail-scene-02.webp",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-gt-ii-electric-scooter-product-detail-scene-01-e1758002147693.webp",
     "page": "https://teverun-europe.com/product/blade-gt-ii/",
     "match": "exact"
    },
@@ -4051,7 +4051,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-gt-ii-electric-scooter-product-detail-scene-03-e1758001923740.webp",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-gt-ii-electric-scooter-product-detail-scene-02.webp",
     "page": "https://teverun-europe.com/product/blade-gt-ii/",
     "match": "exact"
    },
@@ -4061,13 +4061,23 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-gt-ii-electric-scooter-product-detail-scene-04-e1758001985726.webp",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-gt-ii-electric-scooter-product-detail-scene-03-e1758001923740.webp",
     "page": "https://teverun-europe.com/product/blade-gt-ii/",
     "match": "exact"
    },
    {
     "src": "assets/photos/hersteller/teverun-blade-gt-ii-plus-21.jpg",
     "alt": "Teverun Blade GT II+, Lifestyle-Foto 21",
+    "status": "hersteller",
+    "kind": "lifestyle",
+    "credit": "Hersteller",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-blade-gt-ii-electric-scooter-product-detail-scene-04-e1758001985726.webp",
+    "page": "https://teverun-europe.com/product/blade-gt-ii/",
+    "match": "exact"
+   },
+   {
+    "src": "assets/photos/hersteller/teverun-blade-gt-ii-plus-22.jpg",
+    "alt": "Teverun Blade GT II+, Lifestyle-Foto 22",
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
@@ -4335,7 +4345,7 @@
     "status": "hersteller",
     "kind": "produkt",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/63ae5f4f8aaf0f499809b0f0d32607af.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/e81b4d8a32653fc7925ef6a8cd27be7d.jpg",
     "page": "https://teverun-europe.com/product/supreme-7260r/",
     "match": "exact"
    },
@@ -4345,7 +4355,7 @@
     "status": "hersteller",
     "kind": "produkt",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/e81b4d8a32653fc7925ef6a8cd27be7d.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/1e759cb82143a2b8332f7ce43bcd6cf6.jpg",
     "page": "https://teverun-europe.com/product/supreme-7260r/",
     "match": "exact"
    },
@@ -4355,17 +4365,17 @@
     "status": "hersteller",
     "kind": "produkt",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/1e759cb82143a2b8332f7ce43bcd6cf6.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/380d6bad4910529166b1119b47d248ed.jpg",
     "page": "https://teverun-europe.com/product/supreme-7260r/",
     "match": "exact"
    },
    {
     "src": "assets/photos/hersteller/teverun-fighter-supreme-7260r-4.jpg",
-    "alt": "Teverun Fighter Supreme 7260R, Produktbild 4",
+    "alt": "Teverun Fighter Supreme 7260R, Foto 4",
     "status": "hersteller",
-    "kind": "produkt",
+    "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/380d6bad4910529166b1119b47d248ed.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/b164e65b83812d031063980a2f094602.jpg",
     "page": "https://teverun-europe.com/product/supreme-7260r/",
     "match": "exact"
    },
@@ -4375,7 +4385,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/b164e65b83812d031063980a2f094602.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/d9b9060a14d45bbc2bccefa7b046b87d.jpg",
     "page": "https://teverun-europe.com/product/supreme-7260r/",
     "match": "exact"
    },
@@ -4385,7 +4395,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/d9b9060a14d45bbc2bccefa7b046b87d.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/3e79d67f60bafc983b02c1b9440e73e9.jpg",
     "page": "https://teverun-europe.com/product/supreme-7260r/",
     "match": "exact"
    },
@@ -4395,7 +4405,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/3e79d67f60bafc983b02c1b9440e73e9.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/2e7ae25c04a2123a2ec7f6dcb81d148d.jpg",
     "page": "https://teverun-europe.com/product/supreme-7260r/",
     "match": "exact"
    },
@@ -4405,7 +4415,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/2e7ae25c04a2123a2ec7f6dcb81d148d.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/bd66494434c423a85164e9403b058850.jpg",
     "page": "https://teverun-europe.com/product/supreme-7260r/",
     "match": "exact"
    },
@@ -4415,7 +4425,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/bd66494434c423a85164e9403b058850.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/97f3e7098214444ee8df52c8fd433118.jpg",
     "page": "https://teverun-europe.com/product/supreme-7260r/",
     "match": "exact"
    },
@@ -4425,7 +4435,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/97f3e7098214444ee8df52c8fd433118.jpg",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/48b86f1d7305c539128616bdc304dc33.jpg",
     "page": "https://teverun-europe.com/product/supreme-7260r/",
     "match": "exact"
    },
@@ -4435,7 +4445,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/48b86f1d7305c539128616bdc304dc33.jpg",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-fighter-supreme-7260r-electric-scooter-main-banner-01-e1757919493122.webp",
     "page": "https://teverun-europe.com/product/supreme-7260r/",
     "match": "exact"
    },
@@ -4445,7 +4455,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-fighter-supreme-7260r-electric-scooter-main-banner-01-e1757919493122.webp",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/09/teverun-fighter-supreme-7260r-4inch-tft-display-e1757920103975.webp",
     "page": "https://teverun-europe.com/product/supreme-7260r/",
     "match": "exact"
    },
@@ -4455,7 +4465,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/09/teverun-fighter-supreme-7260r-4inch-tft-display-e1757920103975.webp",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/09/teverun-fighter-supreme-7260r-deck-led-strip-e1757920650486.webp",
     "page": "https://teverun-europe.com/product/supreme-7260r/",
     "match": "exact"
    },
@@ -4465,7 +4475,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/09/teverun-fighter-supreme-7260r-deck-led-strip-e1757920650486.webp",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/09/teverun-fighter-supreme-7260r-dual-damper-e1757919970502.webp",
     "page": "https://teverun-europe.com/product/supreme-7260r/",
     "match": "exact"
    },
@@ -4475,7 +4485,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/09/teverun-fighter-supreme-7260r-dual-damper-e1757919970502.webp",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/09/teverun-fighter-supreme-7260r-four-piston-brake-e1757919594466.webp",
     "page": "https://teverun-europe.com/product/supreme-7260r/",
     "match": "exact"
    },
@@ -4485,17 +4495,17 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/09/teverun-fighter-supreme-7260r-four-piston-brake-e1757919594466.webp",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/09/teverun-fighter-supreme-7260r-front-motor-e1757919827587.webp",
     "page": "https://teverun-europe.com/product/supreme-7260r/",
     "match": "exact"
    },
    {
     "src": "assets/photos/hersteller/teverun-fighter-supreme-7260r-17.jpg",
-    "alt": "Teverun Fighter Supreme 7260R, Foto 17",
+    "alt": "Teverun Fighter Supreme 7260R, Lifestyle-Foto 17",
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/09/teverun-fighter-supreme-7260r-front-motor-e1757919827587.webp",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-fighter-supreme-7260r-electric-scooter-front-lift-scene-01.webp",
     "page": "https://teverun-europe.com/product/supreme-7260r/",
     "match": "exact"
    },
@@ -4505,7 +4515,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-fighter-supreme-7260r-electric-scooter-front-lift-scene-01.webp",
+    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/dfc092bdae797bd8c8ca995220ea4cb9.jpg",
     "page": "https://teverun-europe.com/product/supreme-7260r/",
     "match": "exact"
    },
@@ -4515,7 +4525,7 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun-europe.com/wp-content/uploads/2026/04/dfc092bdae797bd8c8ca995220ea4cb9.jpg",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/09/teverun-fighter-supreme-7260r-black-background-2.webp",
     "page": "https://teverun-europe.com/product/supreme-7260r/",
     "match": "exact"
    },
@@ -4525,23 +4535,13 @@
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/09/teverun-fighter-supreme-7260r-black-background-2.webp",
+    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-fighter-supreme-7260r-contact-us-scene-02-e1757920591841.webp",
     "page": "https://teverun-europe.com/product/supreme-7260r/",
     "match": "exact"
    },
    {
     "src": "assets/photos/hersteller/teverun-fighter-supreme-7260r-21.jpg",
     "alt": "Teverun Fighter Supreme 7260R, Lifestyle-Foto 21",
-    "status": "hersteller",
-    "kind": "lifestyle",
-    "credit": "Hersteller",
-    "license": "Herstellerbild, https://teverun.com/wp-content/uploads/2025/08/teverun-fighter-supreme-7260r-contact-us-scene-02-e1757920591841.webp",
-    "page": "https://teverun-europe.com/product/supreme-7260r/",
-    "match": "exact"
-   },
-   {
-    "src": "assets/photos/hersteller/teverun-fighter-supreme-7260r-22.jpg",
-    "alt": "Teverun Fighter Supreme 7260R, Lifestyle-Foto 22",
     "status": "hersteller",
     "kind": "lifestyle",
     "credit": "Hersteller",

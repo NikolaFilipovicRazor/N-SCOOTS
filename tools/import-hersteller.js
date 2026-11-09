@@ -61,6 +61,9 @@ for (const brand of fs.readdirSync(src)) {
     const rank = (m) => m.kind !== "produkt" ? 4 : m.full ? (m.status === "lieferant" ? 0 : 1) : (m.status === "lieferant" ? 2 : 3);
     existing.products[id] = list.map((m, i) => [m, i]).sort((a, b) => rank(a[0]) - rank(b[0]) || a[1] - b[1]).map(([m]) => { delete m.full; return m; });
   }
+  // Manuell festgelegte Hauptbilder (wenn die automatische Erkennung danebenliegt)
+  const PREFER = { "teverun-blade-gt-ii": "assets/photos/produkte/teverun-blade-gt-ii-1.jpg", "teverun-blade-gt-ii-plus": "assets/photos/produkte/teverun-blade-gt-ii-plus-1.jpg" };
+  for (const [id, src] of Object.entries(PREFER)) { const l = existing.products[id]; if (!l) continue; const i = l.findIndex((m) => m.src === src); if (i > 0) { const [m] = l.splice(i, 1); m.kind = "produkt"; l.unshift(m); } }
   console.log(`Freisteller: ${files.length} geprüft, ${szenen} als Szene eingestuft`);
 }
 const out = `/* Automatisch erzeugt: node tools/import-hersteller.js – offizielle Herstellerbilder und Logos.
