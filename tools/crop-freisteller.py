@@ -32,8 +32,11 @@ for f in sys.argv[1:]:
     crop = im.crop((x0, y0, x1, y1))
     # leicht graue Hintergründe auf Weiss heben
     crop = crop.point(lambda v: 255 if v > 238 else v)
-    crop = ImageEnhance.Brightness(crop).enhance(1.04)
-    crop = ImageEnhance.Contrast(crop).enhance(1.06)
+    # Schatten oeffnen (Gamma), Lichter leicht anheben, Kontrast sanft: schwarze Scooter zeigen Zeichnung
+    crop = crop.point(lambda v: int(255 * (v / 255) ** 0.82))
+    crop = ImageEnhance.Brightness(crop).enhance(1.05)
+    crop = ImageEnhance.Contrast(crop).enhance(1.04)
+    crop = crop.point(lambda v: 255 if v > 236 else v)
     side = max(crop.size)
     sq = Image.new("RGB", (side, side), (255, 255, 255))
     sq.paste(crop, ((side - crop.size[0]) // 2, (side - crop.size[1]) // 2))

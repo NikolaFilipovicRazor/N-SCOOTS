@@ -957,3 +957,10 @@ html { font-size: 16px; }
 .hero-panel-product .hero-panel-cap { flex-wrap: wrap; }
 .hero-panel-product .hero-panel-buy { flex-direction: row; align-items: center; gap: 12px; }
 .card-media.is-product img.alt { position: absolute; }
+
+/* Hell und klar: reines Weiss, kein Multiply, nur ein zarter Bodenschatten */
+.card-media.is-product, .gallery-main.is-product, .hero-panel-product .hero-panel-img { background: #fff; }
+.card-media.is-product img, .gallery-main.is-product img, .hero-panel-product .hero-panel-img img, .gallery-thumbs button img.is-product { mix-blend-mode: normal; }
+.card-media.is-product::after, .gallery-main.is-product::after, .hero-panel-product .hero-panel-img::after { background: radial-gradient(ellipse at center, rgba(0,0,0,.10), rgba(0,0,0,0) 70%); bottom: 4%; height: 6%; }
+.gallery-thumbs button:has(img.is-product) { background: #fff; }
+.card:hover .card-media img { transform: scale(1.03); }

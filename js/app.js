@@ -108,7 +108,7 @@
     const legalLine = isAcc ? "" : `<div class="card-legal ${p.streetLegalCH ? "ok" : ""}">${p.streetLegalCH ? "Strassenzugelassen CH" : p.category === "edirtbike" ? "Für Privatgelände" : p.specs.abe ? `Deutsche ABE · ${p.specs.speedKmh || 20} km/h` : "Für private Fahrflächen"}</div>`;
     return `
     <article class="card" data-id="${p.id}">
-      <div class="card-media${pimgs(p).length > 1 && canHover() && imgSrc(p, 1) !== imgSrc(p, 0) ? " has-alt" : ""}${isProductImg(p) ? " is-product" : ""}">${img(p, 0, { alt: placeholderAlt(p) })}${pimgs(p).length > 1 && canHover() ? `<img class="alt" src="${esc(imgSrc(p, 1))}" alt="" loading="lazy" decoding="async" width="1100" height="760" onerror="this.closest('.card-media').classList.remove('has-alt');this.remove()">` : ""}${pimgs(p).length > 1 ? `<span class="media-count" aria-hidden="true">${pimgs(p).length} Bilder</span>` : ""}</div>
+      <div class="card-media${isProductImg(p) ? " is-product" : ""}">${img(p, 0, { alt: placeholderAlt(p) })}${pimgs(p).length > 1 ? `<span class="media-count" aria-hidden="true">${pimgs(p).length} Bilder</span>` : ""}</div>
       <div class="card-body">
         <div class="card-head">${lg ? `<img class="card-logo" src="${esc(lg)}" alt="${esc(brandName(p.brand))}" loading="lazy">` : ""}<div class="card-brand">${esc(p.brand ? brandName(p.brand) : catName(p.category))}${p.segment ? " · " + esc(segName(p.segment)) : p.category === "edirtbike" ? " · Dirtbike" : ""}</div></div>
         <h3 class="card-title"><a href="#/produkt/${p.id}">${esc(p.model)}</a></h3>

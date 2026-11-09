@@ -69,7 +69,7 @@ const override = `window.__FX = ${JSON.stringify(FX)};
     await page.keyboard.press("Escape"); await page.waitForTimeout(100);
     ok(`${label}: Escape schliesst Lightbox, Fokus zurück`, await page.evaluate(() => !document.getElementById("lightbox").open && document.activeElement?.id === "gallery-main"));
     await page.goto(BASE + "#/katalog?marke=kukirin"); await page.waitForSelector("#results .card");
-    ok(`${label}: Karte mit Wechselbild`, (await page.locator('.card[data-id="kukirin-g2-master"] .card-media.has-alt').count()) === 1);
+    ok(`${label}: Karte ohne Wechselbild`, (await page.locator('.card[data-id="kukirin-g2-master"] .card-media img').count()) === 1);
     await page.goto(BASE + "#/dirtbikes"); await page.waitForSelector(".prep-hero");
     ok(`${label}: Dirtbike-Foto`, (await page.locator('.prep-media img[src*="fixtures"]').count()) === 1);
     ok(`${label}: Dirtbike-Modell gelistet`, (await page.locator(".product-grid .card").count()) >= 1);
