@@ -964,3 +964,12 @@ html { font-size: 16px; }
 .card-media.is-product::after, .gallery-main.is-product::after, .hero-panel-product .hero-panel-img::after { background: radial-gradient(ellipse at center, rgba(0,0,0,.10), rgba(0,0,0,0) 70%); bottom: 4%; height: 6%; }
 .gallery-thumbs button:has(img.is-product) { background: #fff; }
 .card:hover .card-media img { transform: scale(1.03); }
+
+/* Produktgalerie: Thumbnails seitlich links, Hauptbild gross */
+@media (min-width: 900px) {
+  .pdp > div:first-child { display: grid; grid-template-columns: 92px minmax(0, 1fr); grid-template-areas: "thumbs main" "note note"; gap: 12px; align-items: start; }
+  .pdp .gallery-main { grid-area: main; margin: 0; }
+  .pdp .gallery-thumbs { grid-area: thumbs; flex-direction: column; flex-wrap: nowrap; margin: 0; max-height: min(640px, 70vh); overflow-y: auto; overflow-x: hidden; padding-right: 4px; scrollbar-width: thin; }
+  .pdp .gallery-thumbs button { width: 84px; flex: 0 0 auto; aspect-ratio: 1; }
+  .pdp > div:first-child > p { grid-area: note; }
+}
