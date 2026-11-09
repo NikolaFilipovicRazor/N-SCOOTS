@@ -32,7 +32,7 @@ for (const brand of fs.readdirSync(src)) {
       if (SKIP.has(`${p.id}-${n}`)) continue; // zeigt ein anderes Modell oder ist eine Dublette
       const h = dhash(f); if (h && [...seen].some((s) => hamming(s, h) <= 6)) continue; if (h) seen.add(h);
       const sz = sizeOf(f); const entry = { src: `assets/photos/produkte/${p.id}-${n}.jpg`, alt: `${p.model}, Ansicht ${n}`, status: "lieferant", kind: p.id.includes("ersatzteile") ? "lifestyle" : "produkt", credit: "", license: "Lieferantenbild (Sortiment)", page: "", match: "" };
-      if (sz && sz.w < 1000) late.push(entry); else list.push(entry); // zu kleine Bilder hinter die Herstellerbilder
+      list.push(entry);
     }
     const uniq = [];
     for (const im of [...prod, ...life]) { const h = dhash(im.file); if (h && [...seen].some((s) => hamming(s, h) <= 6)) continue; if (h) seen.add(h); uniq.push(im); }
@@ -52,15 +52,16 @@ for (const brand of fs.readdirSync(src)) {
 // Freisteller vereinheitlichen (Zuschnitt, Quadrat, Weiss); Bilder mit dunklem Hintergrund werden zu "lifestyle"
 {
   const files = []; for (const list of Object.values(existing.products)) for (const m of list) if (m.kind === "produkt") files.push(path.join(root, m.src));
-  let flagged = [];
-  for (let i = 0; i < files.length; i += 150) { try { flagged.push(...JSON.parse(execFileSync("python3", [path.join(__dirname, "crop-freisteller.py"), ...files.slice(i, i + 150)], { maxBuffer: 1e7 }).toString())); } catch (e) { console.warn("Zuschnitt übersprungen:", e.message.split("\n")[0]); } }
-  const flag = new Set(flagged.map((f) => path.relative(root, f)));
+  const info = {};
+  for (let i = 0; i < files.length; i += 150) { try { Object.assign(info, JSON.parse(execFileSync("python3", [path.join(__dirname, "crop-freisteller.py"), ...files.slice(i, i + 150)], { maxBuffer: 1e7 }).toString())); } catch (e) { console.warn("Zuschnitt übersprungen:", e.message.split("\n")[0]); } }
+  let szenen = 0;
   for (const [id, list] of Object.entries(existing.products)) {
-    for (const m of list) if (flag.has(m.src)) { m.kind = "lifestyle"; m.alt = m.alt.replace("Produktbild", "Foto"); }
-    // Produktbilder zuerst, Szenen danach
-    existing.products[id] = [...list.filter((m) => m.kind === "produkt"), ...list.filter((m) => m.kind !== "produkt")];
+    for (const m of list) { const inf = info[path.join(root, m.src)]; if (inf && inf.kind === "lifestyle") { m.kind = "lifestyle"; m.alt = m.alt.replace("Produktbild", "Foto"); szenen++; } else if (inf) { m.full = !!inf.full; } }
+    // Reihenfolge: Ganzansichten (Lieferant zuerst, dann Hersteller), dann Detailaufnahmen, dann Szenen
+    const rank = (m) => m.kind !== "produkt" ? 4 : m.full ? (m.status === "lieferant" ? 0 : 1) : (m.status === "lieferant" ? 2 : 3);
+    existing.products[id] = list.map((m, i) => [m, i]).sort((a, b) => rank(a[0]) - rank(b[0]) || a[1] - b[1]).map(([m]) => { delete m.full; return m; });
   }
-  console.log(`Freisteller: ${files.length} geprüft, ${flag.size} als Szene eingestuft`);
+  console.log(`Freisteller: ${files.length} geprüft, ${szenen} als Szene eingestuft`);
 }
 const out = `/* Automatisch erzeugt: node tools/import-hersteller.js – offizielle Herstellerbilder und Logos.
  * status "hersteller": Bilder von den offiziellen Herstellerseiten (Quelle je Bild in "license").

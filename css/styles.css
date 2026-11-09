@@ -939,3 +939,21 @@ html { font-size: 16px; }
 .usp-band-track { -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 70px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 70px), transparent); }
 .card-actions .btn { font-size: .85rem; padding: 0 8px; }
 .card-specgrid strong { white-space: normal; overflow-wrap: anywhere; }
+
+/* Freisteller mit Studio-Charakter: weicher Verlauf, Bodenschatten, Weiss des Bildes wird durchsichtig */
+.card-media.is-product, .gallery-main.is-product, .hero-panel-product .hero-panel-img { background: radial-gradient(ellipse 70% 45% at 50% 88%, #dfe2e8 0%, #f2f3f6 45%, #ffffff 75%); position: relative; }
+.card-media.is-product img, .gallery-main.is-product img, .hero-panel-product .hero-panel-img img { mix-blend-mode: multiply; position: relative; z-index: 1; }
+.card-media.is-product::after, .gallery-main.is-product::after, .hero-panel-product .hero-panel-img::after { content: ""; position: absolute; left: 18%; right: 18%; bottom: 7%; height: 6%; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(0,0,0,.22), rgba(0,0,0,0) 70%); filter: blur(4px); z-index: 0; }
+.card-media.is-product img { padding: 3%; }
+.gallery-thumbs button:has(img.is-product) { background: #f6f7f9; }
+.gallery-thumbs button img.is-product { mix-blend-mode: multiply; }
+.card-media.is-product { aspect-ratio: 4 / 3; }
+.card-media.is-product img { padding: 2% 3%; }
+.card-media.is-product::after, .gallery-main.is-product::after, .hero-panel-product .hero-panel-img::after { bottom: 5%; height: 7%; left: 14%; right: 14%; }
+.gallery-main.is-product { aspect-ratio: 4 / 3; }
+.hero-panel-product .hero-panel-img { aspect-ratio: 4 / 3 !important; }
+.catalog-layout .card-media.is-product, .card-media.is-product { aspect-ratio: 4 / 3; }
+.hero-panel-product .hero-kpi { white-space: normal; }
+.hero-panel-product .hero-panel-cap { flex-wrap: wrap; }
+.hero-panel-product .hero-panel-buy { flex-direction: row; align-items: center; gap: 12px; }
+.card-media.is-product img.alt { position: absolute; }
