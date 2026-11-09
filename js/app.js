@@ -91,6 +91,30 @@
   const SPEC_ICON = { motor: "⚡", peak: "🚀", battery: "🔋", wh: "🔌", range: "🛣️", speed: "🏁", weight: "⚖️", load: "🧍", tires: "🛞", brakes: "🛑", ip: "💧", fold: "📐", legal: "🇨🇭", abe: "📄", charge: "⏱️", climb: "⛰️", suspension: "🪃", lights: "💡", display: "📟", brand: "🏷️", price: "💰", use: "🎯" };
   const si = (k, label) => `<span class="spec-ico" aria-hidden="true">${SPEC_ICON[k] || ""}</span>&nbsp;${label}`;
   const akkuText = (s) => s.batteryV && s.batteryAh ? `${s.batteryV} V · ${s.batteryAh} Ah` : (s.batteryV ? `${s.batteryV} V` : null);
+
+  // Beschreibung aus den Daten: Charakter, Technik, Einsatz (Schweizer Schreibweise)
+  const BRAND_TONE = { kukirin: "KuKirin steht für viel Scooter fürs Geld: robuste Rahmen, kräftige Motoren und ein Preis, der Lust macht.", joyor: "Joyor baut leichte, alltagstaugliche Scooter mit Fokus auf Komfort, Reichweite und einfache Handhabung.", teverun: "Teverun gehört zur Premium-Klasse: hochwertige Komponenten, hydraulische Bremsen, einstellbare Federung und ein Fahrgefühl, das man sofort spürt.", dualtron: "Dualtron ist die Referenz unter den Performance-Scootern: kompromisslose Leistung, massive Akkus und Verarbeitung auf höchstem Niveau.", rovoron: "Rovoron, die Marke aus dem Minimotors-Umfeld, verbindet Rennsport-Technik mit markantem Design.", ausom: "Ausom liefert durchdachte Allrounder mit starkem Preis-Leistungs-Verhältnis und sauberer Verarbeitung." };
+  function describe(p) {
+    const s = p.specs || {}; const out = [];
+    const seg = p.segment === "offroad" ? "Performance- und Offroad-Scooter" : p.segment === "touren" ? "Tourenscooter mit grossem Akku" : p.category === "edirtbike" ? "Mini-Dirtbike fürs Gelände" : "Alltagsscooter";
+    const motor = s.motorW ? (s.motors === 2 ? `zwei Motoren mit zusammen ${F.num(s.motorW, "W")}` : `ein ${F.num(s.motorW, "W")}-Motor`) : null;
+    const peak = s.peakW ? ` (bis ${F.num(s.peakW, "W")} Spitze)` : "";
+    const akku = s.batteryV && s.batteryAh ? `${s.batteryV} V · ${s.batteryAh} Ah${s.batteryWh ? ` (${F.num(s.batteryWh, "Wh")})` : ""}` : null;
+    out.push(`${esc(p.model)} ist ein ${seg} von ${esc(brandName(p.brand))}. ${BRAND_TONE[p.brand] || ""}`.trim());
+    const tech = [];
+    if (motor) tech.push(`Angetrieben wird er von ${motor}${peak}`);
+    if (akku) tech.push(`der Akku mit ${akku} ${s.rangeKm ? `bringt dich laut Hersteller bis zu ${F.num(s.rangeKm, "km")} weit` : "sorgt für ordentlich Reserve"}`);
+    if (s.speedKmh) tech.push(`die Höchstgeschwindigkeit liegt bei ${F.num(s.speedKmh, "km/h")}`);
+    if (tech.length) out.push(tech.join(", ") + ".");
+    const ausstattung = [s.tires ? `${s.tires}` : null, s.brakes ? `${s.brakes}` : null, s.suspension ? `${s.suspension}` : null, s.lights ? `${s.lights}` : null, s.display ? `${s.display}` : null, s.ip ? `Schutzart ${s.ip}` : null].filter(Boolean);
+    if (ausstattung.length) out.push(`Ausstattung: ${ausstattung.slice(0, 5).join(" · ")}.`);
+    const praxis = [];
+    if (s.weightKg) praxis.push(`Mit ${F.num(s.weightKg, "kg")} ${s.weightKg <= 25 ? "lässt er sich noch gut tragen und im Zug oder Kofferraum verstauen" : s.weightKg <= 35 ? "ist er ein solider Alltagsbegleiter, der sich noch falten und verladen lässt" : "ist er ein echtes Schwergewicht, gebaut für Leistung statt fürs Treppenhaus"}`);
+    if (s.maxLoadKg) praxis.push(`zugelassen bis ${F.num(s.maxLoadKg, "kg")} Zuladung`);
+    if (praxis.length) out.push(praxis.join(", ") + ".");
+    out.push(p.streetLegalCH ? "Strassenzugelassen in der Schweiz: 20 km/h-Version mit Licht, Glocke und Zulassungsnachweis, bereit für den Arbeitsweg." : p.category === "edirtbike" ? "Für Privatgelände und Trainingsflächen gedacht; eine Strassenzulassung besteht nicht." : s.abe ? "Mit deutscher ABE (20–25 km/h). In der Schweiz ohne separate Zulassung nur auf privaten Fahrflächen." : "In der Schweiz nicht strassenzugelassen, gedacht für private Fahrflächen, Gelände und Rennstrecke.");
+    return out;
+  }
   function productCard(p, { compact = false } = {}) {
     const inCompare = S.compare().includes(p.id);
     const isAcc = p.category === "zubehoer";
@@ -108,7 +132,7 @@
     const legalLine = isAcc ? "" : `<div class="card-legal ${p.streetLegalCH ? "ok" : ""}">${p.streetLegalCH ? "Strassenzugelassen CH" : p.category === "edirtbike" ? "Für Privatgelände" : p.specs.abe ? `Deutsche ABE · ${p.specs.speedKmh || 20} km/h` : "Für private Fahrflächen"}</div>`;
     return `
     <article class="card" data-id="${p.id}">
-      <div class="card-media${isProductImg(p) ? " is-product" : ""}">${img(p, 0, { alt: placeholderAlt(p) })}${pimgs(p).length > 1 ? `<span class="media-count" aria-hidden="true">${pimgs(p).length} Bilder</span>` : ""}</div>
+      <a class="card-media${isProductImg(p) ? " is-product" : ""}" href="#/produkt/${p.id}" aria-label="${esc(p.model)} ansehen">${img(p, 0, { alt: placeholderAlt(p) })}${pimgs(p).length > 1 ? `<span class="media-count" aria-hidden="true">${pimgs(p).length} Bilder</span>` : ""}</a>
       <div class="card-body">
         <div class="card-head">${lg ? `<img class="card-logo" src="${esc(lg)}" alt="${esc(brandName(p.brand))}" loading="lazy">` : ""}<div class="card-brand">${esc(p.brand ? brandName(p.brand) : catName(p.category))}${p.segment ? " · " + esc(segName(p.segment)) : p.category === "edirtbike" ? " · Dirtbike" : ""}</div></div>
         <h3 class="card-title"><a href="#/produkt/${p.id}">${esc(p.model)}</a></h3>
@@ -469,7 +493,8 @@
             ${legalTag(p)}
             <span class="tag">Demo: nicht bestellbar</span>
           </div>
-          <p>${esc(p.summary)}</p>
+          <p class="pdp-lead">${esc(p.summary)}</p>
+          ${isAcc ? "" : `<div class="pdp-desc">${describe(p).map((d) => `<p>${d}</p>`).join("")}</div>`}
           <div class="price-block">
             <div>${priceHtml(p, true)}</div>
             <p class="small muted" style="margin:0">${esc(p.price.note)} Inkl. MwSt., Versand wird vor Verkaufsstart festgelegt.</p>

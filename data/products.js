@@ -165,6 +165,9 @@ window.NSCOOTS_DATA = {
       "produkte/kukirin-s1-max-36v-10-4ah-akku-350w-2.jpg",
       "produkte/kukirin-s1-max-36v-10-4ah-akku-350w-3.jpg"
     ],
+    "description": [
+      "Die tatsächliche Reichweite hängt unter anderem von Fahrergewicht, Fahrweise, Strecke, Temperatur und Reifendruck ab."
+    ],
     "specsSource": "https://www.kukirin.net/en/productdetail?documentId=jhbf4lb0eu4sfcqmyy7kibod",
     "specsChecked": "2026-10-30"
   },
@@ -233,6 +236,7 @@ window.NSCOOTS_DATA = {
       "produkte/kukirin-g2-pro-abe-2.jpg",
       "produkte/kukirin-g2-pro-abe-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://kukirin.it.com/en/products/kukirin-g2-pro-abe-electric-scooter",
     "specsChecked": "2026-10-30"
   },
@@ -301,6 +305,7 @@ window.NSCOOTS_DATA = {
       "produkte/kukirin-g2-pro-2.jpg",
       "produkte/kukirin-g2-pro-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://kukirin.it.com/en/products/kukirin-g2-pro-electric-scooter",
     "specsChecked": "2026-10-30"
   },
@@ -369,6 +374,7 @@ window.NSCOOTS_DATA = {
       "produkte/kukirin-g2-abe-2.jpg",
       "produkte/kukirin-g2-abe-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://kukirin.it.com/en/products/kukirin-g2-electric-scooter",
     "specsChecked": "2026-10-30"
   },
@@ -435,6 +441,7 @@ window.NSCOOTS_DATA = {
       "produkte/kukirin-t3-2025-48v-15-6-ah-akku-800w-2.jpg",
       "produkte/kukirin-t3-2025-48v-15-6-ah-akku-800w-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://www.kukirin.net/en/productdetail?documentId=k4lo52nb307tsl6d0tw0qpmc",
     "specsChecked": "2026-10-30"
   },
@@ -503,6 +510,7 @@ window.NSCOOTS_DATA = {
       "produkte/kukirin-g2-2.jpg",
       "produkte/kukirin-g2-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://kukirin.it.com/en/products/kukirin-g2-electric-scooter",
     "specsChecked": "2026-10-30"
   },
@@ -570,6 +578,7 @@ window.NSCOOTS_DATA = {
       "produkte/kukirin-m4-max-20255-48v-18ah-akku-800w-2.jpg",
       "produkte/kukirin-m4-max-20255-48v-18ah-akku-800w-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://kukirin.it.com/en/products/kukirin-m4-max-electric-scooter",
     "specsChecked": "2026-10-30"
   },
@@ -635,6 +644,7 @@ window.NSCOOTS_DATA = {
       "produkte/kukirin-g3-2.jpg",
       "produkte/kukirin-g3-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://www.kukirin.net/en/productdetail?documentId=p9jmfw00npaq2terxnrzknmb",
     "specsChecked": "2026-10-30"
   },
@@ -702,6 +712,7 @@ window.NSCOOTS_DATA = {
       "produkte/kukirin-g2-ultra-48v-18ah-akku-2-x-800w-dual-motor-2.jpg",
       "produkte/kukirin-g2-ultra-48v-18ah-akku-2-x-800w-dual-motor-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://kukirin.it.com/en/products/kukirin-g2-ultra-electric-scooter",
     "specsChecked": "2026-10-30"
   },
@@ -769,6 +780,7 @@ window.NSCOOTS_DATA = {
       "produkte/kukirin-g2-max-48v-20ah-akku-1000w-2.jpg",
       "produkte/kukirin-g2-max-48v-20ah-akku-1000w-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://kukirin.it.com/en/products/kukirin-g2-max-electric-scooter",
     "specsChecked": "2026-10-30"
   },
@@ -837,6 +849,7 @@ window.NSCOOTS_DATA = {
       "produkte/kukirin-g2-master-2.jpg",
       "produkte/kukirin-g2-master-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://kukirin.it.com/en/products/kukirin-g2-master-electric-scooter",
     "specsChecked": "2026-10-30"
   },
@@ -905,6 +918,7 @@ window.NSCOOTS_DATA = {
       "produkte/kukirin-g4-2.jpg",
       "produkte/kukirin-g4-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://kukirin.it.com/en/products/kukirin-g4-electric-scooter",
     "specsChecked": "2026-10-30"
   },
@@ -972,6 +986,7 @@ window.NSCOOTS_DATA = {
       "produkte/kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike-2.jpg",
       "produkte/kukirin-x1-48v-208ah-akku-1000w-mini-dirtbike-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://kukirin.it.com/en/products/kukirin-x1-electric-bike",
     "specsChecked": "2026-10-30"
   },
@@ -1050,6 +1065,7 @@ window.NSCOOTS_DATA = {
       "produkte/joyor-s5-abe-48v-500w-2.jpg",
       "produkte/joyor-s5-abe-48v-500w-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://joyorprime.com/products/joyor-s5-abe",
     "specsChecked": "2026-10-30"
   },
@@ -1118,6 +1134,7 @@ window.NSCOOTS_DATA = {
       "produkte/joyor-s5z-48v-13ah-600w-2.jpg",
       "produkte/joyor-s5z-48v-13ah-600w-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://joyorprime.com/products/joyor-s5-z-electric-scooter",
     "specsChecked": "2026-10-30"
   },
@@ -1186,6 +1203,7 @@ window.NSCOOTS_DATA = {
       "produkte/joyor-t6-48v-18ah-600w-2.jpg",
       "produkte/joyor-t6-48v-18ah-600w-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://joyorprime.com/products/joyor-t6",
     "specsChecked": "2026-10-30"
   },
@@ -1254,6 +1272,7 @@ window.NSCOOTS_DATA = {
       "produkte/joyor-s8-48v-26ah-600w-2.jpg",
       "produkte/joyor-s8-48v-26ah-600w-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://joyorprime.com/products/joyor-s8-z-electric-scooter",
     "specsChecked": "2026-10-30"
   },
@@ -1333,6 +1352,7 @@ window.NSCOOTS_DATA = {
       "produkte/joyor-t6e-48v-500w-abe-2.jpg",
       "produkte/joyor-t6e-48v-500w-abe-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://joyorprime.com/products/joyor-t6e",
     "specsChecked": "2026-10-30"
   },
@@ -1401,6 +1421,7 @@ window.NSCOOTS_DATA = {
       "produkte/joyor-s10sz-60v-18ah-2x1000w-2.jpg",
       "produkte/joyor-s10sz-60v-18ah-2x1000w-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://joyorprime.com/products/joyor-s10s-z",
     "specsChecked": "2026-10-30"
   },
@@ -1469,6 +1490,7 @@ window.NSCOOTS_DATA = {
       "produkte/joyor-t10-60v-18ah-2x1000w-2.jpg",
       "produkte/joyor-t10-60v-18ah-2x1000w-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://joyorprime.com/products/joyor-t10-1000w-dual-motors-75km-endurance",
     "specsChecked": "2026-10-30"
   },
@@ -1545,6 +1567,12 @@ window.NSCOOTS_DATA = {
       "produkte/teverun-blade-mini-pro-ch-edition-1.jpg",
       "produkte/teverun-blade-mini-pro-ch-edition-2.jpg",
       "produkte/teverun-blade-mini-pro-ch-edition-3.jpg"
+    ],
+    "description": [
+      "Der Teverun Blade Mini Pro eKFV ist ein kompakter Dual-Motor E-Scooter für Pendler, Camping, Wohnmobil und den täglichen Gebrauch. Durch die Begrenzung auf 20 km/h eignet sich dieses Modell besonders für alle, die einen starken, stabilen und komfortablen Scooter für den Alltag suchen.",
+      "Mit 2×250 W Bosch-Motoren , einer grossen 52V 22.5Ah DMEGC Batterie und bis zu 60 km Reichweite bietet der Blade Mini Pro eKFV deutlich mehr Reserven als viele klassische Alltagsscooter. NFC, Fernbedienung, App-Steuerung und das eingebaute LCD-Display machen ihn modern und einfach zu bedienen.",
+      "2×250 W Bosch-Motoren für starken Antrieb und gute Steigleistung",
+      "Bis zu 60 km Reichweite , je nach Fahrergewicht, Fahrweise und Strecke"
     ],
     "specsSource": "https://teverun-europe.com/product/blade-mini-pro-ekfv-black/",
     "specsChecked": "2026-10-30"
@@ -1623,6 +1651,7 @@ window.NSCOOTS_DATA = {
       "produkte/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb-2.jpg",
       "produkte/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-gelb-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://teverun-europe.com/product/blade-mini-ultra-yellow/",
     "specsChecked": "2026-10-30"
   },
@@ -1700,6 +1729,7 @@ window.NSCOOTS_DATA = {
       "produkte/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-2.jpg",
       "produkte/teverun-blade-mini-ultra-60v-27ah-akku-1000w-2-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://teverun-europe.com/product/blade-mini-ultra-black/",
     "specsChecked": "2026-10-30"
   },
@@ -1777,6 +1807,12 @@ window.NSCOOTS_DATA = {
       "produkte/teverun-blade-mini-ultra-ch-edition-2.jpg",
       "produkte/teverun-blade-mini-ultra-ch-edition-3.jpg"
     ],
+    "description": [
+      "Der Teverun Blade Mini Ultra eKFV ist ein hochwertiger City- und Pendler-Scooter für alle, die maximale Reichweite in einem kompakten Format suchen. Mit seinem grossen 52V 30Ah DMEGC Akku , zwei Bosch-Motoren und bis zu 90 km Reichweite ist er deutlich stärker ausgestattet als viele normale Alltagsscooter.",
+      "Dank 20 km/h Begrenzung , hydraulischen Scheibenbremsen, 10 Zoll schlauchlosen Reifen, NFC, Fernbedienung und App-Steuerung ist der Blade Mini Ultra eKFV ideal für Pendler, Camping, Wohnmobil und längere Alltagsstrecken. Er verbindet legale Alltagstauglichkeit mit Premium-Ausstattung und sehr grosser Akkukapazität.",
+      "Bis zu 90 km Reichweite , je nach Fahrergewicht, Fahrweise und Strecke",
+      "Hydraulische Scheibenbremsen für starke und kontrollierte Bremsleistung"
+    ],
     "specsSource": "https://teverun-europe.com/product/blade-mini-ultra-ekfv-yellow/",
     "specsChecked": "2026-10-30"
   },
@@ -1842,6 +1878,7 @@ window.NSCOOTS_DATA = {
       "produkte/teverun-blade-gt-ii-2.jpg",
       "produkte/teverun-blade-gt-ii-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://teverun-europe.com/product/teverun-blade-gt-ii-60-v-26-ah-2x1500-w-5000-w/",
     "specsChecked": "2026-10-30"
   },
@@ -1907,6 +1944,7 @@ window.NSCOOTS_DATA = {
       "produkte/teverun-fighter-mini-pro-2.jpg",
       "produkte/teverun-fighter-mini-pro-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://teverun-europe.com/product/fighter-mini-pro-2/",
     "specsChecked": "2026-10-30"
   },
@@ -1972,6 +2010,7 @@ window.NSCOOTS_DATA = {
       "produkte/teverun-blade-gt-ii-plus-2.jpg",
       "produkte/teverun-blade-gt-ii-plus-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://teverun-europe.com/product/blade-gt-ii/",
     "specsChecked": "2026-10-30"
   },
@@ -2036,6 +2075,12 @@ window.NSCOOTS_DATA = {
       "produkte/teverun-fighter-mini-pro-ekfv-1.jpg",
       "produkte/teverun-fighter-mini-pro-ekfv-2.jpg",
       "produkte/teverun-fighter-mini-pro-ekfv-3.jpg"
+    ],
+    "description": [
+      "Der Teverun Fighter Mini Pro eKFV ist ein in der Schweiz strassenzugelassener Dual-Motor E-Scooter für Pendler und alle, die im Alltag viel Reichweite, Komfort und moderne Ausstattung möchten. Mit seiner Begrenzung auf 20 km/h , zwei Bosch-Motoren und der stabilen Fighter-Bauweise verbindet er starke Reserven mit einem sicheren, komfortablen Fahrgefühl.",
+      "Der grosse 52V 30.8Ah Samsung-Akku ermöglicht eine Reichweite von bis zu 100 km . Voll einstellbare Federung, hydraulische Scheibenbremsen, 10-Zoll-Tubeless-Reifen, NFC, App-Anbindung und Blinker machen ihn zu einer sehr gut ausgestatteten Lösung für längere Alltagsstrecken, Camping und Wohnmobil-Reisen.",
+      "Bis zu 100 km Reichweite , abhängig von Fahrergewicht, Fahrweise und Strecke",
+      "2×250 W Bosch-Motoren für kräftigen Antrieb und gute Steigleistung"
     ],
     "specsSource": "https://teverun-europe.com/product/fighter-mini-pro-ekfv-2/",
     "specsChecked": "2026-10-30"
@@ -2104,6 +2149,7 @@ window.NSCOOTS_DATA = {
       "produkte/teverun-fighter-supreme-7260r-2.jpg",
       "produkte/teverun-fighter-supreme-7260r-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://teverun-europe.com/product/supreme-7260r/",
     "specsChecked": "2026-10-30"
   },
@@ -2169,6 +2215,12 @@ window.NSCOOTS_DATA = {
       "produkte/dualtron-victor-ltd-dgt-60v-37-1ah-samsung-1.jpg",
       "produkte/dualtron-victor-ltd-dgt-60v-37-1ah-samsung-2.jpg",
       "produkte/dualtron-victor-ltd-dgt-60v-37-1ah-samsung-3.jpg"
+    ],
+    "description": [
+      "Dualtron Victor LTD mit 60V 37.1Ah Samsung-Akku in Schwarz. Zwei Motoren, hydraulische NUTT-Bremsen und ein EY4-Display mit Bluetooth gehören zur Ausstattung dieser Limited-Version.",
+      "Antrieb: Dual Motor, 2x1300W Nennleistung; bis 4000W Spitzenleistung gesamt",
+      "Höchstgeschwindigkeit: ca. 80km/h in der offenen Ausführung; abhängig von Fahrergewicht, Akkuladung und Fahrbedingungen",
+      "Reichweite: bis 115km laut Hersteller; abhängig von Fahrergewicht, Strecke, Temperatur und Fahrweise"
     ],
     "specsSource": "https://www.minimotors.com/product_detail.html?code=1844651270416556034",
     "specsChecked": "2026-10-30"
@@ -2268,6 +2320,7 @@ window.NSCOOTS_DATA = {
       "produkte/rovoron-r7-2.jpg",
       "produkte/rovoron-r7-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://www.rovoron.com/shop/rovoronr760v-trottinette-electrique-rovoron-r7-v2-60v-28ah-13053",
     "specsChecked": "2026-10-30"
   },
@@ -2335,6 +2388,7 @@ window.NSCOOTS_DATA = {
       "produkte/rovoron-s7-2.jpg",
       "produkte/rovoron-s7-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://www.rovoron.com/shop/rovorons784v37a-trottinette-electrique-rovoron-s7-84v-37ah-15665",
     "specsChecked": "2026-10-30"
   },
@@ -2393,6 +2447,7 @@ window.NSCOOTS_DATA = {
       "produkte/ausom-l1-max-2.jpg",
       "produkte/ausom-l1-max-3.jpg"
     ],
+    "description": [],
     "specsChecked": "2026-10-30"
   },
   {
@@ -2460,6 +2515,7 @@ window.NSCOOTS_DATA = {
       "produkte/ausom-l2-max-dual-motor-2.jpg",
       "produkte/ausom-l2-max-dual-motor-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://www.ausom.com/products/ausom-l2-max-dual-electric-scooter",
     "specsChecked": "2026-10-30"
   },
@@ -2528,6 +2584,7 @@ window.NSCOOTS_DATA = {
       "produkte/ausom-dt2-pro-2.jpg",
       "produkte/ausom-dt2-pro-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://www.ausom.com/products/ausom-dt2-pro-e-scooter",
     "specsChecked": "2026-10-30"
   },
@@ -2596,6 +2653,7 @@ window.NSCOOTS_DATA = {
       "produkte/ausom-f1-max-2.jpg",
       "produkte/ausom-f1-max-3.jpg"
     ],
+    "description": [],
     "specsSource": "https://www.ausom.com/products/ausom-f1-max-electric-scooter",
     "specsChecked": "2026-10-30"
   },
@@ -2716,7 +2774,8 @@ window.NSCOOTS_DATA = {
       "produkte/kukirin-g2-pro-ersatzteile-1.jpg",
       "produkte/kukirin-g2-pro-ersatzteile-2.jpg",
       "produkte/kukirin-g2-pro-ersatzteile-3.jpg"
-    ]
+    ],
+    "description": []
   },
   {
     "id": "kukirin-g2-max-ersatzteile",
@@ -2810,7 +2869,8 @@ window.NSCOOTS_DATA = {
       "produkte/kukirin-g2-max-ersatzteile-1.jpg",
       "produkte/kukirin-g2-max-ersatzteile-2.jpg",
       "produkte/kukirin-g2-max-ersatzteile-3.jpg"
-    ]
+    ],
+    "description": []
   },
   {
     "id": "kukirin-g2-master-ersatzteile",
@@ -2924,7 +2984,8 @@ window.NSCOOTS_DATA = {
       "produkte/kukirin-g2-master-ersatzteile-1.jpg",
       "produkte/kukirin-g2-master-ersatzteile-2.jpg",
       "produkte/kukirin-g2-master-ersatzteile-3.jpg"
-    ]
+    ],
+    "description": []
   },
   {
     "id": "kukirin-g2-ersatzteile",
@@ -3008,7 +3069,8 @@ window.NSCOOTS_DATA = {
       "produkte/kukirin-g2-ersatzteile-1.jpg",
       "produkte/kukirin-g2-ersatzteile-2.jpg",
       "produkte/kukirin-g2-ersatzteile-3.jpg"
-    ]
+    ],
+    "description": []
   },
   {
     "id": "kukirin-g4-ersatzteile",
@@ -3102,7 +3164,8 @@ window.NSCOOTS_DATA = {
       "produkte/kukirin-g4-ersatzteile-1.jpg",
       "produkte/kukirin-g4-ersatzteile-2.jpg",
       "produkte/kukirin-g4-ersatzteile-3.jpg"
-    ]
+    ],
+    "description": []
   }
 ],
   dirtbikes: {

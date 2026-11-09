@@ -75,7 +75,8 @@ for (const p of ALL) {
     specs: isPart ? {} : { motorW, peakW, motors, batteryV: bV, batteryAh: bAh, batteryWh: bWh, rangeKm, speedKmh, weightKg: num(weight), maxLoadKg: num(load), ekfv, tires: (t.match(/Bereifung:\s*([^\n]+)/) || t.match(/(\d{2}'' [^\n]*reifen)/i) || [])[1] || null, brakes: (t.match(/Bremsen:\s*([^\n]+)/) || t.match(/(Hydraulische Bremsen[^\n|]*)/i) || [])[1] || null, ip: (t.match(/\bIP\d\d\b/) || [])[0] || null, foldable: null, abe, limited },
     variants, chLegal: isPart ? null : chLegal, streetLegalCH: !!ekfv && !isPart,
     sources: [{ url, checked: p._checked, note: `Händlerseite ${p._src === "swiss-scoots" ? "swiss-scoots.ch" : "e-rydez.ch"} (Preis, Akku, Motor, Reichweite, Lieferstatus${ekfv ? ", Zulassungsangabe" : ""})` }],
-    images: imgs
+    images: imgs,
+    description: isPart ? [] : lines.filter((l) => l.length > 60 && !/^[🔋🕤⚡⚙️📡📋🏍️🛡️🔑✓•-]/.test(l) && !/Vorbestellung|CHF|Preis|Lieferzeit|E-Rydez|Rydez|swiss-scoots|Händler|Shop|bestellen|Versand/i.test(l)).map((l) => l.replace(/ß/g, "ss").replace(/\s+/g, " ").trim()).slice(0, 4)
   });
 }
 // Herstellerangaben (tools/quellen/specs-hersteller.json, von den offiziellen Herstellerseiten) über die Händlerdaten legen
